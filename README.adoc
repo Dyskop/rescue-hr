@@ -1,0 +1,37 @@
+= Rescue HR
+
+== Description
+
+This project was created to make life easier for employees of the personnel departments of the Ministry of Emergency Situations of the Republic of Belarus. The application will provide convenient storage, addition and modification of information about employees, their positions, ranks, vacations, business trips, sick leave, awards and disciplinary actions, and save HR specialists from the routine of maintaining many separate databases on electronic and paper media.
+
+=== What problem does this project solve or what does it bring to users?
+
+* accounting for the number of employees and the availability of vacancies;
+* storage and management of information about current employees, their movements by positions, special ranks;
+* vacation management and planning;
+* accounting for business trips and sick leave;
+* accounting for disciplinary sanctions and incentives for employees.
+
+=== Potential Users
+
+* specialists of personnel departments of bodies and divisions for emergency situations and other military departments of the Republic of Belarus.
+
+=== Similar Applications
+
+* https://peopleforce.io/ru/peoplehr/?utm_term=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D1%8B%20%D0%B4%D0%BB%D1%8F%20%D0%BE%D1%82%D0%B4%D0%B5%D0%BB%D0%B0%20%D0%BA%D0%B0%D0%B4%D1%80%D0%BE%D0%B2&utm_campaign=np_ser_people_general_blr&utm_source=google&utm_medium=ppc&utm_content=507777848837&hsa_acc=4488546770&hsa_cam=12580225896&hsa_grp=119085142949&hsa_ad=507777848837&hsa_src=g&hsa_tgt=aud-1222934313784:kwd-812839750722&hsa_kw=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D1%8B%20%D0%B4%D0%BB%D1%8F%20%D0%BE%D1%82%D0%B4%D0%B5%D0%BB%D0%B0%20%D0%BA%D0%B0%D0%B4%D1%80%D0%BE%D0%B2&hsa_mt=e&hsa_net=adwords&hsa_ver=3&gclid=CjwKCAiA24SPBhB0EiwAjBgkhg1Lf6_jaqzV_Cg1teS-GVJrqEVbDttWnkkfEAwYSHuUev7qjEj37BoCvzoQAvD_BwE[people force]
+* https://andeesoft.com/ru/kp/[frames plus]
+* http://www.rentalcom.by/?page_id=152[human resources com]
+
+=== Competitive advantage
+
+* adaptation to paramilitary organizations;
+* user-friendly interface;
+* safety.
+
+=== Business analysis
+
+User Stories
+
+https://miro.com/app/board/uXjVOV-NrT4=/[Mind Map]
+
+UML class diagram
