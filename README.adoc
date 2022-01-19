@@ -30,8 +30,12 @@ This project was created to make life easier for employees of the personnel depa
 
 === Business analysis
 
-User Stories
+User Stories:
 
 https://miro.com/app/board/uXjVOV-NrT4=/[Mind Map]
 
-UML class diagram
+Link to AWS:
+
+http://18.212.199.153:8080/rescue-hr/[Rescue HR]
+
+UML class diagram:
