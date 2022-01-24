@@ -1,5 +1,7 @@
 = Rescue HR
 
+http://18.212.199.153:8080/rescue-hr/[Rescue HR]
+
 == Description
 
 This project was created to make life easier for employees of the personnel departments of the Ministry of Emergency Situations of the Republic of Belarus. The application will provide convenient storage, addition and modification of information about employees, their positions, ranks, vacations, business trips, sick leave, awards and disciplinary actions, and save HR specialists from the routine of maintaining many separate databases on electronic and paper media.
@@ -33,9 +35,5 @@ This project was created to make life easier for employees of the personnel depa
 User Stories:
 
 https://miro.com/app/board/uXjVOV-NrT4=/[Mind Map]
-
-Link to AWS:
-
-http://18.212.199.153:8080/rescue-hr/[Rescue HR]
 
 UML class diagram:
