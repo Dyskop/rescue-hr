@@ -37,3 +37,5 @@ User Stories:
 https://miro.com/app/board/uXjVOV-NrT4=/[Mind Map]
 
 UML class diagram:
+
+link:Epic_1.drawio.png[Epic 1]
