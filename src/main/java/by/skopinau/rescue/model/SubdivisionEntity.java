@@ -21,7 +21,9 @@ public class SubdivisionEntity extends BaseEntity {
 
     @Column(name = "subdivision_title")
     private String subdivisionTitle;
-
+/*
     @OneToMany(mappedBy = "rankEntity")
     private Set<EmployeeEntity> employees = new HashSet<>();
+
+ */
 }

@@ -12,6 +12,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @Entity
 @Table(name = "employees")
+@AttributeOverride(name = "id", column = @Column(name = "image_id"))
 public class EmployeeEntity extends BaseEntity {
     @Id
     @Column(name = "employee_id")
@@ -30,9 +31,9 @@ public class EmployeeEntity extends BaseEntity {
     @Column(name = "birthday")
     private LocalDate birthday;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "rank_id", nullable = false)
-    private RankEntity rankEntity;
+    @Column(name = "rank")
+    @Enumerated(EnumType.STRING)
+    private Rank rank;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "subdivision_id", nullable = false)
