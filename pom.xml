@@ -1,124 +1,192 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>by.skopinau</groupId>
   <artifactId>rescue-hr</artifactId>
   <version>1.0-SNAPSHOT</version>
-  <packaging>war</packaging>
+  <modules>
+    <module>dal</module>
+    <module>service</module>
+    <module>web</module>
+  </modules>
+  <packaging>pom</packaging>
 
-  <name>rescue-hr Maven Webapp</name>
-  <!-- FIXME change it to the project's website -->
-  <url>http://www.example.com</url>
+  <name>rescue-hr</name>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.source>1.7</maven.compiler.source>
-    <maven.compiler.target>1.7</maven.compiler.target>
+    <maven.compiler.source>11</maven.compiler.source>
+    <maven.compiler.target>11</maven.compiler.target>
+    <web.version>1.0-SNAPSHOT</web.version>
+    <dal.version>1.0-SNAPSHOT</dal.version>
+    <service.version>1.0-SNAPSHOT</service.version>
+    <jpa.version>3.0.0</jpa.version>
+    <hibernate.version>6.0.0.Beta3</hibernate.version>
+    <postgresql.version>42.3.1</postgresql.version>
+    <junit.version>5.8.2</junit.version>
+    <testcontainers.version>1.16.3</testcontainers.version>
+    <lombok.version>1.18.22</lombok.version>
+    <log4j2.version>2.17.1</log4j2.version>
+    <servlet.version>5.0.0</servlet.version>
+    <jstl.version>2.0.0</jstl.version>
+    <!--
+    <cargo.version>1.9.9</cargo.version>
+    -->
+    <maven-clean.version>3.1.0</maven-clean.version>
+    <maven-resources.version>3.0.2</maven-resources.version>
+    <maven-compiler.version>3.8.0</maven-compiler.version>
+    <maven-surefire.version>2.22.1</maven-surefire.version>
+    <maven-war.version>3.3.2</maven-war.version>
+    <maven-install.version>2.5.2</maven-install.version>
+    <maven-deploy.version>2.8.2</maven-deploy.version>
   </properties>
 
-  <dependencies>
-    <dependency>
-      <groupId>jakarta.persistence</groupId>
-      <artifactId>jakarta.persistence-api</artifactId>
-      <version>3.0.0</version>
-    </dependency>
-    <dependency>
-      <groupId>org.hibernate.orm</groupId>
-      <artifactId>hibernate-core</artifactId>
-      <version>6.0.0.Beta3</version>
-    </dependency>
-    <dependency>
-      <groupId>org.postgresql</groupId>
-      <artifactId>postgresql</artifactId>
-      <version>42.3.1</version>
-    </dependency>
-    <dependency>
-      <groupId>org.junit.jupiter</groupId>
-      <artifactId>junit-jupiter</artifactId>
-      <version>5.8.2</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.testcontainers</groupId>
-      <artifactId>postgresql</artifactId>
-      <version>1.16.3</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.projectlombok</groupId>
-      <artifactId>lombok</artifactId>
-      <version>1.18.22</version>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.logging.log4j</groupId>
-      <artifactId>log4j-core</artifactId>
-      <version>2.17.1</version>
-    </dependency>
+  <dependencyManagement>
+    <dependencies>
       <dependency>
-          <groupId>org.liquibase</groupId>
-          <artifactId>liquibase-core</artifactId>
-          <version>4.6.2</version>
+        <groupId>by.skopinau.rescue.hr</groupId>
+        <artifactId>web</artifactId>
+        <version>${web.version}</version>
       </dependency>
-    <dependency>
-      <groupId>jakarta.servlet</groupId>
-      <artifactId>jakarta.servlet-api</artifactId>
-      <version>5.0.0</version>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.glassfish.web</groupId>
-      <artifactId>jakarta.servlet.jsp.jstl</artifactId>
-      <version>2.0.0</version>
-    </dependency>
-  </dependencies>
+      <dependency>
+        <groupId>by.skopinau.rescue.hr</groupId>
+        <artifactId>dal</artifactId>
+        <version>${dal.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>by.skopinau.rescue.hr</groupId>
+        <artifactId>service</artifactId>
+        <version>${service.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>jakarta.persistence</groupId>
+        <artifactId>jakarta.persistence-api</artifactId>
+        <version>${jpa.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.hibernate.orm</groupId>
+        <artifactId>hibernate-core</artifactId>
+        <version>${hibernate.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.postgresql</groupId>
+        <artifactId>postgresql</artifactId>
+        <version>${postgresql.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.junit.jupiter</groupId>
+        <artifactId>junit-jupiter</artifactId>
+        <version>${junit.version}</version>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.testcontainers</groupId>
+        <artifactId>postgresql</artifactId>
+        <version>${testcontainers.version}</version>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.projectlombok</groupId>
+        <artifactId>lombok</artifactId>
+        <version>${lombok.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.logging.log4j</groupId>
+        <artifactId>log4j-core</artifactId>
+        <version>${log4j2.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>jakarta.servlet</groupId>
+        <artifactId>jakarta.servlet-api</artifactId>
+        <version>${servlet.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.glassfish.web</groupId>
+        <artifactId>jakarta.servlet.jsp.jstl</artifactId>
+        <version>${jstl.version}</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+  <profiles>
+    <profile>
+      <id>dev</id>
+    </profile>
+    <profile>
+      <id>prod</id>
+    </profile>
+  </profiles>
 
   <build>
     <finalName>rescue-hr</finalName>
-    <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
+    <pluginManagement>
       <plugins>
         <plugin>
           <artifactId>maven-clean-plugin</artifactId>
-          <version>3.1.0</version>
+          <version>${maven-clean.version}</version>
         </plugin>
-        <!-- see http://maven.apache.org/ref/current/maven-core/default-bindings.html#Plugin_bindings_for_war_packaging -->
         <plugin>
           <artifactId>maven-resources-plugin</artifactId>
-          <version>3.0.2</version>
+          <version>${maven-resources.version}</version>
         </plugin>
         <plugin>
           <artifactId>maven-compiler-plugin</artifactId>
-          <version>3.8.0</version>
+          <version>${maven-compiler.version}</version>
         </plugin>
         <plugin>
           <artifactId>maven-surefire-plugin</artifactId>
-          <version>2.22.1</version>
+          <version>${maven-surefire.version}</version>
         </plugin>
         <plugin>
           <artifactId>maven-war-plugin</artifactId>
-          <version>3.2.2</version>
+          <version>${maven-war.version}</version>
         </plugin>
         <plugin>
           <artifactId>maven-install-plugin</artifactId>
-          <version>2.5.2</version>
+          <version>${maven-install.version}</version>
         </plugin>
         <plugin>
           <artifactId>maven-deploy-plugin</artifactId>
-          <version>2.8.2</version>
+          <version>${maven-deploy.version}</version>
         </plugin>
+        <!--
+        <plugin>
+          <groupId>org.codehaus.cargo</groupId>
+          <artifactId>cargo-maven3-plugin</artifactId>
+          <version>${cargo.version}</version>
+          <executions>
+            <execution>
+              <id>maven-deploy</id>
+              <phase>install</phase>
+              <goals>
+                <goal>deploy</goal>
+              </goals>
+            </execution>
+          </executions>
+          <configuration>
+            <container>
+              <containerId>tomcat10x</containerId>
+              <type>remote</type>
+            </container>
+            <configuration>
+              <type>runtime</type>
+              <properties>
+                <cargo.hostname>${hostname}</cargo.hostname>
+                <cargo.servlet.port>${port}</cargo.servlet.port>
+                <cargo.tomcat.manager.url>${manager.url}</cargo.tomcat.manager.url>
+                <cargo.remote.username>${username}</cargo.remote.username>
+                <cargo.remote.password>${password}</cargo.remote.password>
+                <cargo.tomcat.deploy.update>true</cargo.tomcat.deploy.update>
+              </properties>
+            </configuration>
+          </configuration>
+        </plugin>
+        -->
       </plugins>
     </pluginManagement>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <configuration>
-          <source>8</source>
-          <target>8</target>
-        </configuration>
-      </plugin>
-    </plugins>
   </build>
 </project>
