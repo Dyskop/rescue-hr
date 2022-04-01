@@ -12,6 +12,7 @@
     <module>dal</module>
     <module>service</module>
     <module>web</module>
+    <module>.init</module>
   </modules>
   <packaging>pom</packaging>
 
@@ -22,17 +23,19 @@
     <maven.compiler.source>11</maven.compiler.source>
     <maven.compiler.target>11</maven.compiler.target>
     <spring.version>5.3.15</spring.version>
+    <spring-security.version>5.6.2</spring-security.version>
     <web.version>1.0-SNAPSHOT</web.version>
     <dal.version>1.0-SNAPSHOT</dal.version>
     <service.version>1.0-SNAPSHOT</service.version>
-    <jpa.version>3.0.0</jpa.version>
-    <hibernate.version>6.0.0.Beta3</hibernate.version>
+    <jpa.version>3.1.0-RC2</jpa.version>
+    <hibernate.version>6.0.0.CR2</hibernate.version>
+    <liquibase.version>4.8.0</liquibase.version>
     <postgresql.version>42.3.1</postgresql.version>
     <junit.version>5.8.2</junit.version>
     <testcontainers.version>1.16.3</testcontainers.version>
     <lombok.version>1.18.22</lombok.version>
     <log4j2.version>2.17.1</log4j2.version>
-    <servlet.version>5.0.0</servlet.version>
+    <servlet.version>4.0.4</servlet.version>
     <jstl.version>2.0.0</jstl.version>
     <!--
     <cargo.version>1.9.9</cargo.version>
@@ -50,6 +53,25 @@
         <groupId>org.springframework</groupId>
         <artifactId>spring-orm</artifactId>
         <version>${spring.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-webmvc</artifactId>
+        <version>${spring.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework.security</groupId>
+        <artifactId>spring-security-core</artifactId>
+        <version>${spring-security.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework.security</groupId>
+        <artifactId>spring-security-web</artifactId>
+        <version>${spring-security.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework.security</groupId>
+        <artifactId>spring-security-config</artifactId>
       </dependency>
       <dependency>
         <groupId>by.skopinau.rescue.hr</groupId>
@@ -86,6 +108,11 @@
         <artifactId>junit-jupiter</artifactId>
         <version>${junit.version}</version>
         <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.liquibase</groupId>
+        <artifactId>liquibase-core</artifactId>
+        <version>${liquibase.version}</version>
       </dependency>
       <dependency>
         <groupId>org.testcontainers</groupId>

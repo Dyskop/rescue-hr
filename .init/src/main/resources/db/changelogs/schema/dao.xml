@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+      https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
+    <changeSet id="subdivisions init" author="dimaskop18@gmail.com">
+        <insert tableName="subdivisions" schemaName="rh">
+            <column name="subdivision_title" value="Руководство"/>
+        </insert>
+        <insert tableName="subdivisions" schemaName="rh">
+            <column name="subdivision_title" value="ЦОУ"/>
+        </insert>
+        <insert tableName="subdivisions" schemaName="rh">
+            <column name="subdivision_title" value="ИНиП"/>
+        </insert>
+        <insert tableName="subdivisions" schemaName="rh">
+            <column name="subdivision_title" value="ГСЧСиГО"/>
+        </insert>
+        <insert tableName="subdivisions" schemaName="rh">
+            <column name="subdivision_title" value="СИРиКО"/>
+        </insert>
+        <insert tableName="subdivisions" schemaName="rh">
+            <column name="subdivision_title" value="СМТОиО"/>
+        </insert>
+        <insert tableName="subdivisions" schemaName="rh">
+            <column name="subdivision_title" value="ПАСЧ-1"/>
+        </insert>
+        <insert tableName="subdivisions" schemaName="rh">
+            <column name="subdivision_title" value="ПАСО-2"/>
+        </insert>
+        <insert tableName="subdivisions" schemaName="rh">
+            <column name="subdivision_title" value="ПАСЧ-3"/>
+        </insert>
+        <insert tableName="subdivisions" schemaName="rh">
+            <column name="subdivision_title" value="ПАСП-11"/>
+        </insert>
+        <insert tableName="subdivisions" schemaName="rh">
+            <column name="subdivision_title" value="ПАСП-12"/>
+        </insert>
+        <insert tableName="subdivisions" schemaName="rh">
+            <column name="subdivision_title" value="ПАСП-13"/>
+        </insert>
+        <insert tableName="subdivisions" schemaName="rh">
+            <column name="subdivision_title" value="ПАСП-14"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="positions init" author="dimaskop18@gmail.com">
+        <insert tableName="positions" schemaName="rh">
+            <column name="position_title" value="начальник отдела"/>
+        </insert>
+        <insert tableName="positions" schemaName="rh">
+            <column name="position_title" value="первый зам. начальника отдела"/>
+        </insert>
+        <insert tableName="positions" schemaName="rh">
+            <column name="position_title" value="зам. начальника отдела"/>
+        </insert>
+        <insert tableName="positions" schemaName="rh">
+            <column name="position_title" value="начальник центра"/>
+        </insert>
+        <insert tableName="positions" schemaName="rh">
+            <column name="position_title" value="старший помощник начальника центра"/>
+        </insert>
+        <insert tableName="positions" schemaName="rh">
+            <column name="position_title" value="диспетчер"/>
+        </insert>
+        <insert tableName="positions" schemaName="rh">
+            <column name="position_title" value="главный специалист"/>
+        </insert>
+        <insert tableName="positions" schemaName="rh">
+            <column name="position_title" value="старший инженер"/>
+        </insert>
+        <insert tableName="positions" schemaName="rh">
+            <column name="position_title" value="старший инспектор"/>
+        </insert>
+        <insert tableName="positions" schemaName="rh">
+            <column name="position_title" value="инспектор"/>
+        </insert>
+        <insert tableName="positions" schemaName="rh">
+            <column name="position_title" value="начальник сектора"/>
+        </insert>
+        <insert tableName="positions" schemaName="rh">
+            <column name="position_title" value="инспектор по ППиС"/>
+        </insert>
+        <insert tableName="positions" schemaName="rh">
+            <column name="position_title" value="начальник службы"/>
+        </insert>
+        <insert tableName="positions" schemaName="rh">
+            <column name="position_title" value="старшина"/>
+        </insert>
+        <insert tableName="positions" schemaName="rh">
+            <column name="position_title" value="старший водитель"/>
+        </insert>
+        <insert tableName="positions" schemaName="rh">
+            <column name="position_title" value="начальник части"/>
+        </insert>
+        <insert tableName="positions" schemaName="rh">
+            <column name="position_title" value="зам. начальника части"/>
+        </insert>
+        <insert tableName="positions" schemaName="rh">
+            <column name="position_title" value="начальник отряда"/>
+        </insert>
+        <insert tableName="positions" schemaName="rh">
+            <column name="position_title" value="зам. начальника отряда"/>
+        </insert>
+        <insert tableName="positions" schemaName="rh">
+            <column name="position_title" value="начальник поста"/>
+        </insert>
+        <insert tableName="positions" schemaName="rh">
+            <column name="position_title" value="начальник караула"/>
+        </insert>
+        <insert tableName="positions" schemaName="rh">
+            <column name="position_title" value="начальник дежурной смены"/>
+        </insert>
+        <insert tableName="positions" schemaName="rh">
+            <column name="position_title" value="командир отделения"/>
+        </insert>
+        <insert tableName="positions" schemaName="rh">
+            <column name="position_title" value="старший пожарный"/>
+        </insert>
+        <insert tableName="positions" schemaName="rh">
+            <column name="position_title" value="пожарный"/>
+        </insert>
+        <insert tableName="positions" schemaName="rh">
+            <column name="position_title" value="водитель"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="ranks init" author="dimaskop18@gmail.com">
+        <insert tableName="ranks" schemaName="rh">
+            <column name="rank_title" value="генерал-лейтенант"/>
+        </insert>
+        <insert tableName="ranks" schemaName="rh">
+            <column name="rank_title" value="генерал-майор"/>
+        </insert>
+        <insert tableName="ranks" schemaName="rh">
+            <column name="rank_title" value="полковник"/>
+        </insert>
+        <insert tableName="ranks" schemaName="rh">
+            <column name="rank_title" value="подполковник"/>
+        </insert>
+        <insert tableName="ranks" schemaName="rh">
+            <column name="rank_title" value="майор"/>
+        </insert>
+        <insert tableName="ranks" schemaName="rh">
+            <column name="rank_title" value="капитан"/>
+        </insert>
+        <insert tableName="ranks" schemaName="rh">
+            <column name="rank_title" value="старший лейтенант"/>
+        </insert>
+        <insert tableName="ranks" schemaName="rh">
+            <column name="rank_title" value="лейтенант"/>
+        </insert>
+        <insert tableName="ranks" schemaName="rh">
+            <column name="rank_title" value="младший лейтенант"/>
+        </insert>
+        <insert tableName="ranks" schemaName="rh">
+            <column name="rank_title" value="старший прапорщик"/>
+        </insert>
+        <insert tableName="ranks" schemaName="rh">
+            <column name="rank_title" value="прапорщик"/>
+        </insert>
+        <insert tableName="ranks" schemaName="rh">
+            <column name="rank_title" value="старшина"/>
+        </insert>
+        <insert tableName="ranks" schemaName="rh">
+            <column name="rank_title" value="старший сержант"/>
+        </insert>
+        <insert tableName="ranks" schemaName="rh">
+            <column name="rank_title" value="сержант"/>
+        </insert>
+        <insert tableName="ranks" schemaName="rh">
+            <column name="rank_title" value="младший сержант"/>
+        </insert>
+        <insert tableName="ranks" schemaName="rh">
+            <column name="rank_title" value="рядовой"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="employee init" author="dimaskop18@gmail.com">
+        <sql>INSERT INTO rh.employees (surname, name, patronymic, birthday, rank_id, position_id, subdivision_id)
+             VALUES ('Иванов', 'Иван', 'Иванович', '1980-07-12', 3, 1, 1);</sql>
+        <sql>INSERT INTO rh.employees (surname, name, patronymic, birthday, rank_id, position_id, subdivision_id)
+             VALUES ('Петров', 'Петр', 'Петрович', '1985-12-23', 4, 2, 1);</sql>
+        <sql>INSERT INTO rh.employees (surname, name, patronymic, birthday, rank_id, position_id, subdivision_id)
+             VALUES ('Алексеев', 'Алексей', 'Алексеевич', '1979-03-11', 4, 3, 1);</sql>
+        <sql>INSERT INTO rh.employees (surname, name, patronymic, birthday, rank_id, position_id, subdivision_id)
+             VALUES ('Антонов', 'Антон', 'Антонович', '1986-09-05', 5, 3, 1);</sql>
+        <sql>INSERT INTO rh.employees (surname, name, patronymic, birthday, rank_id, position_id, subdivision_id)
+             VALUES ('Бобков', 'Сергей', 'Дмитриевич', '1989-06-30', 5, 4, 2);</sql>
+        <sql>INSERT INTO rh.employees (surname, name, patronymic, birthday, rank_id, position_id, subdivision_id)
+             VALUES ('Кулик', 'Евгений', 'Максимович', '1987-11-23', 5, 5, 2);</sql>
+        <sql>INSERT INTO rh.employees (surname, name, patronymic, birthday, rank_id, position_id, subdivision_id)
+             VALUES ('Громыко', 'Николай', 'Александрович', '1992-01-10', 4, 5, 2);</sql>
+        <sql>INSERT INTO rh.employees (surname, name, patronymic, birthday, rank_id, position_id, subdivision_id)
+             VALUES ('Кодратьев', 'Владислав', 'Павлович', '1986-08-20', 5, 5, 2);</sql>
+        <sql>INSERT INTO rh.employees (surname, name, patronymic, birthday, rank_id, position_id, subdivision_id)
+             VALUES ('Свирид', 'Евгений', 'Алексеевич', '1995-02-22', 11, 6, 2);</sql>
+        <sql>INSERT INTO rh.employees (surname, name, patronymic, birthday, rank_id, position_id, subdivision_id)
+             VALUES ('Борознова', 'Алиса', 'Сергеевна', '1996-08-13', 13, 6, 2);</sql>
+        <sql>INSERT INTO rh.employees (surname, name, patronymic, birthday, rank_id, position_id, subdivision_id)
+             VALUES ('Давыдик', 'Ольга', 'Павловна', '1984-09-11', 11, 6, 2);</sql>
+        <sql>INSERT INTO rh.employees (surname, name, patronymic, birthday, rank_id, position_id, subdivision_id)
+             VALUES ('Максимов', 'Виталий', 'Владимирович', '1985-04-14', 5, 7, 3);</sql>
+        <sql>INSERT INTO rh.employees (surname, name, patronymic, birthday, rank_id, position_id, subdivision_id)
+             VALUES ('Вакулич', 'Юрий', 'Мечиславович', '1988-05-18', 5, 8, 3);</sql>
+        <sql>INSERT INTO rh.employees (surname, name, patronymic, birthday, rank_id, position_id, subdivision_id)
+             VALUES ('Самсоник', 'Назар', 'Тимофеевич', '1997-02-03', 6, 9, 3);</sql>
+        <sql>INSERT INTO rh.employees (surname, name, patronymic, birthday, rank_id, position_id, subdivision_id)
+             VALUES ('Хацкевич', 'Виктор', 'Владимирович', '1993-07-30', 6, 9, 3);</sql>
+        <sql>INSERT INTO rh.employees (surname, name, patronymic, birthday, rank_id, position_id, subdivision_id)
+             VALUES ('Головач', 'Константин', 'Андреевич', '1995-12-22', 7, 10, 3);</sql>
+        <sql>INSERT INTO rh.employees (surname, name, patronymic, birthday, rank_id, position_id, subdivision_id)
+             VALUES ('Сильванович', 'Владимир', 'Иванович', '1979-06-07', 4, 11, 4);</sql>
+        <sql>INSERT INTO rh.employees (surname, name, patronymic, birthday, rank_id, position_id, subdivision_id)
+             VALUES ('Кононюк', 'Андрей', 'Васильевич', '1983-09-08', 5, 8, 4);</sql>
+        <sql>INSERT INTO rh.employees (surname, name, patronymic, birthday, rank_id, position_id, subdivision_id)
+             VALUES ('Гончарик', 'Инесса', 'Викентьевна', '1990-08-29', 6, 9, 5);</sql>
+        <sql>INSERT INTO rh.employees (surname, name, patronymic, birthday, rank_id, position_id, subdivision_id)
+             VALUES ('Соколов', 'Даниил', 'Дмитриевич', '1993-08-01', 6, 12, 5);</sql>
+        <sql>INSERT INTO rh.employees (surname, name, patronymic, birthday, rank_id, position_id, subdivision_id)
+             VALUES ('Шаталов', 'Олег', 'Владиславович', '1988-09-15', 5, 13, 6);</sql>
+        <sql>INSERT INTO rh.employees (surname, name, patronymic, birthday, rank_id, position_id, subdivision_id)
+             VALUES ('Ветров', 'Валерий', 'Витальевич', '1978-10-20', 10, 14, 6);</sql>
+        <sql>INSERT INTO rh.employees (surname, name, patronymic, birthday, rank_id, position_id, subdivision_id)
+             VALUES ('Соловьев', 'Александр', 'Николаевич', '1991-02-19', 10, 15, 7);</sql>
+        <sql>INSERT INTO rh.employees (surname, name, patronymic, birthday, rank_id, position_id, subdivision_id)
+             VALUES ('Прокопьев', 'Василий', 'Леонидович', '1977-11-07', 5, 16, 7);</sql>
+        <sql>INSERT INTO rh.employees (surname, name, patronymic, birthday, rank_id, position_id, subdivision_id)
+             VALUES ('Высоцкий', 'Иван', 'Сергеевич', '1995-11-07', 6, 16, 9);</sql>
+        <sql>INSERT INTO rh.employees (surname, name, patronymic, birthday, rank_id, position_id, subdivision_id)
+             VALUES ('Лапуня', 'Кирилл', 'Андреевич', '1980-05-18', 4, 18, 8);</sql>
+        <sql>INSERT INTO rh.employees (surname, name, patronymic, birthday, rank_id, position_id, subdivision_id)
+             VALUES ('Романов', 'Виктор', 'Алексеевич', '1980-05-18', 5, 19, 8);</sql>
+        <sql>INSERT INTO rh.employees (surname, name, patronymic, birthday, rank_id, position_id, subdivision_id)
+             VALUES ('Силин', 'Дмитрий', 'Владиславович', '2000-04-19', 8, 21, 7);</sql>
+        <sql>INSERT INTO rh.employees (surname, name, patronymic, birthday, rank_id, position_id, subdivision_id)
+             VALUES ('Лихачёв ', 'Мирослав', 'Дмитриевич', '1999-03-14', 8, 21, 7);</sql>
+        <sql>INSERT INTO rh.employees (surname, name, patronymic, birthday, rank_id, position_id, subdivision_id)
+             VALUES ('Мартынов', 'Святослав', 'Макарович', '1997-12-11', 7, 21, 7);</sql>
+        <sql>INSERT INTO rh.employees (surname, name, patronymic, birthday, rank_id, position_id, subdivision_id)
+             VALUES ('Васильев', 'Василий', 'Васильевич', '1998-02-10', 14, 25, 7);</sql>
+        <sql>INSERT INTO rh.employees (surname, name, patronymic, birthday, rank_id, position_id, subdivision_id)
+             VALUES ('Ромейко', 'Леонид', 'Григорьевич', '2000-01-15', 16, 25, 7);</sql>
+        <sql>INSERT INTO rh.employees (surname, name, patronymic, birthday, rank_id, position_id, subdivision_id)
+             VALUES ('Жуков', 'Владимир', 'Адольфович', '1995-11-12', 15, 25, 7);</sql>
+        <sql>INSERT INTO rh.employees (surname, name, patronymic, birthday, rank_id, position_id, subdivision_id)
+             VALUES ('Емельянов', 'Кирилл', 'Васильевич', '1996-08-08', 16, 25, 7);</sql>
+        <sql>INSERT INTO rh.employees (surname, name, patronymic, birthday, rank_id, position_id, subdivision_id)
+             VALUES ('Филатов', 'Александр', 'Иосифович', '1995-12-09', 14, 25, 7);</sql>
+        <sql>INSERT INTO rh.employees (surname, name, patronymic, birthday, rank_id, position_id, subdivision_id)
+             VALUES ('Суворов', 'Тимофей', 'Витальевич', '1999-10-09', 13, 25, 7);</sql>
+        <sql>INSERT INTO rh.employees (surname, name, patronymic, birthday, rank_id, position_id, subdivision_id)
+             VALUES ('Кузьмин', 'Андрей', 'Петрович', '1991-03-01', 15, 25, 7);</sql>
+        <sql>INSERT INTO rh.employees (surname, name, patronymic, birthday, rank_id, position_id, subdivision_id)
+             VALUES ('Наумов', 'Анатолий', 'Петрович', '1996-12-09', 15, 25, 7);</sql>
+        <sql>INSERT INTO rh.employees (surname, name, patronymic, birthday, rank_id, position_id, subdivision_id)
+             VALUES ('Уваров', 'Павел', 'Михаилович', '1995-05-11', 16, 25, 7);</sql>
+        <sql>INSERT INTO rh.employees (surname, name, patronymic, birthday, rank_id, position_id, subdivision_id)
+             VALUES ('Марков', 'Роман', 'Давидович', '1988-02-23', 12, 26, 7);</sql>
+        <sql>INSERT INTO rh.employees (surname, name, patronymic, birthday, rank_id, position_id, subdivision_id)
+             VALUES ('Князев', 'Илья', 'Викторович', '1991-04-10', 11, 26, 7);</sql>
+        <sql>INSERT INTO rh.employees (surname, name, patronymic, birthday, rank_id, position_id, subdivision_id)
+             VALUES ('Виноградов', 'Тимур', 'Андреевич', '1990-08-27', 13, 26, 7);</sql>
+    </changeSet>
+</databaseChangeLog>
