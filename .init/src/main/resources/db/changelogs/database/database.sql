@@ -2,7 +2,9 @@
 
 -- changeset dimaskop18@gmail.com:database-rescue_hr dbms:postgresql
 -- precondition
-CREATE SCHEMA IF NOT EXISTS rh;
+DROP SCHEMA rh CASCADE;
+
+CREATE SCHEMA rh;
 
 CREATE TABLE IF NOT EXISTS rh.ranks
 (

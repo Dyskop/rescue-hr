@@ -1,5 +1,6 @@
-package by.skopinau.rescue.hr.dao;
+package by.skopinau.rescue.hr.dao.hibernateImpl;
 
+import by.skopinau.rescue.hr.dao.BaseDao;
 import by.skopinau.rescue.hr.model.BaseEntity;
 import by.skopinau.rescue.hr.util.SessionUtil;
 import jakarta.persistence.TypedQuery;
@@ -7,10 +8,10 @@ import org.hibernate.Session;
 
 import java.util.List;
 
-public class BaseDaoHibernateImpl<T extends BaseEntity> implements BaseDao<T> {
+public class BaseDaoImpl<T extends BaseEntity> implements BaseDao<T> {
     private final Class<T> tClass;
 
-    public BaseDaoHibernateImpl(Class<T> tClass) {
+    public BaseDaoImpl(Class<T> tClass) {
         this.tClass = tClass;
     }
 
@@ -18,7 +19,7 @@ public class BaseDaoHibernateImpl<T extends BaseEntity> implements BaseDao<T> {
     public void save(T entity) {
         Session session = SessionUtil.openSession();
         session.getTransaction().begin();
-        session.save(entity);
+        session.persist(entity);
         session.getTransaction().commit();
         session.close();
     }
@@ -36,28 +37,30 @@ public class BaseDaoHibernateImpl<T extends BaseEntity> implements BaseDao<T> {
     public void delete(T entity) {
         Session session = SessionUtil.openSession();
         session.getTransaction().begin();
-        session.delete(entity);
+        session.remove(entity);
         session.getTransaction().commit();
         session.close();
     }
 
     @Override
-    public T findById(Long id) {
-        Session session = SessionUtil.openSession();
-        session.getTransaction().begin();
-        T entity = session.find(tClass, id);
-        session.getTransaction().commit();
-        return entity;
+    public T findById(int id) {
+        try(Session session = SessionUtil.openSession()) {
+            T t = session.find(tClass, id);
+            if (t == null) {
+                throw new NullPointerException("Некорректный параметр поиска");
+            } else return t;
+        }
     }
 
     @Override
     public List<T> findAll() {
-        Session session = SessionUtil.openSession();
-        session.getTransaction().begin();
-        TypedQuery<T> query = session.createQuery(
-                String.format("select entity from %s entity",
-                        tClass.getSimpleName()), tClass);
-        session.getTransaction().commit();
-        return query.getResultList();
+        try(Session session = SessionUtil.openSession()) {
+            TypedQuery<T> query = session.createQuery(
+                    String.format("select entity from %s entity",
+                            tClass.getSimpleName()), tClass);
+            if (query.getResultList().isEmpty()) {
+                throw new NullPointerException("Объекты не существуют");
+            } else return query.getResultList();
+        }
     }
 }

@@ -1,11 +1,18 @@
 package by.skopinau.rescue.hr.model;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+@EqualsAndHashCode
 @Getter
 @Setter
 @NoArgsConstructor
@@ -23,9 +30,5 @@ public class Rank extends BaseEntity{
 
     public Rank(String rankTitle) {
         this.rankTitle = rankTitle;
-    }
-
-    public Rank(int id) {
-        this.id = id;
     }
 }

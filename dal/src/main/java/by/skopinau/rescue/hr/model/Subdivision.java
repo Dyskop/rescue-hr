@@ -7,12 +7,12 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.Objects;
-
+@EqualsAndHashCode
 @Getter
 @Setter
 @NoArgsConstructor
@@ -31,14 +31,4 @@ public class Subdivision extends BaseEntity {
     public Subdivision(String subdivisionTitle) {
         this.subdivisionTitle = subdivisionTitle;
     }
-
-    public Subdivision(int id) {
-        this.id = id;
-    }
-    /*
-    @OneToMany(mappedBy = "rank")
-    private Set<Employee> employees = new HashSet<>();
-
- */
-
 }
