@@ -2,7 +2,7 @@
 
 -- changeset dimaskop18@gmail.com:database-rescue_hr dbms:postgresql
 -- precondition
-DROP SCHEMA rh CASCADE;
+DROP SCHEMA IF EXISTS rh CASCADE;
 
 CREATE SCHEMA rh;
 

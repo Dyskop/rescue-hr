@@ -5,7 +5,7 @@
 <hibernate-configuration>
     <session-factory>
         <property name="connection.driver_class">org.postgresql.Driver</property>
-        <property name="connection.url">jdbc:postgresql://localhost:5432/rescue_hr?currentSchema=rh</property>
+        <property name="connection.url">jdbc:postgresql://rescue-hr.c5l6aflmwjke.us-east-1.rds.amazonaws.com:5432/rescue_hr?currentSchema=rh</property>
         <property name="connection.username">postgres</property>
         <property name="connection.password">12345678</property>
         <property name="dialect">org.hibernate.dialect.PostgreSQLDialect</property>
