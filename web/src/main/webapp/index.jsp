@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Rescue HR</title>
-    <%@ include file="WEB-INF/jsp/common/css-connect.jsp" %>
+    <%@ include file="jsp/common/css-connect.jsp" %>
 </head>
 <body>
-<%@ include file="WEB-INF/jsp/common/header.jsp"%>
+<%@ include file="/jsp/common/header.jsp"%>
 <!--<section>
     <div class="container-xxl">
         <h1>Welcome to Rescue HR</h1>
