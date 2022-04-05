@@ -14,14 +14,19 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class BaseDaoTests {
     private static BaseDao<Employee> baseDaoWithEmployee;
+    private static BaseDao<Rank> baseDaoWithRank;
 
     @BeforeAll
     static void initTestComponent() {
         baseDaoWithEmployee = new EmployeeDaoImpl();
+        baseDaoWithRank = new RankDaoImpl();
     }
 
     @BeforeEach
@@ -122,9 +127,9 @@ public class BaseDaoTests {
     }
 
     @Test
-    void findAllTest() {
+    void findAllEmployeesTest() {
         // GIVEN
-        Employee employee1 = new Employee("Скопинов", "Дмитрий", "Николаевич",
+        Employee employee1 = new Employee("Скопинов", "Алексей", "Алексеевич",
                 LocalDate.of(1993, 3, 17),
                 new Rank("капитан"),
                 new Position("инспектор"),
@@ -134,12 +139,35 @@ public class BaseDaoTests {
                 new Rank("рядовой"),
                 new Position("пожарный"),
                 new Subdivision("ПАСЧ-1"));
-        List<Employee> expected = List.of(employee1, employee2);
+        List<Employee> expected = Stream.of(employee1, employee2)
+                .sorted(Comparator.comparing(Employee::getSurname)
+                        .thenComparing(Employee::getName)
+                        .thenComparing(Employee::getPatronymic))
+                .collect(Collectors.toList());
+
         baseDaoWithEmployee.save(employee1);
         baseDaoWithEmployee.save(employee2);
 
         // WHEN
         List<Employee> actual = baseDaoWithEmployee.findAll();
+
+        // THEN
+        Assertions.assertNotNull(actual);
+        Assertions.assertEquals(expected.size(), actual.size());
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    void findAllRanksTest() {
+        // GIVEN
+        Rank rank1 = new Rank("сержант");
+        Rank rank2 = new Rank("рядовой");
+        List<Rank> expected = List.of(rank1, rank2);
+        baseDaoWithRank.save(rank1);
+        baseDaoWithRank.save(rank2);
+
+        // WHEN
+        List<Rank> actual = baseDaoWithRank.findAll();
 
         // THEN
         Assertions.assertNotNull(actual);

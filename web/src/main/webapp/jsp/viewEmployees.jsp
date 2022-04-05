@@ -4,25 +4,48 @@
 <head>
     <meta charset="UTF-8">
     <title>Rescue HR</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <%@ include file="common/css-connect.jsp" %>
 </head>
 <body>
 <%@ include file="common/header.jsp"%>
 <section>
-    <div class="container">
-        <table>
-            <tr><th>Фамилия</th><th>Имя</th><th>Отчество</th><th>Дата рождения</th>
-                <th>Звание</th><th>Должность</th><th>Подразделение</th></tr>
+    <div class="container-xxl">
+        <table class="table table-bordered">
+            <thead class="table-light">
+            <tr>
+                <th scope="col">№</th>
+                <th scope="col">Фамилия</th>
+                <th scope="col">Имя</th>
+                <th scope="col">Отчество</th>
+                <th scope="col">Дата рождения</th>
+                <th scope="col">Звание</th>
+                <th scope="col">Должность</th>
+                <th scope="col">Подразделение</th>
+            </tr>
+            </thead>
+            <tbody>
             <c:forEach items="${requestScope.employees}" var="employee">
-                <tr><td>${employee.surname}</td><td>${employee.name}</td><td>${employee.patronymic}</td>
+                <tr>
+                    <td></td>
+                    <td>${employee.surname}</td><td>${employee.name}</td><td>${employee.patronymic}</td>
                     <td>${employee.birthday}</td><td>${employee.rank.rankTitle}</td>
-                    <td>${employee.position.positionTitle}</td><td>${employee.subdivision.subdivisionTitle}</td></tr>
+                    <td>${employee.position.positionTitle}</td><td>${employee.subdivision.subdivisionTitle}</td>
+                </tr>
             </c:forEach>
+            </tbody>
         </table>
     </div>
 </section>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
+        crossorigin="anonymous">
+</script>
+<script>
+    $('.table tbody tr').each(function(i) {
+        var number = i + 1;
+        $(this).find('td:first').text(number);
+    });
+</script>
 </body>
 </html>

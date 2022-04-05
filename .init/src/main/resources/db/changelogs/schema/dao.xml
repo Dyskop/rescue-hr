@@ -60,7 +60,7 @@
             <column name="position_title" value="начальник центра"/>
         </insert>
         <insert tableName="positions" schemaName="rh">
-            <column name="position_title" value="старший помощник начальника центра"/>
+            <column name="position_title" value="ст. помощник начальника центра"/>
         </insert>
         <insert tableName="positions" schemaName="rh">
             <column name="position_title" value="диспетчер"/>
