@@ -16,7 +16,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 
 @EqualsAndHashCode(callSuper = false)
 @Getter
@@ -63,9 +62,5 @@ public class Employee extends BaseEntity {
         this.rank = rank;
         this.position = position;
         this.subdivision = subdivision;
-    }
-
-    public String getBirthday() {
-        return birthday.format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
     }
 }

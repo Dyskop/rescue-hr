@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -26,10 +27,11 @@
             </thead>
             <tbody>
             <c:forEach items="${requestScope.employees}" var="employee">
+                <fmt:parseDate value="${employee.birthday}" pattern="yyyy-MM-dd" var="birthday" type="date"/>
                 <tr>
                     <td></td>
                     <td>${employee.surname}</td><td>${employee.name}</td><td>${employee.patronymic}</td>
-                    <td>${employee.birthday}</td><td>${employee.rank.rankTitle}</td>
+                    <td><fmt:formatDate pattern="dd.MM.yyyy" value="${birthday}"/></td><td>${employee.rank.rankTitle}</td>
                     <td>${employee.position.positionTitle}</td><td>${employee.subdivision.subdivisionTitle}</td>
                 </tr>
             </c:forEach>
