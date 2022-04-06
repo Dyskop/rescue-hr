@@ -18,8 +18,7 @@ public class EmployeeDaoImpl extends BaseDaoImpl<Employee> {
 
     public List<Employee> findBySurname(String surname) {
         try(Session session = SessionUtil.openSession()) {
-            TypedQuery<Employee> query = session.createQuery("select entity from Employee entity order by surname, name, patronymic" +
-                    " where surname = '" + surname + "'", Employee.class);
+            TypedQuery<Employee> query = session.createQuery("select entity from Employee entity where surname = '" + surname + "' order by surname, name, patronymic", Employee.class);
             if (query.getResultList().isEmpty()) {
                 throw new NullPointerException("Объекты не существуют");
             } else {
@@ -30,8 +29,7 @@ public class EmployeeDaoImpl extends BaseDaoImpl<Employee> {
 
     public List<Employee> findByName(String name) {
         try(Session session = SessionUtil.openSession()) {
-            TypedQuery<Employee> query = session.createQuery("select entity from Employee entity order by surname, name, patronymic" +
-                    " where name = '" + name + "'", Employee.class);
+            TypedQuery<Employee> query = session.createQuery("select entity from Employee entity where name = '" + name + "' order by surname, name, patronymic", Employee.class);
             if (query.getResultList().isEmpty()) {
                 throw new NullPointerException("Объекты не существуют");
             } else {
@@ -42,8 +40,7 @@ public class EmployeeDaoImpl extends BaseDaoImpl<Employee> {
 
     public List<Employee> findByPatronymic(String patronymic) {
         try(Session session = SessionUtil.openSession()) {
-            TypedQuery<Employee> query = session.createQuery("select entity from Employee entity order by surname, name, patronymic" +
-                    " where patronymic = '" + patronymic + "'", Employee.class);
+            TypedQuery<Employee> query = session.createQuery("select entity from Employee entity where patronymic = '" + patronymic + "' order by surname, name, patronymic", Employee.class);
             if (query.getResultList().isEmpty()) {
                 throw new NullPointerException("Объекты не существуют");
             } else {
@@ -54,8 +51,7 @@ public class EmployeeDaoImpl extends BaseDaoImpl<Employee> {
 
     public List<Employee> findByBirthday(LocalDate date) {
         try(Session session = SessionUtil.openSession()) {
-            TypedQuery<Employee> query = session.createQuery("select entity from Employee entity order by surname, name, patronymic" +
-                    " where birthday = '" + date + "'", Employee.class);
+            TypedQuery<Employee> query = session.createQuery("select entity from Employee entity where birthday = '" + date + "' order by surname, name, patronymic", Employee.class);
             if (query.getResultList().isEmpty()) {
                 throw new NullPointerException("Объекты не существуют");
             } else {
@@ -69,8 +65,7 @@ public class EmployeeDaoImpl extends BaseDaoImpl<Employee> {
         Rank byTitle = rankDao.findByTitle(rankTitle);
         int id = byTitle.getId();
         try(Session session = SessionUtil.openSession()) {
-            TypedQuery<Employee> query = session.createQuery("select entity from Employee entity order by surname, name, patronymic" +
-                    " where rank = '" + id + "'", Employee.class);
+            TypedQuery<Employee> query = session.createQuery("select entity from Employee entity where rank = '" + id + "' order by surname, name, patronymic", Employee.class);
             if (query.getResultList().isEmpty()) {
                 throw new NullPointerException("Объекты не существуют");
             } else {
@@ -84,8 +79,7 @@ public class EmployeeDaoImpl extends BaseDaoImpl<Employee> {
         Position byTitle = positionDao.findByTitle(positionTitle);
         int id = byTitle.getId();
         try(Session session = SessionUtil.openSession()) {
-            TypedQuery<Employee> query = session.createQuery("select entity from Employee entity order by surname, name, patronymic" +
-                    " where position = '" + id + "'", Employee.class);
+            TypedQuery<Employee> query = session.createQuery("select entity from Employee entity where position = '" + id + "' order by surname, name, patronymic", Employee.class);
             if (query.getResultList().isEmpty()) {
                 throw new NullPointerException("Объекты не существуют");
             } else {
@@ -99,8 +93,7 @@ public class EmployeeDaoImpl extends BaseDaoImpl<Employee> {
         Subdivision byTitle = subdivisionDao.findByTitle(subdivisionTitle);
         int id = byTitle.getId();
         try(Session session = SessionUtil.openSession()) {
-            TypedQuery<Employee> query = session.createQuery("select entity from Employee entity order by surname, name, patronymic" +
-                    " where subdivision = '" + id + "'", Employee.class);
+            TypedQuery<Employee> query = session.createQuery("select entity from Employee entity where subdivision = '" + id + "' order by surname, name, patronymic", Employee.class);
             if (query.getResultList().isEmpty()) {
                 throw new NullPointerException("Объекты не существуют");
             } else {
@@ -112,7 +105,8 @@ public class EmployeeDaoImpl extends BaseDaoImpl<Employee> {
     @Override
     public List<Employee> findAll() {
         try(Session session = SessionUtil.openSession()) {
-            TypedQuery<Employee> query = session.createQuery("select entity from Employee entity order by surname, name, patronymic", Employee.class);
+            TypedQuery<Employee> query = session.createQuery(
+                    "select entity from Employee entity order by surname, name, patronymic", Employee.class);
             if (query.getResultList().isEmpty()) {
                 throw new NullPointerException("Объекты не существуют");
             } else return query.getResultList();

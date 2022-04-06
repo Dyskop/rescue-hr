@@ -12,6 +12,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -64,6 +66,9 @@ public class EmployeeDaoTests {
         // GIVEN
         expected = expected.stream()
                 .filter(employee -> employee.getSurname().equals("Скопинов"))
+                .sorted(Comparator.comparing(Employee::getSurname)
+                        .thenComparing(Employee::getName)
+                        .thenComparing(Employee::getPatronymic))
                 .collect(Collectors.toList());
 
         // WHEN
@@ -80,6 +85,9 @@ public class EmployeeDaoTests {
         // GIVEN
         expected = expected.stream()
                 .filter(employee -> employee.getName().equals("Иван"))
+                .sorted(Comparator.comparing(Employee::getSurname)
+                        .thenComparing(Employee::getName)
+                        .thenComparing(Employee::getPatronymic))
                 .collect(Collectors.toList());
 
         // WHEN
@@ -96,6 +104,9 @@ public class EmployeeDaoTests {
         // GIVEN
         expected = expected.stream()
                 .filter(employee -> employee.getPatronymic().equals("Николаевич"))
+                .sorted(Comparator.comparing(Employee::getSurname)
+                        .thenComparing(Employee::getName)
+                        .thenComparing(Employee::getPatronymic))
                 .collect(Collectors.toList());
 
         // WHEN
@@ -111,7 +122,11 @@ public class EmployeeDaoTests {
     void findByBirthdayTest() {
         // GIVEN
         expected = expected.stream()
-                .filter(employee -> employee.getBirthday().equals(LocalDate.of(1993, 3, 17)))
+                .filter(employee -> LocalDate.parse(employee.getBirthday(), DateTimeFormatter.ofPattern("dd.MM.yyyy"))
+                        .equals(LocalDate.of(1993, 3, 17)))
+                .sorted(Comparator.comparing(Employee::getSurname)
+                        .thenComparing(Employee::getName)
+                        .thenComparing(Employee::getPatronymic))
                 .collect(Collectors.toList());
 
         // WHEN
@@ -128,6 +143,9 @@ public class EmployeeDaoTests {
         // GIVEN
         expected = expected.stream()
                 .filter(employee -> employee.getRank().equals(new RankDaoImpl().findByTitle("капитан")))
+                .sorted(Comparator.comparing(Employee::getSurname)
+                        .thenComparing(Employee::getName)
+                        .thenComparing(Employee::getPatronymic))
                 .collect(Collectors.toList());
 
         // WHEN
@@ -144,6 +162,9 @@ public class EmployeeDaoTests {
         // GIVEN
         expected = expected.stream()
                 .filter(employee -> employee.getPosition().equals(new PositionDaoImpl().findByTitle("пожарный")))
+                .sorted(Comparator.comparing(Employee::getSurname)
+                        .thenComparing(Employee::getName)
+                        .thenComparing(Employee::getPatronymic))
                 .collect(Collectors.toList());
 
         // WHEN
@@ -160,6 +181,9 @@ public class EmployeeDaoTests {
         // GIVEN
         expected = expected.stream()
                 .filter(employee -> employee.getSubdivision().equals(new SubdivisionDaoImpl().findByTitle("ПАСЧ-3")))
+                .sorted(Comparator.comparing(Employee::getSurname)
+                        .thenComparing(Employee::getName)
+                        .thenComparing(Employee::getPatronymic))
                 .collect(Collectors.toList());
 
         // WHEN
