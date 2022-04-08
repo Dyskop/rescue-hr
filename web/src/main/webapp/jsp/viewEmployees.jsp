@@ -28,7 +28,7 @@
             <tbody>
             <c:forEach items="${requestScope.employees}" var="employee">
                 <fmt:parseDate value="${employee.birthday}" pattern="yyyy-MM-dd" var="birthday" type="date"/>
-                <tr onclick="document.location = '/rh/view/employee/${employee.id}';">
+                <tr onclick="document.location = '${pageContext.request.contextPath}/${employee.id}';">
                     <td></td>
                     <td>${employee.surname}</td><td>${employee.name}</td><td>${employee.patronymic}</td>
                     <td><fmt:formatDate pattern="dd.MM.yyyy" value="${birthday}"/></td><td>${employee.rank.rankTitle}</td>
