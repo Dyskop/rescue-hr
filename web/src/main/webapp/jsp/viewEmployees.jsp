@@ -13,7 +13,7 @@
 <section>
     <div class="container-xxl">
         <table class="table table-bordered caption-top">
-            <caption class="captionTitle">Название органа по чрезвычайным ситуциям</caption>
+            <caption class="caption_title">Название органа по чрезвычайным ситуциям</caption>
             <thead class="table-light">
             <tr>
                 <th scope="col">№</th>

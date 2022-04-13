@@ -12,7 +12,7 @@
     text-align: right;
 }
 
-.captionTitle {
+.caption_title {
     text-align: center;
     font-family: var(--bs-font-sans-serif);
     font-size: 18px;
@@ -20,7 +20,7 @@
     color: black;
 }
 
-.classForTopMargin {
+.for_top_margin {
     margin-top: 20px;
 }
 

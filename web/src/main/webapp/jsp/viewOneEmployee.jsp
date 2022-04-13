@@ -10,7 +10,7 @@
 </head>
 <body>
 <%@ include file="common/header.jsp"%>
-<section class="classForTopMargin">
+<section class="for_top_margin">
     <c:set var="employee" value="${requestScope.employee}"/>
     <div class="container-xxl">
         <div class="row justify-content-evenly">
@@ -48,7 +48,7 @@
     </div>
     <div class="container-xxl" margin-top="20px">
         <table class="table table-bordered caption-top">
-            <caption class="captionTitle">Перемещения по службе</caption>
+            <caption class="caption_title">Перемещения по службе</caption>
             <thead class="table-light">
             <tr>
                 <th scope="col">Дата назначения на должность</th>
@@ -74,7 +74,7 @@
     </div>
     <div class="container-xxl" margin-top="20px">
         <table class="table table-bordered caption-top">
-            <caption class="captionTitle">Присвоение специальных званий</caption>
+            <caption class="caption_title">Присвоение специальных званий</caption>
             <thead class="table-light">
             <tr>
                 <th scope="col">Дата присвоения звания</th>
@@ -98,7 +98,7 @@
     </div>
     <div class="container-xxl" margin-top="20px">
         <table class="table table-bordered caption-top">
-            <caption class="captionTitle">Служебные командировки</caption>
+            <caption class="caption_title">Служебные командировки</caption>
             <thead class="table-light">
             <tr>
                 <th scope="col">Дата рег. к/у</th>
@@ -117,7 +117,7 @@
     </div>
     <div class="container-xxl" margin-top="20px">
         <table class="table table-bordered caption-top">
-            <caption class="captionTitle">Временная нетрудоспособность</caption>
+            <caption class="caption_title">Временная нетрудоспособность</caption>
             <thead class="table-light">
             <tr>
                 <th scope="col">Вид</th>
@@ -134,7 +134,7 @@
     </div>
     <div class="container-xxl" margin-top="20px">
         <table class="table table-bordered caption-top">
-            <caption class="captionTitle">Сведения о поощрениях</caption>
+            <caption class="caption_title">Сведения о поощрениях</caption>
             <thead class="table-light">
             <tr>
                 <th scope="col">Вид поощрения</th>
@@ -149,7 +149,7 @@
     </div>
     <div class="container-xxl" margin-top="20px">
         <table class="table table-bordered caption-top">
-            <caption class="captionTitle">Сведения о дисциплинарных взысканиях</caption>
+            <caption class="caption_title">Сведения о дисциплинарных взысканиях</caption>
             <thead class="table-light">
             <tr>
                 <th scope="col">Вид взыскания</th>

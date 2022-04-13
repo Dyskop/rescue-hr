@@ -13,7 +13,7 @@
 <section>
     <div class="container-xxl">
         <table class="table table-bordered caption-top">
-            <caption class="captionTitle">Штатное расписание</caption>
+            <caption class="caption_title">Штатное расписание</caption>
             <thead class="table-light">
             <tr>
                 <th scope="col">Подразделение</th>

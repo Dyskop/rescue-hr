@@ -13,7 +13,7 @@
 <section>
     <div class="container-xxl">
         <table class="table table-bordered caption-top">
-            <caption class="captionTitle">Присвоение специальных званий</caption>
+            <caption class="caption_title">Присвоение специальных званий</caption>
             <thead class="table-light">
             <tr>
                 <th scope="col">№</th>

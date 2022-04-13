@@ -13,7 +13,7 @@
 <section>
     <div class="container-xxl">
         <table class="table table-bordered caption-top">
-            <caption class="captionTitle">Перемещения по службе</caption>
+            <caption class="caption_title">Перемещения по службе</caption>
             <thead class="table-light">
             <tr>
                 <th scope="col">№</th>
