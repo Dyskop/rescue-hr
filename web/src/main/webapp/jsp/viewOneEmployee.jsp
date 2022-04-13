@@ -10,10 +10,10 @@
 </head>
 <body>
 <%@ include file="common/header.jsp"%>
-<section>
+<section class="classForTopMargin">
     <c:set var="employee" value="${requestScope.employee}"/>
     <div class="container-xxl">
-        <div class="row">
+        <div class="row justify-content-evenly">
             <div class="col">
                 <table class="table">
                     <tbody>
@@ -41,14 +41,14 @@
                     </tbody>
                 </table>
             </div>
-            <div class="col">
-                <img src="${pageContext.request.contextPath}/static/img/photo.jpg" class="employee_photo" alt="">
+            <div class="col-2">
+                <img src="${pageContext.request.contextPath}/static/img/photo.png" class="employee_photo" alt="">
             </div>
         </div>
     </div>
     <div class="container-xxl" margin-top="20px">
-        <table class="table table-bordered">
-            <caption>Перемещения по службе</caption>
+        <table class="table table-bordered caption-top">
+            <caption class="captionTitle">Перемещения по службе</caption>
             <thead class="table-light">
             <tr>
                 <th scope="col">Дата назначения на должность</th>
@@ -73,7 +73,8 @@
         </table>
     </div>
     <div class="container-xxl" margin-top="20px">
-        <table class="table table-bordered">
+        <table class="table table-bordered caption-top">
+            <caption class="captionTitle">Присвоение специальных званий</caption>
             <thead class="table-light">
             <tr>
                 <th scope="col">Дата присвоения звания</th>
@@ -92,6 +93,73 @@
                     <td>${log.orderNumber}</td>
                 </tr>
             </c:forEach>
+            </tbody>
+        </table>
+    </div>
+    <div class="container-xxl" margin-top="20px">
+        <table class="table table-bordered caption-top">
+            <caption class="captionTitle">Служебные командировки</caption>
+            <thead class="table-light">
+            <tr>
+                <th scope="col">Дата рег. к/у</th>
+                <th scope="col">№ к/у</th>
+                <th scope="col">Мето командировки</th>
+                <th scope="col">Дата убытия</th>
+                <th scope="col">Дата прибытия</th>
+                <th scope="col">Цель</th>
+                <th scope="col">Дата приказа</th>
+                <th scope="col">№ приказа</th>
+            </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+    <div class="container-xxl" margin-top="20px">
+        <table class="table table-bordered caption-top">
+            <caption class="captionTitle">Временная нетрудоспособность</caption>
+            <thead class="table-light">
+            <tr>
+                <th scope="col">Вид</th>
+                <th scope="col">Диагноз</th>
+                <th scope="col">Дата начала</th>
+                <th scope="col">Дата окончания</th>
+                <th scope="col">№ справки</th>
+                <th scope="col">Дата выдачи справки</th>
+            </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+    <div class="container-xxl" margin-top="20px">
+        <table class="table table-bordered caption-top">
+            <caption class="captionTitle">Сведения о поощрениях</caption>
+            <thead class="table-light">
+            <tr>
+                <th scope="col">Вид поощрения</th>
+                <th scope="col">Кем поощрен</th>
+                <th scope="col">Дата приказа</th>
+                <th scope="col">№ приказа</th>
+            </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+    <div class="container-xxl" margin-top="20px">
+        <table class="table table-bordered caption-top">
+            <caption class="captionTitle">Сведения о дисциплинарных взысканиях</caption>
+            <thead class="table-light">
+            <tr>
+                <th scope="col">Вид взыскания</th>
+                <th scope="col">Кем наложено</th>
+                <th scope="col">Дата приказа</th>
+                <th scope="col">№ приказа</th>
+                <th scope="col">Статус</th>
+            </tr>
+            </thead>
+            <tbody>
             </tbody>
         </table>
     </div>

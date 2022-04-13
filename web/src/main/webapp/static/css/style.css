@@ -9,7 +9,19 @@
 
 .col {
     margin-top: 20px;
+    text-align: right;
+}
+
+.captionTitle {
     text-align: center;
+    font-family: var(--bs-font-sans-serif);
+    font-size: 18px;
+    font-weight: bold;
+    color: black;
+}
+
+.classForTopMargin {
+    margin-top: 20px;
 }
 
 tbody tr:hover {

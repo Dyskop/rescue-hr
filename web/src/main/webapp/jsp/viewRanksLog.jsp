@@ -12,7 +12,8 @@
 <%@ include file="common/header.jsp"%>
 <section>
     <div class="container-xxl">
-        <table class="table table-bordered">
+        <table class="table table-bordered caption-top">
+            <caption class="captionTitle">Присвоение специальных званий</caption>
             <thead class="table-light">
             <tr>
                 <th scope="col">№</th>

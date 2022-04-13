@@ -6,7 +6,7 @@
       https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
     <changeSet id="subdivisions init" author="dimaskop18@gmail.com">
         <insert tableName="subdivisions" schemaName="rh">
-            <column name="subdivision_title" value="Руководство"/>
+            <column name="subdivision_title" value="руководство"/>
         </insert>
         <insert tableName="subdivisions" schemaName="rh">
             <column name="subdivision_title" value="ЦОУ"/>
@@ -465,7 +465,17 @@
 
     <changeSet id="ranks_log init" author="dimaskop18@gmail.com">
         <sql>INSERT INTO rh.ranks_log (rank_getting_date, employee_id, rank_id, order_publisher, order_number)
-             VALUES ('2020-07-25', 1, 3, 'Название УМЧС', 89)</sql>
+             VALUES ('2020-07-25', 1, 3, 'МЧС', 89)</sql>
+        <sql>INSERT INTO rh.ranks_log (rank_getting_date, employee_id, rank_id, order_publisher, order_number)
+             VALUES ('2015-01-19', 1, 4, 'Название УМЧС', 15)</sql>
+        <sql>INSERT INTO rh.ranks_log (rank_getting_date, employee_id, rank_id, order_publisher, order_number)
+             VALUES ('2010-01-10', 1, 5, 'Название УМЧС', 6)</sql>
+        <sql>INSERT INTO rh.ranks_log (rank_getting_date, employee_id, rank_id, order_publisher, order_number)
+             VALUES ('2007-01-19', 1, 6, 'Название УМЧС', 8)</sql>
+        <sql>INSERT INTO rh.ranks_log (rank_getting_date, employee_id, rank_id, order_publisher, order_number)
+             VALUES ('2004-01-19', 1, 7, 'Название УМЧС', 11)</sql>
+        <sql>INSERT INTO rh.ranks_log (rank_getting_date, employee_id, rank_id, order_publisher, order_number)
+             VALUES ('2002-01-19', 1, 8, 'Название УМЧС', 18)</sql>
         <sql>INSERT INTO rh.ranks_log (rank_getting_date, employee_id, rank_id, order_publisher, order_number)
              VALUES ('2021-11-13', 2, 4, 'Название УМЧС', 136)</sql>
         <sql>INSERT INTO rh.ranks_log (rank_getting_date, employee_id, rank_id, order_publisher, order_number)

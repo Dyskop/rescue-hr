@@ -12,7 +12,8 @@
 <%@ include file="common/header.jsp"%>
 <section>
     <div class="container-xxl">
-        <table class="table table-bordered">
+        <table class="table table-bordered caption-top">
+            <caption class="captionTitle">Название органа по чрезвычайным ситуциям</caption>
             <thead class="table-light">
             <tr>
                 <th scope="col">№</th>
@@ -34,7 +35,7 @@
                     <td>${employee.name}</td>
                     <td>${employee.patronymic}</td>
                     <td><fmt:formatDate pattern="dd.MM.yyyy" value="${birthday}"/></td>
-                    <td>${employee.rank.rankTitle}</td>
+                    <td>${employee.rank.rankTitle} вн. сл.</td>
                     <td>${employee.position.positionTitle}</td>
                     <td>${employee.subdivision.subdivisionTitle}</td>
                 </tr>

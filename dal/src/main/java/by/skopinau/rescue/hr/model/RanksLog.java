@@ -54,16 +54,4 @@ public class RanksLog extends BaseEntity {
         this.orderPublisher = orderPublisher;
         this.orderNumber = orderNumber;
     }
-
-    @Override
-    public String toString() {
-        return "RanksLog{" +
-                "id=" + id +
-                ", rankGettingDate=" + rankGettingDate +
-                ", employee=" + employee +
-                ", rank=" + rank +
-                ", orderPublisher='" + orderPublisher + '\'' +
-                ", orderNumber=" + orderNumber +
-                '}';
-    }
 }
