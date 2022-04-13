@@ -14,7 +14,7 @@
                         <a class="nav-link" aria-current="page" href="${pageContext.request.contextPath}/view/employees">Сотрудники</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Штат</a>
+                        <a class="nav-link" href="${pageContext.request.contextPath}/view/state">Штат</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Контракты</a>
@@ -36,8 +36,8 @@
                            role="button" data-bs-toggle="dropdown" aria-expanded="false">Журналы
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Перемещения по службе</a></li>
-                            <li><a class="dropdown-item" href="#">Присвоение званий</a></li>
+                            <li><a class="dropdown-item" href="${pageContext.request.contextPath}/view/positions-log">Перемещения по службе</a></li>
+                            <li><a class="dropdown-item" href="${pageContext.request.contextPath}/view/ranks-log">Присвоение званий</a></li>
                             <li><a class="dropdown-item" href="#">Командировки</a></li>
                             <li><a class="dropdown-item" href="#">Больничные</a></li>
                         </ul>

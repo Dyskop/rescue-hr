@@ -11,12 +11,12 @@
 <body>
 <%@ include file="common/header.jsp"%>
 <section>
+    <c:set var="employee" value="${requestScope.employee}"/>
     <div class="container-xxl">
         <div class="row">
             <div class="col">
                 <table class="table">
                     <tbody>
-                    <c:set var="employee" value="${requestScope.employee}"/>
                     <fmt:parseDate value="${employee.birthday}" pattern="yyyy-MM-dd" var="birthday" type="date"/>
                     <tr>
                         <th scope="row">ФИО</th>
@@ -45,6 +45,55 @@
                 <img src="${pageContext.request.contextPath}/static/img/photo.jpg" class="employee_photo" alt="">
             </div>
         </div>
+    </div>
+    <div class="container-xxl" margin-top="20px">
+        <table class="table table-bordered">
+            <caption>Перемещения по службе</caption>
+            <thead class="table-light">
+            <tr>
+                <th scope="col">Дата назначения на должность</th>
+                <th scope="col">Должность</th>
+                <th scope="col">Подразделение</th>
+                <th scope="col">Кем назначен</th>
+                <th scope="col">№ приказа</th>
+            </tr>
+            </thead>
+            <tbody>
+            <c:forEach items="${requestScope.positionLogs}" var="log">
+                <fmt:parseDate value="${log.positionGettingDate}" pattern="yyyy-MM-dd" var="positionGettingDate" type="date"/>
+                <tr>
+                    <td><fmt:formatDate pattern="dd.MM.yyyy" value="${positionGettingDate}"/></td>
+                    <td>${log.position.positionTitle}</td>
+                    <td>${log.subdivision.subdivisionTitle}</td>
+                    <td>${log.orderPublisher}</td>
+                    <td>${log.orderNumber}</td>
+                </tr>
+            </c:forEach>
+            </tbody>
+        </table>
+    </div>
+    <div class="container-xxl" margin-top="20px">
+        <table class="table table-bordered">
+            <thead class="table-light">
+            <tr>
+                <th scope="col">Дата присвоения звания</th>
+                <th scope="col">Звание</th>
+                <th scope="col">Кем присвоено</th>
+                <th scope="col">№ приказа</th>
+            </tr>
+            </thead>
+            <tbody>
+            <c:forEach items="${requestScope.rankLogs}" var="log">
+                <fmt:parseDate value="${log.rankGettingDate}" pattern="yyyy-MM-dd" var="rankGettingDate" type="date"/>
+                <tr>
+                    <td><fmt:formatDate pattern="dd.MM.yyyy" value="${rankGettingDate}"/></td>
+                    <td>${log.rank.rankTitle} внутренней службы</td>
+                    <td>${log.orderPublisher}</td>
+                    <td>${log.orderNumber}</td>
+                </tr>
+            </c:forEach>
+            </tbody>
+        </table>
     </div>
 </section>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"

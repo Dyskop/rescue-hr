@@ -17,5 +17,8 @@
         <mapping class="by.skopinau.rescue.hr.model.Subdivision"/>
         <mapping class="by.skopinau.rescue.hr.model.Position"/>
         <mapping class="by.skopinau.rescue.hr.model.Rank"/>
+        <mapping class="by.skopinau.rescue.hr.model.RanksLog"/>
+        <mapping class="by.skopinau.rescue.hr.model.PositionsLog"/>
+        <mapping class="by.skopinau.rescue.hr.model.State"/>
     </session-factory>
 </hibernate-configuration>

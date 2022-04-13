@@ -1,6 +1,9 @@
 package by.skopinau.rescue.hr;
 
 import by.skopinau.rescue.hr.dao.hibernateImpl.EmployeeDaoImpl;
+import by.skopinau.rescue.hr.dao.hibernateImpl.PositionsLogDaoImpl;
+import by.skopinau.rescue.hr.dao.hibernateImpl.RanksLogDaoImpl;
+import by.skopinau.rescue.hr.model.Employee;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -21,7 +24,10 @@ public class ViewOneEmployeeServlet extends HttpServlet {
             builder.append(s);
         }
         int employeeId = Integer.parseInt(builder.toString());
-        req.setAttribute("employee", new EmployeeDaoImpl().findById(employeeId));
+        Employee employee = new EmployeeDaoImpl().findById(employeeId);
+        req.setAttribute("employee", employee);
+        req.setAttribute("positionLogs", new PositionsLogDaoImpl().findByEmployee(employee));
+        req.setAttribute("rankLogs", new RanksLogDaoImpl().findByEmployee(employee));
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/jsp/viewOneEmployee.jsp");
         dispatcher.forward(req, resp);
     }
