@@ -1,6 +1,6 @@
 = Rescue HR
 
-http://18.212.199.153:8080/rescue-hr/[Rescue HR]
+http://ec2-18-212-199-153.compute-1.amazonaws.com:8080/rhr/[Rescue HR]
 
 == Description
 
