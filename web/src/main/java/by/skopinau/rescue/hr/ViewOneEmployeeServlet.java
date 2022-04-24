@@ -1,15 +1,16 @@
 package by.skopinau.rescue.hr;
 
-import by.skopinau.rescue.hr.dao.hibernateImpl.EmployeeDaoImpl;
-import by.skopinau.rescue.hr.dao.hibernateImpl.PositionsLogDaoImpl;
-import by.skopinau.rescue.hr.dao.hibernateImpl.RanksLogDaoImpl;
 import by.skopinau.rescue.hr.model.Employee;
+import by.skopinau.rescue.hr.impl.EmployeeServiceImpl;
+import by.skopinau.rescue.hr.impl.PositionsLogServiceImpl;
+import by.skopinau.rescue.hr.impl.RanksLogServiceImpl;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import java.io.IOException;
 
@@ -24,10 +25,16 @@ public class ViewOneEmployeeServlet extends HttpServlet {
             builder.append(s);
         }
         int employeeId = Integer.parseInt(builder.toString());
-        Employee employee = new EmployeeDaoImpl().findById(employeeId);
+
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Config.class);
+        EmployeeServiceImpl employeeService = (EmployeeServiceImpl) context.getBean("employeeServiceImpl");
+        PositionsLogServiceImpl positionsLogService = (PositionsLogServiceImpl) context.getBean("positionsLogServiceImpl");
+        RanksLogServiceImpl ranksLogService = (RanksLogServiceImpl) context.getBean("ranksLogServiceImpl");
+
+        Employee employee = employeeService.findById(employeeId);
         req.setAttribute("employee", employee);
-        req.setAttribute("positionLogs", new PositionsLogDaoImpl().findByEmployee(employee));
-        req.setAttribute("rankLogs", new RanksLogDaoImpl().findByEmployee(employee));
+        req.setAttribute("positionLogs", positionsLogService.findByEmployee(employee));
+        req.setAttribute("rankLogs", ranksLogService.findByEmployee(employee));
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/jsp/viewOneEmployee.jsp");
         dispatcher.forward(req, resp);
     }

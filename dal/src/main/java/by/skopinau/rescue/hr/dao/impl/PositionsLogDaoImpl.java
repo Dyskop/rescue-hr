@@ -1,14 +1,16 @@
-package by.skopinau.rescue.hr.dao.hibernateImpl;
+package by.skopinau.rescue.hr.dao.impl;
 
 import by.skopinau.rescue.hr.model.Employee;
 import by.skopinau.rescue.hr.model.PositionsLog;
 import by.skopinau.rescue.hr.util.SessionUtil;
 import jakarta.persistence.TypedQuery;
 import org.hibernate.Session;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-public class PositionsLogDaoImpl extends BaseDaoImpl<PositionsLog>{
+@Repository
+public class PositionsLogDaoImpl extends BaseDaoImpl<PositionsLog> {
     public PositionsLogDaoImpl() {
         super(PositionsLog.class);
     }

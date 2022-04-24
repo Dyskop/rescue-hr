@@ -1,6 +1,6 @@
-package by.skopinau.rescue.hr.dao.hibernateImpl;
+package by.skopinau.rescue.hr.dao.impl;
 
-import by.skopinau.rescue.hr.model.Rank;
+import by.skopinau.rescue.hr.model.Position;
 import by.skopinau.rescue.hr.util.SessionUtil;
 import jakarta.persistence.Query;
 import org.hibernate.Session;
@@ -9,12 +9,12 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class RankDaoTests {
-    private static RankDaoImpl rankDao;
+public class PositionDaoTests {
+    private static PositionDaoImpl positionDao;
 
     @BeforeAll
     static void initTestComponent() {
-        rankDao = new RankDaoImpl();
+        positionDao = new PositionDaoImpl();
     }
 
     @BeforeEach
@@ -22,9 +22,9 @@ public class RankDaoTests {
         Session session = SessionUtil.openSession();
         session.getTransaction().begin();
         Query queryClearEmployee = session.createQuery("DELETE FROM Employee WHERE TRUE");
-        Query queryClearRank = session.createQuery("DELETE FROM Rank WHERE TRUE");
+        Query queryClearPosition = session.createQuery("DELETE FROM Position WHERE TRUE");
         queryClearEmployee.executeUpdate();
-        queryClearRank.executeUpdate();
+        queryClearPosition.executeUpdate();
         session.getTransaction().commit();
         session.close();
     }
@@ -32,16 +32,16 @@ public class RankDaoTests {
     @Test
     void findByTitleTest() {
         // GIVEN
-        Rank expected = new Rank("генерал");
-        rankDao.save(expected);
+        Position expected = new Position("пожарный");
+        positionDao.save(expected);
 
         // WHEN
-        Rank actual = rankDao.findByTitle("генерал");
+        Position actual = positionDao.findByTitle("пожарный");
 
         // THEN
         Assertions.assertNotNull(actual);
         Assertions.assertEquals(expected.getId(), actual.getId());
-        Assertions.assertEquals(expected.getRankTitle(), actual.getRankTitle());
+        Assertions.assertEquals(expected.getPositionTitle(), actual.getPositionTitle());
         Assertions.assertEquals(expected, actual);
     }
 }

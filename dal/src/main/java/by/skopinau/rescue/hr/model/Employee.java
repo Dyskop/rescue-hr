@@ -1,15 +1,12 @@
 package by.skopinau.rescue.hr.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.LocalDate;
 
 @EqualsAndHashCode(callSuper = false)
+@ToString
 @Getter
 @Setter
 @NoArgsConstructor

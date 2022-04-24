@@ -17,6 +17,10 @@
 
     <dependencies>
         <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+        </dependency>
+        <dependency>
             <groupId>by.skopinau.rescue.hr</groupId>
             <artifactId>dal</artifactId>
         </dependency>

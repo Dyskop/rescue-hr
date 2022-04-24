@@ -1,6 +1,6 @@
-package by.skopinau.rescue.hr.dao.hibernateImpl;
+package by.skopinau.rescue.hr.dao.impl;
 
-import by.skopinau.rescue.hr.model.Position;
+import by.skopinau.rescue.hr.model.Subdivision;
 import by.skopinau.rescue.hr.util.SessionUtil;
 import jakarta.persistence.Query;
 import org.hibernate.Session;
@@ -9,12 +9,12 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class PositionDaoTests {
-    private static PositionDaoImpl positionDao;
+public class SubdivisionDaoTests {
+    private static SubdivisionDaoImpl subdivisionDao;
 
     @BeforeAll
     static void initTestComponent() {
-        positionDao = new PositionDaoImpl();
+        subdivisionDao = new SubdivisionDaoImpl();
     }
 
     @BeforeEach
@@ -22,9 +22,9 @@ public class PositionDaoTests {
         Session session = SessionUtil.openSession();
         session.getTransaction().begin();
         Query queryClearEmployee = session.createQuery("DELETE FROM Employee WHERE TRUE");
-        Query queryClearPosition = session.createQuery("DELETE FROM Position WHERE TRUE");
+        Query queryClearSubdivision = session.createQuery("DELETE FROM Subdivision WHERE TRUE");
         queryClearEmployee.executeUpdate();
-        queryClearPosition.executeUpdate();
+        queryClearSubdivision.executeUpdate();
         session.getTransaction().commit();
         session.close();
     }
@@ -32,16 +32,16 @@ public class PositionDaoTests {
     @Test
     void findByTitleTest() {
         // GIVEN
-        Position expected = new Position("пожарный");
-        positionDao.save(expected);
+        Subdivision expected = new Subdivision("ПАСЧ-1");
+        subdivisionDao.save(expected);
 
         // WHEN
-        Position actual = positionDao.findByTitle("пожарный");
+        Subdivision actual = subdivisionDao.findByTitle("ПАСЧ-1");
 
         // THEN
         Assertions.assertNotNull(actual);
         Assertions.assertEquals(expected.getId(), actual.getId());
-        Assertions.assertEquals(expected.getPositionTitle(), actual.getPositionTitle());
+        Assertions.assertEquals(expected.getSubdivisionTitle(), actual.getSubdivisionTitle());
         Assertions.assertEquals(expected, actual);
     }
 }

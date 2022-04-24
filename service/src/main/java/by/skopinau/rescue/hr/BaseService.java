@@ -1,12 +1,10 @@
-package by.skopinau.rescue.hr.dao;
+package by.skopinau.rescue.hr;
 
 import by.skopinau.rescue.hr.model.BaseEntity;
-import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Repository
-public interface BaseDao<T extends BaseEntity> {
+public interface BaseService<T extends BaseEntity> {
     void save(T entity);
 
     void update(T entity);

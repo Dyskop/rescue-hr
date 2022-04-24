@@ -1,21 +1,25 @@
-package by.skopinau.rescue.hr;
+package by.skopinau.rescue.hr.impl;
 
-import by.skopinau.rescue.hr.dao.hibernateImpl.EmployeeDaoImpl;
-import by.skopinau.rescue.hr.dao.hibernateImpl.StateDaoImpl;
+import by.skopinau.rescue.hr.dao.impl.EmployeeDaoImpl;
+import by.skopinau.rescue.hr.dao.impl.StateDaoImpl;
 import by.skopinau.rescue.hr.model.Employee;
 import by.skopinau.rescue.hr.model.State;
-import lombok.Getter;
-import lombok.Setter;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Getter
-@Setter
-public class StateService {
+@Service
+public class StateServiceImpl extends BaseServiceImpl<State> {
     private int actualPositionAmount;
     private int freePositionAmount;
-    private List<Employee> employees = new EmployeeDaoImpl().findAll();
-    private List<State> states = new StateDaoImpl().findAll();
+    private final List<Employee> employees = new EmployeeDaoImpl().findAll();
+    private final List<State> states = new StateDaoImpl().findAll();
+
+    @Autowired
+    public StateServiceImpl(StateDaoImpl stateDao) {
+        super(stateDao);
+    }
 
     public int getActualPositionAmount(State state) {
         actualPositionAmount = (int) employees.stream()

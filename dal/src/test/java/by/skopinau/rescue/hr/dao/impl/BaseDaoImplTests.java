@@ -1,4 +1,4 @@
-package by.skopinau.rescue.hr.dao.hibernateImpl;
+package by.skopinau.rescue.hr.dao.impl;
 
 import by.skopinau.rescue.hr.dao.BaseDao;
 import by.skopinau.rescue.hr.model.Employee;
@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class BaseDaoTests {
+public class BaseDaoImplTests {
     private static BaseDao<Employee> baseDaoWithEmployee;
     private static BaseDao<Rank> baseDaoWithRank;
 

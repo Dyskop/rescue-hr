@@ -1,6 +1,6 @@
-package by.skopinau.rescue.hr.dao.hibernateImpl;
+package by.skopinau.rescue.hr.dao.impl;
 
-import by.skopinau.rescue.hr.model.Subdivision;
+import by.skopinau.rescue.hr.model.Rank;
 import by.skopinau.rescue.hr.util.SessionUtil;
 import jakarta.persistence.Query;
 import org.hibernate.Session;
@@ -9,12 +9,12 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class SubdivisionDaoTests {
-    private static SubdivisionDaoImpl subdivisionDao;
+public class RankDaoTests {
+    private static RankDaoImpl rankDao;
 
     @BeforeAll
     static void initTestComponent() {
-        subdivisionDao = new SubdivisionDaoImpl();
+        rankDao = new RankDaoImpl();
     }
 
     @BeforeEach
@@ -22,9 +22,9 @@ public class SubdivisionDaoTests {
         Session session = SessionUtil.openSession();
         session.getTransaction().begin();
         Query queryClearEmployee = session.createQuery("DELETE FROM Employee WHERE TRUE");
-        Query queryClearSubdivision = session.createQuery("DELETE FROM Subdivision WHERE TRUE");
+        Query queryClearRank = session.createQuery("DELETE FROM Rank WHERE TRUE");
         queryClearEmployee.executeUpdate();
-        queryClearSubdivision.executeUpdate();
+        queryClearRank.executeUpdate();
         session.getTransaction().commit();
         session.close();
     }
@@ -32,16 +32,16 @@ public class SubdivisionDaoTests {
     @Test
     void findByTitleTest() {
         // GIVEN
-        Subdivision expected = new Subdivision("ПАСЧ-1");
-        subdivisionDao.save(expected);
+        Rank expected = new Rank("генерал");
+        rankDao.save(expected);
 
         // WHEN
-        Subdivision actual = subdivisionDao.findByTitle("ПАСЧ-1");
+        Rank actual = rankDao.findByTitle("генерал");
 
         // THEN
         Assertions.assertNotNull(actual);
         Assertions.assertEquals(expected.getId(), actual.getId());
-        Assertions.assertEquals(expected.getSubdivisionTitle(), actual.getSubdivisionTitle());
+        Assertions.assertEquals(expected.getRankTitle(), actual.getRankTitle());
         Assertions.assertEquals(expected, actual);
     }
 }

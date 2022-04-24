@@ -1,14 +1,15 @@
-package by.skopinau.rescue.hr.dao.hibernateImpl;
+package by.skopinau.rescue.hr.dao.impl;
 
-import by.skopinau.rescue.hr.dao.BaseDao;
 import by.skopinau.rescue.hr.model.BaseEntity;
 import by.skopinau.rescue.hr.util.SessionUtil;
 import jakarta.persistence.TypedQuery;
 import org.hibernate.Session;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-public class BaseDaoImpl<T extends BaseEntity> implements BaseDao<T> {
+@Repository
+public class BaseDaoImpl<T extends BaseEntity> implements by.skopinau.rescue.hr.dao.BaseDao<T> {
     private final Class<T> tClass;
 
     public BaseDaoImpl(Class<T> tClass) {

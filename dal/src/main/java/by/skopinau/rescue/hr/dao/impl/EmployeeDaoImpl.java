@@ -1,4 +1,4 @@
-package by.skopinau.rescue.hr.dao.hibernateImpl;
+package by.skopinau.rescue.hr.dao.impl;
 
 import by.skopinau.rescue.hr.model.Employee;
 import by.skopinau.rescue.hr.model.Position;
@@ -7,10 +7,12 @@ import by.skopinau.rescue.hr.model.Subdivision;
 import by.skopinau.rescue.hr.util.SessionUtil;
 import jakarta.persistence.TypedQuery;
 import org.hibernate.Session;
+import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
 import java.util.List;
 
+@Repository
 public class EmployeeDaoImpl extends BaseDaoImpl<Employee> {
     public EmployeeDaoImpl() {
         super(Employee.class);
