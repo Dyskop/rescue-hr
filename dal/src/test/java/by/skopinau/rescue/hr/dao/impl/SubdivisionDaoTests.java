@@ -1,8 +1,10 @@
 package by.skopinau.rescue.hr.dao.impl;
 
+import by.skopinau.rescue.hr.model.Employee;
 import by.skopinau.rescue.hr.model.Subdivision;
 import by.skopinau.rescue.hr.util.SessionUtil;
-import jakarta.persistence.Query;
+import jakarta.persistence.criteria.CriteriaBuilder;
+import jakarta.persistence.criteria.CriteriaDelete;
 import org.hibernate.Session;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
@@ -21,10 +23,17 @@ public class SubdivisionDaoTests {
     void clearDB() {
         Session session = SessionUtil.openSession();
         session.getTransaction().begin();
-        Query queryClearEmployee = session.createQuery("DELETE FROM Employee WHERE TRUE");
-        Query queryClearSubdivision = session.createQuery("DELETE FROM Subdivision WHERE TRUE");
-        queryClearEmployee.executeUpdate();
-        queryClearSubdivision.executeUpdate();
+        CriteriaBuilder cb = session.getCriteriaBuilder();
+
+        CriteriaDelete<Employee> employeeCriteriaDelete = cb.createCriteriaDelete(Employee.class);
+        CriteriaDelete<Subdivision> subdivisionCriteriaDelete = cb.createCriteriaDelete(Subdivision.class);
+
+        employeeCriteriaDelete.from(Employee.class);
+        subdivisionCriteriaDelete.from(Subdivision.class);
+
+        session.createQuery(employeeCriteriaDelete).executeUpdate();
+        session.createQuery(subdivisionCriteriaDelete).executeUpdate();
+
         session.getTransaction().commit();
         session.close();
     }

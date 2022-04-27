@@ -1,8 +1,10 @@
 package by.skopinau.rescue.hr.dao.impl;
 
+import by.skopinau.rescue.hr.model.Employee;
 import by.skopinau.rescue.hr.model.Position;
 import by.skopinau.rescue.hr.util.SessionUtil;
-import jakarta.persistence.Query;
+import jakarta.persistence.criteria.CriteriaBuilder;
+import jakarta.persistence.criteria.CriteriaDelete;
 import org.hibernate.Session;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
@@ -21,10 +23,17 @@ public class PositionDaoTests {
     void clearDB() {
         Session session = SessionUtil.openSession();
         session.getTransaction().begin();
-        Query queryClearEmployee = session.createQuery("DELETE FROM Employee WHERE TRUE");
-        Query queryClearPosition = session.createQuery("DELETE FROM Position WHERE TRUE");
-        queryClearEmployee.executeUpdate();
-        queryClearPosition.executeUpdate();
+        CriteriaBuilder cb = session.getCriteriaBuilder();
+
+        CriteriaDelete<Employee> employeeCriteriaDelete = cb.createCriteriaDelete(Employee.class);
+        CriteriaDelete<Position> positionCriteriaDelete = cb.createCriteriaDelete(Position.class);
+
+        employeeCriteriaDelete.from(Employee.class);
+        positionCriteriaDelete.from(Position.class);
+
+        session.createQuery(employeeCriteriaDelete).executeUpdate();
+        session.createQuery(positionCriteriaDelete).executeUpdate();
+
         session.getTransaction().commit();
         session.close();
     }

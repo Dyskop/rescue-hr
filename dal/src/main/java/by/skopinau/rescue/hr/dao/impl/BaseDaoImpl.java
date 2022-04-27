@@ -1,15 +1,16 @@
 package by.skopinau.rescue.hr.dao.impl;
 
+import by.skopinau.rescue.hr.dao.BaseDao;
 import by.skopinau.rescue.hr.model.BaseEntity;
 import by.skopinau.rescue.hr.util.SessionUtil;
-import jakarta.persistence.TypedQuery;
+import jakarta.persistence.criteria.CriteriaBuilder;
+import jakarta.persistence.criteria.CriteriaQuery;
 import org.hibernate.Session;
 import org.springframework.stereotype.Repository;
-
 import java.util.List;
 
 @Repository
-public class BaseDaoImpl<T extends BaseEntity> implements by.skopinau.rescue.hr.dao.BaseDao<T> {
+public class BaseDaoImpl<T extends BaseEntity> implements BaseDao<T> {
     private final Class<T> tClass;
 
     public BaseDaoImpl(Class<T> tClass) {
@@ -56,12 +57,12 @@ public class BaseDaoImpl<T extends BaseEntity> implements by.skopinau.rescue.hr.
     @Override
     public List<T> findAll() {
         try(Session session = SessionUtil.openSession()) {
-            TypedQuery<T> query = session.createQuery(
-                    String.format("select entity from %s entity",
-                            tClass.getSimpleName()), tClass);
-            if (query.getResultList().isEmpty()) {
+            CriteriaBuilder builder = session.getCriteriaBuilder();
+            CriteriaQuery<T> criteria = builder.createQuery(tClass);
+            criteria.select(criteria.from(tClass));
+            if (session.createQuery(criteria).getResultList().isEmpty()) {
                 throw new NullPointerException("Объекты не существуют");
-            } else return query.getResultList();
+            } else return session.createQuery(criteria).getResultList();
         }
     }
 }

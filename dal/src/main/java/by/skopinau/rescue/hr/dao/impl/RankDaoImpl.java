@@ -2,7 +2,9 @@ package by.skopinau.rescue.hr.dao.impl;
 
 import by.skopinau.rescue.hr.model.Rank;
 import by.skopinau.rescue.hr.util.SessionUtil;
-import jakarta.persistence.TypedQuery;
+import jakarta.persistence.criteria.CriteriaBuilder;
+import jakarta.persistence.criteria.CriteriaQuery;
+import jakarta.persistence.criteria.Root;
 import org.hibernate.Session;
 import org.springframework.stereotype.Repository;
 
@@ -14,13 +16,14 @@ public class RankDaoImpl extends BaseDaoImpl<Rank> {
 
     public Rank findByTitle(String rankTitle) {
         try(Session session = SessionUtil.openSession()) {
-            TypedQuery<Rank> query = session.createQuery("select entity from Rank entity" +
-                    " where rankTitle = '" + rankTitle + "'", Rank.class);
-            if (query.getResultList().isEmpty()) {
+            CriteriaBuilder cb = session.getCriteriaBuilder();
+            CriteriaQuery<Rank> criteria = cb.createQuery(Rank.class);
+            Root<Rank> rank = criteria.from(Rank.class);
+            criteria.select(rank)
+                    .where(cb.equal(rank.get("rankTitle"), rankTitle));
+            if (session.createQuery(criteria).getResultList().isEmpty()) {
                 throw new NullPointerException("Объекты не существуют");
-            } else {
-                return query.getResultList().get(0);
-            }
+            } else return session.createQuery(criteria).getResultList().get(0);
         }
     }
 }

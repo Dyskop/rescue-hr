@@ -1,11 +1,10 @@
 package by.skopinau.rescue.hr.dao.impl;
 
 import by.skopinau.rescue.hr.model.Employee;
-import by.skopinau.rescue.hr.model.Position;
-import by.skopinau.rescue.hr.model.Rank;
-import by.skopinau.rescue.hr.model.Subdivision;
 import by.skopinau.rescue.hr.util.SessionUtil;
-import jakarta.persistence.TypedQuery;
+import jakarta.persistence.criteria.CriteriaBuilder;
+import jakarta.persistence.criteria.CriteriaQuery;
+import jakarta.persistence.criteria.Root;
 import org.hibernate.Session;
 import org.springframework.stereotype.Repository;
 
@@ -20,98 +19,145 @@ public class EmployeeDaoImpl extends BaseDaoImpl<Employee> {
 
     public List<Employee> findBySurname(String surname) {
         try(Session session = SessionUtil.openSession()) {
-            TypedQuery<Employee> query = session.createQuery("select entity from Employee entity where surname = '" + surname + "' order by surname, name, patronymic", Employee.class);
-            if (query.getResultList().isEmpty()) {
+            CriteriaBuilder cb = session.getCriteriaBuilder();
+            CriteriaQuery<Employee> criteria = cb.createQuery(Employee.class);
+            Root<Employee> employee = criteria.from(Employee.class);
+            criteria.select(employee)
+                    .where(cb.equal(employee.get("surname"), surname))
+                    .orderBy(
+                            cb.asc(employee.get("surname")),
+                            cb.asc(employee.get("name")),
+                            cb.asc(employee.get("patronymic"))
+                    );
+            if (session.createQuery(criteria).getResultList().isEmpty()) {
                 throw new NullPointerException("Объекты не существуют");
-            } else {
-                return query.getResultList();
-            }
+            } else return session.createQuery(criteria).getResultList();
         }
     }
 
     public List<Employee> findByName(String name) {
         try(Session session = SessionUtil.openSession()) {
-            TypedQuery<Employee> query = session.createQuery("select entity from Employee entity where name = '" + name + "' order by surname, name, patronymic", Employee.class);
-            if (query.getResultList().isEmpty()) {
+            CriteriaBuilder cb = session.getCriteriaBuilder();
+            CriteriaQuery<Employee> criteria = cb.createQuery(Employee.class);
+            Root<Employee> employee = criteria.from(Employee.class);
+            criteria.select(employee)
+                    .where(cb.equal(employee.get("name"), name))
+                    .orderBy(
+                            cb.asc(employee.get("surname")),
+                            cb.asc(employee.get("name")),
+                            cb.asc(employee.get("patronymic"))
+                    );
+            if (session.createQuery(criteria).getResultList().isEmpty()) {
                 throw new NullPointerException("Объекты не существуют");
-            } else {
-                return query.getResultList();
-            }
+            } else return session.createQuery(criteria).getResultList();
         }
     }
 
     public List<Employee> findByPatronymic(String patronymic) {
         try(Session session = SessionUtil.openSession()) {
-            TypedQuery<Employee> query = session.createQuery("select entity from Employee entity where patronymic = '" + patronymic + "' order by surname, name, patronymic", Employee.class);
-            if (query.getResultList().isEmpty()) {
+            CriteriaBuilder cb = session.getCriteriaBuilder();
+            CriteriaQuery<Employee> criteria = cb.createQuery(Employee.class);
+            Root<Employee> employee = criteria.from(Employee.class);
+            criteria.select(employee)
+                    .where(cb.equal(employee.get("patronymic"), patronymic))
+                    .orderBy(
+                            cb.asc(employee.get("surname")),
+                            cb.asc(employee.get("name")),
+                            cb.asc(employee.get("patronymic"))
+                    );
+            if (session.createQuery(criteria).getResultList().isEmpty()) {
                 throw new NullPointerException("Объекты не существуют");
-            } else {
-                return query.getResultList();
-            }
+            } else return session.createQuery(criteria).getResultList();
         }
     }
 
     public List<Employee> findByBirthday(LocalDate date) {
         try(Session session = SessionUtil.openSession()) {
-            TypedQuery<Employee> query = session.createQuery("select entity from Employee entity where birthday = '" + date + "' order by surname, name, patronymic", Employee.class);
-            if (query.getResultList().isEmpty()) {
+            CriteriaBuilder cb = session.getCriteriaBuilder();
+            CriteriaQuery<Employee> criteria = cb.createQuery(Employee.class);
+            Root<Employee> employee = criteria.from(Employee.class);
+            criteria.select(employee)
+                    .where(cb.equal(employee.get("birthday"), date))
+                    .orderBy(
+                            cb.asc(employee.get("surname")),
+                            cb.asc(employee.get("name")),
+                            cb.asc(employee.get("patronymic"))
+                    );
+            if (session.createQuery(criteria).getResultList().isEmpty()) {
                 throw new NullPointerException("Объекты не существуют");
-            } else {
-                return query.getResultList();
-            }
+            } else return session.createQuery(criteria).getResultList();
         }
     }
 
     public List<Employee> findByRank(String rankTitle) {
-        RankDaoImpl rankDao = new RankDaoImpl();
-        Rank byTitle = rankDao.findByTitle(rankTitle);
-        int id = byTitle.getId();
         try(Session session = SessionUtil.openSession()) {
-            TypedQuery<Employee> query = session.createQuery("select entity from Employee entity where rank = '" + id + "' order by surname, name, patronymic", Employee.class);
-            if (query.getResultList().isEmpty()) {
+            CriteriaBuilder cb = session.getCriteriaBuilder();
+            CriteriaQuery<Employee> criteria = cb.createQuery(Employee.class);
+            Root<Employee> employee = criteria.from(Employee.class);
+            criteria.select(employee)
+                    .where(cb.equal(employee.get("rank").get("rankTitle"), rankTitle))
+                    .orderBy(
+                            cb.asc(employee.get("surname")),
+                            cb.asc(employee.get("name")),
+                            cb.asc(employee.get("patronymic"))
+                    );
+            if (session.createQuery(criteria).getResultList().isEmpty()) {
                 throw new NullPointerException("Объекты не существуют");
-            } else {
-                return query.getResultList();
-            }
+            } else return session.createQuery(criteria).getResultList();
         }
     }
 
     public List<Employee> findByPosition(String positionTitle) {
-        PositionDaoImpl positionDao = new PositionDaoImpl();
-        Position byTitle = positionDao.findByTitle(positionTitle);
-        int id = byTitle.getId();
         try(Session session = SessionUtil.openSession()) {
-            TypedQuery<Employee> query = session.createQuery("select entity from Employee entity where position = '" + id + "' order by surname, name, patronymic", Employee.class);
-            if (query.getResultList().isEmpty()) {
+            CriteriaBuilder cb = session.getCriteriaBuilder();
+            CriteriaQuery<Employee> criteria = cb.createQuery(Employee.class);
+            Root<Employee> employee = criteria.from(Employee.class);
+            criteria.select(employee)
+                    .where(cb.equal(employee.get("position").get("positionTitle"), positionTitle))
+                    .orderBy(
+                            cb.asc(employee.get("surname")),
+                            cb.asc(employee.get("name")),
+                            cb.asc(employee.get("patronymic"))
+                    );
+            if (session.createQuery(criteria).getResultList().isEmpty()) {
                 throw new NullPointerException("Объекты не существуют");
-            } else {
-                return query.getResultList();
-            }
+            } else return session.createQuery(criteria).getResultList();
         }
     }
 
     public List<Employee> findBySubdivision(String subdivisionTitle) {
-        SubdivisionDaoImpl subdivisionDao = new SubdivisionDaoImpl();
-        Subdivision byTitle = subdivisionDao.findByTitle(subdivisionTitle);
-        int id = byTitle.getId();
         try(Session session = SessionUtil.openSession()) {
-            TypedQuery<Employee> query = session.createQuery("select entity from Employee entity where subdivision = '" + id + "' order by surname, name, patronymic", Employee.class);
-            if (query.getResultList().isEmpty()) {
+            CriteriaBuilder cb = session.getCriteriaBuilder();
+            CriteriaQuery<Employee> criteria = cb.createQuery(Employee.class);
+            Root<Employee> employee = criteria.from(Employee.class);
+            criteria.select(employee)
+                    .where(cb.equal(employee.get("subdivision").get("subdivisionTitle"), subdivisionTitle))
+                    .orderBy(
+                            cb.asc(employee.get("surname")),
+                            cb.asc(employee.get("name")),
+                            cb.asc(employee.get("patronymic"))
+                    );
+            if (session.createQuery(criteria).getResultList().isEmpty()) {
                 throw new NullPointerException("Объекты не существуют");
-            } else {
-                return query.getResultList();
-            }
+            } else return session.createQuery(criteria).getResultList();
         }
     }
 
     @Override
     public List<Employee> findAll() {
         try(Session session = SessionUtil.openSession()) {
-            TypedQuery<Employee> query = session.createQuery(
-                    "select entity from Employee entity order by surname, name, patronymic", Employee.class);
-            if (query.getResultList().isEmpty()) {
+            CriteriaBuilder cb = session.getCriteriaBuilder();
+            CriteriaQuery<Employee> criteria = cb.createQuery(Employee.class);
+            Root<Employee> employee = criteria.from(Employee.class);
+            criteria.select(employee)
+                    .orderBy(
+                            cb.asc(employee.get("surname")),
+                            cb.asc(employee.get("name")),
+                            cb.asc(employee.get("patronymic"))
+                    );
+            if (session.createQuery(criteria).getResultList().isEmpty()) {
                 throw new NullPointerException("Объекты не существуют");
-            } else return query.getResultList();
+            } else return session.createQuery(criteria).getResultList();
         }
     }
 }
