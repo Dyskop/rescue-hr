@@ -12,14 +12,15 @@ import java.util.List;
 @Service
 public class StateServiceImpl extends BaseServiceImpl<State> {
     private int actualPositionAmount;
+    private final List<Employee> employees;
 
     @Autowired
-    public StateServiceImpl(StateDaoImpl stateDao) {
+    public StateServiceImpl(StateDaoImpl stateDao, EmployeeDaoImpl employeeDao) {
         super(stateDao);
+        this.employees = employeeDao.findAll();
     }
 
     public int getActualPositionAmount(State state) {
-        List<Employee> employees = new EmployeeDaoImpl().findAll();
         actualPositionAmount = (int) employees.stream()
                 .filter(employee -> employee.getPosition().equals(state.getPosition()))
                 .filter(employee -> employee.getSubdivision().equals(state.getSubdivision()))
