@@ -1,36 +1,40 @@
 package by.skopinau.rescue.hr.config;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.core.env.Environment;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import javax.sql.DataSource;
+import java.util.Objects;
 import java.util.Properties;
 
-//@PropertySource("/application.properties")
 @Configuration
 @ComponentScan("by.skopinau.rescue.hr")
+@PropertySource("/application.properties")
 @EnableTransactionManagement(proxyTargetClass = true)
 public class Config {
 
-    /*private Environment env;
+    private Environment env;
 
     @Autowired
     public void setEnv(Environment env) {
         this.env = env;
-    }*/
+    }
 
     @Bean
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setDriverClassName("org.postgresql.Driver");
-        dataSource.setUrl("jdbc:postgresql://rescue-hr.c5l6aflmwjke.us-east-1.rds.amazonaws.com:5432/rescue_hr?currentSchema=rh");
-        dataSource.setUsername("postgres");
-        dataSource.setPassword("12345678");
+        dataSource.setDriverClassName(Objects.requireNonNull(env.getProperty("jdbc.driver")));
+        dataSource.setUrl(env.getProperty("jdbc.url"));
+        dataSource.setUsername(env.getProperty("jdbc.username"));
+        dataSource.setPassword(env.getProperty("jdbc.password"));
         return dataSource;
     }
 
@@ -49,6 +53,14 @@ public class Config {
                 = new HibernateTransactionManager();
         transactionManager.setSessionFactory(sessionFactory().getObject());
         return transactionManager;
+    }
+
+    private Properties hibernateProperties() {
+        Properties hibernateProperties = new Properties();
+        hibernateProperties.setProperty("hibernate.hbm2ddl.auto", env.getProperty("hibernate.creation_policy"));
+        hibernateProperties.setProperty("hibernate.dialect", env.getProperty("hibernate.dialect"));
+        hibernateProperties.setProperty("hibernate.format_sql", env.getProperty("hibernate.format_sql"));
+        return hibernateProperties;
     }
 
     /*@Bean
@@ -74,13 +86,4 @@ public class Config {
     public PersistenceExceptionTranslationPostProcessor exceptionTranslation(){
         return new PersistenceExceptionTranslationPostProcessor();
     }*/
-
-
-    private Properties hibernateProperties() {
-        Properties hibernateProperties = new Properties();
-        hibernateProperties.setProperty("hibernate.hbm2ddl.auto", "update");
-        hibernateProperties.setProperty("hibernate.dialect", "org.hibernate.dialect.PostgreSQLDialect");
-        hibernateProperties.setProperty("hibernate.format_sql", "true");
-        return hibernateProperties;
-    }
 }
