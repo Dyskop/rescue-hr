@@ -1,6 +1,5 @@
 package by.skopinau.rescue.hr.impl;
 
-import by.skopinau.rescue.hr.dao.impl.BaseDaoImpl;
 import by.skopinau.rescue.hr.dao.impl.EmployeeDaoImpl;
 import by.skopinau.rescue.hr.dao.impl.StateDaoImpl;
 import by.skopinau.rescue.hr.model.Employee;
@@ -13,9 +12,6 @@ import java.util.List;
 @Service
 public class StateServiceImpl extends BaseServiceImpl<State> {
     private int actualPositionAmount;
-    private int freePositionAmount;
-    private final List<Employee> employees = new EmployeeDaoImpl().findAll();
-    private final List<State> states = new StateDaoImpl().findAll();
 
     @Autowired
     public StateServiceImpl(StateDaoImpl stateDao) {
@@ -23,6 +19,7 @@ public class StateServiceImpl extends BaseServiceImpl<State> {
     }
 
     public int getActualPositionAmount(State state) {
+        List<Employee> employees = new EmployeeDaoImpl().findAll();
         actualPositionAmount = (int) employees.stream()
                 .filter(employee -> employee.getPosition().equals(state.getPosition()))
                 .filter(employee -> employee.getSubdivision().equals(state.getSubdivision()))

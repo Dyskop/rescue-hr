@@ -1,14 +1,20 @@
 package by.skopinau.rescue.hr.dao.impl;
 
+import by.skopinau.rescue.hr.config.Config;
 import by.skopinau.rescue.hr.model.Employee;
 import by.skopinau.rescue.hr.model.Position;
 import by.skopinau.rescue.hr.model.Rank;
 import by.skopinau.rescue.hr.model.Subdivision;
-import by.skopinau.rescue.hr.util.SessionUtil;
 import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
+import org.springframework.transaction.annotation.Transactional;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaDelete;
 import java.time.LocalDate;
@@ -16,14 +22,30 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@ExtendWith(SpringExtension.class)
+@Transactional
+@ContextConfiguration(classes = Config.class)
 public class EmployeeDaoTests {
-    private static EmployeeDaoImpl employeeDao;
-    private static List<Employee> expected;
+    @Autowired
+    private SessionFactory sessionFactory;
+
+    @Autowired
+    private EmployeeDaoImpl employeeDao;
+
+    @Autowired
+    private RankDaoImpl rankDao;
+
+    @Autowired
+    private PositionDaoImpl positionDao;
+
+    @Autowired
+    private SubdivisionDaoImpl subdivisionDao;
+
+    private List<Employee> expected;
 
     @BeforeEach
     void clearDB() {
-        Session session = SessionUtil.openSession();
-        session.getTransaction().begin();
+        Session session = sessionFactory.getCurrentSession();
         CriteriaBuilder cb = session.getCriteriaBuilder();
 
         CriteriaDelete<Employee> employeeCriteriaDelete = cb.createCriteriaDelete(Employee.class);
@@ -40,14 +62,10 @@ public class EmployeeDaoTests {
         session.createQuery(rankCriteriaDelete).executeUpdate();
         session.createQuery(positionCriteriaDelete).executeUpdate();
         session.createQuery(subdivisionCriteriaDelete).executeUpdate();
-
-        session.getTransaction().commit();
-        session.close();
     }
 
     @BeforeEach
     void initTestComponent() {
-        employeeDao = new EmployeeDaoImpl();
         Employee employee1 = new Employee("Скопинов", "Дмитрий", "Николаевич",
                 LocalDate.of(1993, 3, 17),
                 new Rank("капитан"),
@@ -149,7 +167,7 @@ public class EmployeeDaoTests {
     void findByRankTest() {
         // GIVEN
         expected = expected.stream()
-                .filter(employee -> employee.getRank().equals(new RankDaoImpl().findByTitle("капитан")))
+                .filter(employee -> employee.getRank().equals(rankDao.findByTitle("капитан")))
                 .sorted(Comparator.comparing(Employee::getSurname)
                         .thenComparing(Employee::getName)
                         .thenComparing(Employee::getPatronymic))
@@ -168,7 +186,7 @@ public class EmployeeDaoTests {
     void findByPositionTest() {
         // GIVEN
         expected = expected.stream()
-                .filter(employee -> employee.getPosition().equals(new PositionDaoImpl().findByTitle("пожарный")))
+                .filter(employee -> employee.getPosition().equals(positionDao.findByTitle("пожарный")))
                 .sorted(Comparator.comparing(Employee::getSurname)
                         .thenComparing(Employee::getName)
                         .thenComparing(Employee::getPatronymic))
@@ -187,7 +205,7 @@ public class EmployeeDaoTests {
     void findBySubdivisionTest() {
         // GIVEN
         expected = expected.stream()
-                .filter(employee -> employee.getSubdivision().equals(new SubdivisionDaoImpl().findByTitle("ПАСЧ-3")))
+                .filter(employee -> employee.getSubdivision().equals(subdivisionDao.findByTitle("ПАСЧ-3")))
                 .sorted(Comparator.comparing(Employee::getSurname)
                         .thenComparing(Employee::getName)
                         .thenComparing(Employee::getPatronymic))

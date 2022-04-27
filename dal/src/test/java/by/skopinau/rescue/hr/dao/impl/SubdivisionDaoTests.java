@@ -1,28 +1,34 @@
 package by.skopinau.rescue.hr.dao.impl;
 
+import by.skopinau.rescue.hr.config.Config;
 import by.skopinau.rescue.hr.model.Employee;
 import by.skopinau.rescue.hr.model.Subdivision;
-import by.skopinau.rescue.hr.util.SessionUtil;
 import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
+import org.springframework.transaction.annotation.Transactional;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaDelete;
 
+@ExtendWith(SpringExtension.class)
+@Transactional
+@ContextConfiguration(classes = Config.class)
 public class SubdivisionDaoTests {
-    private static SubdivisionDaoImpl subdivisionDao;
+    @Autowired
+    private SessionFactory sessionFactory;
 
-    @BeforeAll
-    static void initTestComponent() {
-        subdivisionDao = new SubdivisionDaoImpl();
-    }
+    @Autowired
+    private SubdivisionDaoImpl subdivisionDao;
 
     @BeforeEach
     void clearDB() {
-        Session session = SessionUtil.openSession();
-        session.getTransaction().begin();
+        Session session = sessionFactory.getCurrentSession();
         CriteriaBuilder cb = session.getCriteriaBuilder();
 
         CriteriaDelete<Employee> employeeCriteriaDelete = cb.createCriteriaDelete(Employee.class);
@@ -33,9 +39,6 @@ public class SubdivisionDaoTests {
 
         session.createQuery(employeeCriteriaDelete).executeUpdate();
         session.createQuery(subdivisionCriteriaDelete).executeUpdate();
-
-        session.getTransaction().commit();
-        session.close();
     }
 
     @Test

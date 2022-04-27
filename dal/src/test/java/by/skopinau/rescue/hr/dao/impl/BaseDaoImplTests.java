@@ -1,16 +1,22 @@
 package by.skopinau.rescue.hr.dao.impl;
 
+import by.skopinau.rescue.hr.config.Config;
 import by.skopinau.rescue.hr.dao.BaseDao;
 import by.skopinau.rescue.hr.model.Employee;
 import by.skopinau.rescue.hr.model.Position;
 import by.skopinau.rescue.hr.model.Rank;
 import by.skopinau.rescue.hr.model.Subdivision;
-import by.skopinau.rescue.hr.util.SessionUtil;
 import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
+import org.springframework.transaction.annotation.Transactional;
+
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaDelete;
 import java.time.LocalDate;
@@ -19,20 +25,22 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+@ExtendWith(SpringExtension.class)
+@Transactional
+@ContextConfiguration(classes = Config.class)
 public class BaseDaoImplTests {
-    private static BaseDao<Employee> baseDaoWithEmployee;
-    private static BaseDao<Rank> baseDaoWithRank;
+    @Autowired
+    private SessionFactory sessionFactory;
 
-    @BeforeAll
-    static void initTestComponent() {
-        baseDaoWithEmployee = new EmployeeDaoImpl();
-        baseDaoWithRank = new RankDaoImpl();
-    }
+    @Autowired
+    private BaseDao<Employee> baseDaoWithEmployee;
+
+    @Autowired
+    private BaseDao<Rank> baseDaoWithRank;
 
     @BeforeEach
     void clearDB() {
-        Session session = SessionUtil.openSession();
-        session.getTransaction().begin();
+        Session session = sessionFactory.getCurrentSession();
         CriteriaBuilder cb = session.getCriteriaBuilder();
 
         CriteriaDelete<Employee> employeeCriteriaDelete = cb.createCriteriaDelete(Employee.class);
@@ -49,9 +57,6 @@ public class BaseDaoImplTests {
         session.createQuery(rankCriteriaDelete).executeUpdate();
         session.createQuery(positionCriteriaDelete).executeUpdate();
         session.createQuery(subdivisionCriteriaDelete).executeUpdate();
-
-        session.getTransaction().commit();
-        session.close();
     }
 
     @Test
