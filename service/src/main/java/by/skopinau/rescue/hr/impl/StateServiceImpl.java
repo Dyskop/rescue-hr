@@ -1,5 +1,6 @@
 package by.skopinau.rescue.hr.impl;
 
+import by.skopinau.rescue.hr.dao.impl.BaseDaoImpl;
 import by.skopinau.rescue.hr.dao.impl.EmployeeDaoImpl;
 import by.skopinau.rescue.hr.dao.impl.StateDaoImpl;
 import by.skopinau.rescue.hr.model.Employee;

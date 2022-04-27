@@ -5,13 +5,12 @@ import by.skopinau.rescue.hr.model.Position;
 import by.skopinau.rescue.hr.model.Rank;
 import by.skopinau.rescue.hr.model.Subdivision;
 import by.skopinau.rescue.hr.util.SessionUtil;
-import jakarta.persistence.criteria.CriteriaBuilder;
-import jakarta.persistence.criteria.CriteriaDelete;
 import org.hibernate.Session;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaDelete;
 import java.time.LocalDate;
 import java.util.Comparator;
 import java.util.List;

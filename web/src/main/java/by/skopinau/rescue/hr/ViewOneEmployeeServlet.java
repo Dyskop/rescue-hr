@@ -1,5 +1,6 @@
 package by.skopinau.rescue.hr;
 
+import by.skopinau.rescue.hr.config.Config;
 import by.skopinau.rescue.hr.model.Employee;
 import by.skopinau.rescue.hr.impl.EmployeeServiceImpl;
 import by.skopinau.rescue.hr.impl.PositionsLogServiceImpl;

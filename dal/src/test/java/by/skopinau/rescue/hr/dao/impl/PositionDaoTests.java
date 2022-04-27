@@ -3,13 +3,13 @@ package by.skopinau.rescue.hr.dao.impl;
 import by.skopinau.rescue.hr.model.Employee;
 import by.skopinau.rescue.hr.model.Position;
 import by.skopinau.rescue.hr.util.SessionUtil;
-import jakarta.persistence.criteria.CriteriaBuilder;
-import jakarta.persistence.criteria.CriteriaDelete;
 import org.hibernate.Session;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaDelete;
 
 public class PositionDaoTests {
     private static PositionDaoImpl positionDao;

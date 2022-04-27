@@ -1,8 +1,7 @@
 package by.skopinau.rescue.hr.model;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 import lombok.*;
-
 import java.time.LocalDate;
 
 @EqualsAndHashCode(callSuper = false)

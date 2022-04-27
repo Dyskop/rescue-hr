@@ -1,5 +1,6 @@
 package by.skopinau.rescue.hr;
 
+import by.skopinau.rescue.hr.config.Config;
 import by.skopinau.rescue.hr.impl.RanksLogServiceImpl;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;

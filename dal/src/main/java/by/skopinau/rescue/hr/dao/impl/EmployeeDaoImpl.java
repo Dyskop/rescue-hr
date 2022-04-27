@@ -2,12 +2,11 @@ package by.skopinau.rescue.hr.dao.impl;
 
 import by.skopinau.rescue.hr.model.Employee;
 import by.skopinau.rescue.hr.util.SessionUtil;
-import jakarta.persistence.criteria.CriteriaBuilder;
-import jakarta.persistence.criteria.CriteriaQuery;
-import jakarta.persistence.criteria.Root;
 import org.hibernate.Session;
 import org.springframework.stereotype.Repository;
-
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 import java.time.LocalDate;
 import java.util.List;
 

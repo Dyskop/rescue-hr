@@ -3,16 +3,18 @@ package by.skopinau.rescue.hr.dao.impl;
 import by.skopinau.rescue.hr.dao.BaseDao;
 import by.skopinau.rescue.hr.model.BaseEntity;
 import by.skopinau.rescue.hr.util.SessionUtil;
-import jakarta.persistence.criteria.CriteriaBuilder;
-import jakarta.persistence.criteria.CriteriaQuery;
 import org.hibernate.Session;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
 import java.util.List;
 
 @Repository
-public class BaseDaoImpl<T extends BaseEntity> implements BaseDao<T> {
+public abstract class BaseDaoImpl<T extends BaseEntity> implements BaseDao<T> {
     private final Class<T> tClass;
 
+    @Autowired
     public BaseDaoImpl(Class<T> tClass) {
         this.tClass = tClass;
     }

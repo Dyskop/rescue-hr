@@ -1,6 +1,6 @@
 package by.skopinau.rescue.hr.model;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;

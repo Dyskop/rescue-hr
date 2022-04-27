@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class BaseServiceImpl<T extends BaseEntity> implements BaseService<T> {
+public abstract class BaseServiceImpl<T extends BaseEntity> implements BaseService<T> {
     private final BaseDaoImpl<T> baseDaoImpl;
 
     @Autowired
