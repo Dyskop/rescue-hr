@@ -20,7 +20,7 @@ public class ViewPositionsLogServlet extends HttpServlet {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Config.class);
         PositionsLogServiceImpl positionsLogService = (PositionsLogServiceImpl) context.getBean("positionsLogServiceImpl");
         req.setAttribute("logs", positionsLogService.findAll());
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/jsp/viewPositionsLog.jsp");
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/jsp/viewPositionsLog.jsp");
         dispatcher.forward(req, resp);
     }
 }

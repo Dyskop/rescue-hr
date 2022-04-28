@@ -21,7 +21,7 @@ public class ViewStateServlet extends HttpServlet {
         StateServiceImpl stateService = (StateServiceImpl) context.getBean("stateServiceImpl");
         req.setAttribute("state", stateService.findAll());
         req.setAttribute("stateService", stateService);
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/jsp/viewState.jsp");
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/jsp/viewState.jsp");
         dispatcher.forward(req, resp);
     }
 }

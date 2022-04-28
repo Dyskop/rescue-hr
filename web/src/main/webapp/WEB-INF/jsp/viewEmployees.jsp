@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <title>Rescue HR</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <%@ include file="common/css-connect.jsp" %>
+    <%@ include file="common/css-connect.jsp"%>
 </head>
 <body>
 <%@ include file="common/header.jsp"%>

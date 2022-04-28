@@ -36,7 +36,7 @@ public class ViewOneEmployeeServlet extends HttpServlet {
         req.setAttribute("employee", employee);
         req.setAttribute("positionLogs", positionsLogService.findByEmployee(employee));
         req.setAttribute("rankLogs", ranksLogService.findByEmployee(employee));
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/jsp/viewOneEmployee.jsp");
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/jsp/viewOneEmployee.jsp");
         dispatcher.forward(req, resp);
     }
 }

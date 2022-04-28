@@ -20,7 +20,7 @@ public class ViewRanksLogServlet extends HttpServlet {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Config.class);
         RanksLogServiceImpl ranksLogService = (RanksLogServiceImpl) context.getBean("ranksLogServiceImpl");
         req.setAttribute("logs", ranksLogService.findAll());
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/jsp/viewRanksLog.jsp");
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/jsp/viewRanksLog.jsp");
         dispatcher.forward(req, resp);
     }
 }

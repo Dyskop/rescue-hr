@@ -20,7 +20,7 @@ public class ViewEmployeesServlet extends HttpServlet {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Config.class);
         EmployeeServiceImpl employeeService = (EmployeeServiceImpl) context.getBean("employeeServiceImpl");
         req.setAttribute("employees", employeeService.findAll());
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/jsp/viewEmployees.jsp");
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/jsp/viewEmployees.jsp");
         dispatcher.forward(req, resp);
     }
 }
