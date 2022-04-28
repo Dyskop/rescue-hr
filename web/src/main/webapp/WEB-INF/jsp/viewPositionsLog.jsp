@@ -26,7 +26,7 @@
             </tr>
             </thead>
             <tbody>
-            <c:forEach items="${requestScope.logs}" var="log">
+            <c:forEach items="${requestScope.positionLogs}" var="log">
                 <fmt:parseDate value="${log.positionGettingDate}" pattern="yyyy-MM-dd" var="positionGettingDate" type="date"/>
                 <tr>
                     <td></td>
