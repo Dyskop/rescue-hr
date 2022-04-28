@@ -1,6 +1,6 @@
 package by.skopinau.rescue.hr.dao.impl;
 
-import by.skopinau.rescue.hr.config.Config;
+import by.skopinau.rescue.hr.config.OrmConfig;
 import by.skopinau.rescue.hr.model.Employee;
 import by.skopinau.rescue.hr.model.Rank;
 import org.hibernate.Session;
@@ -19,7 +19,7 @@ import javax.persistence.criteria.CriteriaDelete;
 
 @ExtendWith(SpringExtension.class)
 @Transactional
-@ContextConfiguration(classes = Config.class)
+@ContextConfiguration(classes = OrmConfig.class)
 public class RankDaoTests {
     @Autowired
     private SessionFactory sessionFactory;

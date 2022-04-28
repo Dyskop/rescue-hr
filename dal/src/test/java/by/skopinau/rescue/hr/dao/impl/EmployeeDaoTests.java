@@ -1,6 +1,6 @@
 package by.skopinau.rescue.hr.dao.impl;
 
-import by.skopinau.rescue.hr.config.Config;
+import by.skopinau.rescue.hr.config.OrmConfig;
 import by.skopinau.rescue.hr.model.Employee;
 import by.skopinau.rescue.hr.model.Position;
 import by.skopinau.rescue.hr.model.Rank;
@@ -24,7 +24,7 @@ import java.util.stream.Collectors;
 
 @ExtendWith(SpringExtension.class)
 @Transactional
-@ContextConfiguration(classes = Config.class)
+@ContextConfiguration(classes = OrmConfig.class)
 public class EmployeeDaoTests {
     @Autowired
     private SessionFactory sessionFactory;

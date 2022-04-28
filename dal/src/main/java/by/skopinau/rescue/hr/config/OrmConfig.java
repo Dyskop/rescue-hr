@@ -17,9 +17,9 @@ import java.util.Properties;
 
 @Configuration
 @ComponentScan("by.skopinau.rescue.hr")
-@PropertySource("/application.properties")
+@PropertySource("classpath:application.properties")
 @EnableTransactionManagement(proxyTargetClass = true)
-public class Config {
+public class OrmConfig {
 
     private Environment env;
 

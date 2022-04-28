@@ -1,6 +1,6 @@
 package by.skopinau.rescue.hr.dao.impl;
 
-import by.skopinau.rescue.hr.config.Config;
+import by.skopinau.rescue.hr.config.OrmConfig;
 import by.skopinau.rescue.hr.dao.BaseDao;
 import by.skopinau.rescue.hr.model.Employee;
 import by.skopinau.rescue.hr.model.Position;
@@ -27,7 +27,7 @@ import java.util.stream.Stream;
 
 @ExtendWith(SpringExtension.class)
 @Transactional
-@ContextConfiguration(classes = Config.class)
+@ContextConfiguration(classes = OrmConfig.class)
 public class BaseDaoImplTests {
     @Autowired
     private SessionFactory sessionFactory;
