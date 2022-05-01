@@ -1,44 +1,47 @@
-package by.skopinau.rescue.hr.impl;
+package by.skopinau.rescue.hr.service.impl;
 
-import by.skopinau.rescue.hr.dao.impl.BaseDaoImpl;
+import by.skopinau.rescue.hr.service.BaseService;
+import by.skopinau.rescue.hr.dao.BaseDao;
+import by.skopinau.rescue.hr.dao.jpa.BaseDaoJpa;
 import by.skopinau.rescue.hr.model.BaseEntity;
-import by.skopinau.rescue.hr.BaseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Service
+@Transactional
 public abstract class BaseServiceImpl<T extends BaseEntity> implements BaseService<T> {
-    private final BaseDaoImpl<T> baseDaoImpl;
+    private final BaseDao<T> baseDao;
 
     @Autowired
-    public BaseServiceImpl(BaseDaoImpl<T> baseDaoImpl) {
-        this.baseDaoImpl = baseDaoImpl;
+    public BaseServiceImpl(BaseDaoJpa<T> baseDao) {
+        this.baseDao = baseDao;
     }
 
     @Override
     public void save(T entity) {
-        baseDaoImpl.save(entity);
+        baseDao.save(entity);
     }
 
     @Override
     public void update(T entity) {
-        baseDaoImpl.update(entity);
+        baseDao.update(entity);
     }
 
     @Override
     public void delete(T entity) {
-        baseDaoImpl.delete(entity);
+        baseDao.delete(entity);
     }
 
     @Override
     public T findById(int id) {
-        return baseDaoImpl.findById(id);
+        return baseDao.findById(id);
     }
 
     @Override
     public List<T> findAll() {
-        return baseDaoImpl.findAll();
+        return baseDao.findAll();
     }
 }

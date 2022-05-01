@@ -1,9 +1,13 @@
 package by.skopinau.rescue.hr.controller;
 
-import by.skopinau.rescue.hr.impl.EmployeeServiceImpl;
-import by.skopinau.rescue.hr.impl.PositionsLogServiceImpl;
-import by.skopinau.rescue.hr.impl.RanksLogServiceImpl;
-import by.skopinau.rescue.hr.impl.StateServiceImpl;
+import by.skopinau.rescue.hr.service.EmployeeService;
+import by.skopinau.rescue.hr.service.PositionsLogService;
+import by.skopinau.rescue.hr.service.RanksLogService;
+import by.skopinau.rescue.hr.service.StateService;
+import by.skopinau.rescue.hr.service.impl.EmployeeServiceImpl;
+import by.skopinau.rescue.hr.service.impl.PositionsLogServiceImpl;
+import by.skopinau.rescue.hr.service.impl.RanksLogServiceImpl;
+import by.skopinau.rescue.hr.service.impl.StateServiceImpl;
 import by.skopinau.rescue.hr.model.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,10 +17,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 @Controller
 public class ModelInteractionController {
-    private final EmployeeServiceImpl employeeService;
-    private final StateServiceImpl stateService;
-    private final RanksLogServiceImpl ranksLogService;
-    private final PositionsLogServiceImpl positionsLogService;
+    private final EmployeeService employeeService;
+    private final StateService stateService;
+    private final RanksLogService ranksLogService;
+    private final PositionsLogService positionsLogService;
 
     @Autowired
     public ModelInteractionController(EmployeeServiceImpl employeeService, StateServiceImpl stateService, RanksLogServiceImpl ranksLogService, PositionsLogServiceImpl positionsLogService) {

@@ -1,19 +1,23 @@
-package by.skopinau.rescue.hr.impl;
+package by.skopinau.rescue.hr.service.impl;
 
-import by.skopinau.rescue.hr.dao.impl.EmployeeDaoImpl;
+import by.skopinau.rescue.hr.service.EmployeeService;
+import by.skopinau.rescue.hr.dao.EmployeeDao;
+import by.skopinau.rescue.hr.dao.jpa.EmployeeDaoJpa;
 import by.skopinau.rescue.hr.model.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
 import java.util.List;
 
 @Service
-public class EmployeeServiceImpl extends BaseServiceImpl<Employee> {
-    private final EmployeeDaoImpl employeeDao;
+@Transactional
+public class EmployeeServiceImpl extends BaseServiceImpl<Employee> implements EmployeeService {
+    private final EmployeeDao employeeDao;
 
     @Autowired
-    public EmployeeServiceImpl(EmployeeDaoImpl employeeDao) {
+    public EmployeeServiceImpl(EmployeeDaoJpa employeeDao) {
         super(employeeDao);
         this.employeeDao = employeeDao;
     }

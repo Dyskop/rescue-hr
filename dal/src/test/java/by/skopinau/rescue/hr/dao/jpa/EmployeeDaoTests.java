@@ -1,12 +1,10 @@
-package by.skopinau.rescue.hr.dao.impl;
+package by.skopinau.rescue.hr.dao.jpa;
 
 import by.skopinau.rescue.hr.config.OrmConfig;
 import by.skopinau.rescue.hr.model.Employee;
 import by.skopinau.rescue.hr.model.Position;
 import by.skopinau.rescue.hr.model.Rank;
 import by.skopinau.rescue.hr.model.Subdivision;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -15,6 +13,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.transaction.annotation.Transactional;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaDelete;
 import java.time.LocalDate;
@@ -26,27 +27,26 @@ import java.util.stream.Collectors;
 @Transactional
 @ContextConfiguration(classes = OrmConfig.class)
 public class EmployeeDaoTests {
-    @Autowired
-    private SessionFactory sessionFactory;
+    @PersistenceContext
+    private EntityManager entityManager;
 
     @Autowired
-    private EmployeeDaoImpl employeeDao;
+    private EmployeeDaoJpa employeeDao;
 
     @Autowired
-    private RankDaoImpl rankDao;
+    private RankDaoJpa rankDao;
 
     @Autowired
-    private PositionDaoImpl positionDao;
+    private PositionDaoJpa positionDao;
 
     @Autowired
-    private SubdivisionDaoImpl subdivisionDao;
+    private SubdivisionDaoJpa subdivisionDao;
 
     private List<Employee> expected;
 
     @BeforeEach
     void clearDB() {
-        Session session = sessionFactory.getCurrentSession();
-        CriteriaBuilder cb = session.getCriteriaBuilder();
+        CriteriaBuilder cb = entityManager.getCriteriaBuilder();
 
         CriteriaDelete<Employee> employeeCriteriaDelete = cb.createCriteriaDelete(Employee.class);
         CriteriaDelete<Rank> rankCriteriaDelete = cb.createCriteriaDelete(Rank.class);
@@ -58,10 +58,10 @@ public class EmployeeDaoTests {
         positionCriteriaDelete.from(Position.class);
         subdivisionCriteriaDelete.from(Subdivision.class);
 
-        session.createQuery(employeeCriteriaDelete).executeUpdate();
-        session.createQuery(rankCriteriaDelete).executeUpdate();
-        session.createQuery(positionCriteriaDelete).executeUpdate();
-        session.createQuery(subdivisionCriteriaDelete).executeUpdate();
+        entityManager.createQuery(employeeCriteriaDelete).executeUpdate();
+        entityManager.createQuery(rankCriteriaDelete).executeUpdate();
+        entityManager.createQuery(positionCriteriaDelete).executeUpdate();
+        entityManager.createQuery(subdivisionCriteriaDelete).executeUpdate();
     }
 
     @BeforeEach

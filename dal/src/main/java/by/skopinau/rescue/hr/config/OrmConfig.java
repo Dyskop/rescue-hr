@@ -6,11 +6,14 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
+import org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
-import org.springframework.orm.hibernate5.HibernateTransactionManager;
-import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
+import org.springframework.orm.jpa.JpaTransactionManager;
+import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
+import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+
 import javax.sql.DataSource;
 import java.util.Objects;
 import java.util.Properties;
@@ -20,7 +23,6 @@ import java.util.Properties;
 @PropertySource("classpath:application.properties")
 @EnableTransactionManagement(proxyTargetClass = true)
 public class OrmConfig {
-
     private Environment env;
 
     @Autowired
@@ -39,20 +41,15 @@ public class OrmConfig {
     }
 
     @Bean
-    public LocalSessionFactoryBean sessionFactory() {
-        LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
-        sessionFactory.setDataSource(dataSource());
-        sessionFactory.setPackagesToScan("by.skopinau.rescue.hr.model");
-        sessionFactory.setHibernateProperties(hibernateProperties());
-        return sessionFactory;
-    }
-
-    @Bean
-    public PlatformTransactionManager transactionManager() {
-        HibernateTransactionManager transactionManager
-                = new HibernateTransactionManager();
-        transactionManager.setSessionFactory(sessionFactory().getObject());
-        return transactionManager;
+    public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
+        HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
+        vendorAdapter.setGenerateDdl(true);
+        LocalContainerEntityManagerFactoryBean factory = new LocalContainerEntityManagerFactoryBean();
+        factory.setJpaVendorAdapter(vendorAdapter);
+        factory.setPackagesToScan("by.skopinau.rescue.hr.model");
+        factory.setDataSource(dataSource());
+        factory.setJpaProperties(hibernateProperties());
+        return factory;
     }
 
     private Properties hibernateProperties() {
@@ -63,27 +60,15 @@ public class OrmConfig {
         return hibernateProperties;
     }
 
-    /*@Bean
-    public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
-        HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
-        vendorAdapter.setGenerateDdl(true);
-        LocalContainerEntityManagerFactoryBean factory = new LocalContainerEntityManagerFactoryBean();
-        factory.setJpaVendorAdapter(vendorAdapter);
-        factory.setPackagesToScan("by.skopinau.rescue.hr.model");
-        factory.setDataSource(dataSource());
-        factory.setJpaProperties(hibernateProperties());
-        return factory;
-    }*/
-
-    /*@Bean
+    @Bean
     public PlatformTransactionManager transactionManager() {
         JpaTransactionManager transactionManager = new JpaTransactionManager();
         transactionManager.setEntityManagerFactory(entityManagerFactory().getObject());
         return transactionManager;
-    }*/
+    }
 
-    /*@Bean
+    @Bean
     public PersistenceExceptionTranslationPostProcessor exceptionTranslation(){
         return new PersistenceExceptionTranslationPostProcessor();
-    }*/
+    }
 }

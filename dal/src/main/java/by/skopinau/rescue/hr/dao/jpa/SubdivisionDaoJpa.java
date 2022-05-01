@@ -1,27 +1,34 @@
-package by.skopinau.rescue.hr.dao.impl;
+package by.skopinau.rescue.hr.dao.jpa;
 
+import by.skopinau.rescue.hr.dao.SubdivisionDao;
 import by.skopinau.rescue.hr.model.Subdivision;
-import org.hibernate.Session;
 import org.springframework.stereotype.Repository;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
+import java.util.List;
 
 @Repository
-public class SubdivisionDaoImpl extends BaseDaoImpl<Subdivision> {
-    public SubdivisionDaoImpl() {
+public class SubdivisionDaoJpa extends BaseDaoJpa<Subdivision> implements SubdivisionDao {
+    @PersistenceContext
+    private EntityManager entityManager;
+
+    public SubdivisionDaoJpa() {
         super(Subdivision.class);
     }
 
     public Subdivision findByTitle(String subdivisionTitle) {
-        Session session = getSessionFactory().getCurrentSession();
-        CriteriaBuilder cb = session.getCriteriaBuilder();
+        CriteriaBuilder cb = entityManager.getCriteriaBuilder();
         CriteriaQuery<Subdivision> criteria = cb.createQuery(Subdivision.class);
         Root<Subdivision> subdivision = criteria.from(Subdivision.class);
         criteria.select(subdivision)
                 .where(cb.equal(subdivision.get("subdivisionTitle"), subdivisionTitle));
-        if (session.createQuery(criteria).getResultList().isEmpty()) {
+        List<Subdivision> resultList = entityManager.createQuery(criteria).getResultList();
+        if (resultList.isEmpty()) {
             throw new NullPointerException("Объекты не существуют");
-        } else return session.createQuery(criteria).getResultList().get(0);
+        } else return resultList.get(0);
     }
 }

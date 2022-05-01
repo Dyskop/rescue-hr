@@ -1,19 +1,23 @@
-package by.skopinau.rescue.hr.impl;
+package by.skopinau.rescue.hr.service.impl;
 
-import by.skopinau.rescue.hr.dao.impl.PositionsLogDaoImpl;
+import by.skopinau.rescue.hr.service.PositionsLogService;
+import by.skopinau.rescue.hr.dao.PositionsLogDao;
+import by.skopinau.rescue.hr.dao.jpa.PositionsLogDaoJpa;
 import by.skopinau.rescue.hr.model.Employee;
 import by.skopinau.rescue.hr.model.PositionsLog;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Service
-public class PositionsLogServiceImpl extends BaseServiceImpl<PositionsLog> {
-    private final PositionsLogDaoImpl positionsLogDao;
+@Transactional
+public class PositionsLogServiceImpl extends BaseServiceImpl<PositionsLog> implements PositionsLogService {
+    private final PositionsLogDao positionsLogDao;
 
     @Autowired
-    public PositionsLogServiceImpl(PositionsLogDaoImpl positionsLogDao) {
+    public PositionsLogServiceImpl(PositionsLogDaoJpa positionsLogDao) {
         super(positionsLogDao);
         this.positionsLogDao = positionsLogDao;
     }

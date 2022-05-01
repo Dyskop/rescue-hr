@@ -1,4 +1,4 @@
 package by.skopinau.rescue.hr.model;
 
-public class BaseEntity {
+public abstract class BaseEntity {
 }

@@ -1,37 +1,42 @@
-package by.skopinau.rescue.hr.dao.impl;
+package by.skopinau.rescue.hr.dao.jpa;
 
+import by.skopinau.rescue.hr.dao.PositionsLogDao;
 import by.skopinau.rescue.hr.model.Employee;
 import by.skopinau.rescue.hr.model.PositionsLog;
-import org.hibernate.Session;
 import org.springframework.stereotype.Repository;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import java.util.List;
 
 @Repository
-public class PositionsLogDaoImpl extends BaseDaoImpl<PositionsLog> {
-    public PositionsLogDaoImpl() {
+public class PositionsLogDaoJpa extends BaseDaoJpa<PositionsLog> implements PositionsLogDao {
+    @PersistenceContext
+    private EntityManager entityManager;
+
+    public PositionsLogDaoJpa() {
         super(PositionsLog.class);
     }
 
     public List<PositionsLog> findByEmployee(Employee employee) {
-        Session session = getSessionFactory().getCurrentSession();
-        CriteriaBuilder cb = session.getCriteriaBuilder();
+        CriteriaBuilder cb = entityManager.getCriteriaBuilder();
         CriteriaQuery<PositionsLog> criteria = cb.createQuery(PositionsLog.class);
         Root<PositionsLog> positionsLog = criteria.from(PositionsLog.class);
         criteria.select(positionsLog)
                 .where(cb.equal(positionsLog.get("employee").get("id"), employee.getId()))
                 .orderBy(cb.desc(positionsLog.get("positionGettingDate")));
-        if (session.createQuery(criteria).getResultList().isEmpty()) {
+        List<PositionsLog> resultList = entityManager.createQuery(criteria).getResultList();
+        if (resultList.isEmpty()) {
             throw new NullPointerException("Объекты не существуют");
-        } else return session.createQuery(criteria).getResultList();
+        } else return resultList;
     }
 
     @Override
     public List<PositionsLog> findAll() {
-        Session session = getSessionFactory().getCurrentSession();
-        CriteriaBuilder cb = session.getCriteriaBuilder();
+        CriteriaBuilder cb = entityManager.getCriteriaBuilder();
         CriteriaQuery<PositionsLog> criteria = cb.createQuery(PositionsLog.class);
         Root<PositionsLog> positionsLog = criteria.from(PositionsLog.class);
         criteria.select(positionsLog)
@@ -41,8 +46,9 @@ public class PositionsLogDaoImpl extends BaseDaoImpl<PositionsLog> {
                         cb.asc(positionsLog.get("employee").get("name")),
                         cb.asc(positionsLog.get("employee").get("patronymic"))
                 );
-        if (session.createQuery(criteria).getResultList().isEmpty()) {
+        List<PositionsLog> resultList = entityManager.createQuery(criteria).getResultList();
+        if (resultList.isEmpty()) {
             throw new NullPointerException("Объекты не существуют");
-        } else return session.createQuery(criteria).getResultList();
+        } else return resultList;
     }
 }

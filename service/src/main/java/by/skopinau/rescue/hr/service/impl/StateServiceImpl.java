@@ -1,21 +1,24 @@
-package by.skopinau.rescue.hr.impl;
+package by.skopinau.rescue.hr.service.impl;
 
-import by.skopinau.rescue.hr.dao.impl.EmployeeDaoImpl;
-import by.skopinau.rescue.hr.dao.impl.StateDaoImpl;
+import by.skopinau.rescue.hr.service.StateService;
+import by.skopinau.rescue.hr.dao.jpa.EmployeeDaoJpa;
+import by.skopinau.rescue.hr.dao.jpa.StateDaoJpa;
 import by.skopinau.rescue.hr.model.Employee;
 import by.skopinau.rescue.hr.model.State;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Service
-public class StateServiceImpl extends BaseServiceImpl<State> {
+@Transactional
+public class StateServiceImpl extends BaseServiceImpl<State> implements StateService {
     private int actualPositionAmount;
     private final List<Employee> employees;
 
     @Autowired
-    public StateServiceImpl(StateDaoImpl stateDao, EmployeeDaoImpl employeeDao) {
+    public StateServiceImpl(StateDaoJpa stateDao, EmployeeDaoJpa employeeDao) {
         super(stateDao);
         this.employees = employeeDao.findAll();
     }

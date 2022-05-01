@@ -1,10 +1,8 @@
-package by.skopinau.rescue.hr.dao.impl;
+package by.skopinau.rescue.hr.dao.jpa;
 
 import by.skopinau.rescue.hr.config.OrmConfig;
 import by.skopinau.rescue.hr.model.Employee;
-import by.skopinau.rescue.hr.model.Position;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
+import by.skopinau.rescue.hr.model.Rank;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -13,47 +11,49 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.transaction.annotation.Transactional;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaDelete;
 
 @ExtendWith(SpringExtension.class)
 @Transactional
 @ContextConfiguration(classes = OrmConfig.class)
-public class PositionDaoTests {
-    @Autowired
-    private SessionFactory sessionFactory;
+public class RankDaoTests {
+    @PersistenceContext
+    private EntityManager entityManager;
 
     @Autowired
-    private PositionDaoImpl positionDao;
+    private RankDaoJpa rankDao;
 
     @BeforeEach
     void clearDB() {
-        Session session = sessionFactory.getCurrentSession();
-        CriteriaBuilder cb = session.getCriteriaBuilder();
+        CriteriaBuilder cb = entityManager.getCriteriaBuilder();
 
         CriteriaDelete<Employee> employeeCriteriaDelete = cb.createCriteriaDelete(Employee.class);
-        CriteriaDelete<Position> positionCriteriaDelete = cb.createCriteriaDelete(Position.class);
+        CriteriaDelete<Rank> rankCriteriaDelete = cb.createCriteriaDelete(Rank.class);
 
         employeeCriteriaDelete.from(Employee.class);
-        positionCriteriaDelete.from(Position.class);
+        rankCriteriaDelete.from(Rank.class);
 
-        session.createQuery(employeeCriteriaDelete).executeUpdate();
-        session.createQuery(positionCriteriaDelete).executeUpdate();
+        entityManager.createQuery(employeeCriteriaDelete).executeUpdate();
+        entityManager.createQuery(rankCriteriaDelete).executeUpdate();
     }
 
     @Test
     void findByTitleTest() {
         // GIVEN
-        Position expected = new Position("пожарный");
-        positionDao.save(expected);
+        Rank expected = new Rank("генерал");
+        rankDao.save(expected);
 
         // WHEN
-        Position actual = positionDao.findByTitle("пожарный");
+        Rank actual = rankDao.findByTitle("генерал");
 
         // THEN
         Assertions.assertNotNull(actual);
         Assertions.assertEquals(expected.getId(), actual.getId());
-        Assertions.assertEquals(expected.getPositionTitle(), actual.getPositionTitle());
+        Assertions.assertEquals(expected.getRankTitle(), actual.getRankTitle());
         Assertions.assertEquals(expected, actual);
     }
 }

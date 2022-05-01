@@ -1,4 +1,4 @@
-package by.skopinau.rescue.hr;
+package by.skopinau.rescue.hr.service;
 
 import by.skopinau.rescue.hr.model.BaseEntity;
 

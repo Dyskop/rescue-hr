@@ -1,27 +1,34 @@
-package by.skopinau.rescue.hr.dao.impl;
+package by.skopinau.rescue.hr.dao.jpa;
 
+import by.skopinau.rescue.hr.dao.PositionDao;
 import by.skopinau.rescue.hr.model.Position;
-import org.hibernate.Session;
 import org.springframework.stereotype.Repository;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
+import java.util.List;
 
 @Repository
-public class PositionDaoImpl extends BaseDaoImpl<Position> {
-    public PositionDaoImpl() {
+public class PositionDaoJpa extends BaseDaoJpa<Position> implements PositionDao {
+    @PersistenceContext
+    private EntityManager entityManager;
+
+    public PositionDaoJpa() {
         super(Position.class);
     }
 
     public Position findByTitle(String positionTitle) {
-        Session session = getSessionFactory().getCurrentSession();
-        CriteriaBuilder cb = session.getCriteriaBuilder();
+        CriteriaBuilder cb = entityManager.getCriteriaBuilder();
         CriteriaQuery<Position> criteria = cb.createQuery(Position.class);
         Root<Position> position = criteria.from(Position.class);
         criteria.select(position)
                 .where(cb.equal(position.get("positionTitle"), positionTitle));
-        if (session.createQuery(criteria).getResultList().isEmpty()) {
+        List<Position> resultList = entityManager.createQuery(criteria).getResultList();
+        if (resultList.isEmpty()) {
             throw new NullPointerException("Объекты не существуют");
-        } else return session.createQuery(criteria).getResultList().get(0);
+        } else return resultList.get(0);
     }
 }

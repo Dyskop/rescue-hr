@@ -1,8 +1,11 @@
-package by.skopinau.rescue.hr.dao.impl;
+package by.skopinau.rescue.hr.dao.jpa;
 
+import by.skopinau.rescue.hr.dao.EmployeeDao;
 import by.skopinau.rescue.hr.model.Employee;
-import org.hibernate.Session;
 import org.springframework.stereotype.Repository;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
@@ -10,14 +13,16 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Repository
-public class EmployeeDaoImpl extends BaseDaoImpl<Employee> {
-    public EmployeeDaoImpl() {
+public class EmployeeDaoJpa extends BaseDaoJpa<Employee> implements EmployeeDao {
+    @PersistenceContext
+    private EntityManager entityManager;
+
+    public EmployeeDaoJpa() {
         super(Employee.class);
     }
 
     public List<Employee> findBySurname(String surname) {
-        Session session = getSessionFactory().getCurrentSession();
-        CriteriaBuilder cb = session.getCriteriaBuilder();
+        CriteriaBuilder cb = entityManager.getCriteriaBuilder();
         CriteriaQuery<Employee> criteria = cb.createQuery(Employee.class);
         Root<Employee> employee = criteria.from(Employee.class);
         criteria.select(employee)
@@ -27,14 +32,14 @@ public class EmployeeDaoImpl extends BaseDaoImpl<Employee> {
                         cb.asc(employee.get("name")),
                         cb.asc(employee.get("patronymic"))
                 );
-        if (session.createQuery(criteria).getResultList().isEmpty()) {
+        List<Employee> resultList = entityManager.createQuery(criteria).getResultList();
+        if (resultList.isEmpty()) {
             throw new NullPointerException("Объекты не существуют");
-        } else return session.createQuery(criteria).getResultList();
+        } else return resultList;
     }
 
     public List<Employee> findByName(String name) {
-        Session session = getSessionFactory().getCurrentSession();
-        CriteriaBuilder cb = session.getCriteriaBuilder();
+        CriteriaBuilder cb = entityManager.getCriteriaBuilder();
         CriteriaQuery<Employee> criteria = cb.createQuery(Employee.class);
         Root<Employee> employee = criteria.from(Employee.class);
         criteria.select(employee)
@@ -44,14 +49,14 @@ public class EmployeeDaoImpl extends BaseDaoImpl<Employee> {
                         cb.asc(employee.get("name")),
                         cb.asc(employee.get("patronymic"))
                 );
-        if (session.createQuery(criteria).getResultList().isEmpty()) {
+        List<Employee> resultList = entityManager.createQuery(criteria).getResultList();
+        if (resultList.isEmpty()) {
             throw new NullPointerException("Объекты не существуют");
-        } else return session.createQuery(criteria).getResultList();
+        } else return resultList;
     }
 
     public List<Employee> findByPatronymic(String patronymic) {
-        Session session = getSessionFactory().getCurrentSession();
-        CriteriaBuilder cb = session.getCriteriaBuilder();
+        CriteriaBuilder cb = entityManager.getCriteriaBuilder();
         CriteriaQuery<Employee> criteria = cb.createQuery(Employee.class);
         Root<Employee> employee = criteria.from(Employee.class);
         criteria.select(employee)
@@ -61,14 +66,14 @@ public class EmployeeDaoImpl extends BaseDaoImpl<Employee> {
                         cb.asc(employee.get("name")),
                         cb.asc(employee.get("patronymic"))
                 );
-        if (session.createQuery(criteria).getResultList().isEmpty()) {
+        List<Employee> resultList = entityManager.createQuery(criteria).getResultList();
+        if (resultList.isEmpty()) {
             throw new NullPointerException("Объекты не существуют");
-        } else return session.createQuery(criteria).getResultList();
+        } else return resultList;
     }
 
     public List<Employee> findByBirthday(LocalDate date) {
-        Session session = getSessionFactory().getCurrentSession();
-        CriteriaBuilder cb = session.getCriteriaBuilder();
+        CriteriaBuilder cb = entityManager.getCriteriaBuilder();
         CriteriaQuery<Employee> criteria = cb.createQuery(Employee.class);
         Root<Employee> employee = criteria.from(Employee.class);
         criteria.select(employee)
@@ -78,14 +83,14 @@ public class EmployeeDaoImpl extends BaseDaoImpl<Employee> {
                         cb.asc(employee.get("name")),
                         cb.asc(employee.get("patronymic"))
                 );
-        if (session.createQuery(criteria).getResultList().isEmpty()) {
+        List<Employee> resultList = entityManager.createQuery(criteria).getResultList();
+        if (resultList.isEmpty()) {
             throw new NullPointerException("Объекты не существуют");
-        } else return session.createQuery(criteria).getResultList();
+        } else return resultList;
     }
 
     public List<Employee> findByRank(String rankTitle) {
-        Session session = getSessionFactory().getCurrentSession();
-        CriteriaBuilder cb = session.getCriteriaBuilder();
+        CriteriaBuilder cb = entityManager.getCriteriaBuilder();
         CriteriaQuery<Employee> criteria = cb.createQuery(Employee.class);
         Root<Employee> employee = criteria.from(Employee.class);
         criteria.select(employee)
@@ -95,14 +100,14 @@ public class EmployeeDaoImpl extends BaseDaoImpl<Employee> {
                         cb.asc(employee.get("name")),
                         cb.asc(employee.get("patronymic"))
                 );
-        if (session.createQuery(criteria).getResultList().isEmpty()) {
+        List<Employee> resultList = entityManager.createQuery(criteria).getResultList();
+        if (resultList.isEmpty()) {
             throw new NullPointerException("Объекты не существуют");
-        } else return session.createQuery(criteria).getResultList();
+        } else return resultList;
     }
 
     public List<Employee> findByPosition(String positionTitle) {
-        Session session = getSessionFactory().getCurrentSession();
-        CriteriaBuilder cb = session.getCriteriaBuilder();
+        CriteriaBuilder cb = entityManager.getCriteriaBuilder();
         CriteriaQuery<Employee> criteria = cb.createQuery(Employee.class);
         Root<Employee> employee = criteria.from(Employee.class);
         criteria.select(employee)
@@ -112,14 +117,14 @@ public class EmployeeDaoImpl extends BaseDaoImpl<Employee> {
                         cb.asc(employee.get("name")),
                         cb.asc(employee.get("patronymic"))
                 );
-        if (session.createQuery(criteria).getResultList().isEmpty()) {
+        List<Employee> resultList = entityManager.createQuery(criteria).getResultList();
+        if (resultList.isEmpty()) {
             throw new NullPointerException("Объекты не существуют");
-        } else return session.createQuery(criteria).getResultList();
+        } else return resultList;
     }
 
     public List<Employee> findBySubdivision(String subdivisionTitle) {
-        Session session = getSessionFactory().getCurrentSession();
-        CriteriaBuilder cb = session.getCriteriaBuilder();
+        CriteriaBuilder cb = entityManager.getCriteriaBuilder();
         CriteriaQuery<Employee> criteria = cb.createQuery(Employee.class);
         Root<Employee> employee = criteria.from(Employee.class);
         criteria.select(employee)
@@ -129,15 +134,15 @@ public class EmployeeDaoImpl extends BaseDaoImpl<Employee> {
                         cb.asc(employee.get("name")),
                         cb.asc(employee.get("patronymic"))
                 );
-        if (session.createQuery(criteria).getResultList().isEmpty()) {
+        List<Employee> resultList = entityManager.createQuery(criteria).getResultList();
+        if (resultList.isEmpty()) {
             throw new NullPointerException("Объекты не существуют");
-        } else return session.createQuery(criteria).getResultList();
+        } else return resultList;
     }
 
     @Override
     public List<Employee> findAll() {
-        Session session = getSessionFactory().getCurrentSession();
-        CriteriaBuilder cb = session.getCriteriaBuilder();
+        CriteriaBuilder cb = entityManager.getCriteriaBuilder();
         CriteriaQuery<Employee> criteria = cb.createQuery(Employee.class);
         Root<Employee> employee = criteria.from(Employee.class);
         criteria.select(employee)
@@ -146,8 +151,9 @@ public class EmployeeDaoImpl extends BaseDaoImpl<Employee> {
                         cb.asc(employee.get("name")),
                         cb.asc(employee.get("patronymic"))
                 );
-        if (session.createQuery(criteria).getResultList().isEmpty()) {
+        List<Employee> resultList = entityManager.createQuery(criteria).getResultList();
+        if (resultList.isEmpty()) {
             throw new NullPointerException("Объекты не существуют");
-        } else return session.createQuery(criteria).getResultList();
+        } else return resultList;
     }
 }

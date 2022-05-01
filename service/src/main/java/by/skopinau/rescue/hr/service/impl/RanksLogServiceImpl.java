@@ -1,19 +1,23 @@
-package by.skopinau.rescue.hr.impl;
+package by.skopinau.rescue.hr.service.impl;
 
-import by.skopinau.rescue.hr.dao.impl.RanksLogDaoImpl;
+import by.skopinau.rescue.hr.service.RanksLogService;
+import by.skopinau.rescue.hr.dao.RanksLogDao;
+import by.skopinau.rescue.hr.dao.jpa.RanksLogDaoJpa;
 import by.skopinau.rescue.hr.model.Employee;
 import by.skopinau.rescue.hr.model.RanksLog;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Service
-public class RanksLogServiceImpl extends BaseServiceImpl<RanksLog> {
-    private final RanksLogDaoImpl ranksLogDao;
+@Transactional
+public class RanksLogServiceImpl extends BaseServiceImpl<RanksLog> implements RanksLogService {
+    private final RanksLogDao ranksLogDao;
 
     @Autowired
-    public RanksLogServiceImpl(RanksLogDaoImpl ranksLogDao) {
+    public RanksLogServiceImpl(RanksLogDaoJpa ranksLogDao) {
         super(ranksLogDao);
         this.ranksLogDao = ranksLogDao;
     }
