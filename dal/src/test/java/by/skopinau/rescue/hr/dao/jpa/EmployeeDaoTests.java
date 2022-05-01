@@ -174,7 +174,7 @@ public class EmployeeDaoTests {
                 .collect(Collectors.toList());
 
         // WHEN
-        List<Employee> actual = employeeDao.findByRank("капитан");
+        List<Employee> actual = employeeDao.findByRankTitle("капитан");
 
         // THEN
         Assertions.assertNotNull(actual);
@@ -193,7 +193,7 @@ public class EmployeeDaoTests {
                 .collect(Collectors.toList());
 
         // WHEN
-        List<Employee> actual = employeeDao.findByPosition("пожарный");
+        List<Employee> actual = employeeDao.findByPositionTitle("пожарный");
 
         // THEN
         Assertions.assertNotNull(actual);
@@ -212,7 +212,7 @@ public class EmployeeDaoTests {
                 .collect(Collectors.toList());
 
         // WHEN
-        List<Employee> actual = employeeDao.findBySubdivision("ПАСЧ-3");
+        List<Employee> actual = employeeDao.findBySubdivisionTitle("ПАСЧ-3");
 
         // THEN
         Assertions.assertNotNull(actual);

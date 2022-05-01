@@ -1,4 +1,4 @@
-package by.skopinau.rescue.hr.service.impl;
+package by.skopinau.rescue.hr.service.impl.jpa;
 
 import by.skopinau.rescue.hr.service.PositionsLogService;
 import by.skopinau.rescue.hr.dao.PositionsLogDao;
@@ -13,11 +13,11 @@ import java.util.List;
 
 @Service
 @Transactional
-public class PositionsLogServiceImpl extends BaseServiceImpl<PositionsLog> implements PositionsLogService {
+public class PositionsLogServiceJpa extends BaseServiceJpa<PositionsLog> implements PositionsLogService {
     private final PositionsLogDao positionsLogDao;
 
     @Autowired
-    public PositionsLogServiceImpl(PositionsLogDaoJpa positionsLogDao) {
+    public PositionsLogServiceJpa(PositionsLogDaoJpa positionsLogDao) {
         super(positionsLogDao);
         this.positionsLogDao = positionsLogDao;
     }

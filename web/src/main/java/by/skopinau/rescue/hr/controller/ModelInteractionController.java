@@ -1,14 +1,14 @@
 package by.skopinau.rescue.hr.controller;
 
+import by.skopinau.rescue.hr.model.Employee;
 import by.skopinau.rescue.hr.service.EmployeeService;
 import by.skopinau.rescue.hr.service.PositionsLogService;
 import by.skopinau.rescue.hr.service.RanksLogService;
 import by.skopinau.rescue.hr.service.StateService;
-import by.skopinau.rescue.hr.service.impl.EmployeeServiceImpl;
-import by.skopinau.rescue.hr.service.impl.PositionsLogServiceImpl;
-import by.skopinau.rescue.hr.service.impl.RanksLogServiceImpl;
-import by.skopinau.rescue.hr.service.impl.StateServiceImpl;
-import by.skopinau.rescue.hr.model.Employee;
+import by.skopinau.rescue.hr.service.impl.spring.EmployeeServiceSpring;
+import by.skopinau.rescue.hr.service.impl.spring.PositionsLogServiceSpring;
+import by.skopinau.rescue.hr.service.impl.spring.RanksLogServiceSpring;
+import by.skopinau.rescue.hr.service.impl.spring.StateServiceSpring;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,7 +23,7 @@ public class ModelInteractionController {
     private final PositionsLogService positionsLogService;
 
     @Autowired
-    public ModelInteractionController(EmployeeServiceImpl employeeService, StateServiceImpl stateService, RanksLogServiceImpl ranksLogService, PositionsLogServiceImpl positionsLogService) {
+    public ModelInteractionController(EmployeeServiceSpring employeeService, StateServiceSpring stateService, RanksLogServiceSpring ranksLogService, PositionsLogServiceSpring positionsLogService) {
         this.employeeService = employeeService;
         this.stateService = stateService;
         this.ranksLogService = ranksLogService;

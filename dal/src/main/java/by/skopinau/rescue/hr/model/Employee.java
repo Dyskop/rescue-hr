@@ -1,22 +1,8 @@
 package by.skopinau.rescue.hr.model;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import lombok.*;
 
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-
+import javax.persistence.*;
 import java.time.LocalDate;
 
 @EqualsAndHashCode(callSuper = false)
@@ -28,11 +14,6 @@ import java.time.LocalDate;
 @Entity
 @Table(name = "employees")
 public class Employee extends BaseEntity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "employee_id")
-    private int id;
-
     @Column(name = "surname")
     private String surname;
 
@@ -56,14 +37,4 @@ public class Employee extends BaseEntity {
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "subdivision_id", nullable = false)
     private Subdivision subdivision;
-
-    public Employee(String surname, String name, String patronymic, LocalDate birthday, Rank rank, Position position, Subdivision subdivision) {
-        this.surname = surname;
-        this.name = name;
-        this.patronymic = patronymic;
-        this.birthday = birthday;
-        this.rank = rank;
-        this.position = position;
-        this.subdivision = subdivision;
-    }
 }

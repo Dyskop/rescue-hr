@@ -24,6 +24,7 @@
         <maven.compiler.target>11</maven.compiler.target>
         <spring.version>5.3.15</spring.version>
         <spring-security.version>5.6.2</spring-security.version>
+        <spring.data.version>2.6.4</spring.data.version>
         <web.version>1.0-SNAPSHOT</web.version>
         <dal.version>1.0-SNAPSHOT</dal.version>
         <service.version>1.0-SNAPSHOT</service.version>
@@ -51,6 +52,11 @@
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-orm</artifactId>
                 <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.data</groupId>
+                <artifactId>spring-data-jpa</artifactId>
+                <version>${spring.data.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.springframework</groupId>

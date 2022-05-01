@@ -1,4 +1,4 @@
-package by.skopinau.rescue.hr.service.impl;
+package by.skopinau.rescue.hr.service.impl.jpa;
 
 import by.skopinau.rescue.hr.service.SubdivisionService;
 import by.skopinau.rescue.hr.dao.SubdivisionDao;
@@ -10,11 +10,11 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @Transactional
-public class SubdivisionServiceImpl extends BaseServiceImpl<Subdivision> implements SubdivisionService {
+public class SubdivisionServiceJpa extends BaseServiceJpa<Subdivision> implements SubdivisionService {
     private final SubdivisionDao subdivisionDao;
 
     @Autowired
-    public SubdivisionServiceImpl(SubdivisionDaoJpa subdivisionDao) {
+    public SubdivisionServiceJpa(SubdivisionDaoJpa subdivisionDao) {
         super(subdivisionDao);
         this.subdivisionDao = subdivisionDao;
     }

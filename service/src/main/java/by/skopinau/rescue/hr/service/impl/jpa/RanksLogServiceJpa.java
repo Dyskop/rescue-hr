@@ -1,4 +1,4 @@
-package by.skopinau.rescue.hr.service.impl;
+package by.skopinau.rescue.hr.service.impl.jpa;
 
 import by.skopinau.rescue.hr.service.RanksLogService;
 import by.skopinau.rescue.hr.dao.RanksLogDao;
@@ -13,11 +13,11 @@ import java.util.List;
 
 @Service
 @Transactional
-public class RanksLogServiceImpl extends BaseServiceImpl<RanksLog> implements RanksLogService {
+public class RanksLogServiceJpa extends BaseServiceJpa<RanksLog> implements RanksLogService {
     private final RanksLogDao ranksLogDao;
 
     @Autowired
-    public RanksLogServiceImpl(RanksLogDaoJpa ranksLogDao) {
+    public RanksLogServiceJpa(RanksLogDaoJpa ranksLogDao) {
         super(ranksLogDao);
         this.ranksLogDao = ranksLogDao;
     }

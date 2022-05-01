@@ -1,4 +1,4 @@
-package by.skopinau.rescue.hr.service.impl;
+package by.skopinau.rescue.hr.service.impl.jpa;
 
 import by.skopinau.rescue.hr.service.RankService;
 import by.skopinau.rescue.hr.dao.RankDao;
@@ -10,11 +10,11 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @Transactional
-public class RankServiceImpl extends BaseServiceImpl<Rank> implements RankService {
+public class RankServiceJpa extends BaseServiceJpa<Rank> implements RankService {
     private final RankDao rankDao;
 
     @Autowired
-    public RankServiceImpl(RankDaoJpa rankDao) {
+    public RankServiceJpa(RankDaoJpa rankDao) {
         super(rankDao);
         this.rankDao = rankDao;
     }

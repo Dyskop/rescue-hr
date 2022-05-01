@@ -1,4 +1,4 @@
-package by.skopinau.rescue.hr.service.impl;
+package by.skopinau.rescue.hr.service.impl.jpa;
 
 import by.skopinau.rescue.hr.service.StateService;
 import by.skopinau.rescue.hr.dao.jpa.EmployeeDaoJpa;
@@ -13,12 +13,12 @@ import java.util.List;
 
 @Service
 @Transactional
-public class StateServiceImpl extends BaseServiceImpl<State> implements StateService {
+public class StateServiceJpa extends BaseServiceJpa<State> implements StateService {
     private int actualPositionAmount;
     private final List<Employee> employees;
 
     @Autowired
-    public StateServiceImpl(StateDaoJpa stateDao, EmployeeDaoJpa employeeDao) {
+    public StateServiceJpa(StateDaoJpa stateDao, EmployeeDaoJpa employeeDao) {
         super(stateDao);
         this.employees = employeeDao.findAll();
     }

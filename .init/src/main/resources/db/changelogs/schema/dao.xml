@@ -559,4 +559,14 @@
         <sql>INSERT INTO rh.ranks_log (rank_getting_date, employee_id, rank_id, order_publisher, order_number)
              VALUES ('2022-01-19', 42, 13, 'Название Г(Р)ОЧС', 12)</sql>
     </changeSet>
+
+    <changeSet id="rename id_columns of all tables just to id" author="dimaskop18@gmail.com">
+        <sql>ALTER TABLE rh.employees RENAME COLUMN employee_id TO id</sql>
+        <sql>ALTER TABLE rh.positions RENAME COLUMN position_id TO id</sql>
+        <sql>ALTER TABLE rh.positions_log RENAME COLUMN positions_log_id TO id</sql>
+        <sql>ALTER TABLE rh.positions_subdivisions_link RENAME COLUMN positions_subdivisions_link_id TO id</sql>
+        <sql>ALTER TABLE rh.ranks RENAME COLUMN rank_id TO id</sql>
+        <sql>ALTER TABLE rh.ranks_log RENAME COLUMN ranks_log_id TO id</sql>
+        <sql>ALTER TABLE rh.subdivisions RENAME COLUMN subdivision_id TO id</sql>
+    </changeSet>
 </databaseChangeLog>

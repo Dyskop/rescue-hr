@@ -1,4 +1,4 @@
-package by.skopinau.rescue.hr.service.impl;
+package by.skopinau.rescue.hr.service.impl.jpa;
 
 import by.skopinau.rescue.hr.service.PositionService;
 import by.skopinau.rescue.hr.dao.PositionDao;
@@ -10,11 +10,11 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @Transactional
-public class PositionServiceImpl extends BaseServiceImpl<Position> implements PositionService {
+public class PositionServiceJpa extends BaseServiceJpa<Position> implements PositionService {
     private final PositionDao positionDao;
 
     @Autowired
-    public PositionServiceImpl(PositionDaoJpa positionDao) {
+    public PositionServiceJpa(PositionDaoJpa positionDao) {
         super(positionDao);
         this.positionDao = positionDao;
     }

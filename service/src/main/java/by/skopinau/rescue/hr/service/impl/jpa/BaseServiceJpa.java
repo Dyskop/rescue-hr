@@ -1,4 +1,4 @@
-package by.skopinau.rescue.hr.service.impl;
+package by.skopinau.rescue.hr.service.impl.jpa;
 
 import by.skopinau.rescue.hr.service.BaseService;
 import by.skopinau.rescue.hr.dao.BaseDao;
@@ -12,11 +12,11 @@ import java.util.List;
 
 @Service
 @Transactional
-public abstract class BaseServiceImpl<T extends BaseEntity> implements BaseService<T> {
+public abstract class BaseServiceJpa<T extends BaseEntity> implements BaseService<T> {
     private final BaseDao<T> baseDao;
 
     @Autowired
-    public BaseServiceImpl(BaseDaoJpa<T> baseDao) {
+    public BaseServiceJpa(BaseDaoJpa<T> baseDao) {
         this.baseDao = baseDao;
     }
 
@@ -25,7 +25,6 @@ public abstract class BaseServiceImpl<T extends BaseEntity> implements BaseServi
         baseDao.save(entity);
     }
 
-    @Override
     public void update(T entity) {
         baseDao.update(entity);
     }

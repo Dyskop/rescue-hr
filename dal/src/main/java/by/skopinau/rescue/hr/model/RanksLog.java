@@ -1,21 +1,8 @@
 package by.skopinau.rescue.hr.model;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import lombok.*;
 
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
+import javax.persistence.*;
 import java.time.LocalDate;
 
 @EqualsAndHashCode(callSuper = false)
@@ -26,11 +13,6 @@ import java.time.LocalDate;
 @Entity
 @Table(name = "ranks_log")
 public class RanksLog extends BaseEntity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ranks_log_id")
-    private int id;
-
     @Column(name = "rank_getting_date")
     private LocalDate rankGettingDate;
 
@@ -47,12 +29,4 @@ public class RanksLog extends BaseEntity {
 
     @Column(name = "order_number")
     private int orderNumber;
-
-    public RanksLog(LocalDate rankGettingDate, Employee employee, Rank rank, String orderPublisher, int orderNumber) {
-        this.rankGettingDate = rankGettingDate;
-        this.employee = employee;
-        this.rank = rank;
-        this.orderPublisher = orderPublisher;
-        this.orderNumber = orderNumber;
-    }
 }

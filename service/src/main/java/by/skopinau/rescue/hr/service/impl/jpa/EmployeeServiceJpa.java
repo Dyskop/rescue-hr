@@ -1,9 +1,9 @@
-package by.skopinau.rescue.hr.service.impl;
+package by.skopinau.rescue.hr.service.impl.jpa;
 
-import by.skopinau.rescue.hr.service.EmployeeService;
 import by.skopinau.rescue.hr.dao.EmployeeDao;
 import by.skopinau.rescue.hr.dao.jpa.EmployeeDaoJpa;
-import by.skopinau.rescue.hr.model.Employee;
+import by.skopinau.rescue.hr.model.*;
+import by.skopinau.rescue.hr.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -13,11 +13,11 @@ import java.util.List;
 
 @Service
 @Transactional
-public class EmployeeServiceImpl extends BaseServiceImpl<Employee> implements EmployeeService {
+public class EmployeeServiceJpa extends BaseServiceJpa<Employee> implements EmployeeService {
     private final EmployeeDao employeeDao;
 
     @Autowired
-    public EmployeeServiceImpl(EmployeeDaoJpa employeeDao) {
+    public EmployeeServiceJpa(EmployeeDaoJpa employeeDao) {
         super(employeeDao);
         this.employeeDao = employeeDao;
     }
@@ -38,16 +38,28 @@ public class EmployeeServiceImpl extends BaseServiceImpl<Employee> implements Em
         return employeeDao.findByBirthday(date);
     }
 
-    public List<Employee> findByRank(String rankTitle) {
-        return employeeDao.findByRank(rankTitle);
+    public List<Employee> findByRank(Rank rank) {
+        return employeeDao.findByRank(rank);
     }
 
-    public List<Employee> findByPosition(String positionTitle) {
-        return employeeDao.findByPosition(positionTitle);
+    public List<Employee> findByPosition(Position position) {
+        return employeeDao.findByPosition(position);
     }
 
-    public List<Employee> findBySubdivision(String subdivisionTitle) {
-        return employeeDao.findBySubdivision(subdivisionTitle);
+    public List<Employee> findBySubdivision(Subdivision subdivision) {
+        return employeeDao.findBySubdivision(subdivision);
+    }
+
+    public List<Employee> findByRankTitle(String rankTitle) {
+        return employeeDao.findByRankTitle(rankTitle);
+    }
+
+    public List<Employee> findByPositionTitle(String positionTitle) {
+        return employeeDao.findByPositionTitle(positionTitle);
+    }
+
+    public List<Employee> findBySubdivisionTitle(String subdivisionTitle) {
+        return employeeDao.findBySubdivisionTitle(subdivisionTitle);
     }
 
     @Override
