@@ -1,9 +1,6 @@
 package by.skopinau.rescue.hr.service.impl.spring;
 
-import by.skopinau.rescue.hr.model.Employee;
-import by.skopinau.rescue.hr.model.Position;
-import by.skopinau.rescue.hr.model.Rank;
-import by.skopinau.rescue.hr.model.Subdivision;
+import by.skopinau.rescue.hr.model.*;
 import by.skopinau.rescue.hr.repository.EmployeeRepository;
 import by.skopinau.rescue.hr.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -62,6 +59,10 @@ public class EmployeeServiceSpring extends BaseServiceSpring<Employee> implement
 
     public List<Employee> findBySubdivisionTitle(String subdivisionTitle) {
         return employeeRepository.findBySubdivisionTitle(subdivisionTitle);
+    }
+
+    public List<Employee> findByState(State state) {
+        return employeeRepository.findByState(state);
     }
 
     @Override

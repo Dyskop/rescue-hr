@@ -1,10 +1,7 @@
 package by.skopinau.rescue.hr.dao.jpa;
 
 import by.skopinau.rescue.hr.dao.EmployeeDao;
-import by.skopinau.rescue.hr.model.Employee;
-import by.skopinau.rescue.hr.model.Position;
-import by.skopinau.rescue.hr.model.Rank;
-import by.skopinau.rescue.hr.model.Subdivision;
+import by.skopinau.rescue.hr.model.*;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -183,6 +180,24 @@ public class EmployeeDaoJpa extends BaseDaoJpa<Employee> implements EmployeeDao 
         Root<Employee> employee = criteria.from(Employee.class);
         criteria.select(employee)
                 .where(cb.equal(employee.get("subdivision").get("subdivisionTitle"), subdivisionTitle))
+                .orderBy(
+                        cb.asc(employee.get("surname")),
+                        cb.asc(employee.get("name")),
+                        cb.asc(employee.get("patronymic"))
+                );
+        List<Employee> resultList = entityManager.createQuery(criteria).getResultList();
+        if (resultList.isEmpty()) {
+            throw new NullPointerException("Объекты не существуют");
+        } else return resultList;
+    }
+
+    public List<Employee> findByState(State state) {
+        CriteriaBuilder cb = entityManager.getCriteriaBuilder();
+        CriteriaQuery<Employee> criteria = cb.createQuery(Employee.class);
+        Root<Employee> employee = criteria.from(Employee.class);
+        criteria.select(employee)
+                .where(cb.equal(employee.get("position"), state.getPosition()),
+                        cb.equal(employee.get("subdivision"), state.getSubdivision()))
                 .orderBy(
                         cb.asc(employee.get("surname")),
                         cb.asc(employee.get("name")),

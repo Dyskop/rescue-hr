@@ -1,9 +1,6 @@
 package by.skopinau.rescue.hr.dao;
 
-import by.skopinau.rescue.hr.model.Employee;
-import by.skopinau.rescue.hr.model.Position;
-import by.skopinau.rescue.hr.model.Rank;
-import by.skopinau.rescue.hr.model.Subdivision;
+import by.skopinau.rescue.hr.model.*;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -28,6 +25,8 @@ public interface EmployeeDao extends BaseDao<Employee> {
     List<Employee> findByPositionTitle(String positionTitle);
 
     List<Employee> findBySubdivisionTitle(String subdivisionTitle);
+
+    List<Employee> findByState(State state);
 
     @Override
     List<Employee> findAll();

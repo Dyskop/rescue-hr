@@ -62,6 +62,10 @@ public class EmployeeServiceJpa extends BaseServiceJpa<Employee> implements Empl
         return employeeDao.findBySubdivisionTitle(subdivisionTitle);
     }
 
+    public List<Employee> findByState(State state) {
+        return employeeDao.findByState(state);
+    }
+
     @Override
     public List<Employee> findAll() {
         return employeeDao.findAll();
