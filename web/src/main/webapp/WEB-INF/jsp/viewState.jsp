@@ -24,14 +24,14 @@
             </tr>
             </thead>
             <tbody>
-            <c:forEach items="${requestScope.state}" var="state">
-                <c:set var="stateService" value="${requestScope.stateService}"/>
+            <c:set var="stateMap" value="${requestScope.stateMap}"/>
+            <c:forEach items="${requestScope.stateList}" var="state">
                 <tr>
                     <td>${state.subdivision.subdivisionTitle}</td>
                     <td>${state.position.positionTitle}</td>
                     <td>${state.stateAmount}</td>
-                    <td>${stateService.getActualPositionAmount(state)}</td>
-                    <td>${stateService.getFreePositionAmount(state)}</td>
+                    <td>${stateMap.get(state)}</td>
+                    <td>${state.stateAmount - stateMap.get(state)}</td>
                 </tr>
             </c:forEach>
             </tbody>

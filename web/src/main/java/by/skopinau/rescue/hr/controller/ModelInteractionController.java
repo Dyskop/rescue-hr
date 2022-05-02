@@ -1,6 +1,7 @@
 package by.skopinau.rescue.hr.controller;
 
 import by.skopinau.rescue.hr.model.Employee;
+import by.skopinau.rescue.hr.model.State;
 import by.skopinau.rescue.hr.service.EmployeeService;
 import by.skopinau.rescue.hr.service.PositionsLogService;
 import by.skopinau.rescue.hr.service.RanksLogService;
@@ -14,6 +15,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @Controller
 public class ModelInteractionController {
@@ -47,8 +52,13 @@ public class ModelInteractionController {
 
     @GetMapping(path = "/view/state")
     public String showState(Model model) {
-        model.addAttribute("state", stateService.findAll());
-        model.addAttribute("stateService", stateService);
+        List<State> list = stateService.findAll();
+        Map<State, Integer> map = new HashMap<>();
+        for (State state: list) {
+            map.put(state, stateService.getActualPositionAmount(state));
+        }
+        model.addAttribute("stateMap", map);
+        model.addAttribute("stateList", list);
         return "viewState";
     }
 
