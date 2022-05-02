@@ -53,12 +53,15 @@ public class ModelInteractionController {
     @GetMapping(path = "/view/state")
     public String showState(Model model) {
         List<State> list = stateService.findAll();
-        Map<State, Integer> map = new HashMap<>();
+        Map<State, Integer> mapWithActualPositionsAmounts = new HashMap<>();
+        Map<State, Integer> mapWithFreePositionsAmounts = new HashMap<>();
         for (State state: list) {
-            map.put(state, stateService.getActualPositionAmount(state));
+            mapWithActualPositionsAmounts.put(state, stateService.getActualPositionAmount(state));
+            mapWithFreePositionsAmounts.put(state, stateService.getFreePositionAmount(state));
         }
-        model.addAttribute("stateMap", map);
         model.addAttribute("stateList", list);
+        model.addAttribute("actualAmounts", mapWithActualPositionsAmounts);
+        model.addAttribute("freeAmounts", mapWithFreePositionsAmounts);
         return "viewState";
     }
 
