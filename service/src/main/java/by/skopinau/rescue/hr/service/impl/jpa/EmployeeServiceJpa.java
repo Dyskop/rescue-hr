@@ -2,7 +2,7 @@ package by.skopinau.rescue.hr.service.impl.jpa;
 
 import by.skopinau.rescue.hr.dao.EmployeeDao;
 import by.skopinau.rescue.hr.dao.jpa.EmployeeDaoJpa;
-import by.skopinau.rescue.hr.model.*;
+import by.skopinau.rescue.hr.entity.*;
 import by.skopinau.rescue.hr.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -3,7 +3,7 @@ package by.skopinau.rescue.hr.service.impl.jpa;
 import by.skopinau.rescue.hr.service.PositionService;
 import by.skopinau.rescue.hr.dao.PositionDao;
 import by.skopinau.rescue.hr.dao.jpa.PositionDaoJpa;
-import by.skopinau.rescue.hr.model.Position;
+import by.skopinau.rescue.hr.entity.Position;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

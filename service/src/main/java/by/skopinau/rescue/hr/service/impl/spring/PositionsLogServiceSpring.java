@@ -1,7 +1,7 @@
 package by.skopinau.rescue.hr.service.impl.spring;
 
-import by.skopinau.rescue.hr.model.Employee;
-import by.skopinau.rescue.hr.model.PositionsLog;
+import by.skopinau.rescue.hr.entity.Employee;
+import by.skopinau.rescue.hr.entity.PositionsLog;
 import by.skopinau.rescue.hr.repository.PositionsLogRepository;
 import by.skopinau.rescue.hr.service.PositionsLogService;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,6 +1,6 @@
 package by.skopinau.rescue.hr.service.impl.spring;
 
-import by.skopinau.rescue.hr.model.Rank;
+import by.skopinau.rescue.hr.entity.Rank;
 import by.skopinau.rescue.hr.repository.RankRepository;
 import by.skopinau.rescue.hr.service.RankService;
 import org.springframework.beans.factory.annotation.Autowired;

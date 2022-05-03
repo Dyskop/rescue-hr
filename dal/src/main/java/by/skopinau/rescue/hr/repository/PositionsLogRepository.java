@@ -1,7 +1,7 @@
 package by.skopinau.rescue.hr.repository;
 
-import by.skopinau.rescue.hr.model.Employee;
-import by.skopinau.rescue.hr.model.PositionsLog;
+import by.skopinau.rescue.hr.entity.Employee;
+import by.skopinau.rescue.hr.entity.PositionsLog;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 

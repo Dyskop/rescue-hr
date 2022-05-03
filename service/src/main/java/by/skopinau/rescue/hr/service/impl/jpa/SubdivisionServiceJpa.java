@@ -3,7 +3,7 @@ package by.skopinau.rescue.hr.service.impl.jpa;
 import by.skopinau.rescue.hr.service.SubdivisionService;
 import by.skopinau.rescue.hr.dao.SubdivisionDao;
 import by.skopinau.rescue.hr.dao.jpa.SubdivisionDaoJpa;
-import by.skopinau.rescue.hr.model.Subdivision;
+import by.skopinau.rescue.hr.entity.Subdivision;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

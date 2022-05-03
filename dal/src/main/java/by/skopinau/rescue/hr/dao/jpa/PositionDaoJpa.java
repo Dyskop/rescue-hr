@@ -1,7 +1,7 @@
 package by.skopinau.rescue.hr.dao.jpa;
 
 import by.skopinau.rescue.hr.dao.PositionDao;
-import by.skopinau.rescue.hr.model.Position;
+import by.skopinau.rescue.hr.entity.Position;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;

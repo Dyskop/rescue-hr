@@ -560,13 +560,33 @@
              VALUES ('2022-01-19', 42, 13, 'Название Г(Р)ОЧС', 12)</sql>
     </changeSet>
 
+    <changeSet id="roles init" author="dimaskop18@gmail.com">
+        <sql>INSERT INTO rh.roles (name)
+             VALUES ('ADMIN')</sql>
+        <sql>INSERT INTO rh.roles (name)
+             VALUES ('USER')</sql>
+    </changeSet>
+
+    <changeSet id="users init" author="dimaskop18@gmail.com">
+        <sql>INSERT INTO rh.users (username, password)
+             VALUES ('skopinau', '12345678')</sql>
+    </changeSet>
+
+    <changeSet id="users_roles_link init" author="dimaskop18@gmail.com">
+        <sql>INSERT INTO rh.users_roles_link (user_id, role_id)
+             VALUES (1, 1)</sql>
+    </changeSet>
+
     <changeSet id="rename id_columns of all tables just to id" author="dimaskop18@gmail.com">
         <sql>ALTER TABLE rh.employees RENAME COLUMN employee_id TO id</sql>
         <sql>ALTER TABLE rh.positions RENAME COLUMN position_id TO id</sql>
-        <sql>ALTER TABLE rh.positions_log RENAME COLUMN positions_log_id TO id</sql>
-        <sql>ALTER TABLE rh.positions_subdivisions_link RENAME COLUMN positions_subdivisions_link_id TO id</sql>
+        <sql>ALTER TABLE rh.positions_log RENAME COLUMN position_log_id TO id</sql>
+        <sql>ALTER TABLE rh.positions_subdivisions_link RENAME COLUMN psl_id TO id</sql>
         <sql>ALTER TABLE rh.ranks RENAME COLUMN rank_id TO id</sql>
-        <sql>ALTER TABLE rh.ranks_log RENAME COLUMN ranks_log_id TO id</sql>
+        <sql>ALTER TABLE rh.ranks_log RENAME COLUMN rank_log_id TO id</sql>
         <sql>ALTER TABLE rh.subdivisions RENAME COLUMN subdivision_id TO id</sql>
+        <sql>ALTER TABLE rh.users RENAME COLUMN user_id TO id</sql>
+        <sql>ALTER TABLE rh.roles RENAME COLUMN role_id TO id</sql>
+        <sql>ALTER TABLE rh.users_roles_link RENAME COLUMN url_id TO id</sql>
     </changeSet>
 </databaseChangeLog>

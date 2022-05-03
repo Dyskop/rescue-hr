@@ -1,6 +1,6 @@
 package by.skopinau.rescue.hr.repository;
 
-import by.skopinau.rescue.hr.model.Rank;
+import by.skopinau.rescue.hr.entity.Rank;
 import org.springframework.stereotype.Repository;
 
 @Repository

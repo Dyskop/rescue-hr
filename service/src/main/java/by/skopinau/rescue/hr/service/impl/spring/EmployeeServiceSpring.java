@@ -1,6 +1,6 @@
 package by.skopinau.rescue.hr.service.impl.spring;
 
-import by.skopinau.rescue.hr.model.*;
+import by.skopinau.rescue.hr.entity.*;
 import by.skopinau.rescue.hr.repository.EmployeeRepository;
 import by.skopinau.rescue.hr.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;

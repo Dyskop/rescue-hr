@@ -1,7 +1,7 @@
 package by.skopinau.rescue.hr.dao.jpa;
 
 import by.skopinau.rescue.hr.dao.BaseDao;
-import by.skopinau.rescue.hr.model.BaseEntity;
+import by.skopinau.rescue.hr.entity.BaseEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;

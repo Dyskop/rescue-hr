@@ -3,7 +3,7 @@ package by.skopinau.rescue.hr.service.impl.jpa;
 import by.skopinau.rescue.hr.service.RankService;
 import by.skopinau.rescue.hr.dao.RankDao;
 import by.skopinau.rescue.hr.dao.jpa.RankDaoJpa;
-import by.skopinau.rescue.hr.model.Rank;
+import by.skopinau.rescue.hr.entity.Rank;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

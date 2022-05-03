@@ -1,6 +1,6 @@
 package by.skopinau.rescue.hr.dao;
 
-import by.skopinau.rescue.hr.model.BaseEntity;
+import by.skopinau.rescue.hr.entity.BaseEntity;
 
 import java.util.List;
 

@@ -1,8 +1,8 @@
 package by.skopinau.rescue.hr.dao.jpa;
 
 import by.skopinau.rescue.hr.config.OrmConfig;
-import by.skopinau.rescue.hr.model.Employee;
-import by.skopinau.rescue.hr.model.Rank;
+import by.skopinau.rescue.hr.entity.Employee;
+import by.skopinau.rescue.hr.entity.Rank;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

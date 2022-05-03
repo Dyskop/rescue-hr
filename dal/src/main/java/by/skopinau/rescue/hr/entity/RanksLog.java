@@ -1,4 +1,4 @@
-package by.skopinau.rescue.hr.model;
+package by.skopinau.rescue.hr.entity;
 
 import lombok.*;
 
@@ -11,22 +11,18 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "positions_log")
-public class PositionsLog extends BaseEntity {
-    @Column(name = "position_getting_date")
-    private LocalDate positionGettingDate;
+@Table(name = "ranks_log")
+public class RanksLog extends BaseEntity {
+    @Column(name = "rank_getting_date")
+    private LocalDate rankGettingDate;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "employee_id", nullable = false)
     private Employee employee;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "position_id", nullable = false)
-    private Position position;
-
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "subdivision_id", nullable = false)
-    private Subdivision subdivision;
+    @JoinColumn(name = "rank_id", nullable = false)
+    private Rank rank;
 
     @Column(name = "order_publisher")
     private String orderPublisher;

@@ -2,10 +2,10 @@ package by.skopinau.rescue.hr.dao.jpa;
 
 import by.skopinau.rescue.hr.config.OrmConfig;
 import by.skopinau.rescue.hr.dao.BaseDao;
-import by.skopinau.rescue.hr.model.Employee;
-import by.skopinau.rescue.hr.model.Position;
-import by.skopinau.rescue.hr.model.Rank;
-import by.skopinau.rescue.hr.model.Subdivision;
+import by.skopinau.rescue.hr.entity.Employee;
+import by.skopinau.rescue.hr.entity.Position;
+import by.skopinau.rescue.hr.entity.Rank;
+import by.skopinau.rescue.hr.entity.Subdivision;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

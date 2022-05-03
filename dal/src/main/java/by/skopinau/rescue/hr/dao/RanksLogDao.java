@@ -1,7 +1,7 @@
 package by.skopinau.rescue.hr.dao;
 
-import by.skopinau.rescue.hr.model.Employee;
-import by.skopinau.rescue.hr.model.RanksLog;
+import by.skopinau.rescue.hr.entity.Employee;
+import by.skopinau.rescue.hr.entity.RanksLog;
 
 import java.util.List;
 

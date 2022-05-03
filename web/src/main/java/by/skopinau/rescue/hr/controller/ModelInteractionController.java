@@ -1,7 +1,7 @@
 package by.skopinau.rescue.hr.controller;
 
-import by.skopinau.rescue.hr.model.Employee;
-import by.skopinau.rescue.hr.model.State;
+import by.skopinau.rescue.hr.entity.Employee;
+import by.skopinau.rescue.hr.entity.State;
 import by.skopinau.rescue.hr.service.EmployeeService;
 import by.skopinau.rescue.hr.service.PositionsLogService;
 import by.skopinau.rescue.hr.service.RanksLogService;

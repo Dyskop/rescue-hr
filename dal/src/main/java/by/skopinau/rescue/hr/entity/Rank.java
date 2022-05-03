@@ -1,7 +1,8 @@
-package by.skopinau.rescue.hr.model;
+package by.skopinau.rescue.hr.entity;
 
 import lombok.*;
 
+import javax.persistence.AttributeOverride;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -12,8 +13,8 @@ import javax.persistence.Table;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "subdivisions")
-public class Subdivision extends BaseEntity {
-    @Column(name = "subdivision_title")
-    private String subdivisionTitle;
+@Table(name = "ranks")
+public class Rank extends BaseEntity{
+    @Column(name = "rank_title")
+    private String rankTitle;
 }

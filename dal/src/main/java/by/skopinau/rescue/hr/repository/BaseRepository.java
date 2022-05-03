@@ -1,6 +1,6 @@
 package by.skopinau.rescue.hr.repository;
 
-import by.skopinau.rescue.hr.model.BaseEntity;
+import by.skopinau.rescue.hr.entity.BaseEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

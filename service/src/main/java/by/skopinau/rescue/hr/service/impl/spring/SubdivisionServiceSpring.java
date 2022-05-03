@@ -1,6 +1,6 @@
 package by.skopinau.rescue.hr.service.impl.spring;
 
-import by.skopinau.rescue.hr.model.Subdivision;
+import by.skopinau.rescue.hr.entity.Subdivision;
 import by.skopinau.rescue.hr.repository.SubdivisionRepository;
 import by.skopinau.rescue.hr.service.SubdivisionService;
 import org.springframework.beans.factory.annotation.Autowired;

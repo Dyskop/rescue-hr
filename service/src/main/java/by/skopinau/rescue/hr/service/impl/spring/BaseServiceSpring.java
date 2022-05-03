@@ -1,6 +1,6 @@
 package by.skopinau.rescue.hr.service.impl.spring;
 
-import by.skopinau.rescue.hr.model.BaseEntity;
+import by.skopinau.rescue.hr.entity.BaseEntity;
 import by.skopinau.rescue.hr.repository.BaseRepository;
 import by.skopinau.rescue.hr.service.BaseService;
 import jakarta.persistence.NoResultException;

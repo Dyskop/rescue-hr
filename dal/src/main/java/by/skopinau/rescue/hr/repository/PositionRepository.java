@@ -1,6 +1,6 @@
 package by.skopinau.rescue.hr.repository;
 
-import by.skopinau.rescue.hr.model.Position;
+import by.skopinau.rescue.hr.entity.Position;
 import org.springframework.stereotype.Repository;
 
 @Repository

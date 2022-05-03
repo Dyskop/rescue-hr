@@ -1,7 +1,7 @@
 package by.skopinau.rescue.hr.dao.jpa;
 
 import by.skopinau.rescue.hr.dao.EmployeeDao;
-import by.skopinau.rescue.hr.model.*;
+import by.skopinau.rescue.hr.entity.*;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;

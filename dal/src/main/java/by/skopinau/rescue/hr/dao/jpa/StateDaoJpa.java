@@ -1,7 +1,7 @@
 package by.skopinau.rescue.hr.dao.jpa;
 
 import by.skopinau.rescue.hr.dao.StateDao;
-import by.skopinau.rescue.hr.model.State;
+import by.skopinau.rescue.hr.entity.State;
 import org.springframework.stereotype.Repository;
 
 @Repository

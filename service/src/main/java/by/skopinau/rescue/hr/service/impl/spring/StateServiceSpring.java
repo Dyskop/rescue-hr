@@ -1,6 +1,6 @@
 package by.skopinau.rescue.hr.service.impl.spring;
 
-import by.skopinau.rescue.hr.model.State;
+import by.skopinau.rescue.hr.entity.State;
 import by.skopinau.rescue.hr.repository.StateRepository;
 import by.skopinau.rescue.hr.service.EmployeeService;
 import by.skopinau.rescue.hr.service.StateService;

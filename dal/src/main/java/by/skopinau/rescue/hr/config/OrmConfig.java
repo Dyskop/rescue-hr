@@ -48,7 +48,7 @@ public class OrmConfig {
         vendorAdapter.setGenerateDdl(true);
         LocalContainerEntityManagerFactoryBean factory = new LocalContainerEntityManagerFactoryBean();
         factory.setJpaVendorAdapter(vendorAdapter);
-        factory.setPackagesToScan("by.skopinau.rescue.hr.model");
+        factory.setPackagesToScan("by.skopinau.rescue.hr.entity");
         factory.setDataSource(dataSource());
         factory.setJpaProperties(hibernateProperties());
         return factory;

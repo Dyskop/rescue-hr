@@ -1,6 +1,6 @@
 package by.skopinau.rescue.hr.service.impl.spring;
 
-import by.skopinau.rescue.hr.model.Position;
+import by.skopinau.rescue.hr.entity.Position;
 import by.skopinau.rescue.hr.repository.PositionRepository;
 import by.skopinau.rescue.hr.service.PositionService;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -76,6 +76,7 @@
             <dependency>
                 <groupId>org.springframework.security</groupId>
                 <artifactId>spring-security-config</artifactId>
+                <version>${spring-security.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.springframework</groupId>
@@ -171,13 +172,13 @@
                         </executions>
                         <configuration>
                             <container>
-                                <containerId>tomcat10x</containerId>
+                                <containerId>tomcat9x</containerId>
                                 <type>installed</type>
-                                <home>/opt/apache-tomcat/10.0.14</home>
+                                <home>/opt/apache-tomcat/9.0.59</home>
                             </container>
                             <configuration>
                                 <type>existing</type>
-                                <home>/opt/apache-tomcat/10.0.14</home>
+                                <home>/opt/apache-tomcat/9.0.59</home>
                             </configuration>
                         </configuration>
                     </plugin>
@@ -207,7 +208,7 @@
                         </executions>
                         <configuration>
                             <container>
-                                <containerId>tomcat10x</containerId>
+                                <containerId>tomcat9x</containerId>
                                 <type>remote</type>
                             </container>
                             <configuration>

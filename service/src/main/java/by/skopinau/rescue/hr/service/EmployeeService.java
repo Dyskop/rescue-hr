@@ -1,6 +1,6 @@
 package by.skopinau.rescue.hr.service;
 
-import by.skopinau.rescue.hr.model.*;
+import by.skopinau.rescue.hr.entity.*;
 
 import java.time.LocalDate;
 import java.util.List;

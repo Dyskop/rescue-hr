@@ -1,4 +1,4 @@
-package by.skopinau.rescue.hr.model;
+package by.skopinau.rescue.hr.entity;
 
 import lombok.Getter;
 import lombok.Setter;
