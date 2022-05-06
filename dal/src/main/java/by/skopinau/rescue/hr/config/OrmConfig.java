@@ -21,7 +21,7 @@ import java.util.Properties;
 
 @Configuration
 @ComponentScan("by.skopinau.rescue.hr")
-@PropertySource("classpath:application.properties")
+@PropertySource("file:/opt/properties/rhr/application.properties")
 @EnableTransactionManagement(proxyTargetClass = true)
 @EnableJpaRepositories(basePackages = "by.skopinau.rescue.hr.repository")
 public class OrmConfig {
