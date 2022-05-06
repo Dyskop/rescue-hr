@@ -23,19 +23,18 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Bean
     public PasswordEncoder encoder() {
-//        return NoOpPasswordEncoder.getInstance();
         return new BCryptPasswordEncoder();
     }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/", "/login", "/registration").permitAll()
+                .antMatchers("/", "/login", "/registration", "/static/**").permitAll()
                 .antMatchers("/admin").hasAuthority("ADMIN")
-                .antMatchers("/user").hasAuthority("USER")
+                .antMatchers("/view").hasAuthority("USER")
                 .anyRequest().authenticated()
                 .and()
-                .formLogin().loginPage("/login").loginProcessingUrl("/login").defaultSuccessUrl("/")
+                .formLogin().loginPage("/login").loginProcessingUrl("/login").defaultSuccessUrl("/view/employees")
                 .and()
                 .logout().logoutUrl("/logout").logoutSuccessUrl("/login")
                 .and()

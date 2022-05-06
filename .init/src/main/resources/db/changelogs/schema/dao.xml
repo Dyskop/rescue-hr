@@ -567,7 +567,7 @@
              VALUES ('USER')</sql>
     </changeSet>
 
-    <changeSet id="users init" author="dimaskop18@gmail.com">
+    <!--<changeSet id="users init" author="dimaskop18@gmail.com">
         <sql>INSERT INTO rh.users (username, password)
              VALUES ('skopinau', '12345678')</sql>
     </changeSet>
@@ -575,7 +575,7 @@
     <changeSet id="users_roles_link init" author="dimaskop18@gmail.com">
         <sql>INSERT INTO rh.users_roles_link (user_id, role_id)
              VALUES (1, 1)</sql>
-    </changeSet>
+    </changeSet>-->
 
     <changeSet id="rename id_columns of all tables just to id" author="dimaskop18@gmail.com">
         <sql>ALTER TABLE rh.employees RENAME COLUMN employee_id TO id</sql>

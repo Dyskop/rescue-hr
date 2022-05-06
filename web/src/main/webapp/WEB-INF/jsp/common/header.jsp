@@ -43,7 +43,7 @@
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Вход</a>
+                        <a class="nav-link" href="${pageContext.request.contextPath}/logout">Выход</a>
                     </li>
                 </ul>
                 <form class="d-flex">

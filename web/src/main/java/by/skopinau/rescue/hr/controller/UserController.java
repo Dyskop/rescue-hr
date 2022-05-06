@@ -21,18 +21,23 @@ import java.util.List;
 import java.util.Map;
 
 @Controller
-public class ModelInteractionController {
+public class UserController {
     private final EmployeeService employeeService;
     private final StateService stateService;
     private final RanksLogService ranksLogService;
     private final PositionsLogService positionsLogService;
 
     @Autowired
-    public ModelInteractionController(EmployeeServiceSpring employeeService, StateServiceSpring stateService, RanksLogServiceSpring ranksLogService, PositionsLogServiceSpring positionsLogService) {
+    public UserController(EmployeeServiceSpring employeeService, StateServiceSpring stateService, RanksLogServiceSpring ranksLogService, PositionsLogServiceSpring positionsLogService) {
         this.employeeService = employeeService;
         this.stateService = stateService;
         this.ranksLogService = ranksLogService;
         this.positionsLogService = positionsLogService;
+    }
+
+    @GetMapping("/")
+    public String showIndexView() {
+        return "index";
     }
 
     @GetMapping(path = "/view/employees")
