@@ -32,8 +32,7 @@ public class UserDetailsServiceSpring extends BaseServiceSpring<User> implements
         if (foundUser == null) {
             throw new UsernameNotFoundException("Couldn't find user by provided name!");
         }
-        return new org.springframework.security.core.userdetails.User(foundUser.getUsername(),
-                foundUser.getPassword(), getUserAuthorities(foundUser));
+        return new org.springframework.security.core.userdetails.User(foundUser.getUsername(), foundUser.getPassword(), getUserAuthorities(foundUser));
     }
 
     private Set<GrantedAuthority> getUserAuthorities(User user) {

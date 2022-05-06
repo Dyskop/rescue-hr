@@ -32,6 +32,9 @@ public class AccountServiceSpring {
             throw new UserExistException(String.format("User with username %s already exists.", userRegistrationRequest.getUsername()));
         }
         User user = new User();
+        user.setFirstname(userRegistrationRequest.getFirstname());
+        user.setLastname(userRegistrationRequest.getLastname());
+        user.setEmail(userRegistrationRequest.getEmail());
         user.setUsername(userRegistrationRequest.getUsername());
         user.setPassword(passwordEncoder.encode(userRegistrationRequest.getPassword()));
         user.setRoles(Set.of(roleRepository.getById(2)));

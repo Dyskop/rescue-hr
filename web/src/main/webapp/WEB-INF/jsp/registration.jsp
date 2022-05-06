@@ -16,28 +16,27 @@
             <div class="col-md-6">
                 <div class="card px-5 py-5"><span class="circle"><i class="fa fa-check"></i></span>
                     <form action="${pageContext.request.contextPath}/registration" method="post">
-                        <%--<div class="form-input">
-                            <label for="label-first-name" class="form-label"> </label>
-                            <input id="label-first-name" type="text" class="form-control" placeholder="First Name"
-                                   name="first-name">
-                        </div>--%>
-                        <%--<div class="form-input">
-                            <label for="label-last-name" class="form-label"> </label>
-                            <input id="label-last-name" type="text" class="form-control" placeholder="Last Name"
-                                   name="last-name">
-                        </div>--%>
-                        <%--<div class="form-input">
-                            <label for="label-email" class="form-label"> </label>
-                            <input id="label-email" type="text" class="form-control" placeholder="Email address"
+                        <div class="form-floating mb-2">
+                            <input id="label-firstname" type="text" class="form-control" placeholder="Имя"
+                                   name="firstname">
+                            <label for="label-firstname">Имя</label>
+                        </div>
+                        <div class="form-floating mb-2">
+                            <input id="label-lastname" type="text" class="form-control" placeholder="Фамилия"
+                                   name="lastname">
+                            <label for="label-lastname">Фамилия</label>
+                        </div>
+                        <div class="form-floating mb-2">
+                            <input id="label-email" type="text" class="form-control" placeholder="Email"
                                    name="email">
-                        </div>--%>
-
-                        <div class="form-floating mb-3">
+                            <label for="label-email">Email</label>
+                        </div>
+                        <div class="form-floating mb-2">
                             <input id="label-username" type="text" class="form-control" placeholder="Имя пользователя"
                                    name="username">
                             <label for="label-username">Имя пользователя</label>
                         </div>
-                        <div class="form-floating mb-3">
+                        <div class="form-floating mb-2">
                             <input id="label-password" type="password" class="form-control" placeholder="Пароль"
                                    name="password">
                             <label for="label-password">Пароль</label>
