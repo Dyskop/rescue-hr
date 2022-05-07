@@ -2,6 +2,7 @@ package by.skopinau.rescue.hr.repository;
 
 import by.skopinau.rescue.hr.entity.Employee;
 import by.skopinau.rescue.hr.entity.PositionsLog;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
@@ -13,4 +14,7 @@ public interface PositionsLogRepository extends BaseRepository<PositionsLog> {
 
     @Query("select pl from PositionsLog pl join pl.employee e order by pl.positionGettingDate desc, e.surname asc, e.name asc, e.patronymic asc")
     List<PositionsLog> findAllOrdered();
+
+    @Query("select pl from PositionsLog pl join pl.employee e order by pl.positionGettingDate desc, e.surname asc, e.name asc, e.patronymic asc")
+    List<PositionsLog> findAllOrdered(Pageable pageable);
 }

@@ -5,6 +5,7 @@ import by.skopinau.rescue.hr.entity.PositionsLog;
 import by.skopinau.rescue.hr.repository.PositionsLogRepository;
 import by.skopinau.rescue.hr.service.PositionsLogService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -28,5 +29,9 @@ public class PositionsLogServiceSpring extends BaseServiceSpring<PositionsLog> i
     @Override
     public List<PositionsLog> findAll() {
         return positionsLogRepository.findAllOrdered();
+    }
+
+    public List<PositionsLog> findAllPageable(int page, int size) {
+        return positionsLogRepository.findAllOrdered(PageRequest.of(page, size));
     }
 }

@@ -10,6 +10,7 @@
 </head>
 <body>
 <%@ include file="common/header.jsp"%>
+<c:set var="pageNumber" value="${requestScope.pageNumber}"/>
 <section>
     <div class="container-xxl">
         <table class="table table-bordered caption-top">
@@ -42,6 +43,42 @@
             </c:forEach>
             </tbody>
         </table>
+        <nav aria-label="Page navigation">
+            <ul class="pagination justify-content-center">
+                <c:choose>
+                    <c:when test="${pageNumber == '1'}">
+                        <li class="page-item">
+                            <a class="page-link" href="${pageContext.request.contextPath}/view/employees/${pageNumber}" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="${pageContext.request.contextPath}/view/employees/${pageNumber}">${pageNumber}</a></li>
+                        <li class="page-item"><a class="page-link" href="${pageContext.request.contextPath}/view/employees/${pageNumber + 1}">${pageNumber + 1}</a></li>
+                        <li class="page-item"><a class="page-link" href="${pageContext.request.contextPath}/view/employees/${pageNumber + 2}">${pageNumber + 2}</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="${pageContext.request.contextPath}/view/employees/${pageNumber + 1}" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    </c:when>
+                    <c:otherwise>
+                        <li class="page-item">
+                            <a class="page-link" href="${pageContext.request.contextPath}/view/employees/${pageNumber - 1}" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="${pageContext.request.contextPath}/view/employees/${pageNumber - 1}">${pageNumber - 1}</a></li>
+                        <li class="page-item"><a class="page-link" href="${pageContext.request.contextPath}/view/employees/${pageNumber}">${pageNumber}</a></li>
+                        <li class="page-item"><a class="page-link" href="${pageContext.request.contextPath}/view/employees/${pageNumber + 1}">${pageNumber + 1}</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="${pageContext.request.contextPath}/view/employees/${pageNumber + 1}" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    </c:otherwise>
+                </c:choose>
+            </ul>
+        </nav>
     </div>
 </section>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
@@ -51,7 +88,7 @@
 <script>
     $('.table tbody tr').each(function(i) {
         var number = i + 1;
-        $(this).find('td:first').text(number);
+        $(this).find('td:first').text(number + ${pageNumber - 1} * 10);
     });
 </script>
 </body>

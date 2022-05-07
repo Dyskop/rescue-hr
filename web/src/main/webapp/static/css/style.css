@@ -1,3 +1,5 @@
+@import "../css/bootstrap.min.css";
+
 .employee_photo {
     background-color: #fff;
     border: 2px solid #332464;
@@ -22,6 +24,10 @@
 
 .for_top_margin {
     margin-top: 20px;
+}
+
+.page-link {
+    color: black;
 }
 
 tbody tr:hover {

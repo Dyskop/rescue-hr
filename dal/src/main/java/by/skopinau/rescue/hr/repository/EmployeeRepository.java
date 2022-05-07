@@ -1,6 +1,7 @@
 package by.skopinau.rescue.hr.repository;
 
 import by.skopinau.rescue.hr.entity.*;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
@@ -38,4 +39,7 @@ public interface EmployeeRepository extends BaseRepository<Employee> {
 
     @Query("select e from Employee e order by e.surname, e.name, e.patronymic")
     List<Employee> findAllOrdered();
+
+    @Query("select e from Employee e order by e.surname, e.name, e.patronymic")
+    List<Employee> findAllOrdered(Pageable pageable);
 }

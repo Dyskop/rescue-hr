@@ -4,6 +4,7 @@ import by.skopinau.rescue.hr.entity.*;
 import by.skopinau.rescue.hr.repository.EmployeeRepository;
 import by.skopinau.rescue.hr.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -68,5 +69,9 @@ public class EmployeeServiceSpring extends BaseServiceSpring<Employee> implement
     @Override
     public List<Employee> findAll() {
         return employeeRepository.findAllOrdered();
+    }
+
+    public List<Employee> findAllPageable(int page, int size) {
+        return employeeRepository.findAllOrdered(PageRequest.of(page, size));
     }
 }

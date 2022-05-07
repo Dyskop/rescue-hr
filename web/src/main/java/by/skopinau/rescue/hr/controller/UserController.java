@@ -2,9 +2,6 @@ package by.skopinau.rescue.hr.controller;
 
 import by.skopinau.rescue.hr.entity.Employee;
 import by.skopinau.rescue.hr.entity.State;
-import by.skopinau.rescue.hr.service.EmployeeService;
-import by.skopinau.rescue.hr.service.PositionsLogService;
-import by.skopinau.rescue.hr.service.RanksLogService;
 import by.skopinau.rescue.hr.service.StateService;
 import by.skopinau.rescue.hr.service.impl.spring.EmployeeServiceSpring;
 import by.skopinau.rescue.hr.service.impl.spring.PositionsLogServiceSpring;
@@ -22,10 +19,11 @@ import java.util.Map;
 
 @Controller
 public class UserController {
-    private final EmployeeService employeeService;
+    public static final int PAGE_SIZE = 10;
+    private final EmployeeServiceSpring employeeService;
     private final StateService stateService;
-    private final RanksLogService ranksLogService;
-    private final PositionsLogService positionsLogService;
+    private final RanksLogServiceSpring ranksLogService;
+    private final PositionsLogServiceSpring positionsLogService;
 
     @Autowired
     public UserController(EmployeeServiceSpring employeeService, StateServiceSpring stateService, RanksLogServiceSpring ranksLogService, PositionsLogServiceSpring positionsLogService) {
@@ -40,9 +38,10 @@ public class UserController {
         return "index";
     }
 
-    @GetMapping(path = "/view/employees")
-    public String showEmployees(Model model) {
-        model.addAttribute("employees", employeeService.findAll());
+    @GetMapping(path = "/view/employees/{page}")
+    public String showEmployees(@PathVariable("page") int pageNumber, Model model) {
+        model.addAttribute("pageNumber", pageNumber);
+        model.addAttribute("employees", employeeService.findAllPageable(pageNumber - 1, PAGE_SIZE));
         return "viewEmployees";
     }
 
@@ -70,15 +69,17 @@ public class UserController {
         return "viewState";
     }
 
-    @GetMapping(path = "/view/ranks-log")
-    public String showRanksLog(Model model) {
-        model.addAttribute("rankLogs", ranksLogService.findAll());
+    @GetMapping(path = "/view/ranks-log/{page}")
+    public String showRanksLog(@PathVariable("page") int pageNumber, Model model) {
+        model.addAttribute("pageNumber", pageNumber);
+        model.addAttribute("rankLogs", ranksLogService.findAllPageable(pageNumber - 1, PAGE_SIZE));
         return "viewRanksLog";
     }
 
-    @GetMapping(path = "/view/positions-log")
-    public String showPositionsLog(Model model) {
-        model.addAttribute("positionLogs", positionsLogService.findAll());
+    @GetMapping(path = "/view/positions-log/{page}")
+    public String showPositionsLog(@PathVariable("page") int pageNumber, Model model) {
+        model.addAttribute("pageNumber", pageNumber);
+        model.addAttribute("positionLogs", positionsLogService.findAllPageable(pageNumber - 1, PAGE_SIZE));
         return "viewPositionsLog";
     }
 }
