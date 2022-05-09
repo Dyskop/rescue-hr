@@ -237,7 +237,7 @@
                                 </goals>
                                 <configuration>
                                     <files>
-                                        <file>/home\skopinau\dev\properties\rhr\cargo.properties</file>
+                                        <file>/opt\properties\rhr\cargo.properties</file>
                                     </files>
                                 </configuration>
                             </execution>
