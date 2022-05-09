@@ -14,7 +14,7 @@
     <c:set var="employee" value="${requestScope.employee}"/>
     <div class="container-xxl">
         <div class="row justify-content-evenly">
-            <div class="col">
+            <div class="col col-view-one-employee">
                 <table class="table">
                     <tbody>
                     <fmt:parseDate value="${employee.birthday}" pattern="yyyy-MM-dd" var="birthday" type="date"/>

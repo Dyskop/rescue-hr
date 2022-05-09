@@ -9,7 +9,7 @@
     height: 225px;
 }
 
-.col {
+.col-view-one-employee {
     margin-top: 20px;
     text-align: right;
 }
@@ -28,6 +28,30 @@
 
 .page-link {
     color: black;
+}
+
+.current-page {
+    color: #640200;
+    background-color: #000000;
+}
+
+.col-table-title {
+    width: 60%;
+    text-align: center;
+    font-family: var(--bs-font-sans-serif);
+    font-size: 18px;
+    font-weight: bold;
+    color: black;
+}
+
+.col-table-button {
+    width: 20%;
+    text-align: right;
+}
+
+.table-title-admin {
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 tbody tr:hover {
