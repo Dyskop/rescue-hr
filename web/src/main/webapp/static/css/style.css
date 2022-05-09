@@ -30,10 +30,10 @@
     color: black;
 }
 
-.current-page {
+/*.current-page {
     color: #640200;
     background-color: #000000;
-}
+}*/
 
 .col-table-title {
     width: 60%;
@@ -54,7 +54,28 @@
     margin-bottom: 10px;
 }
 
-tbody tr:hover {
+/*меняет цвет при наведении курсора*/
+/*tbody tr:hover {
+    background: #eaeaea;
+}*/
+
+.selected {
     background: #332464; /* Цвет фона при наведении */
-    color: #ffffff; /* Цвет текста при наведении */
+    color: #ffffff;
+}
+
+.btn-primary {
+    color: black;
+    border-color: #332464;
+    background-color: white;
+}
+
+.btn-primary:hover {
+    background: #332464;
+    color: #ffffff;
+}
+
+.page-link:hover {
+    background: #332464;
+    color: #ffffff;
 }

@@ -9,60 +9,61 @@
     <%@ include file="common/css-connect.jsp"%>
 </head>
 <body>
-<%@ include file="common/login-registration-header.jsp"%>
-<section>
-    <div class="container mt-5 mb-5">
-        <div class="row d-flex align-items-center justify-content-center">
-            <div class="col-md-6">
-                <div class="card px-5 py-5"><span class="circle"><i class="fa fa-check"></i></span>
-                    <form action="${pageContext.request.contextPath}/registration" method="post">
-                        <div class="form-floating mb-2">
-                            <input id="label-firstname" type="text" class="form-control" placeholder="Имя"
-                                   name="firstname">
-                            <label for="label-firstname">Имя</label>
-                        </div>
-                        <div class="form-floating mb-2">
-                            <input id="label-lastname" type="text" class="form-control" placeholder="Фамилия"
-                                   name="lastname">
-                            <label for="label-lastname">Фамилия</label>
-                        </div>
-                        <div class="form-floating mb-2">
-                            <input id="label-email" type="text" class="form-control" placeholder="Email"
-                                   name="email">
-                            <label for="label-email">Email</label>
-                        </div>
-                        <div class="form-floating mb-2">
-                            <input id="label-username" type="text" class="form-control" placeholder="Имя пользователя"
-                                   name="username">
-                            <label for="label-username">Имя пользователя</label>
-                        </div>
-                        <div class="form-floating mb-2">
-                            <input id="label-password" type="password" class="form-control" placeholder="Пароль"
-                                   name="password">
-                            <label for="label-password">Пароль</label>
-                        </div>
-                        <div class="form-check">
-                            <label class="form-check-label" for="flexCheckChecked"> Я принимаю условия пользовательского соглашения </label>
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked"
-                                   checked style="background-color: #332464">
-                        </div>
-                        <div class="text-center mt-4" style="color: red">
-                            <c:if test="${error != null}">
-                                <c:out value="${error}"/>
-                            </c:if>
-                        </div>
-                        <div class="d-grid gap-2">
-                            <button class="btn btn-primary mt-4 signup" style="background-color: #332464">Регистрация</button>
-                        </div>
-                    </form>
+    <%@ include file="common/login-registration-header.jsp"%>
+    <section>
+        <div class="container mt-5 mb-5">
+            <div class="row d-flex align-items-center justify-content-center">
+                <div class="col-md-6">
+                    <div class="card px-5 py-5"><span class="circle"><i class="fa fa-check"></i></span>
+                        <form action="${pageContext.request.contextPath}/registration" method="post">
+                            <div class="form-floating mb-2">
+                                <input id="label-firstname" type="text" class="form-control" placeholder="Имя"
+                                       name="firstname">
+                                <label for="label-firstname">Имя</label>
+                            </div>
+                            <div class="form-floating mb-2">
+                                <input id="label-lastname" type="text" class="form-control" placeholder="Фамилия"
+                                       name="lastname">
+                                <label for="label-lastname">Фамилия</label>
+                            </div>
+                            <div class="form-floating mb-2">
+                                <input id="label-email" type="text" class="form-control" placeholder="Email"
+                                       name="email">
+                                <label for="label-email">Email</label>
+                            </div>
+                            <div class="form-floating mb-2">
+                                <input id="label-username" type="text" class="form-control" placeholder="Имя пользователя"
+                                       name="username">
+                                <label for="label-username">Имя пользователя</label>
+                            </div>
+                            <div class="form-floating mb-2">
+                                <input id="label-password" type="password" class="form-control" placeholder="Пароль"
+                                       name="password">
+                                <label for="label-password">Пароль</label>
+                            </div>
+                            <div class="form-check">
+                                <label class="form-check-label" for="flexCheckChecked"> Я принимаю условия пользовательского соглашения </label>
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked"
+                                       checked style="background-color: #332464">
+                            </div>
+                            <div class="text-center mt-4" style="color: red">
+                                <c:if test="${error != null}">
+                                    <c:out value="${error}"/>
+                                </c:if>
+                            </div>
+                            <div class="d-grid gap-2">
+                                <button class="btn btn-primary mt-4 signup">Регистрация</button>
+                            </div>
+                        </form>
 
-                    <div class="text-center mt-4"><span>Уже зарегистрированы?</span> <a href="<c:url value="/login"/>"
-                                                                                    class="text-decoration-none" style="color: #332464">Вход</a>
+                        <div class="text-center mt-4"><span>Уже зарегистрированы?</span> <a href="<c:url value="/login"/>"
+                                                                                        class="text-decoration-none" style="color: #332464">Вход</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+    <%@ include file="common/bootstrapScript.jsp"%>
 </body>
 </html>
