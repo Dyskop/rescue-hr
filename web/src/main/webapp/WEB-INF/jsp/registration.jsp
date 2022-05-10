@@ -18,27 +18,27 @@
                         <form action="${pageContext.request.contextPath}/registration" method="post">
                             <div class="form-floating mb-2">
                                 <input id="label-firstname" type="text" class="form-control" placeholder="Имя"
-                                       name="firstname">
+                                       name="firstname" required>
                                 <label for="label-firstname">Имя</label>
                             </div>
                             <div class="form-floating mb-2">
                                 <input id="label-lastname" type="text" class="form-control" placeholder="Фамилия"
-                                       name="lastname">
+                                       name="lastname" required>
                                 <label for="label-lastname">Фамилия</label>
                             </div>
                             <div class="form-floating mb-2">
                                 <input id="label-email" type="text" class="form-control" placeholder="Email"
-                                       name="email">
+                                       name="email" required>
                                 <label for="label-email">Email</label>
                             </div>
                             <div class="form-floating mb-2">
                                 <input id="label-username" type="text" class="form-control" placeholder="Имя пользователя"
-                                       name="username">
+                                       name="username" required>
                                 <label for="label-username">Имя пользователя</label>
                             </div>
                             <div class="form-floating mb-2">
                                 <input id="label-password" type="password" class="form-control" placeholder="Пароль"
-                                       name="password">
+                                       name="password" required>
                                 <label for="label-password">Пароль</label>
                             </div>
                             <div class="form-check">

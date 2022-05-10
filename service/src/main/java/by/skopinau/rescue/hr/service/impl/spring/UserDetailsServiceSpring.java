@@ -1,9 +1,11 @@
 package by.skopinau.rescue.hr.service.impl.spring;
 
+import by.skopinau.rescue.hr.entity.Employee;
 import by.skopinau.rescue.hr.entity.Role;
 import by.skopinau.rescue.hr.entity.User;
 import by.skopinau.rescue.hr.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -13,6 +15,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Service
@@ -42,5 +45,9 @@ public class UserDetailsServiceSpring extends BaseServiceSpring<User> implements
             grantedAuthorities.add(new SimpleGrantedAuthority(role.getName()));
         }
         return grantedAuthorities;
+    }
+
+    public List<User> findAllPageable(int page, int size) {
+        return userRepository.findAllOrdered(PageRequest.of(page, size));
     }
 }

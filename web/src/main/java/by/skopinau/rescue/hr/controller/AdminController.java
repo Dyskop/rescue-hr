@@ -1,9 +1,8 @@
 package by.skopinau.rescue.hr.controller;
 
 import by.skopinau.rescue.hr.dto.CreateEmployeeRequest;
-import by.skopinau.rescue.hr.entity.Position;
-import by.skopinau.rescue.hr.entity.Rank;
-import by.skopinau.rescue.hr.entity.Subdivision;
+import by.skopinau.rescue.hr.entity.Role;
+import by.skopinau.rescue.hr.entity.User;
 import by.skopinau.rescue.hr.service.StateService;
 import by.skopinau.rescue.hr.service.impl.spring.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import java.util.List;
+import java.util.*;
 
 @Controller
 public class AdminController {
@@ -25,9 +24,10 @@ public class AdminController {
     private final RankServiceSpring rankService;
     private final PositionServiceSpring positionService;
     private final SubdivisionServiceSpring subdivisionService;
+    private final UserDetailsServiceSpring userDetailsService;
 
     @Autowired
-    public AdminController(EmployeeServiceSpring employeeService, StateServiceSpring stateService, RanksLogServiceSpring ranksLogService, PositionsLogServiceSpring positionsLogService, RankServiceSpring rankService, PositionServiceSpring positionService, SubdivisionServiceSpring subdivisionService) {
+    public AdminController(EmployeeServiceSpring employeeService, StateServiceSpring stateService, RanksLogServiceSpring ranksLogService, PositionsLogServiceSpring positionsLogService, RankServiceSpring rankService, PositionServiceSpring positionService, SubdivisionServiceSpring subdivisionService, UserDetailsServiceSpring userDetailsService) {
         this.employeeService = employeeService;
         this.stateService = stateService;
         this.ranksLogService = ranksLogService;
@@ -35,6 +35,7 @@ public class AdminController {
         this.rankService = rankService;
         this.positionService = positionService;
         this.subdivisionService = subdivisionService;
+        this.userDetailsService = userDetailsService;
     }
 
     @GetMapping("/admin")
@@ -64,6 +65,13 @@ public class AdminController {
         model.addAttribute("subdivisions", subdivisions);*/
         employeeService.createEmployee(createEmployeeRequest);
         return "redirect:1";
+    }
+
+    @GetMapping(path = "/admin/users/{page}")
+    public String showUsers(@PathVariable("page") int pageNumber, Model model) {
+        model.addAttribute("pageNumber", pageNumber);
+        model.addAttribute("users", userDetailsService.findAllPageable(pageNumber - 1, PAGE_SIZE));
+        return "viewUsersAdmin";
     }
 
     /*@GetMapping(path = "/view/employee/{employeeId}")
