@@ -1,7 +1,6 @@
 package by.skopinau.rescue.hr.controller;
 
 import by.skopinau.rescue.hr.dto.CreateEmployeeRequest;
-import by.skopinau.rescue.hr.entity.Role;
 import by.skopinau.rescue.hr.entity.User;
 import by.skopinau.rescue.hr.service.StateService;
 import by.skopinau.rescue.hr.service.impl.spring.*;
@@ -12,7 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import java.util.*;
+import java.util.List;
 
 @Controller
 public class AdminController {
@@ -69,8 +68,9 @@ public class AdminController {
 
     @GetMapping(path = "/admin/users/{page}")
     public String showUsers(@PathVariable("page") int pageNumber, Model model) {
+        List<User> users = userDetailsService.findAllPageable(pageNumber - 1, PAGE_SIZE);
         model.addAttribute("pageNumber", pageNumber);
-        model.addAttribute("users", userDetailsService.findAllPageable(pageNumber - 1, PAGE_SIZE));
+        model.addAttribute("users", users);
         return "viewUsersAdmin";
     }
 

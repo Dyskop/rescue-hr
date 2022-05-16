@@ -34,15 +34,19 @@
                 </tr>
                 </thead>
                 <tbody>
+                <sec
                 <c:forEach items="${requestScope.users}" var="user">
-                    <%--<fmt:parseDate value="${employee.birthday}" pattern="yyyy-MM-dd" var="birthday" type="date"/>--%>
                     <tr>
                         <td></td>
                         <td>${user.lastname}</td>
                         <td>${user.firstname}</td>
                         <td>${user.email}</td>
                         <td>${user.username}</td>
-                        <td></td>
+                        <td>
+                            <c:forEach items="${user.roles}" var="role">
+                                ${role.name}
+                            </c:forEach>
+                        </td>
                     </tr>
                 </c:forEach>
                 </tbody>
