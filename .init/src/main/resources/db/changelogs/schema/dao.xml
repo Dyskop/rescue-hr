@@ -568,8 +568,8 @@
     </changeSet>
 
     <!--<changeSet id="users init" author="dimaskop18@gmail.com">
-        <sql>INSERT INTO rh.users (username, password)
-             VALUES ('skopinau', '12345678')</sql>
+        <sql>INSERT INTO rh.users (username, password, email, firstname, lastname)
+             VALUES ('@dyskop', '1234567', 'dimaskop18@gmail.com', 'Дмитрий', 'Скопинов')</sql>
     </changeSet>
 
     <changeSet id="users_roles_link init" author="dimaskop18@gmail.com">

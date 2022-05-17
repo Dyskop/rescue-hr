@@ -23,10 +23,10 @@ public class AdminController {
     private final RankServiceSpring rankService;
     private final PositionServiceSpring positionService;
     private final SubdivisionServiceSpring subdivisionService;
-    private final UserDetailsServiceSpring userDetailsService;
+    private final UserServiceSpring userServiceSpring;
 
     @Autowired
-    public AdminController(EmployeeServiceSpring employeeService, StateServiceSpring stateService, RanksLogServiceSpring ranksLogService, PositionsLogServiceSpring positionsLogService, RankServiceSpring rankService, PositionServiceSpring positionService, SubdivisionServiceSpring subdivisionService, UserDetailsServiceSpring userDetailsService) {
+    public AdminController(EmployeeServiceSpring employeeService, StateServiceSpring stateService, RanksLogServiceSpring ranksLogService, PositionsLogServiceSpring positionsLogService, RankServiceSpring rankService, PositionServiceSpring positionService, SubdivisionServiceSpring subdivisionService, UserServiceSpring userServiceSpring) {
         this.employeeService = employeeService;
         this.stateService = stateService;
         this.ranksLogService = ranksLogService;
@@ -34,7 +34,7 @@ public class AdminController {
         this.rankService = rankService;
         this.positionService = positionService;
         this.subdivisionService = subdivisionService;
-        this.userDetailsService = userDetailsService;
+        this.userServiceSpring = userServiceSpring;
     }
 
     @GetMapping("/admin")
@@ -68,7 +68,7 @@ public class AdminController {
 
     @GetMapping(path = "/admin/users/{page}")
     public String showUsers(@PathVariable("page") int pageNumber, Model model) {
-        List<User> users = userDetailsService.findAllPageable(pageNumber - 1, PAGE_SIZE);
+        List<User> users = userServiceSpring.findAllPageable(pageNumber - 1, PAGE_SIZE);
         model.addAttribute("pageNumber", pageNumber);
         model.addAttribute("users", users);
         return "viewUsersAdmin";
