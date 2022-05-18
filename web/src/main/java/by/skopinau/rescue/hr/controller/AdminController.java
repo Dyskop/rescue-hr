@@ -1,6 +1,8 @@
 package by.skopinau.rescue.hr.controller;
 
 import by.skopinau.rescue.hr.dto.CreateEmployeeRequest;
+import by.skopinau.rescue.hr.entity.Employee;
+import by.skopinau.rescue.hr.entity.State;
 import by.skopinau.rescue.hr.entity.User;
 import by.skopinau.rescue.hr.service.StateService;
 import by.skopinau.rescue.hr.service.impl.spring.*;
@@ -11,7 +13,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 public class AdminController {
@@ -20,20 +24,14 @@ public class AdminController {
     private final StateService stateService;
     private final RanksLogServiceSpring ranksLogService;
     private final PositionsLogServiceSpring positionsLogService;
-    private final RankServiceSpring rankService;
-    private final PositionServiceSpring positionService;
-    private final SubdivisionServiceSpring subdivisionService;
     private final UserServiceSpring userServiceSpring;
 
     @Autowired
-    public AdminController(EmployeeServiceSpring employeeService, StateServiceSpring stateService, RanksLogServiceSpring ranksLogService, PositionsLogServiceSpring positionsLogService, RankServiceSpring rankService, PositionServiceSpring positionService, SubdivisionServiceSpring subdivisionService, UserServiceSpring userServiceSpring) {
+    public AdminController(EmployeeServiceSpring employeeService, StateServiceSpring stateService, RanksLogServiceSpring ranksLogService, PositionsLogServiceSpring positionsLogService, UserServiceSpring userServiceSpring) {
         this.employeeService = employeeService;
         this.stateService = stateService;
         this.ranksLogService = ranksLogService;
         this.positionsLogService = positionsLogService;
-        this.rankService = rankService;
-        this.positionService = positionService;
-        this.subdivisionService = subdivisionService;
         this.userServiceSpring = userServiceSpring;
     }
 
@@ -56,12 +54,6 @@ public class AdminController {
 
     @PostMapping("/admin/employees/create")
     public String createNewEmployee(CreateEmployeeRequest createEmployeeRequest) {
-/*        List<Rank> ranks = rankService.findAll();
-        List<Position> positions = positionService.findAll();
-        List<Subdivision> subdivisions = subdivisionService.findAll();
-        model.addAttribute("ranks", ranks);
-        model.addAttribute("positions", positions);
-        model.addAttribute("subdivisions", subdivisions);*/
         employeeService.createEmployee(createEmployeeRequest);
         return "redirect:1";
     }
@@ -74,16 +66,16 @@ public class AdminController {
         return "viewUsersAdmin";
     }
 
-    /*@GetMapping(path = "/view/employee/{employeeId}")
+    @GetMapping(path = "/admin/employee/{employeeId}")
     public String showOneEmployee(@PathVariable("employeeId") int employeeId, Model model) {
         Employee employee = employeeService.findById(employeeId);
         model.addAttribute("employee", employee);
         model.addAttribute("rankLogs", ranksLogService.findByEmployee(employee));
         model.addAttribute("positionLogs", positionsLogService.findByEmployee(employee));
-        return "viewOneEmployee";
+        return "viewOneEmployeeAdmin";
     }
 
-    @GetMapping(path = "/view/state")
+    @GetMapping(path = "/admin/state")
     public String showState(Model model) {
         List<State> list = stateService.findAll();
         Map<State, Integer> mapWithActualPositionsAmounts = new HashMap<>();
@@ -95,20 +87,20 @@ public class AdminController {
         model.addAttribute("stateList", list);
         model.addAttribute("actualAmounts", mapWithActualPositionsAmounts);
         model.addAttribute("freeAmounts", mapWithFreePositionsAmounts);
-        return "viewState";
+        return "viewStateAdmin";
     }
 
-    @GetMapping(path = "/view/ranks-log/{page}")
+    @GetMapping(path = "/admin/ranks-log/{page}")
     public String showRanksLog(@PathVariable("page") int pageNumber, Model model) {
         model.addAttribute("pageNumber", pageNumber);
         model.addAttribute("rankLogs", ranksLogService.findAllPageable(pageNumber - 1, PAGE_SIZE));
-        return "viewRanksLog";
+        return "viewRanksLogAdmin";
     }
 
-    @GetMapping(path = "/view/positions-log/{page}")
+    @GetMapping(path = "/admin/positions-log/{page}")
     public String showPositionsLog(@PathVariable("page") int pageNumber, Model model) {
         model.addAttribute("pageNumber", pageNumber);
         model.addAttribute("positionLogs", positionsLogService.findAllPageable(pageNumber - 1, PAGE_SIZE));
-        return "viewPositionsLog";
-    }*/
+        return "viewPositionsLogAdmin";
+    }
 }
