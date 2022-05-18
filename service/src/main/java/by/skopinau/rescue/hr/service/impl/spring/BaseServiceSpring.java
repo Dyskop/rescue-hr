@@ -30,6 +30,8 @@ public class BaseServiceSpring<T extends BaseEntity> implements BaseService<T> {
         baseRepository.delete(entity);
     }
 
+    public void deleteById(int id) {baseRepository.deleteById(id);}
+
     @Override
     public T findById(int id) {
         return baseRepository.findById(id).orElseThrow(NoResultException::new);

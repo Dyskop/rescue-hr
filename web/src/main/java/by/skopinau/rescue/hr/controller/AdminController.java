@@ -40,6 +40,14 @@ public class AdminController {
         return "admin";
     }
 
+    @GetMapping(path = "/admin/users/{page}")
+    public String showUsers(@PathVariable("page") int pageNumber, Model model) {
+        List<User> users = userServiceSpring.findAllPageable(pageNumber - 1, PAGE_SIZE);
+        model.addAttribute("pageNumber", pageNumber);
+        model.addAttribute("users", users);
+        return "viewUsersAdmin";
+    }
+
     @GetMapping(path = "/admin/employees/{page}")
     public String showEmployees(@PathVariable("page") int pageNumber, Model model) {
         model.addAttribute("pageNumber", pageNumber);
@@ -58,14 +66,6 @@ public class AdminController {
         return "redirect:1";
     }
 
-    @GetMapping(path = "/admin/users/{page}")
-    public String showUsers(@PathVariable("page") int pageNumber, Model model) {
-        List<User> users = userServiceSpring.findAllPageable(pageNumber - 1, PAGE_SIZE);
-        model.addAttribute("pageNumber", pageNumber);
-        model.addAttribute("users", users);
-        return "viewUsersAdmin";
-    }
-
     @GetMapping(path = "/admin/employee/{employeeId}")
     public String showOneEmployee(@PathVariable("employeeId") int employeeId, Model model) {
         Employee employee = employeeService.findById(employeeId);
@@ -73,6 +73,25 @@ public class AdminController {
         model.addAttribute("rankLogs", ranksLogService.findByEmployee(employee));
         model.addAttribute("positionLogs", positionsLogService.findByEmployee(employee));
         return "viewOneEmployeeAdmin";
+    }
+
+    @GetMapping(path = "/admin/employee/delete/{employeeId}")
+    public String deleteEmployee(@PathVariable("employeeId") int employeeId) {
+        employeeService.deleteById(employeeId);
+        return "redirect:/admin/employees/1";
+    }
+
+    @GetMapping(path = "/admin/employee/update/{employeeId}")
+    public String showUpdateEmployeeView(@PathVariable("employeeId") int employeeId, Model model) {
+        Employee employee = employeeService.findById(employeeId);
+        model.addAttribute("employee", employee);
+        return "updateEmployee";
+    }
+
+    @PostMapping(path = "/admin/employee/update/{employeeId}")
+    public String updateEmployee(@PathVariable("employeeId") int employeeId, CreateEmployeeRequest createEmployeeRequest) {
+        employeeService.updateEmployee(employeeId, createEmployeeRequest);
+        return "redirect:/admin/employee/{employeeId}";
     }
 
     @GetMapping(path = "/admin/state")

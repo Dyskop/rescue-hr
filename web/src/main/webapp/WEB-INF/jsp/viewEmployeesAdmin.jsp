@@ -37,6 +37,7 @@
                     <th scope="col">Звание</th>
                     <th scope="col">Должность</th>
                     <th scope="col">Подразделение</th>
+                    <th scope="col">Действие</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -51,6 +52,21 @@
                         <td>${employee.rank.rankTitle} вн. сл.</td>
                         <td>${employee.position.positionTitle}</td>
                         <td>${employee.subdivision.subdivisionTitle}</td>
+                        <td>
+                            <div class="dropdown">
+                                <button class="btn btn-primary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                    выбрать
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                    <li><a class="dropdown-item" href="${pageContext.request.contextPath}/admin/employee/delete/${employee.id}" onclick="return confirm('Подтвердить удаление?')" role="button">
+                                        удалить
+                                    </a></li>
+                                    <li><a class="dropdown-item" href="${pageContext.request.contextPath}/admin/employee/update/${employee.id}" role="button">
+                                        изменить
+                                    </a></li>
+                                </ul>
+                            </div>
+                        </td>
                     </tr>
                 </c:forEach>
                 </tbody>

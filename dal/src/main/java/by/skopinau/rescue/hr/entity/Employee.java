@@ -26,15 +26,15 @@ public class Employee extends BaseEntity {
     @Column(name = "birthday")
     private LocalDate birthday;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "rank_id", nullable = false)
     private Rank rank;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "position_id", nullable = false)
     private Position position;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "subdivision_id", nullable = false)
     private Subdivision subdivision;
 }

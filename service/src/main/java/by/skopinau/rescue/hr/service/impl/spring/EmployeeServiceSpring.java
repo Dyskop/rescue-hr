@@ -2,7 +2,10 @@ package by.skopinau.rescue.hr.service.impl.spring;
 
 import by.skopinau.rescue.hr.dto.CreateEmployeeRequest;
 import by.skopinau.rescue.hr.entity.*;
-import by.skopinau.rescue.hr.repository.*;
+import by.skopinau.rescue.hr.repository.EmployeeRepository;
+import by.skopinau.rescue.hr.repository.PositionRepository;
+import by.skopinau.rescue.hr.repository.RankRepository;
+import by.skopinau.rescue.hr.repository.SubdivisionRepository;
 import by.skopinau.rescue.hr.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
@@ -85,6 +88,15 @@ public class EmployeeServiceSpring extends BaseServiceSpring<Employee> implement
 
     public void createEmployee(CreateEmployeeRequest createEmployeeRequest) {
         Employee employee = new Employee();
+        saveEmployee(createEmployeeRequest, employee);
+    }
+
+    public void updateEmployee(int employeeId, CreateEmployeeRequest createEmployeeRequest) {
+        Employee employee = employeeRepository.findById(employeeId).orElseThrow();
+        saveEmployee(createEmployeeRequest, employee);
+    }
+
+    private void saveEmployee(CreateEmployeeRequest createEmployeeRequest, Employee employee) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         employee.setSurname(createEmployeeRequest.getSurname());
         employee.setName(createEmployeeRequest.getName());
