@@ -1,6 +1,7 @@
 package by.skopinau.rescue.hr.service.impl.spring;
 
 import by.skopinau.rescue.hr.dto.CreateEmployeeRequest;
+import by.skopinau.rescue.hr.dto.SearchRequest;
 import by.skopinau.rescue.hr.entity.*;
 import by.skopinau.rescue.hr.repository.EmployeeRepository;
 import by.skopinau.rescue.hr.repository.PositionRepository;
@@ -85,6 +86,11 @@ public class EmployeeServiceSpring extends BaseServiceSpring<Employee> implement
     public List<Employee> findAllPageable(int page, int size) {
         return employeeRepository.findAllOrdered(PageRequest.of(page, size));
     }
+
+    public List<Employee> searchAllPageable(SearchRequest searchRequest, int page, int size) {
+        return employeeRepository.searchAllOrdered(searchRequest.getData(), PageRequest.of(page, size));
+    }
+
 
     public void createEmployee(CreateEmployeeRequest createEmployeeRequest) {
         Employee employee = new Employee();

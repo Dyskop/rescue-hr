@@ -49,8 +49,8 @@
                         <a class="nav-link" href="${pageContext.request.contextPath}/logout">Выход</a>
                     </li>
                 </ul>
-                <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Введите данные" aria-label="Search">
+                <form class="d-flex" action="${pageContext.request.contextPath}/admin/search/results/1" method="get">
+                    <input class="form-control me-2" type="search" placeholder="Введите данные" aria-label="Search" name="data">
                     <button class="btn btn-outline-success" type="submit">Поиск</button>
                 </form>
             </div>

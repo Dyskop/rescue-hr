@@ -1,6 +1,7 @@
 package by.skopinau.rescue.hr.controller;
 
 import by.skopinau.rescue.hr.dto.CreateEmployeeRequest;
+import by.skopinau.rescue.hr.dto.SearchRequest;
 import by.skopinau.rescue.hr.dto.UpdateUserRequest;
 import by.skopinau.rescue.hr.entity.Employee;
 import by.skopinau.rescue.hr.entity.State;
@@ -144,5 +145,12 @@ public class AdminController {
         model.addAttribute("pageNumber", pageNumber);
         model.addAttribute("positionLogs", positionsLogService.findAllPageable(pageNumber - 1, PAGE_SIZE));
         return "viewPositionsLogAdmin";
+    }
+
+    @GetMapping(path = "/admin/search/results/{page}")
+    public String showSearchResults(@PathVariable("page") int pageNumber, Model model, SearchRequest request) {
+        model.addAttribute("pageNumber", pageNumber);
+        model.addAttribute("employees", employeeService.searchAllPageable(request,pageNumber - 1, PAGE_SIZE));
+        return "viewEmployeesAdmin";
     }
 }
