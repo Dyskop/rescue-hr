@@ -1,6 +1,7 @@
 package by.skopinau.rescue.hr.controller;
 
 import by.skopinau.rescue.hr.dto.CreateEmployeeRequest;
+import by.skopinau.rescue.hr.dto.UpdateUserRequest;
 import by.skopinau.rescue.hr.entity.Employee;
 import by.skopinau.rescue.hr.entity.State;
 import by.skopinau.rescue.hr.entity.User;
@@ -48,11 +49,42 @@ public class AdminController {
         return "viewUsersAdmin";
     }
 
+    @GetMapping(path = "/admin/user/delete/{userId}")
+    public String deleteUser(@PathVariable("userId") int userId) {
+        userServiceSpring.deleteById(userId);
+        return "redirect:/admin/users/1";
+    }
+
+    @GetMapping(path = "/admin/user/update/{userId}")
+    public String showUpdateUserView(@PathVariable("userId") int userId, Model model) {
+        User user = userServiceSpring.findById(userId);
+        List<String> rolesNames = userServiceSpring.getRolesNames(user);
+        model.addAttribute("user", user);
+        model.addAttribute("rolesNames", rolesNames);
+        return "updateUser";
+    }
+
+    @PostMapping(path = "/admin/user/update/{userId}")
+    public String updateUser(@PathVariable("userId") int userId, UpdateUserRequest updateUserRequest) {
+        userServiceSpring.updateUser(userId, updateUserRequest);
+        return "redirect:/admin/users/1";
+    }
+
+
     @GetMapping(path = "/admin/employees/{page}")
     public String showEmployees(@PathVariable("page") int pageNumber, Model model) {
         model.addAttribute("pageNumber", pageNumber);
         model.addAttribute("employees", employeeService.findAllPageable(pageNumber - 1, PAGE_SIZE));
         return "viewEmployeesAdmin";
+    }
+
+    @GetMapping(path = "/admin/employee/{employeeId}")
+    public String showOneEmployee(@PathVariable("employeeId") int employeeId, Model model) {
+        Employee employee = employeeService.findById(employeeId);
+        model.addAttribute("employee", employee);
+        model.addAttribute("rankLogs", ranksLogService.findByEmployee(employee));
+        model.addAttribute("positionLogs", positionsLogService.findByEmployee(employee));
+        return "viewOneEmployeeAdmin";
     }
 
     @GetMapping("/admin/employees/create")
@@ -63,16 +95,7 @@ public class AdminController {
     @PostMapping("/admin/employees/create")
     public String createNewEmployee(CreateEmployeeRequest createEmployeeRequest) {
         employeeService.createEmployee(createEmployeeRequest);
-        return "redirect:1";
-    }
-
-    @GetMapping(path = "/admin/employee/{employeeId}")
-    public String showOneEmployee(@PathVariable("employeeId") int employeeId, Model model) {
-        Employee employee = employeeService.findById(employeeId);
-        model.addAttribute("employee", employee);
-        model.addAttribute("rankLogs", ranksLogService.findByEmployee(employee));
-        model.addAttribute("positionLogs", positionsLogService.findByEmployee(employee));
-        return "viewOneEmployeeAdmin";
+        return "redirect:/admin/employees/1";
     }
 
     @GetMapping(path = "/admin/employee/delete/{employeeId}")

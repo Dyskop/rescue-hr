@@ -31,6 +31,7 @@
                     <th scope="col">Email</th>
                     <th scope="col">Имя пользователя</th>
                     <th scope="col">Роль</th>
+                    <th scope="col">Действие</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -46,6 +47,21 @@
                             <c:forEach items="${user.roles}" var="role">
                                 ${role.name}
                             </c:forEach>
+                        </td>
+                        <td>
+                            <div class="dropdown">
+                                <button class="btn btn-primary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                    выбрать
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                    <li><a class="dropdown-item" href="${pageContext.request.contextPath}/admin/user/delete/${user.id}" onclick="return confirm('Подтвердить удаление?')" role="button">
+                                        удалить
+                                    </a></li>
+                                    <li><a class="dropdown-item" href="${pageContext.request.contextPath}/admin/user/update/${user.id}" role="button">
+                                        изменить
+                                    </a></li>
+                                </ul>
+                            </div>
                         </td>
                     </tr>
                 </c:forEach>
