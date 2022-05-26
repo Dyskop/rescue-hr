@@ -1,4 +1,4 @@
-package by.skopinau.rescue.hr.service.impl.spring;
+package by.skopinau.rescue.hr.service.impl;
 
 import by.skopinau.rescue.hr.entity.Role;
 import by.skopinau.rescue.hr.repository.RoleRepository;
@@ -13,10 +13,10 @@ import java.util.stream.Collectors;
 
 @Service
 @Transactional
-public class RoleServiceSpring extends BaseServiceSpring<Role> {
+public class RoleService extends BaseService<Role> implements by.skopinau.rescue.hr.service.RoleService {
 
     @Autowired
-    public RoleServiceSpring(RoleRepository roleRepository) {
+    public RoleService(RoleRepository roleRepository) {
         super(roleRepository);
     }
 

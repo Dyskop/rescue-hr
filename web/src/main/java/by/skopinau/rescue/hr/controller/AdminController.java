@@ -6,8 +6,7 @@ import by.skopinau.rescue.hr.dto.UpdateUserRequest;
 import by.skopinau.rescue.hr.entity.Employee;
 import by.skopinau.rescue.hr.entity.State;
 import by.skopinau.rescue.hr.entity.User;
-import by.skopinau.rescue.hr.service.StateService;
-import by.skopinau.rescue.hr.service.impl.spring.*;
+import by.skopinau.rescue.hr.service.impl.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,19 +21,19 @@ import java.util.Map;
 @Controller
 public class AdminController {
     public static final int PAGE_SIZE = 10;
-    private final EmployeeServiceSpring employeeService;
+    private final EmployeeService employeeService;
     private final StateService stateService;
-    private final RanksLogServiceSpring ranksLogService;
-    private final PositionsLogServiceSpring positionsLogService;
-    private final UserServiceSpring userServiceSpring;
+    private final RanksLogService ranksLogService;
+    private final PositionsLogService positionsLogService;
+    private final UserService userService;
 
     @Autowired
-    public AdminController(EmployeeServiceSpring employeeService, StateServiceSpring stateService, RanksLogServiceSpring ranksLogService, PositionsLogServiceSpring positionsLogService, UserServiceSpring userServiceSpring) {
+    public AdminController(EmployeeService employeeService, StateService stateService, RanksLogService ranksLogService, PositionsLogService positionsLogService, UserService userService) {
         this.employeeService = employeeService;
         this.stateService = stateService;
         this.ranksLogService = ranksLogService;
         this.positionsLogService = positionsLogService;
-        this.userServiceSpring = userServiceSpring;
+        this.userService = userService;
     }
 
     @GetMapping("/admin")
@@ -44,7 +43,7 @@ public class AdminController {
 
     @GetMapping(path = "/admin/users/{page}")
     public String showUsers(@PathVariable("page") int pageNumber, Model model) {
-        List<User> users = userServiceSpring.findAllPageable(pageNumber - 1, PAGE_SIZE);
+        List<User> users = userService.findAllPageable(pageNumber - 1, PAGE_SIZE);
         model.addAttribute("pageNumber", pageNumber);
         model.addAttribute("users", users);
         return "viewUsersAdmin";
@@ -52,14 +51,14 @@ public class AdminController {
 
     @GetMapping(path = "/admin/user/delete/{userId}")
     public String deleteUser(@PathVariable("userId") int userId) {
-        userServiceSpring.deleteById(userId);
+        userService.deleteById(userId);
         return "redirect:/admin/users/1";
     }
 
     @GetMapping(path = "/admin/user/update/{userId}")
     public String showUpdateUserView(@PathVariable("userId") int userId, Model model) {
-        User user = userServiceSpring.findById(userId);
-        List<String> rolesNames = userServiceSpring.getRolesNames(user);
+        User user = userService.findById(userId);
+        List<String> rolesNames = userService.getRolesNames(user);
         model.addAttribute("user", user);
         model.addAttribute("rolesNames", rolesNames);
         return "updateUser";
@@ -67,7 +66,7 @@ public class AdminController {
 
     @PostMapping(path = "/admin/user/update/{userId}")
     public String updateUser(@PathVariable("userId") int userId, UpdateUserRequest updateUserRequest) {
-        userServiceSpring.updateUser(userId, updateUserRequest);
+        userService.updateUser(userId, updateUserRequest);
         return "redirect:/admin/users/1";
     }
 

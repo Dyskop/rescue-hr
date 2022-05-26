@@ -2,7 +2,7 @@ package by.skopinau.rescue.hr.controller;
 
 import by.skopinau.rescue.hr.dto.UserRegistrationRequest;
 import by.skopinau.rescue.hr.exception.UserExistException;
-import by.skopinau.rescue.hr.service.impl.spring.AccountServiceSpring;
+import by.skopinau.rescue.hr.service.impl.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class AuthController {
-    private final AccountServiceSpring accountService;
+    private final AccountService accountService;
 
     @Autowired
-    public AuthController(AccountServiceSpring accountService) {
+    public AuthController(AccountService accountService) {
         this.accountService = accountService;
     }
 

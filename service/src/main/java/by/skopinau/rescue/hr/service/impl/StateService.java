@@ -1,21 +1,19 @@
-package by.skopinau.rescue.hr.service.impl.spring;
+package by.skopinau.rescue.hr.service.impl;
 
 import by.skopinau.rescue.hr.entity.State;
 import by.skopinau.rescue.hr.repository.StateRepository;
-import by.skopinau.rescue.hr.service.EmployeeService;
-import by.skopinau.rescue.hr.service.StateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @Transactional
-public class StateServiceSpring extends BaseServiceSpring<State> implements StateService {
-    private final EmployeeService employeeService;
+public class StateService extends BaseService<State> implements by.skopinau.rescue.hr.service.StateService {
+    private final by.skopinau.rescue.hr.service.EmployeeService employeeService;
     private int actualPositionAmount;
 
     @Autowired
-    public StateServiceSpring(StateRepository stateRepository, EmployeeServiceSpring employeeService) {
+    public StateService(StateRepository stateRepository, EmployeeService employeeService) {
         super(stateRepository);
         this.employeeService = employeeService;
     }

@@ -1,8 +1,7 @@
-package by.skopinau.rescue.hr.service.impl.spring;
+package by.skopinau.rescue.hr.service.impl;
 
 import by.skopinau.rescue.hr.entity.BaseEntity;
 import by.skopinau.rescue.hr.repository.BaseRepository;
-import by.skopinau.rescue.hr.service.BaseService;
 import jakarta.persistence.NoResultException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,11 +11,11 @@ import java.util.List;
 
 @Service
 @Transactional
-public class BaseServiceSpring<T extends BaseEntity> implements BaseService<T> {
+public class BaseService<T extends BaseEntity> implements by.skopinau.rescue.hr.service.BaseService<T> {
     private final BaseRepository<T> baseRepository;
 
     @Autowired
-    public BaseServiceSpring(BaseRepository<T> baseRepository) {
+    public BaseService(BaseRepository<T> baseRepository) {
         this.baseRepository = baseRepository;
     }
 

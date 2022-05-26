@@ -1,4 +1,4 @@
-package by.skopinau.rescue.hr.service.impl.spring;
+package by.skopinau.rescue.hr.service.impl;
 
 import by.skopinau.rescue.hr.dto.UpdateUserRequest;
 import by.skopinau.rescue.hr.entity.Role;
@@ -16,11 +16,11 @@ import java.util.Set;
 
 @Service
 @Transactional
-public class UserServiceSpring extends BaseServiceSpring<User> {
+public class UserService extends BaseService<User> implements by.skopinau.rescue.hr.service.UserService {
     private final UserRepository userRepository;
     private final RoleRepository roleRepository;
 
-    public UserServiceSpring(UserRepository userRepository, RoleRepository roleRepository) {
+    public UserService(UserRepository userRepository, RoleRepository roleRepository) {
         super(userRepository);
         this.userRepository = userRepository;
         this.roleRepository = roleRepository;

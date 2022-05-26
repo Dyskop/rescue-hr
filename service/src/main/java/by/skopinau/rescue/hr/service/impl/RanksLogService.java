@@ -1,10 +1,9 @@
-package by.skopinau.rescue.hr.service.impl.spring;
+package by.skopinau.rescue.hr.service.impl;
 
 import by.skopinau.rescue.hr.dto.CreateRanksLogRequest;
 import by.skopinau.rescue.hr.entity.*;
 import by.skopinau.rescue.hr.repository.RankRepository;
 import by.skopinau.rescue.hr.repository.RanksLogRepository;
-import by.skopinau.rescue.hr.service.RanksLogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
@@ -16,12 +15,12 @@ import java.util.List;
 
 @Service
 @Transactional
-public class RanksLogServiceSpring extends BaseServiceSpring<RanksLog> implements RanksLogService {
+public class RanksLogService extends BaseService<RanksLog> implements by.skopinau.rescue.hr.service.RanksLogService {
     private final RanksLogRepository ranksLogRepository;
     private final RankRepository rankRepository;
 
     @Autowired
-    public RanksLogServiceSpring(RanksLogRepository ranksLogRepository, RankRepository rankRepository) {
+    public RanksLogService(RanksLogRepository ranksLogRepository, RankRepository rankRepository) {
         super(ranksLogRepository);
         this.ranksLogRepository = ranksLogRepository;
         this.rankRepository = rankRepository;

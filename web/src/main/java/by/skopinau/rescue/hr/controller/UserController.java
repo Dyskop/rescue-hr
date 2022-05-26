@@ -3,11 +3,10 @@ package by.skopinau.rescue.hr.controller;
 import by.skopinau.rescue.hr.dto.SearchRequest;
 import by.skopinau.rescue.hr.entity.Employee;
 import by.skopinau.rescue.hr.entity.State;
-import by.skopinau.rescue.hr.service.StateService;
-import by.skopinau.rescue.hr.service.impl.spring.EmployeeServiceSpring;
-import by.skopinau.rescue.hr.service.impl.spring.PositionsLogServiceSpring;
-import by.skopinau.rescue.hr.service.impl.spring.RanksLogServiceSpring;
-import by.skopinau.rescue.hr.service.impl.spring.StateServiceSpring;
+import by.skopinau.rescue.hr.service.impl.EmployeeService;
+import by.skopinau.rescue.hr.service.impl.PositionsLogService;
+import by.skopinau.rescue.hr.service.impl.RanksLogService;
+import by.skopinau.rescue.hr.service.impl.StateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,13 +20,13 @@ import java.util.Map;
 @Controller
 public class UserController {
     public static final int PAGE_SIZE = 10;
-    private final EmployeeServiceSpring employeeService;
+    private final EmployeeService employeeService;
     private final StateService stateService;
-    private final RanksLogServiceSpring ranksLogService;
-    private final PositionsLogServiceSpring positionsLogService;
+    private final RanksLogService ranksLogService;
+    private final PositionsLogService positionsLogService;
 
     @Autowired
-    public UserController(EmployeeServiceSpring employeeService, StateServiceSpring stateService, RanksLogServiceSpring ranksLogService, PositionsLogServiceSpring positionsLogService) {
+    public UserController(EmployeeService employeeService, StateService stateService, RanksLogService ranksLogService, PositionsLogService positionsLogService) {
         this.employeeService = employeeService;
         this.stateService = stateService;
         this.ranksLogService = ranksLogService;

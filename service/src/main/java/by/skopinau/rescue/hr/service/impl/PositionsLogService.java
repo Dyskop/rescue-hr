@@ -1,9 +1,8 @@
-package by.skopinau.rescue.hr.service.impl.spring;
+package by.skopinau.rescue.hr.service.impl;
 
 import by.skopinau.rescue.hr.entity.Employee;
 import by.skopinau.rescue.hr.entity.PositionsLog;
 import by.skopinau.rescue.hr.repository.PositionsLogRepository;
-import by.skopinau.rescue.hr.service.PositionsLogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
@@ -13,11 +12,11 @@ import java.util.List;
 
 @Service
 @Transactional
-public class PositionsLogServiceSpring extends BaseServiceSpring<PositionsLog> implements PositionsLogService {
+public class PositionsLogService extends BaseService<PositionsLog> implements by.skopinau.rescue.hr.service.PositionsLogService {
     private final PositionsLogRepository positionsLogRepository;
 
     @Autowired
-    public PositionsLogServiceSpring(PositionsLogRepository positionsLogRepository) {
+    public PositionsLogService(PositionsLogRepository positionsLogRepository) {
         super(positionsLogRepository);
         this.positionsLogRepository = positionsLogRepository;
     }

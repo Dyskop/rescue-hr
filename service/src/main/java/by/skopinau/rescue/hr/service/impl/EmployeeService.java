@@ -1,4 +1,4 @@
-package by.skopinau.rescue.hr.service.impl.spring;
+package by.skopinau.rescue.hr.service.impl;
 
 import by.skopinau.rescue.hr.dto.CreateEmployeeRequest;
 import by.skopinau.rescue.hr.dto.SearchRequest;
@@ -7,7 +7,6 @@ import by.skopinau.rescue.hr.repository.EmployeeRepository;
 import by.skopinau.rescue.hr.repository.PositionRepository;
 import by.skopinau.rescue.hr.repository.RankRepository;
 import by.skopinau.rescue.hr.repository.SubdivisionRepository;
-import by.skopinau.rescue.hr.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
@@ -19,14 +18,14 @@ import java.util.List;
 
 @Service
 @Transactional
-public class EmployeeServiceSpring extends BaseServiceSpring<Employee> implements EmployeeService {
+public class EmployeeService extends BaseService<Employee> implements by.skopinau.rescue.hr.service.EmployeeService {
     private final EmployeeRepository employeeRepository;
     private final RankRepository rankRepository;
     private final PositionRepository positionRepository;
     private final SubdivisionRepository subdivisionRepository;
 
     @Autowired
-    public EmployeeServiceSpring(EmployeeRepository employeeRepository, RankRepository rankRepository, PositionRepository positionRepository, SubdivisionRepository subdivisionRepository) {
+    public EmployeeService(EmployeeRepository employeeRepository, RankRepository rankRepository, PositionRepository positionRepository, SubdivisionRepository subdivisionRepository) {
         super(employeeRepository);
         this.employeeRepository = employeeRepository;
         this.rankRepository = rankRepository;

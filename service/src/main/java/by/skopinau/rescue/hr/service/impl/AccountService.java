@@ -1,4 +1,4 @@
-package by.skopinau.rescue.hr.service.impl.spring;
+package by.skopinau.rescue.hr.service.impl;
 
 import by.skopinau.rescue.hr.dto.UserRegistrationRequest;
 import by.skopinau.rescue.hr.entity.User;
@@ -14,13 +14,13 @@ import java.util.Set;
 
 @Service
 @Transactional
-public class AccountServiceSpring {
+public class AccountService {
     private final UserRepository userRepository;
     private final RoleRepository roleRepository;
     private final PasswordEncoder passwordEncoder;
 
     @Autowired
-    public AccountServiceSpring(UserRepository userRepository, RoleRepository roleRepository, PasswordEncoder passwordEncoder) {
+    public AccountService(UserRepository userRepository, RoleRepository roleRepository, PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
         this.roleRepository = roleRepository;
         this.passwordEncoder = passwordEncoder;
