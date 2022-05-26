@@ -55,4 +55,8 @@ link:dal.png[DAL]
 * Liquibase
 * JUnit
 * log4j2
+* Spring ORM
+* Spring Data
+* Spring WebMVC
+* Spring Security
 * AWS deployment
