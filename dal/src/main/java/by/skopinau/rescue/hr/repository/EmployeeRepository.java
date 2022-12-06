@@ -1,6 +1,10 @@
 package by.skopinau.rescue.hr.repository;
 
-import by.skopinau.rescue.hr.entity.*;
+import by.skopinau.rescue.hr.entity.Employee;
+import by.skopinau.rescue.hr.entity.Position;
+import by.skopinau.rescue.hr.entity.Rank;
+import by.skopinau.rescue.hr.entity.State;
+import by.skopinau.rescue.hr.entity.Subdivision;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -25,22 +29,38 @@ public interface EmployeeRepository extends BaseRepository<Employee> {
 
     List<Employee> findBySubdivisionOrderBySurnameAscNameAscPatronymicAsc(Subdivision subdivision);
 
-    @Query("select e from Employee e join e.rank r where r.rankTitle =:rankTitle order by e.surname, e.name, e.patronymic")
+    @Query("select e from Employee e " +
+            "join e.rank r " +
+            "where r.rankTitle =:rankTitle " +
+            "order by e.surname, e.name, e.patronymic")
     List<Employee> findByRankTitle(@Param("rankTitle") String rankTitle);
 
-    @Query("select e from Employee e join e.position p where p.positionTitle =:positionTitle order by e.surname, e.name, e.patronymic")
+    @Query("select e from Employee e " +
+            "join e.position p " +
+            "where p.positionTitle =:positionTitle " +
+            "order by e.surname, e.name, e.patronymic")
     List<Employee> findByPositionTitle(@Param("positionTitle") String positionTitle);
 
-    @Query("select e from Employee e join e.subdivision s where s.subdivisionTitle =:subdivisionTitle order by e.surname, e.name, e.patronymic")
+    @Query("select e from Employee e " +
+            "join e.subdivision s " +
+            "where s.subdivisionTitle =:subdivisionTitle " +
+            "order by e.surname, e.name, e.patronymic")
     List<Employee> findBySubdivisionTitle(@Param("subdivisionTitle") String subdivisionTitle);
 
-    @Query("select e from Employee e join e.position p join e.subdivision s where p = :#{#state.position} and s = :#{#state.subdivision} order by e.surname, e.name, e.patronymic")
+    @Query("select e from Employee e " +
+            "join e.position p " +
+            "join e.subdivision s " +
+            "where p = :#{#state.position} " +
+            "and s = :#{#state.subdivision} " +
+            "order by e.surname, e.name, e.patronymic")
     List<Employee> findByState(@Param("state") State state);
 
-    @Query("select e from Employee e order by e.surname, e.name, e.patronymic")
+    @Query("select e from Employee e " +
+            "order by e.surname, e.name, e.patronymic")
     List<Employee> findAllOrdered();
 
-    @Query("select e from Employee e order by e.surname, e.name, e.patronymic")
+    @Query("select e from Employee e " +
+            "order by e.surname, e.name, e.patronymic")
     List<Employee> findAllOrdered(Pageable pageable);
 
     @Query("select e from Employee e " +

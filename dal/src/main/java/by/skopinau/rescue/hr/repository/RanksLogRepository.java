@@ -12,9 +12,15 @@ import java.util.List;
 public interface RanksLogRepository extends BaseRepository<RanksLog> {
     List<RanksLog> findByEmployeeOrderByRankGettingDateDesc(Employee employee);
 
-    @Query("select rl from RanksLog rl join rl.employee e order by rl.rankGettingDate desc, e.surname asc, e.name asc, e.patronymic asc")
+    @Query("select rl from RanksLog rl " +
+            "join rl.employee e " +
+            "order by rl.rankGettingDate desc, " +
+            "e.surname asc, e.name asc, e.patronymic asc")
     List<RanksLog> findAllOrdered();
 
-    @Query("select rl from RanksLog rl join rl.employee e order by rl.rankGettingDate desc, e.surname asc, e.name asc, e.patronymic asc")
+    @Query("select rl from RanksLog rl " +
+            "join rl.employee e " +
+            "order by rl.rankGettingDate desc, " +
+            "e.surname asc, e.name asc, e.patronymic asc")
     List<RanksLog> findAllOrdered(Pageable pageable);
 }

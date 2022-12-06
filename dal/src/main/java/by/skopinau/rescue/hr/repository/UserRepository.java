@@ -11,6 +11,7 @@ import java.util.List;
 public interface UserRepository extends BaseRepository<User> {
     User findByUsername(String username);
 
-    @Query("select u from User u order by u.id")
+    @Query("select u from User u " +
+            "order by u.id")
     List<User> findAllOrdered(Pageable pageable);
 }

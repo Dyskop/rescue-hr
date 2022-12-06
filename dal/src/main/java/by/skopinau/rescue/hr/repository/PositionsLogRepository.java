@@ -12,9 +12,15 @@ import java.util.List;
 public interface PositionsLogRepository extends BaseRepository<PositionsLog> {
     List<PositionsLog> findByEmployeeOrderByPositionGettingDateDesc(Employee employee);
 
-    @Query("select pl from PositionsLog pl join pl.employee e order by pl.positionGettingDate desc, e.surname asc, e.name asc, e.patronymic asc")
+    @Query("select pl from PositionsLog pl " +
+            "join pl.employee e " +
+            "order by pl.positionGettingDate desc, " +
+            "e.surname asc, e.name asc, e.patronymic asc")
     List<PositionsLog> findAllOrdered();
 
-    @Query("select pl from PositionsLog pl join pl.employee e order by pl.positionGettingDate desc, e.surname asc, e.name asc, e.patronymic asc")
+    @Query("select pl from PositionsLog pl " +
+            "join pl.employee e " +
+            "order by pl.positionGettingDate desc, " +
+            "e.surname asc, e.name asc, e.patronymic asc")
     List<PositionsLog> findAllOrdered(Pageable pageable);
 }
