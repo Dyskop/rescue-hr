@@ -47,7 +47,7 @@ CREATE TABLE IF NOT EXISTS rh.employees
 CREATE TABLE IF NOT EXISTS rh.positions_log
 (
     position_log_id SERIAL PRIMARY KEY,
-    position_getting_date DATE NOT NULL,
+    getting_date DATE NOT NULL,
     employee_id INTEGER NOT NULL REFERENCES rh.employees ON DELETE CASCADE,
     position_id INTEGER NOT NULL REFERENCES rh.positions ON DELETE CASCADE,
     subdivision_id INTEGER NOT NULL REFERENCES rh.subdivisions ON DELETE CASCADE,
@@ -58,7 +58,7 @@ CREATE TABLE IF NOT EXISTS rh.positions_log
 CREATE TABLE IF NOT EXISTS rh.ranks_log
 (
     rank_log_id SERIAL PRIMARY KEY,
-    rank_getting_date DATE NOT NULL,
+    getting_date DATE NOT NULL,
     employee_id INTEGER NOT NULL REFERENCES rh.employees ON DELETE CASCADE,
     rank_id INTEGER NOT NULL REFERENCES rh.ranks ON DELETE CASCADE,
     order_publisher VARCHAR(255) NOT NULL,
