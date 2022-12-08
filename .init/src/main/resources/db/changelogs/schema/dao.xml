@@ -129,103 +129,56 @@
 
     <changeSet id="positions_subdivisions_link init" author="dimaskop18@gmail.com">
         <sql>INSERT INTO rh.positions_subdivisions_link (subdivision_id, position_id, state_amount)
-             VALUES (1, 1, 1);</sql>
-        <sql>INSERT INTO rh.positions_subdivisions_link (subdivision_id, position_id, state_amount)
-             VALUES (1, 2, 1);</sql>
-        <sql>INSERT INTO rh.positions_subdivisions_link (subdivision_id, position_id, state_amount)
-             VALUES (1, 3, 3);</sql>
-        <sql>INSERT INTO rh.positions_subdivisions_link (subdivision_id, position_id, state_amount)
-             VALUES (2, 4, 1);</sql>
-        <sql>INSERT INTO rh.positions_subdivisions_link (subdivision_id, position_id, state_amount)
-             VALUES (2, 5, 3);</sql>
-        <sql>INSERT INTO rh.positions_subdivisions_link (subdivision_id, position_id, state_amount)
-             VALUES (2, 6, 3);</sql>
-        <sql>INSERT INTO rh.positions_subdivisions_link (subdivision_id, position_id, state_amount)
-             VALUES (3, 7, 1);</sql>
-        <sql>INSERT INTO rh.positions_subdivisions_link (subdivision_id, position_id, state_amount)
-             VALUES (3, 8, 1);</sql>
-        <sql>INSERT INTO rh.positions_subdivisions_link (subdivision_id, position_id, state_amount)
-             VALUES (3, 9, 2);</sql>
-        <sql>INSERT INTO rh.positions_subdivisions_link (subdivision_id, position_id, state_amount)
-             VALUES (3, 10, 2);</sql>
-        <sql>INSERT INTO rh.positions_subdivisions_link (subdivision_id, position_id, state_amount)
-             VALUES (4, 11, 1);</sql>
-        <sql>INSERT INTO rh.positions_subdivisions_link (subdivision_id, position_id, state_amount)
-             VALUES (4, 8, 1);</sql>
-        <sql>INSERT INTO rh.positions_subdivisions_link (subdivision_id, position_id, state_amount)
-             VALUES (5, 9, 1);</sql>
-        <sql>INSERT INTO rh.positions_subdivisions_link (subdivision_id, position_id, state_amount)
-             VALUES (5, 12, 1);</sql>
-        <sql>INSERT INTO rh.positions_subdivisions_link (subdivision_id, position_id, state_amount)
-             VALUES (6, 13, 1);</sql>
-        <sql>INSERT INTO rh.positions_subdivisions_link (subdivision_id, position_id, state_amount)
-             VALUES (6, 14, 1);</sql>
-        <sql>INSERT INTO rh.positions_subdivisions_link (subdivision_id, position_id, state_amount)
-             VALUES (6, 15, 1);</sql>
-        <sql>INSERT INTO rh.positions_subdivisions_link (subdivision_id, position_id, state_amount)
-             VALUES (7, 16, 1);</sql>
-        <sql>INSERT INTO rh.positions_subdivisions_link (subdivision_id, position_id, state_amount)
-             VALUES (9, 16, 1);</sql>
-        <sql>INSERT INTO rh.positions_subdivisions_link (subdivision_id, position_id, state_amount)
-             VALUES (7, 17, 1);</sql>
-        <sql>INSERT INTO rh.positions_subdivisions_link (subdivision_id, position_id, state_amount)
-             VALUES (8, 18, 1);</sql>
-        <sql>INSERT INTO rh.positions_subdivisions_link (subdivision_id, position_id, state_amount)
-             VALUES (8, 19, 2);</sql>
-        <sql>INSERT INTO rh.positions_subdivisions_link (subdivision_id, position_id, state_amount)
-             VALUES (10, 20, 1);</sql>
-        <sql>INSERT INTO rh.positions_subdivisions_link (subdivision_id, position_id, state_amount)
-             VALUES (11, 20, 1);</sql>
-        <sql>INSERT INTO rh.positions_subdivisions_link (subdivision_id, position_id, state_amount)
-             VALUES (12, 20, 1);</sql>
-        <sql>INSERT INTO rh.positions_subdivisions_link (subdivision_id, position_id, state_amount)
-             VALUES (13, 20, 1);</sql>
-        <sql>INSERT INTO rh.positions_subdivisions_link (subdivision_id, position_id, state_amount)
-             VALUES (7, 21, 3);</sql>
-        <sql>INSERT INTO rh.positions_subdivisions_link (subdivision_id, position_id, state_amount)
-             VALUES (9, 21, 3);</sql>
-        <sql>INSERT INTO rh.positions_subdivisions_link (subdivision_id, position_id, state_amount)
-             VALUES (8, 22, 3);</sql>
-        <sql>INSERT INTO rh.positions_subdivisions_link (subdivision_id, position_id, state_amount)
-             VALUES (7, 23, 6);</sql>
-        <sql>INSERT INTO rh.positions_subdivisions_link (subdivision_id, position_id, state_amount)
-             VALUES (8, 23, 6);</sql>
-        <sql>INSERT INTO rh.positions_subdivisions_link (subdivision_id, position_id, state_amount)
-             VALUES (9, 23, 6);</sql>
-        <sql>INSERT INTO rh.positions_subdivisions_link (subdivision_id, position_id, state_amount)
-             VALUES (10, 23, 3);</sql>
-        <sql>INSERT INTO rh.positions_subdivisions_link (subdivision_id, position_id, state_amount)
-             VALUES (11, 23, 3);</sql>
-        <sql>INSERT INTO rh.positions_subdivisions_link (subdivision_id, position_id, state_amount)
-             VALUES (12, 23, 3);</sql>
-        <sql>INSERT INTO rh.positions_subdivisions_link (subdivision_id, position_id, state_amount)
-             VALUES (13, 23, 3);</sql>
-        <sql>INSERT INTO rh.positions_subdivisions_link (subdivision_id, position_id, state_amount)
-             VALUES (7, 24, 6);</sql>
-        <sql>INSERT INTO rh.positions_subdivisions_link (subdivision_id, position_id, state_amount)
-             VALUES (8, 24, 6);</sql>
-        <sql>INSERT INTO rh.positions_subdivisions_link (subdivision_id, position_id, state_amount)
-             VALUES (9, 24, 6);</sql>
-        <sql>INSERT INTO rh.positions_subdivisions_link (subdivision_id, position_id, state_amount)
-             VALUES (7, 25, 12);</sql>
-        <sql>INSERT INTO rh.positions_subdivisions_link (subdivision_id, position_id, state_amount)
-             VALUES (8, 25, 12);</sql>
-        <sql>INSERT INTO rh.positions_subdivisions_link (subdivision_id, position_id, state_amount)
-             VALUES (9, 25, 12);</sql>
-        <sql>INSERT INTO rh.positions_subdivisions_link (subdivision_id, position_id, state_amount)
-             VALUES (7, 26, 3);</sql>
-        <sql>INSERT INTO rh.positions_subdivisions_link (subdivision_id, position_id, state_amount)
-             VALUES (8, 26, 3);</sql>
-        <sql>INSERT INTO rh.positions_subdivisions_link (subdivision_id, position_id, state_amount)
-             VALUES (9, 26, 3);</sql>
-        <sql>INSERT INTO rh.positions_subdivisions_link (subdivision_id, position_id, state_amount)
-             VALUES (10, 26, 3);</sql>
-        <sql>INSERT INTO rh.positions_subdivisions_link (subdivision_id, position_id, state_amount)
-             VALUES (11, 26, 3);</sql>
-        <sql>INSERT INTO rh.positions_subdivisions_link (subdivision_id, position_id, state_amount)
-             VALUES (12, 26, 3);</sql>
-        <sql>INSERT INTO rh.positions_subdivisions_link (subdivision_id, position_id, state_amount)
-             VALUES (13, 26, 3);</sql>
+             VALUES (1, 1, 1),
+                    (1, 2, 1),
+                    (1, 3, 3),
+                    (2, 4, 1),
+                    (2, 5, 3),
+                    (2, 6, 3),
+                    (3, 7, 1),
+                    (3, 8, 1),
+                    (3, 9, 2),
+                    (3, 10, 2),
+                    (4, 11, 1),
+                    (4, 8, 1),
+                    (5, 9, 1),
+                    (5, 12, 1),
+                    (6, 13, 1),
+                    (6, 14, 1),
+                    (6, 15, 1),
+                    (7, 16, 1),
+                    (9, 16, 1),
+                    (7, 17, 1),
+                    (8, 18, 1),
+                    (8, 19, 2),
+                    (10, 20, 1),
+                    (11, 20, 1),
+                    (12, 20, 1),
+                    (13, 20, 1),
+                    (7, 21, 3),
+                    (9, 21, 3),
+                    (8, 22, 3),
+                    (7, 23, 6),
+                    (8, 23, 6),
+                    (9, 23, 6),
+                    (10, 23, 3),
+                    (11, 23, 3),
+                    (12, 23, 3),
+                    (13, 23, 3),
+                    (7, 24, 6),
+                    (8, 24, 6),
+                    (9, 24, 6),
+                    (7, 25, 12),
+                    (8, 25, 12),
+                    (9, 25, 12),
+                    (7, 26, 3),
+                    (8, 26, 3),
+                    (9, 26, 3),
+                    (10, 26, 3),
+                    (11, 26, 3),
+                    (12, 26, 3),
+                    (13, 26, 3)
+        </sql>
     </changeSet>
 
     <changeSet id="ranks init" author="dimaskop18@gmail.com">
@@ -281,301 +234,178 @@
 
     <changeSet id="employee init" author="dimaskop18@gmail.com">
         <sql>INSERT INTO rh.employees (surname, name, patronymic, birthday, rank_id, position_id, subdivision_id)
-             VALUES ('Иванов', 'Иван', 'Иванович', '1980-07-12', 3, 1, 1);</sql>
-        <sql>INSERT INTO rh.employees (surname, name, patronymic, birthday, rank_id, position_id, subdivision_id)
-             VALUES ('Петров', 'Петр', 'Петрович', '1985-12-23', 4, 2, 1);</sql>
-        <sql>INSERT INTO rh.employees (surname, name, patronymic, birthday, rank_id, position_id, subdivision_id)
-             VALUES ('Алексеев', 'Алексей', 'Алексеевич', '1979-03-11', 4, 3, 1);</sql>
-        <sql>INSERT INTO rh.employees (surname, name, patronymic, birthday, rank_id, position_id, subdivision_id)
-             VALUES ('Антонов', 'Антон', 'Антонович', '1986-09-05', 5, 3, 1);</sql>
-        <sql>INSERT INTO rh.employees (surname, name, patronymic, birthday, rank_id, position_id, subdivision_id)
-             VALUES ('Бобков', 'Сергей', 'Дмитриевич', '1989-06-30', 5, 4, 2);</sql>
-        <sql>INSERT INTO rh.employees (surname, name, patronymic, birthday, rank_id, position_id, subdivision_id)
-             VALUES ('Кулик', 'Евгений', 'Максимович', '1987-11-23', 5, 5, 2);</sql>
-        <sql>INSERT INTO rh.employees (surname, name, patronymic, birthday, rank_id, position_id, subdivision_id)
-             VALUES ('Громыко', 'Николай', 'Александрович', '1992-01-10', 4, 5, 2);</sql>
-        <sql>INSERT INTO rh.employees (surname, name, patronymic, birthday, rank_id, position_id, subdivision_id)
-             VALUES ('Кодратьев', 'Владислав', 'Павлович', '1986-08-20', 5, 5, 2);</sql>
-        <sql>INSERT INTO rh.employees (surname, name, patronymic, birthday, rank_id, position_id, subdivision_id)
-             VALUES ('Свирид', 'Евгений', 'Алексеевич', '1995-02-22', 11, 6, 2);</sql>
-        <sql>INSERT INTO rh.employees (surname, name, patronymic, birthday, rank_id, position_id, subdivision_id)
-             VALUES ('Борознова', 'Алиса', 'Сергеевна', '1996-08-13', 13, 6, 2);</sql>
-        <sql>INSERT INTO rh.employees (surname, name, patronymic, birthday, rank_id, position_id, subdivision_id)
-             VALUES ('Давыдик', 'Ольга', 'Павловна', '1984-09-11', 11, 6, 2);</sql>
-        <sql>INSERT INTO rh.employees (surname, name, patronymic, birthday, rank_id, position_id, subdivision_id)
-             VALUES ('Максимов', 'Виталий', 'Владимирович', '1985-04-14', 5, 7, 3);</sql>
-        <sql>INSERT INTO rh.employees (surname, name, patronymic, birthday, rank_id, position_id, subdivision_id)
-             VALUES ('Вакулич', 'Юрий', 'Мечиславович', '1988-05-18', 5, 8, 3);</sql>
-        <sql>INSERT INTO rh.employees (surname, name, patronymic, birthday, rank_id, position_id, subdivision_id)
-             VALUES ('Самсоник', 'Назар', 'Тимофеевич', '1997-02-03', 6, 9, 3);</sql>
-        <sql>INSERT INTO rh.employees (surname, name, patronymic, birthday, rank_id, position_id, subdivision_id)
-             VALUES ('Хацкевич', 'Виктор', 'Владимирович', '1993-07-30', 6, 9, 3);</sql>
-        <sql>INSERT INTO rh.employees (surname, name, patronymic, birthday, rank_id, position_id, subdivision_id)
-             VALUES ('Головач', 'Константин', 'Андреевич', '1995-12-22', 7, 10, 3);</sql>
-        <sql>INSERT INTO rh.employees (surname, name, patronymic, birthday, rank_id, position_id, subdivision_id)
-             VALUES ('Сильванович', 'Владимир', 'Иванович', '1979-06-07', 4, 11, 4);</sql>
-        <sql>INSERT INTO rh.employees (surname, name, patronymic, birthday, rank_id, position_id, subdivision_id)
-             VALUES ('Кононюк', 'Андрей', 'Васильевич', '1983-09-08', 5, 8, 4);</sql>
-        <sql>INSERT INTO rh.employees (surname, name, patronymic, birthday, rank_id, position_id, subdivision_id)
-             VALUES ('Гончарик', 'Инесса', 'Викентьевна', '1990-08-29', 6, 9, 5);</sql>
-        <sql>INSERT INTO rh.employees (surname, name, patronymic, birthday, rank_id, position_id, subdivision_id)
-             VALUES ('Соколов', 'Даниил', 'Дмитриевич', '1993-08-01', 6, 12, 5);</sql>
-        <sql>INSERT INTO rh.employees (surname, name, patronymic, birthday, rank_id, position_id, subdivision_id)
-             VALUES ('Шаталов', 'Олег', 'Владиславович', '1988-09-15', 5, 13, 6);</sql>
-        <sql>INSERT INTO rh.employees (surname, name, patronymic, birthday, rank_id, position_id, subdivision_id)
-             VALUES ('Ветров', 'Валерий', 'Витальевич', '1978-10-20', 10, 14, 6);</sql>
-        <sql>INSERT INTO rh.employees (surname, name, patronymic, birthday, rank_id, position_id, subdivision_id)
-             VALUES ('Соловьев', 'Александр', 'Николаевич', '1991-02-19', 10, 15, 7);</sql>
-        <sql>INSERT INTO rh.employees (surname, name, patronymic, birthday, rank_id, position_id, subdivision_id)
-             VALUES ('Прокопьев', 'Василий', 'Леонидович', '1977-11-07', 5, 16, 7);</sql>
-        <sql>INSERT INTO rh.employees (surname, name, patronymic, birthday, rank_id, position_id, subdivision_id)
-             VALUES ('Высоцкий', 'Иван', 'Сергеевич', '1995-11-07', 6, 16, 9);</sql>
-        <sql>INSERT INTO rh.employees (surname, name, patronymic, birthday, rank_id, position_id, subdivision_id)
-             VALUES ('Лапуня', 'Кирилл', 'Андреевич', '1980-05-18', 4, 18, 8);</sql>
-        <sql>INSERT INTO rh.employees (surname, name, patronymic, birthday, rank_id, position_id, subdivision_id)
-             VALUES ('Романов', 'Виктор', 'Алексеевич', '1980-05-18', 5, 19, 8);</sql>
-        <sql>INSERT INTO rh.employees (surname, name, patronymic, birthday, rank_id, position_id, subdivision_id)
-             VALUES ('Силин', 'Дмитрий', 'Владиславович', '2000-04-19', 8, 21, 7);</sql>
-        <sql>INSERT INTO rh.employees (surname, name, patronymic, birthday, rank_id, position_id, subdivision_id)
-             VALUES ('Лихачёв ', 'Мирослав', 'Дмитриевич', '1999-03-14', 8, 21, 7);</sql>
-        <sql>INSERT INTO rh.employees (surname, name, patronymic, birthday, rank_id, position_id, subdivision_id)
-             VALUES ('Мартынов', 'Святослав', 'Макарович', '1997-12-11', 7, 21, 7);</sql>
-        <sql>INSERT INTO rh.employees (surname, name, patronymic, birthday, rank_id, position_id, subdivision_id)
-             VALUES ('Васильев', 'Василий', 'Васильевич', '1998-02-10', 14, 25, 7);</sql>
-        <sql>INSERT INTO rh.employees (surname, name, patronymic, birthday, rank_id, position_id, subdivision_id)
-             VALUES ('Ромейко', 'Леонид', 'Григорьевич', '2000-01-15', 16, 25, 7);</sql>
-        <sql>INSERT INTO rh.employees (surname, name, patronymic, birthday, rank_id, position_id, subdivision_id)
-             VALUES ('Жуков', 'Владимир', 'Адольфович', '1995-11-12', 15, 25, 7);</sql>
-        <sql>INSERT INTO rh.employees (surname, name, patronymic, birthday, rank_id, position_id, subdivision_id)
-             VALUES ('Емельянов', 'Кирилл', 'Васильевич', '1996-08-08', 16, 25, 7);</sql>
-        <sql>INSERT INTO rh.employees (surname, name, patronymic, birthday, rank_id, position_id, subdivision_id)
-             VALUES ('Филатов', 'Александр', 'Иосифович', '1995-12-09', 14, 25, 7);</sql>
-        <sql>INSERT INTO rh.employees (surname, name, patronymic, birthday, rank_id, position_id, subdivision_id)
-             VALUES ('Суворов', 'Тимофей', 'Витальевич', '1999-10-09', 13, 25, 7);</sql>
-        <sql>INSERT INTO rh.employees (surname, name, patronymic, birthday, rank_id, position_id, subdivision_id)
-             VALUES ('Кузьмин', 'Андрей', 'Петрович', '1991-03-01', 15, 25, 7);</sql>
-        <sql>INSERT INTO rh.employees (surname, name, patronymic, birthday, rank_id, position_id, subdivision_id)
-             VALUES ('Наумов', 'Анатолий', 'Петрович', '1996-12-09', 15, 25, 7);</sql>
-        <sql>INSERT INTO rh.employees (surname, name, patronymic, birthday, rank_id, position_id, subdivision_id)
-             VALUES ('Уваров', 'Павел', 'Михаилович', '1995-05-11', 16, 25, 7);</sql>
-        <sql>INSERT INTO rh.employees (surname, name, patronymic, birthday, rank_id, position_id, subdivision_id)
-             VALUES ('Марков', 'Роман', 'Давидович', '1988-02-23', 12, 26, 7);</sql>
-        <sql>INSERT INTO rh.employees (surname, name, patronymic, birthday, rank_id, position_id, subdivision_id)
-             VALUES ('Князев', 'Илья', 'Викторович', '1991-04-10', 11, 26, 7);</sql>
-        <sql>INSERT INTO rh.employees (surname, name, patronymic, birthday, rank_id, position_id, subdivision_id)
-             VALUES ('Виноградов', 'Тимур', 'Андреевич', '1990-08-27', 13, 26, 7);</sql>
+             VALUES ('Иванов', 'Иван', 'Иванович', '1980-07-12', 3, 1, 1),
+                    ('Петров', 'Петр', 'Петрович', '1985-12-23', 4, 2, 1),
+                    ('Алексеев', 'Алексей', 'Алексеевич', '1979-03-11', 4, 3, 1),
+                    ('Антонов', 'Антон', 'Антонович', '1986-09-05', 5, 3, 1),
+                    ('Бобков', 'Сергей', 'Дмитриевич', '1989-06-30', 5, 4, 2),
+                    ('Кулик', 'Евгений', 'Максимович', '1987-11-23', 5, 5, 2),
+                    ('Громыко', 'Николай', 'Александрович', '1992-01-10', 4, 5, 2),
+                    ('Кодратьев', 'Владислав', 'Павлович', '1986-08-20', 5, 5, 2),
+                    ('Свирид', 'Евгений', 'Алексеевич', '1995-02-22', 11, 6, 2),
+                    ('Борознова', 'Алиса', 'Сергеевна', '1996-08-13', 13, 6, 2),
+                    ('Давыдик', 'Ольга', 'Павловна', '1984-09-11', 11, 6, 2),
+                    ('Максимов', 'Виталий', 'Владимирович', '1985-04-14', 5, 7, 3),
+                    ('Вакулич', 'Юрий', 'Мечиславович', '1988-05-18', 5, 8, 3),
+                    ('Самсоник', 'Назар', 'Тимофеевич', '1997-02-03', 6, 9, 3),
+                    ('Хацкевич', 'Виктор', 'Владимирович', '1993-07-30', 6, 9, 3),
+                    ('Головач', 'Константин', 'Андреевич', '1995-12-22', 7, 10, 3),
+                    ('Сильванович', 'Владимир', 'Иванович', '1979-06-07', 4, 11, 4),
+                    ('Кононюк', 'Андрей', 'Васильевич', '1983-09-08', 5, 8, 4),
+                    ('Гончарик', 'Инесса', 'Викентьевна', '1990-08-29', 6, 9, 5),
+                    ('Соколов', 'Даниил', 'Дмитриевич', '1993-08-01', 6, 12, 5),
+                    ('Шаталов', 'Олег', 'Владиславович', '1988-09-15', 5, 13, 6),
+                    ('Ветров', 'Валерий', 'Витальевич', '1978-10-20', 10, 14, 6),
+                    ('Соловьев', 'Александр', 'Николаевич', '1991-02-19', 10, 15, 7),
+                    ('Прокопьев', 'Василий', 'Леонидович', '1977-11-07', 5, 16, 7),
+                    ('Высоцкий', 'Иван', 'Сергеевич', '1995-11-07', 6, 16, 9),
+                    ('Лапуня', 'Кирилл', 'Андреевич', '1980-05-18', 4, 18, 8),
+                    ('Романов', 'Виктор', 'Алексеевич', '1980-05-18', 5, 19, 8),
+                    ('Силин', 'Дмитрий', 'Владиславович', '2000-04-19', 8, 21, 7),
+                    ('Лихачёв ', 'Мирослав', 'Дмитриевич', '1999-03-14', 8, 21, 7),
+                    ('Мартынов', 'Святослав', 'Макарович', '1997-12-11', 7, 21, 7),
+                    ('Васильев', 'Василий', 'Васильевич', '1998-02-10', 14, 25, 7),
+                    ('Ромейко', 'Леонид', 'Григорьевич', '2000-01-15', 16, 25, 7),
+                    ('Жуков', 'Владимир', 'Адольфович', '1995-11-12', 15, 25, 7),
+                    ('Емельянов', 'Кирилл', 'Васильевич', '1996-08-08', 16, 25, 7),
+                    ('Филатов', 'Александр', 'Иосифович', '1995-12-09', 14, 25, 7),
+                    ('Суворов', 'Тимофей', 'Витальевич', '1999-10-09', 13, 25, 7),
+                    ('Кузьмин', 'Андрей', 'Петрович', '1991-03-01', 15, 25, 7),
+                    ('Наумов', 'Анатолий', 'Петрович', '1996-12-09', 15, 25, 7),
+                    ('Уваров', 'Павел', 'Михаилович', '1995-05-11', 16, 25, 7),
+                    ('Марков', 'Роман', 'Давидович', '1988-02-23', 12, 26, 7),
+                    ('Князев', 'Илья', 'Викторович', '1991-04-10', 11, 26, 7),
+                    ('Виноградов', 'Тимур', 'Андреевич', '1990-08-27', 13, 26, 7)
+        </sql>
+
+
     </changeSet>
 
     <changeSet id="positions_log init" author="dimaskop18@gmail.com">
-        <sql>INSERT INTO rh.positions_log (position_getting_date, employee_id, position_id, subdivision_id, order_publisher, order_number)
-             VALUES ('2008-04-15', 1, 10, 3, 'Название УМЧС', 49)</sql>
-        <sql>INSERT INTO rh.positions_log (position_getting_date, employee_id, position_id, subdivision_id, order_publisher, order_number)
-             VALUES ('2012-12-05', 1, 7, 3, 'Название УМЧС', 205)</sql>
-        <sql>INSERT INTO rh.positions_log (position_getting_date, employee_id, position_id, subdivision_id, order_publisher, order_number)
-             VALUES ('2016-06-11', 1, 2, 1, 'Название УМЧС', 121)</sql>
-        <sql>INSERT INTO rh.positions_log (position_getting_date, employee_id, position_id, subdivision_id, order_publisher, order_number)
-             VALUES ('2018-02-10', 1, 1, 1, 'Название УМЧС', 35)</sql>
-        <sql>INSERT INTO rh.positions_log (position_getting_date, employee_id, position_id, subdivision_id, order_publisher, order_number)
-             VALUES ('2014-01-19', 2, 10, 3, 'Название УМЧС', 11)</sql>
-        <sql>INSERT INTO rh.positions_log (position_getting_date, employee_id, position_id, subdivision_id, order_publisher, order_number)
-             VALUES ('2015-03-10', 2, 8, 3, 'Название УМЧС', 36)</sql>
-        <sql>INSERT INTO rh.positions_log (position_getting_date, employee_id, position_id, subdivision_id, order_publisher, order_number)
-             VALUES ('2019-07-15', 2, 2, 1, 'Название УМЧС', 128)</sql>
-        <sql>INSERT INTO rh.positions_log (position_getting_date, employee_id, position_id, subdivision_id, order_publisher, order_number)
-             VALUES ('2020-10-01', 3, 3, 1, 'Название УМЧС', 155)</sql>
-        <sql>INSERT INTO rh.positions_log (position_getting_date, employee_id, position_id, subdivision_id, order_publisher, order_number)
-             VALUES ('2021-04-11', 4, 3, 1, 'Название УМЧС', 47)</sql>
-        <sql>INSERT INTO rh.positions_log (position_getting_date, employee_id, position_id, subdivision_id, order_publisher, order_number)
-             VALUES ('2018-02-10', 5, 4, 2, 'Название УМЧС', 35)</sql>
-        <sql>INSERT INTO rh.positions_log (position_getting_date, employee_id, position_id, subdivision_id, order_publisher, order_number)
-             VALUES ('2019-07-15', 6, 5, 2, 'Название УМЧС', 128)</sql>
-        <sql>INSERT INTO rh.positions_log (position_getting_date, employee_id, position_id, subdivision_id, order_publisher, order_number)
-             VALUES ('2020-10-01', 7, 5, 2, 'Название УМЧС', 155)</sql>
-        <sql>INSERT INTO rh.positions_log (position_getting_date, employee_id, position_id, subdivision_id, order_publisher, order_number)
-             VALUES ('2019-07-15', 8, 5, 2, 'Название УМЧС', 128)</sql>
-        <sql>INSERT INTO rh.positions_log (position_getting_date, employee_id, position_id, subdivision_id, order_publisher, order_number)
-             VALUES ('2018-01-25', 9, 6, 2, 'Название Г(Р)ОЧС', 9)</sql>
-        <sql>INSERT INTO rh.positions_log (position_getting_date, employee_id, position_id, subdivision_id, order_publisher, order_number)
-             VALUES ('2019-03-22', 10, 6, 2, 'Название Г(Р)ОЧС', 28)</sql>
-        <sql>INSERT INTO rh.positions_log (position_getting_date, employee_id, position_id, subdivision_id, order_publisher, order_number)
-             VALUES ('2018-01-25', 11, 6, 2, 'Название Г(Р)ОЧС', 9)</sql>
-        <sql>INSERT INTO rh.positions_log (position_getting_date, employee_id, position_id, subdivision_id, order_publisher, order_number)
-             VALUES ('2018-02-10', 12, 7, 3, 'Название УМЧС', 35)</sql>
-        <sql>INSERT INTO rh.positions_log (position_getting_date, employee_id, position_id, subdivision_id, order_publisher, order_number)
-             VALUES ('2020-10-01', 13, 8, 3, 'Название УМЧС', 155)</sql>
-        <sql>INSERT INTO rh.positions_log (position_getting_date, employee_id, position_id, subdivision_id, order_publisher, order_number)
-             VALUES ('2019-07-15', 14, 9, 3, 'Название УМЧС', 128)</sql>
-        <sql>INSERT INTO rh.positions_log (position_getting_date, employee_id, position_id, subdivision_id, order_publisher, order_number)
-             VALUES ('2021-04-11', 15, 9, 3, 'Название УМЧС', 47)</sql>
-        <sql>INSERT INTO rh.positions_log (position_getting_date, employee_id, position_id, subdivision_id, order_publisher, order_number)
-             VALUES ('2020-10-01', 16, 10, 3, 'Название УМЧС', 155)</sql>
-        <sql>INSERT INTO rh.positions_log (position_getting_date, employee_id, position_id, subdivision_id, order_publisher, order_number)
-             VALUES ('2019-07-15', 17, 11, 4, 'Название УМЧС', 128)</sql>
-        <sql>INSERT INTO rh.positions_log (position_getting_date, employee_id, position_id, subdivision_id, order_publisher, order_number)
-             VALUES ('2018-02-10', 18, 8, 4, 'Название УМЧС', 35)</sql>
-        <sql>INSERT INTO rh.positions_log (position_getting_date, employee_id, position_id, subdivision_id, order_publisher, order_number)
-             VALUES ('2021-04-11', 19, 9, 5, 'Название УМЧС', 47)</sql>
-        <sql>INSERT INTO rh.positions_log (position_getting_date, employee_id, position_id, subdivision_id, order_publisher, order_number)
-             VALUES ('2020-10-01', 20, 12, 5, 'Название УМЧС', 155)</sql>
-        <sql>INSERT INTO rh.positions_log (position_getting_date, employee_id, position_id, subdivision_id, order_publisher, order_number)
-             VALUES ('2019-07-15', 21, 13, 6, 'Название УМЧС', 128)</sql>
-        <sql>INSERT INTO rh.positions_log (position_getting_date, employee_id, position_id, subdivision_id, order_publisher, order_number)
-             VALUES ('2019-03-22', 22, 14, 6, 'Название Г(Р)ОЧС', 28)</sql>
-        <sql>INSERT INTO rh.positions_log (position_getting_date, employee_id, position_id, subdivision_id, order_publisher, order_number)
-             VALUES ('2018-01-25', 23, 15, 7, 'Название Г(Р)ОЧС', 9)</sql>
-        <sql>INSERT INTO rh.positions_log (position_getting_date, employee_id, position_id, subdivision_id, order_publisher, order_number)
-             VALUES ('2018-02-10', 24, 16, 7, 'Название УМЧС', 35)</sql>
-        <sql>INSERT INTO rh.positions_log (position_getting_date, employee_id, position_id, subdivision_id, order_publisher, order_number)
-             VALUES ('2020-10-01', 25, 16, 9, 'Название УМЧС', 155)</sql>
-        <sql>INSERT INTO rh.positions_log (position_getting_date, employee_id, position_id, subdivision_id, order_publisher, order_number)
-             VALUES ('2019-07-15', 26, 18, 8, 'Название УМЧС', 128)</sql>
-        <sql>INSERT INTO rh.positions_log (position_getting_date, employee_id, position_id, subdivision_id, order_publisher, order_number)
-             VALUES ('2020-10-01', 27, 19, 8, 'Название УМЧС', 155)</sql>
-        <sql>INSERT INTO rh.positions_log (position_getting_date, employee_id, position_id, subdivision_id, order_publisher, order_number)
-             VALUES ('2021-04-11', 28, 21, 7, 'Название УМЧС', 47)</sql>
-        <sql>INSERT INTO rh.positions_log (position_getting_date, employee_id, position_id, subdivision_id, order_publisher, order_number)
-             VALUES ('2019-07-15', 29, 21, 7, 'Название УМЧС', 128)</sql>
-        <sql>INSERT INTO rh.positions_log (position_getting_date, employee_id, position_id, subdivision_id, order_publisher, order_number)
-             VALUES ('2018-02-10', 30, 21, 7, 'Название УМЧС', 35)</sql>
-        <sql>INSERT INTO rh.positions_log (position_getting_date, employee_id, position_id, subdivision_id, order_publisher, order_number)
-             VALUES ('2019-03-22', 31, 25, 7, 'Название Г(Р)ОЧС', 28)</sql>
-        <sql>INSERT INTO rh.positions_log (position_getting_date, employee_id, position_id, subdivision_id, order_publisher, order_number)
-             VALUES ('2020-05-18', 32, 25, 7, 'Название Г(Р)ОЧС', 81)</sql>
-        <sql>INSERT INTO rh.positions_log (position_getting_date, employee_id, position_id, subdivision_id, order_publisher, order_number)
-             VALUES ('2018-01-25', 33, 25, 7, 'Название Г(Р)ОЧС', 9)</sql>
-        <sql>INSERT INTO rh.positions_log (position_getting_date, employee_id, position_id, subdivision_id, order_publisher, order_number)
-             VALUES ('2020-05-18', 34, 25, 7, 'Название Г(Р)ОЧС', 81)</sql>
-        <sql>INSERT INTO rh.positions_log (position_getting_date, employee_id, position_id, subdivision_id, order_publisher, order_number)
-             VALUES ('2019-03-22', 35, 25, 7, 'Название Г(Р)ОЧС', 28)</sql>
-        <sql>INSERT INTO rh.positions_log (position_getting_date, employee_id, position_id, subdivision_id, order_publisher, order_number)
-             VALUES ('2020-05-18', 36, 25, 7, 'Название Г(Р)ОЧС', 81)</sql>
-        <sql>INSERT INTO rh.positions_log (position_getting_date, employee_id, position_id, subdivision_id, order_publisher, order_number)
-             VALUES ('2020-05-18', 37, 25, 7, 'Название Г(Р)ОЧС', 81)</sql>
-        <sql>INSERT INTO rh.positions_log (position_getting_date, employee_id, position_id, subdivision_id, order_publisher, order_number)
-             VALUES ('2018-01-25', 38, 25, 7, 'Название Г(Р)ОЧС', 9)</sql>
-        <sql>INSERT INTO rh.positions_log (position_getting_date, employee_id, position_id, subdivision_id, order_publisher, order_number)
-             VALUES ('2020-05-18', 39, 25, 7, 'Название Г(Р)ОЧС', 81)</sql>
-        <sql>INSERT INTO rh.positions_log (position_getting_date, employee_id, position_id, subdivision_id, order_publisher, order_number)
-             VALUES ('2019-03-22', 40, 26, 7, 'Название Г(Р)ОЧС', 28)</sql>
-        <sql>INSERT INTO rh.positions_log (position_getting_date, employee_id, position_id, subdivision_id, order_publisher, order_number)
-             VALUES ('2018-01-25', 41, 26, 7, 'Название Г(Р)ОЧС', 9)</sql>
-        <sql>INSERT INTO rh.positions_log (position_getting_date, employee_id, position_id, subdivision_id, order_publisher, order_number)
-             VALUES ('2020-05-18', 42, 26, 7, 'Название Г(Р)ОЧС', 81)</sql>
+        <sql>INSERT INTO rh.positions_log (getting_date, employee_id, position_id, subdivision_id, order_publisher, order_number)
+             VALUES ('2008-04-15', 1, 10, 3, 'Гродненское УМЧС', 49),
+                    ('2012-12-05', 1, 7, 3, 'Гродненское УМЧС', 205),
+                    ('2014-01-19', 2, 10, 3, 'Гродненское УМЧС', 11),
+                    ('2015-03-10', 2, 8, 3, 'Гродненское УМЧС', 36),
+                    ('2016-06-11', 1, 2, 1, 'Гродненское УМЧС', 121),
+                    ('2018-01-25', 9, 6, 2, 'Островецкий Г(Р)ОЧС', 9),
+                    ('2018-01-25', 11, 6, 2, 'Островецкий Г(Р)ОЧС', 9),
+                    ('2018-01-25', 23, 15, 7, 'Островецкий Г(Р)ОЧС', 9),
+                    ('2018-01-25', 33, 25, 7, 'Островецкий Г(Р)ОЧС', 9),
+                    ('2018-01-25', 38, 25, 7, 'Островецкий Г(Р)ОЧС', 9),
+                    ('2018-01-25', 41, 26, 7, 'Островецкий Г(Р)ОЧС', 9),
+                    ('2018-02-10', 1, 1, 1, 'Гродненское УМЧС', 35),
+                    ('2018-02-10', 5, 4, 2, 'Гродненское УМЧС', 35),
+                    ('2018-02-10', 12, 7, 3, 'Гродненское УМЧС', 35),
+                    ('2018-02-10', 18, 8, 4, 'Гродненское УМЧС', 35),
+                    ('2018-02-10', 24, 16, 7, 'Гродненское УМЧС', 35),
+                    ('2018-02-10', 30, 21, 7, 'Гродненское УМЧС', 35),
+                    ('2019-03-22', 10, 6, 2, 'Островецкий Г(Р)ОЧС', 28),
+                    ('2019-03-22', 22, 14, 6, 'Островецкий Г(Р)ОЧС', 28),
+                    ('2019-03-22', 31, 25, 7, 'Островецкий Г(Р)ОЧС', 28),
+                    ('2019-03-22', 35, 25, 7, 'Островецкий Г(Р)ОЧС', 28),
+                    ('2019-03-22', 40, 26, 7, 'Островецкий Г(Р)ОЧС', 28),
+                    ('2019-07-15', 2, 2, 1, 'Гродненское УМЧС', 128),
+                    ('2019-07-15', 6, 5, 2, 'Гродненское УМЧС', 128),
+                    ('2019-07-15', 8, 5, 2, 'Гродненское УМЧС', 128),
+                    ('2019-07-15', 14, 9, 3, 'Гродненское УМЧС', 128),
+                    ('2019-07-15', 17, 11, 4, 'Гродненское УМЧС', 128),
+                    ('2019-07-15', 21, 13, 6, 'Гродненское УМЧС', 128),
+                    ('2019-07-15', 26, 18, 8, 'Гродненское УМЧС', 128),
+                    ('2019-07-15', 29, 21, 7, 'Гродненское УМЧС', 128),
+                    ('2020-05-18', 32, 25, 7, 'Островецкий Г(Р)ОЧС', 81),
+                    ('2020-05-18', 34, 25, 7, 'Островецкий Г(Р)ОЧС', 81),
+                    ('2020-05-18', 36, 25, 7, 'Островецкий Г(Р)ОЧС', 81),
+                    ('2020-05-18', 37, 25, 7, 'Островецкий Г(Р)ОЧС', 81),
+                    ('2020-05-18', 39, 25, 7, 'Островецкий Г(Р)ОЧС', 81),
+                    ('2020-05-18', 42, 26, 7, 'Островецкий Г(Р)ОЧС', 81),
+                    ('2020-10-01', 3, 3, 1, 'Гродненское УМЧС', 155),
+                    ('2020-10-01', 7, 5, 2, 'Гродненское УМЧС', 155),
+                    ('2020-10-01', 13, 8, 3, 'Гродненское УМЧС', 155),
+                    ('2020-10-01', 16, 10, 3, 'Гродненское УМЧС', 155),
+                    ('2020-10-01', 20, 12, 5, 'Гродненское УМЧС', 155),
+                    ('2020-10-01', 25, 16, 9, 'Гродненское УМЧС', 155),
+                    ('2020-10-01', 27, 19, 8, 'Гродненское УМЧС', 155),
+                    ('2021-04-11', 4, 3, 1, 'Гродненское УМЧС', 47),
+                    ('2021-04-11', 15, 9, 3, 'Гродненское УМЧС', 47),
+                    ('2021-04-11', 19, 9, 5, 'Гродненское УМЧС', 47),
+                    ('2021-04-11', 28, 21, 7, 'Гродненское УМЧС', 47)
+        </sql>
     </changeSet>
 
     <changeSet id="ranks_log init" author="dimaskop18@gmail.com">
-        <sql>INSERT INTO rh.ranks_log (rank_getting_date, employee_id, rank_id, order_publisher, order_number)
-             VALUES ('2020-07-25', 1, 3, 'МЧС', 89)</sql>
-        <sql>INSERT INTO rh.ranks_log (rank_getting_date, employee_id, rank_id, order_publisher, order_number)
-             VALUES ('2015-01-19', 1, 4, 'Название УМЧС', 15)</sql>
-        <sql>INSERT INTO rh.ranks_log (rank_getting_date, employee_id, rank_id, order_publisher, order_number)
-             VALUES ('2010-01-10', 1, 5, 'Название УМЧС', 6)</sql>
-        <sql>INSERT INTO rh.ranks_log (rank_getting_date, employee_id, rank_id, order_publisher, order_number)
-             VALUES ('2007-01-19', 1, 6, 'Название УМЧС', 8)</sql>
-        <sql>INSERT INTO rh.ranks_log (rank_getting_date, employee_id, rank_id, order_publisher, order_number)
-             VALUES ('2004-01-19', 1, 7, 'Название УМЧС', 11)</sql>
-        <sql>INSERT INTO rh.ranks_log (rank_getting_date, employee_id, rank_id, order_publisher, order_number)
-             VALUES ('2002-01-19', 1, 8, 'Название УМЧС', 18)</sql>
-        <sql>INSERT INTO rh.ranks_log (rank_getting_date, employee_id, rank_id, order_publisher, order_number)
-             VALUES ('2021-11-13', 2, 4, 'Название УМЧС', 136)</sql>
-        <sql>INSERT INTO rh.ranks_log (rank_getting_date, employee_id, rank_id, order_publisher, order_number)
-             VALUES ('2021-01-19', 3, 4, 'Название УМЧС', 10)</sql>
-        <sql>INSERT INTO rh.ranks_log (rank_getting_date, employee_id, rank_id, order_publisher, order_number)
-             VALUES ('2020-07-25', 4, 5, 'Название УМЧС', 89)</sql>
-        <sql>INSERT INTO rh.ranks_log (rank_getting_date, employee_id, rank_id, order_publisher, order_number)
-             VALUES ('2021-01-19', 5, 5, 'Название УМЧС', 10)</sql>
-        <sql>INSERT INTO rh.ranks_log (rank_getting_date, employee_id, rank_id, order_publisher, order_number)
-             VALUES ('2021-11-13', 6, 5, 'Название УМЧС', 136)</sql>
-        <sql>INSERT INTO rh.ranks_log (rank_getting_date, employee_id, rank_id, order_publisher, order_number)
-             VALUES ('2020-07-25', 7, 4, 'Название УМЧС', 89)</sql>
-        <sql>INSERT INTO rh.ranks_log (rank_getting_date, employee_id, rank_id, order_publisher, order_number)
-             VALUES ('2021-11-13', 8, 5, 'Название УМЧС', 136)</sql>
-        <sql>INSERT INTO rh.ranks_log (rank_getting_date, employee_id, rank_id, order_publisher, order_number)
-             VALUES ('2021-03-14', 9, 11, 'Название Г(Р)ОЧС', 30)</sql>
-        <sql>INSERT INTO rh.ranks_log (rank_getting_date, employee_id, rank_id, order_publisher, order_number)
-             VALUES ('2020-12-05', 10, 13, 'Название Г(Р)ОЧС', 111)</sql>
-        <sql>INSERT INTO rh.ranks_log (rank_getting_date, employee_id, rank_id, order_publisher, order_number)
-             VALUES ('2022-01-19', 11, 11, 'Название Г(Р)ОЧС', 12)</sql>
-        <sql>INSERT INTO rh.ranks_log (rank_getting_date, employee_id, rank_id, order_publisher, order_number)
-             VALUES ('2020-07-25', 12, 5, 'Название УМЧС', 89)</sql>
-        <sql>INSERT INTO rh.ranks_log (rank_getting_date, employee_id, rank_id, order_publisher, order_number)
-             VALUES ('2021-11-13', 13, 5, 'Название УМЧС', 136)</sql>
-        <sql>INSERT INTO rh.ranks_log (rank_getting_date, employee_id, rank_id, order_publisher, order_number)
-             VALUES ('2021-01-19', 14, 6, 'Название УМЧС', 10)</sql>
-        <sql>INSERT INTO rh.ranks_log (rank_getting_date, employee_id, rank_id, order_publisher, order_number)
-             VALUES ('2020-07-25', 15, 6, 'Название УМЧС', 89)</sql>
-        <sql>INSERT INTO rh.ranks_log (rank_getting_date, employee_id, rank_id, order_publisher, order_number)
-             VALUES ('2021-11-13', 16, 7, 'Название УМЧС', 136)</sql>
-        <sql>INSERT INTO rh.ranks_log (rank_getting_date, employee_id, rank_id, order_publisher, order_number)
-             VALUES ('2021-01-19', 17, 4, 'Название УМЧС', 10)</sql>
-        <sql>INSERT INTO rh.ranks_log (rank_getting_date, employee_id, rank_id, order_publisher, order_number)
-             VALUES ('2020-07-25', 18, 5, 'Название УМЧС', 89)</sql>
-        <sql>INSERT INTO rh.ranks_log (rank_getting_date, employee_id, rank_id, order_publisher, order_number)
-             VALUES ('2021-11-13', 19, 6, 'Название УМЧС', 136)</sql>
-        <sql>INSERT INTO rh.ranks_log (rank_getting_date, employee_id, rank_id, order_publisher, order_number)
-             VALUES ('2021-01-19', 20, 6, 'Название УМЧС',10)</sql>
-        <sql>INSERT INTO rh.ranks_log (rank_getting_date, employee_id, rank_id, order_publisher, order_number)
-             VALUES ('2020-07-25', 21, 5, 'Название УМЧС', 89)</sql>
-        <sql>INSERT INTO rh.ranks_log (rank_getting_date, employee_id, rank_id, order_publisher, order_number)
-             VALUES ('2021-03-14', 22, 10, 'Название Г(Р)ОЧС', 30)</sql>
-        <sql>INSERT INTO rh.ranks_log (rank_getting_date, employee_id, rank_id, order_publisher, order_number)
-             VALUES ('2020-12-05', 23, 10, 'Название Г(Р)ОЧС', 111)</sql>
-        <sql>INSERT INTO rh.ranks_log (rank_getting_date, employee_id, rank_id, order_publisher, order_number)
-             VALUES ('2021-11-13', 24, 5, 'Название УМЧС', 136)</sql>
-        <sql>INSERT INTO rh.ranks_log (rank_getting_date, employee_id, rank_id, order_publisher, order_number)
-             VALUES ('2020-07-25', 25, 6, 'Название УМЧС', 89)</sql>
-        <sql>INSERT INTO rh.ranks_log (rank_getting_date, employee_id, rank_id, order_publisher, order_number)
-             VALUES ('2021-01-19', 26, 4, 'Название УМЧС', 10)</sql>
-        <sql>INSERT INTO rh.ranks_log (rank_getting_date, employee_id, rank_id, order_publisher, order_number)
-             VALUES ('2021-11-13', 27, 5, 'Название УМЧС', 136)</sql>
-        <sql>INSERT INTO rh.ranks_log (rank_getting_date, employee_id, rank_id, order_publisher, order_number)
-             VALUES ('2020-07-25', 28, 8, 'Название УМЧС', 89)</sql>
-        <sql>INSERT INTO rh.ranks_log (rank_getting_date, employee_id, rank_id, order_publisher, order_number)
-             VALUES ('2021-01-19', 29, 8, 'Название УМЧС', 10)</sql>
-        <sql>INSERT INTO rh.ranks_log (rank_getting_date, employee_id, rank_id, order_publisher, order_number)
-             VALUES ('2020-07-25', 30, 7, 'Название УМЧС', 89)</sql>
-        <sql>INSERT INTO rh.ranks_log (rank_getting_date, employee_id, rank_id, order_publisher, order_number)
-             VALUES ('2021-03-14', 31, 14, 'Название Г(Р)ОЧС', 30)</sql>
-        <sql>INSERT INTO rh.ranks_log (rank_getting_date, employee_id, rank_id, order_publisher, order_number)
-             VALUES ('2020-12-05', 32, 16, 'Название Г(Р)ОЧС', 111)</sql>
-        <sql>INSERT INTO rh.ranks_log (rank_getting_date, employee_id, rank_id, order_publisher, order_number)
-             VALUES ('2022-01-19', 33, 15, 'Название Г(Р)ОЧС', 12)</sql>
-        <sql>INSERT INTO rh.ranks_log (rank_getting_date, employee_id, rank_id, order_publisher, order_number)
-             VALUES ('2021-03-14', 34, 16, 'Название Г(Р)ОЧС', 30)</sql>
-        <sql>INSERT INTO rh.ranks_log (rank_getting_date, employee_id, rank_id, order_publisher, order_number)
-             VALUES ('2020-12-05', 35, 14, 'Название Г(Р)ОЧС', 111)</sql>
-        <sql>INSERT INTO rh.ranks_log (rank_getting_date, employee_id, rank_id, order_publisher, order_number)
-             VALUES ('2022-01-19', 36, 13, 'Название Г(Р)ОЧС', 12)</sql>
-        <sql>INSERT INTO rh.ranks_log (rank_getting_date, employee_id, rank_id, order_publisher, order_number)
-             VALUES ('2021-03-14', 37, 15, 'Название Г(Р)ОЧС', 30)</sql>
-        <sql>INSERT INTO rh.ranks_log (rank_getting_date, employee_id, rank_id, order_publisher, order_number)
-             VALUES ('2020-12-05', 38, 15, 'Название Г(Р)ОЧС', 111)</sql>
-        <sql>INSERT INTO rh.ranks_log (rank_getting_date, employee_id, rank_id, order_publisher, order_number)
-             VALUES ('2022-01-19', 39, 16, 'Название Г(Р)ОЧС', 12)</sql>
-        <sql>INSERT INTO rh.ranks_log (rank_getting_date, employee_id, rank_id, order_publisher, order_number)
-             VALUES ('2021-03-14', 40, 12, 'Название Г(Р)ОЧС', 30)</sql>
-        <sql>INSERT INTO rh.ranks_log (rank_getting_date, employee_id, rank_id, order_publisher, order_number)
-             VALUES ('2020-12-05', 41, 11, 'Название Г(Р)ОЧС', 111)</sql>
-        <sql>INSERT INTO rh.ranks_log (rank_getting_date, employee_id, rank_id, order_publisher, order_number)
-             VALUES ('2022-01-19', 42, 13, 'Название Г(Р)ОЧС', 12)</sql>
+        <sql>INSERT INTO rh.ranks_log (getting_date, employee_id, rank_id, order_publisher, order_number)
+             VALUES
+                    ('2002-01-19', 1, 8, 'Гродненское УМЧС', 18),
+                    ('2004-01-19', 1, 7, 'Гродненское УМЧС', 11),
+                    ('2007-01-19', 1, 6, 'Гродненское УМЧС', 8),
+                    ('2010-01-10', 1, 5, 'Гродненское УМЧС', 6),
+                    ('2015-01-19', 1, 4, 'Гродненское УМЧС', 15),
+                    ('2020-07-25', 1, 3, 'МЧС', 89),
+                    ('2020-07-25', 4, 5, 'Гродненское УМЧС', 89),
+                    ('2020-07-25', 7, 4, 'Гродненское УМЧС', 89),
+                    ('2020-07-25', 12, 5, 'Гродненское УМЧС', 89),
+                    ('2020-07-25', 15, 6, 'Гродненское УМЧС', 89),
+                    ('2020-07-25', 18, 5, 'Гродненское УМЧС', 89),
+                    ('2020-07-25', 21, 5, 'Гродненское УМЧС', 89),
+                    ('2020-07-25', 25, 6, 'Гродненское УМЧС', 89),
+                    ('2020-07-25', 28, 8, 'Гродненское УМЧС', 89),
+                    ('2020-07-25', 30, 7, 'Гродненское УМЧС', 89),
+                    ('2020-12-05', 10, 13, 'Островецкий Г(Р)ОЧС', 111),
+                    ('2020-12-05', 23, 10, 'Островецкий Г(Р)ОЧС', 111),
+                    ('2020-12-05', 32, 16, 'Островецкий Г(Р)ОЧС', 111),
+                    ('2020-12-05', 35, 14, 'Островецкий Г(Р)ОЧС', 111),
+                    ('2020-12-05', 38, 15, 'Островецкий Г(Р)ОЧС', 111),
+                    ('2020-12-05', 41, 11, 'Островецкий Г(Р)ОЧС', 111),
+                    ('2021-01-19', 3, 4, 'Гродненское УМЧС', 10),
+                    ('2021-01-19', 5, 5, 'Гродненское УМЧС', 10),
+                    ('2021-01-19', 14, 6, 'Гродненское УМЧС', 10),
+                    ('2021-01-19', 17, 4, 'Гродненское УМЧС', 10),
+                    ('2021-01-19', 20, 6, 'Гродненское УМЧС',10),
+                    ('2021-01-19', 26, 4, 'Гродненское УМЧС', 10),
+                    ('2021-01-19', 29, 8, 'Гродненское УМЧС', 10),
+                    ('2021-03-14', 9, 11, 'Островецкий Г(Р)ОЧС', 30),
+                    ('2021-03-14', 22, 10, 'Островецкий Г(Р)ОЧС', 30),
+                    ('2021-03-14', 31, 14, 'Островецкий Г(Р)ОЧС', 30),
+                    ('2021-03-14', 34, 16, 'Островецкий Г(Р)ОЧС', 30),
+                    ('2021-03-14', 37, 15, 'Островецкий Г(Р)ОЧС', 30),
+                    ('2021-03-14', 40, 12, 'Островецкий Г(Р)ОЧС', 30),
+                    ('2021-11-13', 2, 4, 'Гродненское УМЧС', 136),
+                    ('2021-11-13', 6, 5, 'Гродненское УМЧС', 136),
+                    ('2021-11-13', 8, 5, 'Гродненское УМЧС', 136),
+                    ('2021-11-13', 13, 5, 'Гродненское УМЧС', 136),
+                    ('2021-11-13', 16, 7, 'Гродненское УМЧС', 136),
+                    ('2021-11-13', 19, 6, 'Гродненское УМЧС', 136),
+                    ('2021-11-13', 24, 5, 'Гродненское УМЧС', 136),
+                    ('2021-11-13', 27, 5, 'Гродненское УМЧС', 136),
+                    ('2022-01-19', 11, 11, 'Островецкий Г(Р)ОЧС', 12),
+                    ('2022-01-19', 33, 15, 'Островецкий Г(Р)ОЧС', 12),
+                    ('2022-01-19', 36, 13, 'Островецкий Г(Р)ОЧС', 12),
+                    ('2022-01-19', 39, 16, 'Островецкий Г(Р)ОЧС', 12),
+                    ('2022-01-19', 42, 13, 'Островецкий Г(Р)ОЧС', 12)
+        </sql>
     </changeSet>
 
     <changeSet id="roles init" author="dimaskop18@gmail.com">
         <sql>INSERT INTO rh.roles (name)
-             VALUES ('ADMIN')</sql>
-        <sql>INSERT INTO rh.roles (name)
-             VALUES ('USER')</sql>
+             VALUES ('ADMIN'),
+                    ('USER')
+        </sql>
     </changeSet>
 
-    <!--<changeSet id="users init" author="dimaskop18@gmail.com">
+    <changeSet id="users init" author="dimaskop18@gmail.com">
         <sql>INSERT INTO rh.users (username, password, email, firstname, lastname)
-             VALUES ('@dyskop', '1234567', 'dimaskop18@gmail.com', 'Дмитрий', 'Скопинов')</sql>
+             VALUES ('@dyskop', '$2a$10$c0nDD78EKnCkj8vULM1mB.VynKRE.YhWMxXL/i/LQ.9E9FW5RrhLO', 'dimaskop18@gmail.com', 'Дмитрий', 'Скопинов'),
+                    ('@user', '$2a$10$gzN7054faEQBW/6KuNhYl.U5flsRISoMGfMvPxfu/QWubcSZvTvwm', 'user18@gmail.com', 'Иван', 'Иванов')
+        </sql>
     </changeSet>
 
     <changeSet id="users_roles_link init" author="dimaskop18@gmail.com">
         <sql>INSERT INTO rh.users_roles_link (user_id, role_id)
-             VALUES (1, 1)</sql>
-    </changeSet>-->
+             VALUES (1, 1),
+                    (2, 2)
+        </sql>
+    </changeSet>
 
     <changeSet id="rename id_columns of all tables just to id" author="dimaskop18@gmail.com">
         <sql>ALTER TABLE rh.employees RENAME COLUMN employee_id TO id</sql>

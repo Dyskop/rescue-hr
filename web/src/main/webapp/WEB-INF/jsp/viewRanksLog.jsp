@@ -27,10 +27,10 @@
                 </thead>
                 <tbody>
                 <c:forEach items="${requestScope.rankLogs}" var="log">
-                    <fmt:parseDate value="${log.rankGettingDate}" pattern="yyyy-MM-dd" var="rankGettingDate" type="date"/>
+                    <fmt:parseDate value="${log.gettingDate}" pattern="yyyy-MM-dd" var="gettingDate" type="date"/>
                     <tr>
                         <td></td>
-                        <td><fmt:formatDate pattern="dd.MM.yyyy" value="${rankGettingDate}"/></td>
+                        <td><fmt:formatDate pattern="dd.MM.yyyy" value="${gettingDate}"/></td>
                         <td>${log.employee.surname} ${log.employee.name} ${log.employee.patronymic}</td>
                         <td>${log.rank.rankTitle} внутренней службы</td>
                         <td>${log.orderPublisher}</td>

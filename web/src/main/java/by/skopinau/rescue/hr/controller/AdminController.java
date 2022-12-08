@@ -1,8 +1,8 @@
 package by.skopinau.rescue.hr.controller;
 
-import by.skopinau.rescue.hr.dto.CreateEmployeeRequest;
-import by.skopinau.rescue.hr.dto.SearchRequest;
-import by.skopinau.rescue.hr.dto.UpdateUserRequest;
+import by.skopinau.rescue.hr.dto.EmployeeDto;
+import by.skopinau.rescue.hr.dto.SearchDto;
+import by.skopinau.rescue.hr.dto.UserDto;
 import by.skopinau.rescue.hr.entity.Employee;
 import by.skopinau.rescue.hr.entity.State;
 import by.skopinau.rescue.hr.entity.User;
@@ -21,14 +21,16 @@ import java.util.Map;
 @Controller
 public class AdminController {
     public static final int PAGE_SIZE = 10;
-    private final EmployeeService employeeService;
-    private final StateService stateService;
-    private final RanksLogService ranksLogService;
-    private final PositionsLogService positionsLogService;
-    private final UserService userService;
+    private final EmployeeServiceImpl employeeService;
+    private final StateServiceImpl stateService;
+    private final RanksLogServiceImpl ranksLogService;
+    private final PositionsLogServiceImpl positionsLogService;
+    private final UserServiceImpl userService;
 
     @Autowired
-    public AdminController(EmployeeService employeeService, StateService stateService, RanksLogService ranksLogService, PositionsLogService positionsLogService, UserService userService) {
+    public AdminController(EmployeeServiceImpl employeeService, StateServiceImpl stateService,
+                           RanksLogServiceImpl ranksLogService, PositionsLogServiceImpl positionsLogService,
+                           UserServiceImpl userService) {
         this.employeeService = employeeService;
         this.stateService = stateService;
         this.ranksLogService = ranksLogService;
@@ -57,7 +59,7 @@ public class AdminController {
 
     @GetMapping(path = "/admin/user/update/{userId}")
     public String showUpdateUserView(@PathVariable("userId") int userId, Model model) {
-        User user = userService.findById(userId);
+        User user = userService.findById(userId).orElseThrow();
         List<String> rolesNames = userService.getRolesNames(user);
         model.addAttribute("user", user);
         model.addAttribute("rolesNames", rolesNames);
@@ -65,8 +67,8 @@ public class AdminController {
     }
 
     @PostMapping(path = "/admin/user/update/{userId}")
-    public String updateUser(@PathVariable("userId") int userId, UpdateUserRequest updateUserRequest) {
-        userService.updateUser(userId, updateUserRequest);
+    public String updateUser(@PathVariable("userId") int userId, UserDto userDto) {
+        userService.update(userId, userDto);
         return "redirect:/admin/users/1";
     }
 
@@ -80,7 +82,7 @@ public class AdminController {
 
     @GetMapping(path = "/admin/employee/{employeeId}")
     public String showOneEmployee(@PathVariable("employeeId") int employeeId, Model model) {
-        Employee employee = employeeService.findById(employeeId);
+        Employee employee = employeeService.findById(employeeId).orElseThrow();
         model.addAttribute("employee", employee);
         model.addAttribute("rankLogs", ranksLogService.findByEmployee(employee));
         model.addAttribute("positionLogs", positionsLogService.findByEmployee(employee));
@@ -93,8 +95,8 @@ public class AdminController {
     }
 
     @PostMapping("/admin/employees/create")
-    public String createNewEmployee(CreateEmployeeRequest createEmployeeRequest) {
-        employeeService.createEmployee(createEmployeeRequest);
+    public String createNewEmployee(EmployeeDto employeeDto) {
+        employeeService.save(employeeDto);
         return "redirect:/admin/employees/1";
     }
 
@@ -106,14 +108,14 @@ public class AdminController {
 
     @GetMapping(path = "/admin/employee/update/{employeeId}")
     public String showUpdateEmployeeView(@PathVariable("employeeId") int employeeId, Model model) {
-        Employee employee = employeeService.findById(employeeId);
+        Employee employee = employeeService.findById(employeeId).orElseThrow();
         model.addAttribute("employee", employee);
         return "updateEmployee";
     }
 
     @PostMapping(path = "/admin/employee/update/{employeeId}")
-    public String updateEmployee(@PathVariable("employeeId") int employeeId, CreateEmployeeRequest createEmployeeRequest) {
-        employeeService.updateEmployee(employeeId, createEmployeeRequest);
+    public String updateEmployee(@PathVariable("employeeId") int employeeId, EmployeeDto employeeDto) {
+        employeeService.update(employeeId, employeeDto);
         return "redirect:/admin/employee/{employeeId}";
     }
 
@@ -147,7 +149,7 @@ public class AdminController {
     }
 
     @GetMapping(path = "/admin/search/results/{page}")
-    public String showSearchResults(@PathVariable("page") int pageNumber, Model model, SearchRequest request) {
+    public String showSearchResults(@PathVariable("page") int pageNumber, Model model, SearchDto request) {
         model.addAttribute("pageNumber", pageNumber);
         model.addAttribute("employees", employeeService.searchAllPageable(request,pageNumber - 1, PAGE_SIZE));
         return "viewEmployeesAdmin";

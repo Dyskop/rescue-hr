@@ -1,25 +1,14 @@
 package by.skopinau.rescue.hr.entity;
 
-import lombok.*;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
-import javax.persistence.*;
-import java.time.LocalDate;
-
-@EqualsAndHashCode(callSuper = false)
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
 @Entity
 @Table(name = "positions_log")
-public class PositionsLog extends BaseEntity {
-    @Column(name = "position_getting_date")
-    private LocalDate positionGettingDate;
-
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "employee_id", nullable = false)
-    private Employee employee;
-
+public class PositionsLog extends BaseLogEntity {
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "position_id", nullable = false)
     private Position position;
@@ -28,9 +17,22 @@ public class PositionsLog extends BaseEntity {
     @JoinColumn(name = "subdivision_id", nullable = false)
     private Subdivision subdivision;
 
-    @Column(name = "order_publisher")
-    private String orderPublisher;
+    public PositionsLog() {
+    }
 
-    @Column(name = "order_number")
-    private int orderNumber;
+    public Position getPosition() {
+        return position;
+    }
+
+    public void setPosition(Position position) {
+        this.position = position;
+    }
+
+    public Subdivision getSubdivision() {
+        return subdivision;
+    }
+
+    public void setSubdivision(Subdivision subdivision) {
+        this.subdivision = subdivision;
+    }
 }

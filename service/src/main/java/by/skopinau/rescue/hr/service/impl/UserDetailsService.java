@@ -8,14 +8,13 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.HashSet;
 import java.util.Set;
 
 @Service
-@Transactional
-public class UserDetailsService implements org.springframework.security.core.userdetails.UserDetailsService {
+public class UserDetailsService
+        implements org.springframework.security.core.userdetails.UserDetailsService {
     private final UserRepository userRepository;
 
     public UserDetailsService(UserRepository userRepository) {
@@ -28,7 +27,8 @@ public class UserDetailsService implements org.springframework.security.core.use
         if (foundUser == null) {
             throw new UsernameNotFoundException("Couldn't find user by provided name!");
         }
-        return new org.springframework.security.core.userdetails.User(foundUser.getUsername(), foundUser.getPassword(), getUserAuthorities(foundUser));
+        return new org.springframework.security.core.userdetails.User(foundUser.getUsername(),
+                foundUser.getPassword(), getUserAuthorities(foundUser));
     }
 
     private Set<GrantedAuthority> getUserAuthorities(User user) {

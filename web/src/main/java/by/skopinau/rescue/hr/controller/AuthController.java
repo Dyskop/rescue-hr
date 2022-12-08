@@ -1,8 +1,8 @@
 package by.skopinau.rescue.hr.controller;
 
-import by.skopinau.rescue.hr.dto.UserRegistrationRequest;
+import by.skopinau.rescue.hr.dto.UserDto;
 import by.skopinau.rescue.hr.exception.UserExistException;
-import by.skopinau.rescue.hr.service.impl.AccountService;
+import by.skopinau.rescue.hr.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,11 +11,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class AuthController {
-    private final AccountService accountService;
+    private final UserService userService;
 
     @Autowired
-    public AuthController(AccountService accountService) {
-        this.accountService = accountService;
+    public AuthController(UserService userService) {
+        this.userService = userService;
     }
 
     @GetMapping("/login")
@@ -29,8 +29,8 @@ public class AuthController {
     }
 
     @PostMapping("/registration")
-    public String registerNewUser(UserRegistrationRequest userRegistrationRequest) throws UserExistException {
-        accountService.createUser(userRegistrationRequest);
+    public String registerNewUser(UserDto userDto) throws UserExistException {
+        userService.save(userDto);
         return "redirect:login";
     }
 }

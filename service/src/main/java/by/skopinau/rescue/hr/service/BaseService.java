@@ -3,13 +3,16 @@ package by.skopinau.rescue.hr.service;
 import by.skopinau.rescue.hr.entity.BaseEntity;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface BaseService<T extends BaseEntity> {
-    void save(T entity);
-
-    void delete(T entity);
-
-    T findById(int id);
+    Optional<T> save(T entity);
 
     List<T> findAll();
+
+    Optional<T> findById(int id);
+
+    Optional<T> update(int id, T entity);
+
+    boolean deleteById(int id);
 }
