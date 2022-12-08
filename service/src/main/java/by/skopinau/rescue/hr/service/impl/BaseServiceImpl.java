@@ -2,41 +2,54 @@ package by.skopinau.rescue.hr.service.impl;
 
 import by.skopinau.rescue.hr.entity.BaseEntity;
 import by.skopinau.rescue.hr.repository.BaseRepository;
-import jakarta.persistence.NoResultException;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import by.skopinau.rescue.hr.service.BaseService;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
-@Service
-public abstract class BaseService<T extends BaseEntity> implements by.skopinau.rescue.hr.service.BaseService<T> {
-    private final BaseRepository<T> baseRepository;
+public abstract class BaseServiceImpl<T extends BaseEntity> implements BaseService<T> {
+    private final BaseRepository<T> repository;
 
-    @Autowired
-    public BaseService(BaseRepository<T> baseRepository) {
-        this.baseRepository = baseRepository;
+    protected BaseServiceImpl(BaseRepository<T> repository) {
+        this.repository = repository;
     }
 
     @Override
-    public void save(T entity) {
-        baseRepository.save(entity);
-    }
-
-    @Override
-    public void delete(T entity) {
-        baseRepository.delete(entity);
-    }
-
-    public void deleteById(int id) {baseRepository.deleteById(id);}
-
-    @Override
-    public T findById(int id) {
-        return baseRepository.findById(id).orElseThrow(NoResultException::new);
+    @Transactional
+    public Optional<T> save(T entity) {
+        return Optional.of(repository.save(entity));
     }
 
     @Override
     public List<T> findAll() {
-        return baseRepository.findAll();
+        return repository.findAll();
+    }
+
+    @Override
+    public Optional<T> findById(int id) {
+        return repository.findById(id);
+    }
+
+    @Override
+    @Transactional
+    public Optional<T> update(int id, T entity) {
+        if (repository.existsById(id)) {
+            entity.setId(id);
+            return save(entity);
+        }
+
+        return Optional.empty();
+    }
+
+    @Override
+    @Transactional
+    public boolean deleteById(int id) {
+        if (repository.existsById(id)) {
+            repository.deleteById(id);
+            return true;
+        }
+
+        return false;
     }
 }

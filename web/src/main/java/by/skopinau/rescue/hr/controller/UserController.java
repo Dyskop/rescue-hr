@@ -1,12 +1,12 @@
 package by.skopinau.rescue.hr.controller;
 
-import by.skopinau.rescue.hr.dto.SearchRequest;
+import by.skopinau.rescue.hr.dto.SearchDto;
 import by.skopinau.rescue.hr.entity.Employee;
 import by.skopinau.rescue.hr.entity.State;
-import by.skopinau.rescue.hr.service.impl.EmployeeService;
-import by.skopinau.rescue.hr.service.impl.PositionsLogService;
-import by.skopinau.rescue.hr.service.impl.RanksLogService;
-import by.skopinau.rescue.hr.service.impl.StateService;
+import by.skopinau.rescue.hr.service.impl.EmployeeServiceImpl;
+import by.skopinau.rescue.hr.service.impl.PositionsLogServiceImpl;
+import by.skopinau.rescue.hr.service.impl.RanksLogServiceImpl;
+import by.skopinau.rescue.hr.service.impl.StateServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,13 +20,13 @@ import java.util.Map;
 @Controller
 public class UserController {
     public static final int PAGE_SIZE = 10;
-    private final EmployeeService employeeService;
-    private final StateService stateService;
-    private final RanksLogService ranksLogService;
-    private final PositionsLogService positionsLogService;
+    private final EmployeeServiceImpl employeeService;
+    private final StateServiceImpl stateService;
+    private final RanksLogServiceImpl ranksLogService;
+    private final PositionsLogServiceImpl positionsLogService;
 
     @Autowired
-    public UserController(EmployeeService employeeService, StateService stateService, RanksLogService ranksLogService, PositionsLogService positionsLogService) {
+    public UserController(EmployeeServiceImpl employeeService, StateServiceImpl stateService, RanksLogServiceImpl ranksLogService, PositionsLogServiceImpl positionsLogService) {
         this.employeeService = employeeService;
         this.stateService = stateService;
         this.ranksLogService = ranksLogService;
@@ -47,7 +47,7 @@ public class UserController {
 
     @GetMapping(path = "/view/employee/{employeeId}")
     public String showOneEmployee(@PathVariable("employeeId") int employeeId, Model model) {
-        Employee employee = employeeService.findById(employeeId);
+        Employee employee = employeeService.findById(employeeId).orElseThrow();
         model.addAttribute("employee", employee);
         model.addAttribute("rankLogs", ranksLogService.findByEmployee(employee));
         model.addAttribute("positionLogs", positionsLogService.findByEmployee(employee));
@@ -84,7 +84,7 @@ public class UserController {
     }
 
     @GetMapping(path = "/view/search/results/{page}")
-    public String showSearchResults(@PathVariable("page") int pageNumber, Model model, SearchRequest request) {
+    public String showSearchResults(@PathVariable("page") int pageNumber, Model model, SearchDto request) {
         model.addAttribute("pageNumber", pageNumber);
         model.addAttribute("employees", employeeService.searchAllPageable(request,pageNumber - 1, PAGE_SIZE));
         return "viewEmployeesAdmin";

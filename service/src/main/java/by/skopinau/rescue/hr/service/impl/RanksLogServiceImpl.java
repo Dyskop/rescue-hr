@@ -1,52 +1,32 @@
 package by.skopinau.rescue.hr.service.impl;
 
-import by.skopinau.rescue.hr.dto.CreateRanksLogRequest;
-import by.skopinau.rescue.hr.entity.*;
-import by.skopinau.rescue.hr.repository.RankRepository;
+import by.skopinau.rescue.hr.dto.RanksLogDto;
+import by.skopinau.rescue.hr.entity.RanksLog;
+import by.skopinau.rescue.hr.mapper.RanksLogMapper;
 import by.skopinau.rescue.hr.repository.RanksLogRepository;
+import by.skopinau.rescue.hr.service.Pageable;
+import by.skopinau.rescue.hr.service.RanksLogService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.List;
-
 @Service
-@Transactional
-public class RanksLogService extends BaseService<RanksLog> implements by.skopinau.rescue.hr.service.RanksLogService {
+public class RanksLogServiceImpl extends BaseLogServiceImpl<RanksLog>
+        implements RanksLogService, Pageable<RanksLog> {
     private final RanksLogRepository ranksLogRepository;
-    private final RankRepository rankRepository;
+    private final RanksLogMapper mapper;
 
     @Autowired
-    public RanksLogService(RanksLogRepository ranksLogRepository, RankRepository rankRepository) {
+    public RanksLogServiceImpl(RanksLogRepository ranksLogRepository, RanksLogMapper mapper) {
         super(ranksLogRepository);
         this.ranksLogRepository = ranksLogRepository;
-        this.rankRepository = rankRepository;
+        this.mapper = mapper;
     }
 
-    public List<RanksLog> findByEmployee(Employee employee) {
-        return ranksLogRepository.findByEmployeeOrderByRankGettingDateDesc(employee);
-    }
-
-    @Override
-    public List<RanksLog> findAll() {
-        return ranksLogRepository.findAllOrdered();
-    }
-
-    public List<RanksLog> findAllPageable(int page, int size) {
-        return ranksLogRepository.findAllOrdered(PageRequest.of(page, size));
-    }
-
-    public void createRanksLog(CreateRanksLogRequest createRanksLogRequest) {
-        RanksLog ranksLog = new RanksLog();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        ranksLog.setRankGettingDate(LocalDate.parse(createRanksLogRequest.getRankGettingDate(), formatter));
-        ranksLog.setEmployee(createRanksLogRequest.getEmployee());
-        ranksLog.setRank(rankRepository.findByRankTitle(createRanksLogRequest.getRankTitle()));
-        ranksLog.setOrderPublisher(createRanksLogRequest.getRankOrderPublisher());
-        ranksLog.setOrderNumber(Integer.parseInt(createRanksLogRequest.getRankOrderNumber()));
+    //todo:  move to baseLogService, unused
+    @Transactional
+    public void save(RanksLogDto dto) {
+        RanksLog ranksLog = mapper.mapDtoToEntity(dto);
         ranksLogRepository.save(ranksLog);
     }
 }
