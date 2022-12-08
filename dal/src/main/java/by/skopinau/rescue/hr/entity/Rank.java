@@ -13,10 +13,6 @@ public class Rank extends BaseEntity{
     public Rank() {
     }
 
-    public Rank(String rankTitle) {
-        this.rankTitle = rankTitle;
-    }
-
     public String getRankTitle() {
         return rankTitle;
     }

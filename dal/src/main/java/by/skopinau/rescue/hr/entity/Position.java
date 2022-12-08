@@ -10,18 +10,18 @@ public class Position extends BaseEntity {
     @Column(name = "position_title", nullable = false, unique = true)
     private String positionTitle;
 
+    public Position() {
+    }
+
+    public Position(String positionTitle) {
+        this.positionTitle = positionTitle;
+    }
+
     public String getPositionTitle() {
         return positionTitle;
     }
 
     public void setPositionTitle(String positionTitle) {
-        this.positionTitle = positionTitle;
-    }
-
-    public Position() {
-    }
-
-    public Position(String positionTitle) {
         this.positionTitle = positionTitle;
     }
 

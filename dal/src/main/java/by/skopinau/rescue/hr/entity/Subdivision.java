@@ -13,10 +13,6 @@ public class Subdivision extends BaseEntity {
     public Subdivision() {
     }
 
-    public Subdivision(String subdivisionTitle) {
-        this.subdivisionTitle = subdivisionTitle;
-    }
-
     public String getSubdivisionTitle() {
         return subdivisionTitle;
     }

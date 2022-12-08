@@ -126,17 +126,4 @@ public class Employee extends BaseEntity {
         result = 31 * result + patronymic.hashCode();
         return result;
     }
-
-    @Override
-    public String toString() {
-        return "Employee{" +
-                "surname='" + surname + '\'' +
-                ", name='" + name + '\'' +
-                ", patronymic='" + patronymic + '\'' +
-                ", birthday=" + birthday +
-                ", rank=" + rank +
-                ", position=" + position +
-                ", subdivision=" + subdivision +
-                '}';
-    }
 }

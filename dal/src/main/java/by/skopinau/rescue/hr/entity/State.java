@@ -24,12 +24,6 @@ public class State extends BaseEntity {
     public State() {
     }
 
-    public State(Subdivision subdivision, Position position, int stateAmount) {
-        this.subdivision = subdivision;
-        this.position = position;
-        this.stateAmount = stateAmount;
-    }
-
     public Subdivision getSubdivision() {
         return subdivision;
     }
