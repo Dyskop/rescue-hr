@@ -39,7 +39,7 @@
             </table>
         </div>
     </section>
-    <%@ include file="common/bootstrapScript.jsp"%>
-    <%@ include file="common/changeTableRowColorAfterOneClick.jsp"%>
+    <%@ include file="common/bootstrap-script.jsp"%>
+    <%@ include file="common/change-table-row-color-after-one-click.jsp"%>
 </body>
 </html>

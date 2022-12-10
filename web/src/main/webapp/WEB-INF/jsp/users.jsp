@@ -9,8 +9,8 @@
     <%@ include file="common/css-connect.jsp" %>
 </head>
 <body>
-    <%@ include file="common/headerAdmin.jsp"%>
-    <c:set var="pageNumber" value="${requestScope.pageNumber}"/>
+    <%@ include file="common/header.jsp"%>
+    <c:set var="page" value="${requestScope.page}"/>
     <section>
         <div class="container-xxl">
             <div class="row table-title-admin">
@@ -54,10 +54,10 @@
                                     выбрать
                                 </button>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                    <li><a class="dropdown-item" href="${pageContext.request.contextPath}/admin/user/delete/${user.id}" onclick="return confirm('Подтвердить удаление?')" role="button">
+                                    <li><a class="dropdown-item" href="${pageContext.request.contextPath}/users/remove/${user.id}" onclick="return confirm('Подтвердить удаление?')" role="button">
                                         удалить
                                     </a></li>
-                                    <li><a class="dropdown-item" href="${pageContext.request.contextPath}/admin/user/update/${user.id}" role="button">
+                                    <li><a class="dropdown-item" href="${pageContext.request.contextPath}/users/update-form/${user.id}" role="button">
                                         изменить
                                     </a></li>
                                 </ul>
@@ -70,32 +70,32 @@
             <nav aria-label="Page navigation">
                 <ul class="pagination justify-content-center">
                     <c:choose>
-                        <c:when test="${pageNumber == '1'}">
+                        <c:when test="${page == '1'}">
                             <li class="page-item">
-                                <a class="page-link" href="${pageContext.request.contextPath}/admin/users/${pageNumber}" aria-label="Previous">
+                                <a class="page-link" href="${pageContext.request.contextPath}/users?page=${page}" aria-label="Previous">
                                     <span aria-hidden="true">&laquo;</span>
                                 </a>
                             </li>
-                            <li class="page-item"><a class="page-link" href="${pageContext.request.contextPath}/admin/users/${pageNumber}">${pageNumber}</a></li>
-                            <li class="page-item"><a class="page-link" href="${pageContext.request.contextPath}/admin/users/${pageNumber + 1}">${pageNumber + 1}</a></li>
-                            <li class="page-item"><a class="page-link" href="${pageContext.request.contextPath}/admin/users/${pageNumber + 2}">${pageNumber + 2}</a></li>
+                            <li class="page-item"><a class="page-link" href="${pageContext.request.contextPath}/users?page=${page}">${page}</a></li>
+                            <li class="page-item"><a class="page-link" href="${pageContext.request.contextPath}/users?page=${page + 1}">${page + 1}</a></li>
+                            <li class="page-item"><a class="page-link" href="${pageContext.request.contextPath}/users?page=${page + 2}">${page + 2}</a></li>
                             <li class="page-item">
-                                <a class="page-link" href="${pageContext.request.contextPath}/admin/users/${pageNumber + 1}" aria-label="Next">
+                                <a class="page-link" href="${pageContext.request.contextPath}/users?page=${page + 1}" aria-label="Next">
                                     <span aria-hidden="true">&raquo;</span>
                                 </a>
                             </li>
                         </c:when>
                         <c:otherwise>
                             <li class="page-item">
-                                <a class="page-link" href="${pageContext.request.contextPath}/admin/users/${pageNumber - 1}" aria-label="Previous">
+                                <a class="page-link" href="${pageContext.request.contextPath}/users?page=${page - 1}" aria-label="Previous">
                                     <span aria-hidden="true">&laquo;</span>
                                 </a>
                             </li>
-                            <li class="page-item"><a class="page-link" href="${pageContext.request.contextPath}/admin/users/${pageNumber - 1}">${pageNumber - 1}</a></li>
-                            <li class="page-item"><a class="page-link" href="${pageContext.request.contextPath}/admin/users/${pageNumber}">${pageNumber}</a></li>
-                            <li class="page-item"><a class="page-link" href="${pageContext.request.contextPath}/admin/users/${pageNumber + 1}">${pageNumber + 1}</a></li>
+                            <li class="page-item"><a class="page-link" href="${pageContext.request.contextPath}/users?page=${page - 1}">${page - 1}</a></li>
+                            <li class="page-item"><a class="page-link" href="${pageContext.request.contextPath}/users?page=${page}">${page}</a></li>
+                            <li class="page-item"><a class="page-link" href="${pageContext.request.contextPath}/users?page=${page + 1}">${page + 1}</a></li>
                             <li class="page-item">
-                                <a class="page-link" href="${pageContext.request.contextPath}/admin/users/${pageNumber + 1}" aria-label="Next">
+                                <a class="page-link" href="${pageContext.request.contextPath}/users?page=${page + 1}" aria-label="Next">
                                     <span aria-hidden="true">&raquo;</span>
                                 </a>
                             </li>
@@ -105,8 +105,8 @@
             </nav>
         </div>
     </section>
-    <%@ include file="common/bootstrapScript.jsp"%>
-    <%@ include file="common/orderNumberOfTableRaws.jsp"%>
-    <%@ include file="common/changeTableRowColorAfterOneClick.jsp"%>
+    <%@ include file="common/bootstrap-script.jsp"%>
+    <%@ include file="common/order-number-of-table-raws.jsp"%>
+    <%@ include file="common/change-table-row-color-after-one-click.jsp"%>
 </body>
 </html>

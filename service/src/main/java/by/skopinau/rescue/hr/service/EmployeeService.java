@@ -1,6 +1,7 @@
 package by.skopinau.rescue.hr.service;
 
 import by.skopinau.rescue.hr.dto.EmployeeDto;
+import by.skopinau.rescue.hr.dto.SearchDto;
 import by.skopinau.rescue.hr.entity.Employee;
 import by.skopinau.rescue.hr.entity.State;
 
@@ -13,4 +14,6 @@ public interface EmployeeService extends BaseService<Employee>, Pageable<Employe
     Optional<Employee> update(int id, EmployeeDto dto);
 
     List<Employee> findByState(State state);
+
+    List<Employee> search(SearchDto searchDto, int page, int size);
 }

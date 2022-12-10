@@ -37,6 +37,7 @@
         <lombok.version>1.18.22</lombok.version>
         <log4j2.version>2.17.1</log4j2.version>
         <jstl.version>1.2.6</jstl.version>
+        <security.taglibs.version>5.7.3</security.taglibs.version>
         <cargo.version>1.9.0</cargo.version>
         <mojo.version>1.1.0</mojo.version>
     </properties>
@@ -145,6 +146,11 @@
                 <groupId>org.glassfish.web</groupId>
                 <artifactId>jakarta.servlet.jsp.jstl</artifactId>
                 <version>${jstl.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.security</groupId>
+                <artifactId>spring-security-taglibs</artifactId>
+                <version>${security.taglibs.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

@@ -44,9 +44,10 @@ public abstract class BaseServiceImpl<T extends BaseEntity> implements BaseServi
 
     @Override
     @Transactional
-    public boolean deleteById(int id) {
+    public boolean delete(int id) {
         if (repository.existsById(id)) {
             repository.deleteById(id);
+
             return true;
         }
 

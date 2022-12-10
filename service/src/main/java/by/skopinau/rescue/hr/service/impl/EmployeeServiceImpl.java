@@ -60,8 +60,7 @@ public class EmployeeServiceImpl extends BaseServiceImpl<Employee>
                 .of(page, size, Sort.by("surname", "name", "patronymic"))).toList();
     }
 
-    //todo: think obout transfer to the base class
-    public List<Employee> searchAllPageable(SearchDto searchDto, int page, int size) {
-        return repository.searchAllOrdered(searchDto.getData(), PageRequest.of(page, size));
+    public List<Employee> search(SearchDto dto, int page, int size) {
+        return repository.searchAllOrdered(dto.getData(), PageRequest.of(page, size));
     }
 }

@@ -7,6 +7,6 @@
 </head>
 <body>
     <%@ include file="WEB-INF/jsp/common/header.jsp"%>
-    <%@ include file="WEB-INF/jsp/common/bootstrapScript.jsp"%>
+    <%@ include file="WEB-INF/jsp/common/bootstrap-script.jsp"%>
 </body>
 </html>
