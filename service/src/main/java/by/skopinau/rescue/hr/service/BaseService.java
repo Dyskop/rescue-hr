@@ -14,5 +14,5 @@ public interface BaseService<T extends BaseEntity> {
 
     Optional<T> update(int id, T entity);
 
-    boolean deleteById(int id);
+    boolean delete(int id);
 }

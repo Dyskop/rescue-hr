@@ -15,9 +15,9 @@ public class AuthSuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
         for (final GrantedAuthority grantedAuthority : authorities) {
             String authorityName = grantedAuthority.getAuthority();
             if(authorityName.equals("ADMIN")) {
-                return "/admin";
+                return "/users";
             }
         }
-        return "/";
+        return "/employees";
     }
 }

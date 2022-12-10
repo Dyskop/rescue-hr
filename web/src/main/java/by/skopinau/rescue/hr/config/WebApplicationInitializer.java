@@ -1,4 +1,4 @@
-package by.skopinau.rescue.hr;
+package by.skopinau.rescue.hr.config;
 
 import by.skopinau.rescue.hr.config.OrmConfig;
 import by.skopinau.rescue.hr.config.SecurityConfig;

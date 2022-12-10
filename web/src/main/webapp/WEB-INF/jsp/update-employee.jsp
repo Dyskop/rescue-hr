@@ -9,14 +9,14 @@
     <%@ include file="common/css-connect.jsp"%>
 </head>
 <body>
-<%@ include file="common/headerAdmin.jsp"%>
+<%@ include file="common/header.jsp"%>
 <section>
     <div class="container mt-5 mb-5">
         <div class="row d-flex align-items-center justify-content-center">
             <div class="col-md-6">
                 <div class="card px-5 py-5"><span class="circle"><i class="fa fa-check"></i></span>
                     <c:set var="employee" value="${requestScope.employee}"/>
-                    <form action="${pageContext.request.contextPath}/admin/employee/update/${employee.id}" method="post">
+                    <form action="${pageContext.request.contextPath}/employees/update/${employee.id}" method="post">
                         <div class="form-floating mb-2">
                             <input id="label-surname" type="text" class="form-control" placeholder="Фамилия"
                                    name="surname" value="${employee.surname}">
@@ -123,6 +123,6 @@
         </div>
     </div>
 </section>
-<%@ include file="common/bootstrapScript.jsp"%>
+<%@ include file="common/bootstrap-script.jsp"%>
 </body>
 </html>

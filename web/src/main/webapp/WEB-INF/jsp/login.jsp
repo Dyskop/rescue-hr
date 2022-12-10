@@ -44,6 +44,6 @@
             </div>
         </div>
     </section>
-    <%@ include file="common/bootstrapScript.jsp"%>
+    <%@ include file="common/bootstrap-script.jsp"%>
 </body>
 </html>

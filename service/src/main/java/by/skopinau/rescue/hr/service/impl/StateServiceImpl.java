@@ -17,7 +17,7 @@ public class StateServiceImpl extends BaseServiceImpl<State> implements StateSer
         super(stateRepository);
         this.employeeService = employeeService;
     }
-
+    // todo: caching
     public int getActualPositionAmount(State state) {
         actualPositionAmount = employeeService.findByState(state).size();
         return actualPositionAmount;

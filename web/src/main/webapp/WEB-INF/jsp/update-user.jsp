@@ -9,7 +9,7 @@
     <%@ include file="common/css-connect.jsp"%>
 </head>
 <body>
-<%@ include file="common/headerAdmin.jsp"%>
+<%@ include file="common/header.jsp"%>
 <section>
     <div class="container mt-5 mb-5">
         <div class="row d-flex align-items-center justify-content-center">
@@ -17,7 +17,7 @@
                 <div class="card px-5 py-5"><span class="circle"><i class="fa fa-check"></i></span>
                     <c:set var="user" value="${requestScope.user}"/>
                     <c:set var="rolesNames" value="${requestScope.rolesNames}"/>
-                    <form action="${pageContext.request.contextPath}/admin/user/update/${user.id}" method="post">
+                    <form action="${pageContext.request.contextPath}/users/update/${user.id}" method="post">
                         <div class="form-floating mb-2">
                             <input id="label-firstname" type="text" class="form-control" placeholder="Имя"
                                    name="firstname" value="${user.firstname}">
@@ -67,6 +67,6 @@
         </div>
     </div>
 </section>
-<%@ include file="common/bootstrapScript.jsp"%>
+<%@ include file="common/bootstrap-script.jsp"%>
 </body>
 </html>

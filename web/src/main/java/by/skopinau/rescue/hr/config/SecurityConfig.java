@@ -16,12 +16,8 @@ import org.springframework.web.filter.CharacterEncodingFilter;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
-    private final UserDetailsService userDetailsService;
-
     @Autowired
-    public SecurityConfig(UserDetailsService userDetailsService) {
-        this.userDetailsService = userDetailsService;
-    }
+    private UserDetailsService userDetailsService;
 
     @Bean
     public PasswordEncoder encoder() {
@@ -41,20 +37,21 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         CharacterEncodingFilter filter = new CharacterEncodingFilter();
+
         filter.setEncoding("UTF-8");
         filter.setForceEncoding(true);
         http.addFilterBefore(filter, CsrfFilter.class);
         http.authorizeRequests()
-                .antMatchers("/", "/login", "/registration", "/static/**").permitAll()
-                .antMatchers("/admin").hasAuthority("ADMIN")
-                .antMatchers("/view").hasAuthority("USER")
+                .mvcMatchers("/login", "/registration", "/static/**").permitAll()
+                .mvcMatchers("/users/**").hasAuthority("ADMIN")
+                .mvcMatchers("/**").hasAnyAuthority("ADMIN", "USER")
                 .anyRequest().authenticated()
                 .and()
-                .formLogin().loginPage("/login").loginProcessingUrl("/login").successHandler(successHandler())
+                .formLogin().loginPage("/login").successHandler(successHandler())
                 .and()
                 .logout().logoutUrl("/logout").logoutSuccessUrl("/login")
                 .and()
-                .csrf().disable(); // NOT PRODUCTION
+                .csrf().disable(); // todo: NOT PRODUCTION
 
         http.userDetailsService(userDetailsService);
     }

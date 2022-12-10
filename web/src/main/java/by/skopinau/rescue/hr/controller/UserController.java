@@ -1,92 +1,59 @@
 package by.skopinau.rescue.hr.controller;
 
-import by.skopinau.rescue.hr.dto.SearchDto;
-import by.skopinau.rescue.hr.entity.Employee;
-import by.skopinau.rescue.hr.entity.State;
-import by.skopinau.rescue.hr.service.impl.EmployeeServiceImpl;
-import by.skopinau.rescue.hr.service.impl.PositionsLogServiceImpl;
-import by.skopinau.rescue.hr.service.impl.RanksLogServiceImpl;
-import by.skopinau.rescue.hr.service.impl.StateServiceImpl;
+import by.skopinau.rescue.hr.dto.UserDto;
+import by.skopinau.rescue.hr.entity.User;
+import by.skopinau.rescue.hr.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+
+import static by.skopinau.rescue.hr.config.WebConfig.PAGE_SIZE;
 
 @Controller
+@RequestMapping("/users")
 public class UserController {
-    public static final int PAGE_SIZE = 10;
-    private final EmployeeServiceImpl employeeService;
-    private final StateServiceImpl stateService;
-    private final RanksLogServiceImpl ranksLogService;
-    private final PositionsLogServiceImpl positionsLogService;
-
     @Autowired
-    public UserController(EmployeeServiceImpl employeeService, StateServiceImpl stateService, RanksLogServiceImpl ranksLogService, PositionsLogServiceImpl positionsLogService) {
-        this.employeeService = employeeService;
-        this.stateService = stateService;
-        this.ranksLogService = ranksLogService;
-        this.positionsLogService = positionsLogService;
+    private UserService userService;
+
+    @GetMapping
+    public String showUsers(@RequestParam(defaultValue = "1") int page, Model model) {
+        List<User> users = userService.findAllPageable(page - 1, PAGE_SIZE);
+        model.addAttribute("page", page);
+        model.addAttribute("users", users);
+
+        return "users";
     }
 
-    @GetMapping("/")
-    public String showIndexView() {
-        return "index";
-    }
-
-    @GetMapping(path = "/view/employees/{page}")
-    public String showEmployees(@PathVariable("page") int pageNumber, Model model) {
-        model.addAttribute("pageNumber", pageNumber);
-        model.addAttribute("employees", employeeService.findAllPageable(pageNumber - 1, PAGE_SIZE));
-        return "viewEmployees";
-    }
-
-    @GetMapping(path = "/view/employee/{employeeId}")
-    public String showOneEmployee(@PathVariable("employeeId") int employeeId, Model model) {
-        Employee employee = employeeService.findById(employeeId).orElseThrow();
-        model.addAttribute("employee", employee);
-        model.addAttribute("rankLogs", ranksLogService.findByEmployee(employee));
-        model.addAttribute("positionLogs", positionsLogService.findByEmployee(employee));
-        return "viewOneEmployee";
-    }
-
-    @GetMapping(path = "/view/state")
-    public String showState(Model model) {
-        List<State> list = stateService.findAll();
-        Map<State, Integer> mapWithActualPositionsAmounts = new HashMap<>();
-        Map<State, Integer> mapWithFreePositionsAmounts = new HashMap<>();
-        for (State state: list) {
-            mapWithActualPositionsAmounts.put(state, stateService.getActualPositionAmount(state));
-            mapWithFreePositionsAmounts.put(state, stateService.getFreePositionAmount(state));
+    @RequestMapping("/remove/{id}")
+    public String deleteUser(@PathVariable("id") int id) {
+        if (userService.delete(id)) {
+            return "redirect:/users";
         }
-        model.addAttribute("stateList", list);
-        model.addAttribute("actualAmounts", mapWithActualPositionsAmounts);
-        model.addAttribute("freeAmounts", mapWithFreePositionsAmounts);
-        return "viewState";
+
+        return "data-not-saved";
     }
 
-    @GetMapping(path = "/view/ranks-log/{page}")
-    public String showRanksLog(@PathVariable("page") int pageNumber, Model model) {
-        model.addAttribute("pageNumber", pageNumber);
-        model.addAttribute("rankLogs", ranksLogService.findAllPageable(pageNumber - 1, PAGE_SIZE));
-        return "viewRanksLog";
+    @GetMapping("/update-form/{id}")
+    public String showUpdateUserForm(@PathVariable("id") int id, Model model) {
+        return userService.findById(id)
+                .map(user -> {
+                    model.addAttribute("user", user);
+                    return "update-user";
+                })
+                .orElse("exception/view-user-not-found");
     }
 
-    @GetMapping(path = "/view/positions-log/{page}")
-    public String showPositionsLog(@PathVariable("page") int pageNumber, Model model) {
-        model.addAttribute("pageNumber", pageNumber);
-        model.addAttribute("positionLogs", positionsLogService.findAllPageable(pageNumber - 1, PAGE_SIZE));
-        return "viewPositionsLog";
-    }
-
-    @GetMapping(path = "/view/search/results/{page}")
-    public String showSearchResults(@PathVariable("page") int pageNumber, Model model, SearchDto request) {
-        model.addAttribute("pageNumber", pageNumber);
-        model.addAttribute("employees", employeeService.searchAllPageable(request,pageNumber - 1, PAGE_SIZE));
-        return "viewEmployeesAdmin";
+    @PostMapping("/update/{id}")
+    public String updateUser(@PathVariable("id") int id, UserDto dto) {
+        return userService.update(id, dto)
+                .map(user -> "redirect:/users")
+                .orElse("exception/view-data-not-saved");
     }
 }
