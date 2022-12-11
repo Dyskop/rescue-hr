@@ -43,11 +43,7 @@
                         <td>${user.firstname}</td>
                         <td>${user.email}</td>
                         <td>${user.username}</td>
-                        <td>
-                            <c:forEach items="${user.roles}" var="role">
-                                ${role.name}
-                            </c:forEach>
-                        </td>
+                        <td>${user.role}</td>
                         <td>
                             <div class="dropdown">
                                 <button class="btn btn-primary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">

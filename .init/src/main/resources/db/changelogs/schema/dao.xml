@@ -386,24 +386,10 @@
         </sql>
     </changeSet>
 
-    <changeSet id="roles init" author="dimaskop18@gmail.com">
-        <sql>INSERT INTO rh.roles (name)
-             VALUES ('ADMIN'),
-                    ('USER')
-        </sql>
-    </changeSet>
-
     <changeSet id="users init" author="dimaskop18@gmail.com">
-        <sql>INSERT INTO rh.users (username, password, email, firstname, lastname)
-             VALUES ('@dyskop', '$2a$10$c0nDD78EKnCkj8vULM1mB.VynKRE.YhWMxXL/i/LQ.9E9FW5RrhLO', 'dimaskop18@gmail.com', 'Дмитрий', 'Скопинов'),
-                    ('@user', '$2a$10$gzN7054faEQBW/6KuNhYl.U5flsRISoMGfMvPxfu/QWubcSZvTvwm', 'user18@gmail.com', 'Иван', 'Иванов')
-        </sql>
-    </changeSet>
-
-    <changeSet id="users_roles_link init" author="dimaskop18@gmail.com">
-        <sql>INSERT INTO rh.users_roles_link (user_id, role_id)
-             VALUES (1, 1),
-                    (2, 2)
+        <sql>INSERT INTO rh.users (username, password, email, firstname, lastname, role)
+             VALUES ('@dyskop', '$2a$10$c0nDD78EKnCkj8vULM1mB.VynKRE.YhWMxXL/i/LQ.9E9FW5RrhLO', 'dimaskop18@gmail.com', 'Дмитрий', 'Скопинов', 'ADMIN'),
+                    ('@user', '$2a$10$gzN7054faEQBW/6KuNhYl.U5flsRISoMGfMvPxfu/QWubcSZvTvwm', 'user18@gmail.com', 'Иван', 'Иванов', 'USER')
         </sql>
     </changeSet>
 
@@ -416,7 +402,5 @@
         <sql>ALTER TABLE rh.ranks_log RENAME COLUMN rank_log_id TO id</sql>
         <sql>ALTER TABLE rh.subdivisions RENAME COLUMN subdivision_id TO id</sql>
         <sql>ALTER TABLE rh.users RENAME COLUMN user_id TO id</sql>
-        <sql>ALTER TABLE rh.roles RENAME COLUMN role_id TO id</sql>
-        <sql>ALTER TABLE rh.users_roles_link RENAME COLUMN url_id TO id</sql>
     </changeSet>
 </databaseChangeLog>

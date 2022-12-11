@@ -1,14 +1,12 @@
 package by.skopinau.rescue.hr.entity;
 
+import by.skopinau.rescue.hr.model.enums.Role;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.Table;
-import java.util.HashSet;
-import java.util.Set;
 
 @Entity
 @Table(name = "users")
@@ -28,23 +26,21 @@ public class User extends BaseEntity {
     @Column(nullable = false)
     private String password;
 
-    @JoinTable(name = "users_roles_link",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "role_id"))
-    @ManyToMany(fetch = FetchType.EAGER)
-    private Set<Role> roles = new HashSet<>();
+    @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
+    private Role role;
 
     public User() {
     }
 
     public User(String firstname, String lastname, String email, String username,
-                String password, Set<Role> roles) {
+                String password, Role role) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.email = email;
         this.username = username;
         this.password = password;
-        this.roles = roles;
+        this.role = role;
     }
 
     public String getFirstname() {
@@ -87,12 +83,12 @@ public class User extends BaseEntity {
         this.password = password;
     }
 
-    public Set<Role> getRoles() {
-        return roles;
+    public Role getRole() {
+        return role;
     }
 
-    public void setRoles(Set<Role> roles) {
-        this.roles = roles;
+    public void setRole(Role role) {
+        this.role = role;
     }
 
     @Override
