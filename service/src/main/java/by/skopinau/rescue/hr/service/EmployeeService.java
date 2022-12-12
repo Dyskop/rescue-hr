@@ -15,5 +15,7 @@ public interface EmployeeService extends BaseService<Employee>, Pageable<Employe
 
     List<Employee> findByState(State state);
 
-    List<Employee> search(SearchDto searchDto, int page, int size);
+    List<Employee> searchAllPageable(SearchDto searchDto, int page);
+
+    boolean showPagination(SearchDto dto);
 }

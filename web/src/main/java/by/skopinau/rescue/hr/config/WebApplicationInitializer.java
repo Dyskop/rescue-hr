@@ -1,8 +1,5 @@
 package by.skopinau.rescue.hr.config;
 
-import by.skopinau.rescue.hr.config.OrmConfig;
-import by.skopinau.rescue.hr.config.SecurityConfig;
-import by.skopinau.rescue.hr.config.WebConfig;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 public class WebApplicationInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {

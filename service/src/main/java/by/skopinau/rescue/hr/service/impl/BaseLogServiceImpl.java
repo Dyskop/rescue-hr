@@ -25,8 +25,8 @@ public abstract class BaseLogServiceImpl<T extends BaseLogEntity> extends BaseSe
     }
 
     @Override
-    public List<T> findAllPageable(int page, int size) {
-        return repository.findAll(PageRequest.of(page, size, Sort.by("gettingDate", "id")))
-                .toList();
+    public List<T> findAllPageable(int page) {
+        return repository.findAll(PageRequest
+                        .of(page, PAGE_SIZE, Sort.by("gettingDate", "id"))).toList();
     }
 }

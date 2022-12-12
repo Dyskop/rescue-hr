@@ -30,5 +30,18 @@ public interface EmployeeRepository extends BaseRepository<Employee> {
             "lower(p.positionTitle) = lower(:data) or " +
             "lower(s.subdivisionTitle) = lower(:data) " +
             " order by e.surname, e.name, e.patronymic")
-    List<Employee> searchAllOrdered(@Param("data") String data, Pageable pageable);
+    List<Employee> searchAllPageable(@Param("data") String data, Pageable pageable);
+
+    @Query("select e from Employee e " +
+            "join e.rank r " +
+            "join e.position p " +
+            "join e.subdivision s " +
+            "where lower(e.surname) = lower(:data) or " +
+            "lower(e.name) = lower(:data) or " +
+            "lower(e.patronymic) = lower(:data) or " +
+            "lower(r.rankTitle) = lower(:data) or " +
+            "lower(p.positionTitle) = lower(:data) or " +
+            "lower(s.subdivisionTitle) = lower(:data) " +
+            " order by e.surname, e.name, e.patronymic")
+    List<Employee> searchAll(@Param("data") String data);
 }

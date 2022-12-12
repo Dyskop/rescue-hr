@@ -15,4 +15,8 @@ public interface BaseService<T extends BaseEntity> {
     Optional<T> update(int id, T entity);
 
     boolean delete(int id);
+
+    boolean showPagination();
+
+    int getTotalPages();
 }

@@ -18,8 +18,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
-import static by.skopinau.rescue.hr.config.WebConfig.PAGE_SIZE;
-
 @Controller
 @RequestMapping("/employees")
 public class EmployeeController {
@@ -34,9 +32,15 @@ public class EmployeeController {
 
     @GetMapping
     public String showEmployees(@RequestParam(defaultValue = "1") int page, Model model) {
-        List<Employee> employees = employeeService.findAllPageable(page - 1, PAGE_SIZE);
+        List<Employee> employees = employeeService.findAllPageable(page - 1);
+        boolean pagination = employeeService.showPagination();
+        int total = employeeService.getTotalPages();
+
         model.addAttribute("page", page);
         model.addAttribute("employees", employees);
+        model.addAttribute("pagination", pagination);
+        model.addAttribute("view", "employees");
+        model.addAttribute("total", total);
 
         return "employees";
     }
@@ -52,9 +56,9 @@ public class EmployeeController {
                     model.addAttribute("rankLogs", rankLogs);
                     model.addAttribute("positionLogs", positionLogs);
 
-                    return "view-one-employee";
+                    return "one-employee";
                 })
-                .orElse("exception/view-employee-not-found");
+                .orElse("exception/employee-not-found");
     }
 
     @GetMapping("/add-form")
@@ -66,7 +70,7 @@ public class EmployeeController {
     public String addEmployee(EmployeeDto dto) {
         return employeeService.save(dto)
                 .map(employee -> "redirect:/employees/" + employee.getId())
-                .orElse("exception/view-data-not-saved");
+                .orElse("exception/data-not-saved");
     }
 
     @RequestMapping("/remove/{id}")
@@ -75,7 +79,7 @@ public class EmployeeController {
             return "redirect:/employees";
         }
 
-        return "data-not-saved";
+        return "exception/data-not-saved";
     }
 
     @GetMapping("/update-form/{id}")
@@ -85,13 +89,13 @@ public class EmployeeController {
                     model.addAttribute("employee", employee);
                     return "update-employee";
                 })
-                .orElse("exception/view-employee-not-found");
+                .orElse("exception/employee-not-found");
     }
 
     @PostMapping("/update/{id}")
     public String updateEmployee(@PathVariable("id") int id, EmployeeDto dto) {
         return employeeService.update(id, dto)
                 .map(employee -> "redirect:/employees/" + employee.getId())
-                .orElse("exception/view-data-not-saved");
+                .orElse("exception/data-not-saved");
     }
 }

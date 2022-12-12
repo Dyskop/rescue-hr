@@ -1,6 +1,5 @@
 package by.skopinau.rescue.hr.service.impl;
 
-import by.skopinau.rescue.hr.entity.Role;
 import by.skopinau.rescue.hr.entity.User;
 import by.skopinau.rescue.hr.repository.UserRepository;
 import org.springframework.security.core.GrantedAuthority;
@@ -23,20 +22,17 @@ public class UserDetailsService
 
     @Override
     public UserDetails loadUserByUsername(String username) {
-        User foundUser = userRepository.findByUsername(username);
-        if (foundUser == null) {
+        User user = userRepository.findByUsername(username);
+        if (user == null) {
             throw new UsernameNotFoundException("Couldn't find user by provided name!");
         }
-        return new org.springframework.security.core.userdetails.User(foundUser.getUsername(),
-                foundUser.getPassword(), getUserAuthorities(foundUser));
+        return new org.springframework.security.core.userdetails.User(user.getUsername(),
+                user.getPassword(), getAuthorities(user));
     }
 
-    private Set<GrantedAuthority> getUserAuthorities(User user) {
-        Set<Role> roles = user.getRoles();
+    private Set<GrantedAuthority> getAuthorities(User user) {
         Set<GrantedAuthority> grantedAuthorities = new HashSet<>();
-        for (Role role : roles) {
-            grantedAuthorities.add(new SimpleGrantedAuthority(role.getName()));
-        }
+        grantedAuthorities.add(new SimpleGrantedAuthority(user.getRole().toString()));
         return grantedAuthorities;
     }
 }

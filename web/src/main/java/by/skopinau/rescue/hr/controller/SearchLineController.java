@@ -11,8 +11,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
-import static by.skopinau.rescue.hr.config.WebConfig.PAGE_SIZE;
-
 @Controller
 public class SearchLineController {
     @Autowired
@@ -21,10 +19,17 @@ public class SearchLineController {
     @GetMapping("/search")
     public String showSearchResults(@RequestParam(defaultValue = "1") int page,
                                     Model model, SearchDto dto) {
-        List<Employee> employees = employeeService.search(dto, page - 1, PAGE_SIZE);
+        List<Employee> employees = employeeService.searchAllPageable(dto, page - 1);
+        boolean pagination = employeeService.showPagination(dto);
+        int total = employeeService.getTotalPages(); // todo: override
+
         model.addAttribute("page", page);
         model.addAttribute("employees", employees);
+        model.addAttribute("pagination", pagination);
+        model.addAttribute("data", dto.getData());
+        model.addAttribute("view", "search-line");
+        model.addAttribute("total", total);
 
-        return "employees";
+        return "search-line";
     }
 }

@@ -10,8 +10,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
-import static by.skopinau.rescue.hr.config.WebConfig.PAGE_SIZE;
-
 @Controller
 public class PositionsLogController {
     @Autowired
@@ -20,10 +18,15 @@ public class PositionsLogController {
     // todo: defaultValue the last page
     @GetMapping("/position-logs")
     public String showPositionsLog(@RequestParam(defaultValue = "1") int page, Model model) {
-        List<PositionsLog> pl = plService.findAllPageable(page - 1, PAGE_SIZE);
+        List<PositionsLog> pl = plService.findAllPageable(page - 1);
+        boolean pagination = plService.showPagination();
+        int total = plService.getTotalPages();
 
         model.addAttribute("page", page);
         model.addAttribute("positionLogs", pl);
+        model.addAttribute("pagination", pagination);
+        model.addAttribute("view", "positions-log");
+        model.addAttribute("total", total);
 
         return "positions-log";
     }
