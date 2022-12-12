@@ -30,7 +30,7 @@
                     <li class="page-item active"><a class="page-link" href="${path}${page}">${page}</a></li>
                     <li class="page-item"><a class="page-link" href="${path}${page + 1}">${page + 1}</a></li>
                     <li class="page-item">
-                        <a class="page-link" href="${path}${page + 1}" aria-label="Next">
+                        <a class="page-link" href="${path}${total}" aria-label="Next">
                             <span aria-hidden="true">&raquo;</span>
                         </a>
                     </li>
@@ -40,7 +40,7 @@
                     <li class="page-item"><a class="page-link" href="${path}${page + 1}">${page + 1}</a></li>
                     <li class="page-item"><a class="page-link" href="${path}${page + 2}">${page + 2}</a></li>
                     <li class="page-item">
-                        <a class="page-link" href="${path}${page + 1}" aria-label="Next">
+                        <a class="page-link" href="${path}${total}" aria-label="Next">
                             <span aria-hidden="true">&raquo;</span>
                         </a>
                     </li>
@@ -50,14 +50,14 @@
                     <li class="page-item"><a class="page-link" href="${path}${page + 1}">${page + 1}</a></li>
                     <li class="page-item"><a class="page-link" href="${path}${page + 2}">${page + 2}</a></li>
                     <li class="page-item">
-                        <a class="page-link" href="${path}${page + 1}" aria-label="Next">
+                        <a class="page-link" href="${path}${total}" aria-label="Next">
                             <span aria-hidden="true">&raquo;</span>
                         </a>
                     </li>
                 </c:when>
                 <c:when test="${page == '2' && total == '2'}">
                     <li class="page-item">
-                        <a class="page-link" href="${path}${page - 1}" aria-label="Previous">
+                        <a class="page-link" href="${path}1" aria-label="Previous">
                             <span aria-hidden="true">&laquo;</span>
                         </a>
                     </li>
@@ -66,7 +66,7 @@
                 </c:when>
                 <c:when test="${page == total}">
                     <li class="page-item">
-                        <a class="page-link" href="${path}${page - 1}" aria-label="Previous">
+                        <a class="page-link" href="${path}1" aria-label="Previous">
                             <span aria-hidden="true">&laquo;</span>
                         </a>
                     </li>
@@ -76,7 +76,7 @@
                 </c:when>
                 <c:otherwise>
                     <li class="page-item">
-                        <a class="page-link" href="${path}${page - 1}" aria-label="Previous">
+                        <a class="page-link" href="${path}1" aria-label="Previous">
                             <span aria-hidden="true">&laquo;</span>
                         </a>
                     </li>
@@ -84,7 +84,7 @@
                     <li class="page-item active"><a class="page-link" href="${path}${page}">${page}</a></li>
                     <li class="page-item"><a class="page-link" href="${path}${page + 1}">${page + 1}</a></li>
                     <li class="page-item">
-                        <a class="page-link" href="${path}${page + 1}" aria-label="Next">
+                        <a class="page-link" href="${path}${total}" aria-label="Next">
                             <span aria-hidden="true">&raquo;</span>
                         </a>
                     </li>
