@@ -66,8 +66,8 @@ public class UserServiceImpl extends BaseServiceImpl<User>
     }
 
     @Override
-    public List<User> findAllPageable(int page, int size) {
+    public List<User> findAllPageable(int page) {
         return userRepository.findAll(PageRequest
-                .of(page, size, Sort.by("lastname", "firstname", "username"))).toList();
+                .of(page, PAGE_SIZE, Sort.by("lastname", "firstname", "username"))).toList();
     }
 }

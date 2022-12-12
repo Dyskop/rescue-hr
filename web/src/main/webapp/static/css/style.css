@@ -83,3 +83,8 @@
 .text-xl-center {
     margin-top: 30px;
 }
+
+.active a{ /* Цвет активной пагинации */
+    background: #332464 !important;
+    color: #ffffff !important;
+}

@@ -10,7 +10,6 @@
 </head>
 <body>
     <%@ include file="common/header.jsp"%>
-    <c:set var="page" value="${requestScope.page}"/>
     <section>
         <div class="container-xxl">
             <table class="table table-bordered caption-top">
@@ -41,42 +40,7 @@
                 </c:forEach>
                 </tbody>
             </table>
-            <nav aria-label="Page navigation">
-                <ul class="pagination justify-content-center">
-                    <c:choose>
-                        <c:when test="${page == '1'}">
-                            <li class="page-item">
-                                <a class="page-link" href="${pageContext.request.contextPath}/position-logs?page=${page}" aria-label="Previous">
-                                    <span aria-hidden="true">&laquo;</span>
-                                </a>
-                            </li>
-                            <li class="page-item"><a class="page-link" href="${pageContext.request.contextPath}/position-logs?page=${page}">${page}</a></li>
-                            <li class="page-item"><a class="page-link" href="${pageContext.request.contextPath}/position-logs?page=${page + 1}">${page + 1}</a></li>
-                            <li class="page-item"><a class="page-link" href="${pageContext.request.contextPath}/position-logs?page=${page + 2}">${page + 2}</a></li>
-                            <li class="page-item">
-                                <a class="page-link" href="${pageContext.request.contextPath}/position-logs?page=${page + 1}" aria-label="Next">
-                                    <span aria-hidden="true">&raquo;</span>
-                                </a>
-                            </li>
-                        </c:when>
-                        <c:otherwise>
-                            <li class="page-item">
-                                <a class="page-link" href="${pageContext.request.contextPath}/position-logs?page=${page - 1}" aria-label="Previous">
-                                    <span aria-hidden="true">&laquo;</span>
-                                </a>
-                            </li>
-                            <li class="page-item"><a class="page-link" href="${pageContext.request.contextPath}/position-logs?page=${page - 1}">${page - 1}</a></li>
-                            <li class="page-item"><a class="page-link" href="${pageContext.request.contextPath}/position-logs?page=${page}">${page}</a></li>
-                            <li class="page-item"><a class="page-link" href="${pageContext.request.contextPath}/position-logs?page=${page + 1}">${page + 1}</a></li>
-                            <li class="page-item">
-                                <a class="page-link" href="${pageContext.request.contextPath}/position-logs?page=${page + 1}" aria-label="Next">
-                                    <span aria-hidden="true">&raquo;</span>
-                                </a>
-                            </li>
-                        </c:otherwise>
-                    </c:choose>
-                </ul>
-            </nav>
+            <%@ include file="common/pagination.jsp"%>
         </div>
     </section>
     <%@ include file="common/bootstrap-script.jsp"%>

@@ -14,8 +14,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
-import static by.skopinau.rescue.hr.config.WebConfig.PAGE_SIZE;
-
 @Controller
 @RequestMapping("/users")
 public class UserController {
@@ -24,9 +22,15 @@ public class UserController {
 
     @GetMapping
     public String showUsers(@RequestParam(defaultValue = "1") int page, Model model) {
-        List<User> users = userService.findAllPageable(page - 1, PAGE_SIZE);
+        List<User> users = userService.findAllPageable(page - 1);
+        boolean pagination = userService.showPagination();
+        int total = userService.getTotalPages();
+
         model.addAttribute("page", page);
         model.addAttribute("users", users);
+        model.addAttribute("pagination", pagination);
+        model.addAttribute("view", "users");
+        model.addAttribute("total", total);
 
         return "users";
     }

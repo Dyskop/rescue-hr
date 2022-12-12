@@ -55,12 +55,21 @@ public class EmployeeServiceImpl extends BaseServiceImpl<Employee>
     }
 
     @Override
-    public List<Employee> findAllPageable(int page, int size) {
+    public List<Employee> findAllPageable(int page) {
         return repository.findAll(PageRequest
-                .of(page, size, Sort.by("surname", "name", "patronymic"))).toList();
+                .of(page, PAGE_SIZE, Sort.by("surname", "name", "patronymic"))).toList();
     }
 
-    public List<Employee> search(SearchDto dto, int page, int size) {
-        return repository.searchAllOrdered(dto.getData(), PageRequest.of(page, size));
+    @Override
+    public List<Employee> searchAllPageable(SearchDto dto, int page) {
+        return repository.searchAllPageable(dto.getData(), PageRequest.of(page, PAGE_SIZE));
+    }
+
+    private List<Employee> searchAll(SearchDto dto) {
+        return repository.searchAll(dto.getData());
+    }
+
+    public boolean showPagination(SearchDto dto) {
+        return searchAll(dto).size() > PAGE_SIZE;
     }
 }
