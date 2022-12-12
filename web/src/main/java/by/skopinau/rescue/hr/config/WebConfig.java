@@ -13,6 +13,8 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 @EnableWebMvc
 @ComponentScan(basePackages = {"by.skopinau.rescue.hr.controller"})
 public class WebConfig implements WebMvcConfigurer {
+    public static final int PAGE_SIZE = 10;
+
     @Bean
     public ViewResolver viewResolver() {
         InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
