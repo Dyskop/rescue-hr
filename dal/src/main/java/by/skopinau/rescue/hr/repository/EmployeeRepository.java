@@ -20,26 +20,24 @@ public interface EmployeeRepository extends BaseRepository<Employee> {
     List<Employee> findByState(@Param("state") State state);
 
     @Query("select e from Employee e " +
-            "join e.rank r " +
             "join e.position p " +
             "join e.subdivision s " +
             "where lower(e.surname) = lower(:data) or " +
             "lower(e.name) = lower(:data) or " +
             "lower(e.patronymic) = lower(:data) or " +
-            "lower(r.rankTitle) = lower(:data) or " +
+            // todo: "lower(e.rank) = lower(:data) or " +
             "lower(p.positionTitle) = lower(:data) or " +
             "lower(s.subdivisionTitle) = lower(:data) " +
             " order by e.surname, e.name, e.patronymic")
     List<Employee> searchAllPageable(@Param("data") String data, Pageable pageable);
 
     @Query("select e from Employee e " +
-            "join e.rank r " +
             "join e.position p " +
             "join e.subdivision s " +
             "where lower(e.surname) = lower(:data) or " +
             "lower(e.name) = lower(:data) or " +
             "lower(e.patronymic) = lower(:data) or " +
-            "lower(r.rankTitle) = lower(:data) or " +
+            // todo: "lower(e.rank) = lower(:data) or " +
             "lower(p.positionTitle) = lower(:data) or " +
             "lower(s.subdivisionTitle) = lower(:data) " +
             " order by e.surname, e.name, e.patronymic")

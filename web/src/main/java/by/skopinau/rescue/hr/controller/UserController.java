@@ -41,7 +41,7 @@ public class UserController {
             return "redirect:/users";
         }
 
-        return "data-not-saved";
+        return "exception/data-not-saved";
     }
 
     @GetMapping("/update-form/{id}")
