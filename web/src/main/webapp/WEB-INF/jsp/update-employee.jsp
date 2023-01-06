@@ -39,7 +39,7 @@
                         </div>
                         <div class="form-floating mb-2">
                             <select id="label-rankTitle" type="text" class="form-select" name="rankTitle">
-                                <option selected value="${employee.rank.rankTitle}">${employee.rank.rankTitle} внутренней службы</option>
+                                <option selected value="${employee.rank.title}">${employee.rank.title} внутренней службы</option>
                                 <option value="генерал-лейтенант">генерал-лейтенант внутренней службы</option>
                                 <option value="генерал-майор">генерал-майор внутренней службы</option>
                                 <option value="полковник">полковник внутренней службы</option>

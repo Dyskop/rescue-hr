@@ -31,7 +31,7 @@
                         <td></td>
                         <td><fmt:formatDate pattern="dd.MM.yyyy" value="${gettingDate}"/></td>
                         <td>${log.employee.surname} ${log.employee.name} ${log.employee.patronymic}</td>
-                        <td>${log.rank.rankTitle} внутренней службы</td>
+                        <td>${log.rank.title} внутренней службы</td>
                         <td>${log.orderPublisher}</td>
                         <td>${log.orderNumber}</td>
                     </tr>

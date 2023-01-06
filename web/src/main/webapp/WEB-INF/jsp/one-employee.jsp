@@ -24,7 +24,7 @@
                     </tr>
                     <tr>
                         <th scope="row">Специальное звание</th>
-                        <td>${employee.rank.rankTitle} внутренней службы</td>
+                        <td>${employee.rank.title} внутренней службы</td>
                     </tr>
                     <tr>
                         <th scope="row">Занимаемая должность</th>
@@ -88,7 +88,7 @@
                 <fmt:parseDate value="${log.gettingDate}" pattern="yyyy-MM-dd" var="gettingDate" type="date"/>
                 <tr>
                     <td><fmt:formatDate pattern="dd.MM.yyyy" value="${gettingDate}"/></td>
-                    <td>${log.rank.rankTitle} внутренней службы</td>
+                    <td>${log.rank.title} внутренней службы</td>
                     <td>${log.orderPublisher}</td>
                     <td>${log.orderNumber}</td>
                 </tr>

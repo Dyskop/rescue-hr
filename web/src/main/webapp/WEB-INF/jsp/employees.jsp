@@ -48,7 +48,7 @@
                     <td>${employee.name}</td>
                     <td>${employee.patronymic}</td>
                     <td><fmt:formatDate pattern="dd.MM.yyyy" value="${birthday}"/></td>
-                    <td>${employee.rank.rankTitle} вн. сл.</td>
+                    <td>${employee.rank.title} вн. сл.</td>
                     <td>${employee.position.positionTitle}</td>
                     <td>${employee.subdivision.subdivisionTitle}</td>
                     <td>
