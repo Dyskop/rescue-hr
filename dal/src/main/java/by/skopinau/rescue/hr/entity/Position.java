@@ -2,19 +2,13 @@ package by.skopinau.rescue.hr.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Table;
 
 @Entity
-@Table(name = "positions")
 public class Position extends BaseEntity {
     @Column(name = "position_title", nullable = false, unique = true)
     private String positionTitle;
 
     public Position() {
-    }
-
-    public Position(String positionTitle) {
-        this.positionTitle = positionTitle;
     }
 
     public String getPositionTitle() {

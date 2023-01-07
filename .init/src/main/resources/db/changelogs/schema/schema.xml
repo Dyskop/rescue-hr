@@ -4,131 +4,131 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
       https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
-    <changeSet id="subdivisions init" author="dimaskop18@gmail.com">
-        <insert tableName="subdivisions" schemaName="rh">
+    <changeSet id="subdivision init" author="dimaskop18@gmail.com">
+        <insert tableName="subdivision" schemaName="rh">
             <column name="subdivision_title" value="руководство"/>
         </insert>
-        <insert tableName="subdivisions" schemaName="rh">
+        <insert tableName="subdivision" schemaName="rh">
             <column name="subdivision_title" value="ЦОУ"/>
         </insert>
-        <insert tableName="subdivisions" schemaName="rh">
+        <insert tableName="subdivision" schemaName="rh">
             <column name="subdivision_title" value="ИНиП"/>
         </insert>
-        <insert tableName="subdivisions" schemaName="rh">
+        <insert tableName="subdivision" schemaName="rh">
             <column name="subdivision_title" value="ГСЧСиГО"/>
         </insert>
-        <insert tableName="subdivisions" schemaName="rh">
+        <insert tableName="subdivision" schemaName="rh">
             <column name="subdivision_title" value="СИРиКО"/>
         </insert>
-        <insert tableName="subdivisions" schemaName="rh">
+        <insert tableName="subdivision" schemaName="rh">
             <column name="subdivision_title" value="СМТОиО"/>
         </insert>
-        <insert tableName="subdivisions" schemaName="rh">
+        <insert tableName="subdivision" schemaName="rh">
             <column name="subdivision_title" value="ПАСЧ-1"/>
         </insert>
-        <insert tableName="subdivisions" schemaName="rh">
+        <insert tableName="subdivision" schemaName="rh">
             <column name="subdivision_title" value="ПАСО-2"/>
         </insert>
-        <insert tableName="subdivisions" schemaName="rh">
+        <insert tableName="subdivision" schemaName="rh">
             <column name="subdivision_title" value="ПАСЧ-3"/>
         </insert>
-        <insert tableName="subdivisions" schemaName="rh">
+        <insert tableName="subdivision" schemaName="rh">
             <column name="subdivision_title" value="ПАСП-11"/>
         </insert>
-        <insert tableName="subdivisions" schemaName="rh">
+        <insert tableName="subdivision" schemaName="rh">
             <column name="subdivision_title" value="ПАСП-12"/>
         </insert>
-        <insert tableName="subdivisions" schemaName="rh">
+        <insert tableName="subdivision" schemaName="rh">
             <column name="subdivision_title" value="ПАСП-13"/>
         </insert>
-        <insert tableName="subdivisions" schemaName="rh">
+        <insert tableName="subdivision" schemaName="rh">
             <column name="subdivision_title" value="ПАСП-14"/>
         </insert>
     </changeSet>
 
-    <changeSet id="positions init" author="dimaskop18@gmail.com">
-        <insert tableName="positions" schemaName="rh">
+    <changeSet id="position init" author="dimaskop18@gmail.com">
+        <insert tableName="position" schemaName="rh">
             <column name="position_title" value="начальник отдела"/>
         </insert>
-        <insert tableName="positions" schemaName="rh">
+        <insert tableName="position" schemaName="rh">
             <column name="position_title" value="первый зам. начальника отдела"/>
         </insert>
-        <insert tableName="positions" schemaName="rh">
+        <insert tableName="position" schemaName="rh">
             <column name="position_title" value="зам. начальника отдела"/>
         </insert>
-        <insert tableName="positions" schemaName="rh">
+        <insert tableName="position" schemaName="rh">
             <column name="position_title" value="начальник центра"/>
         </insert>
-        <insert tableName="positions" schemaName="rh">
+        <insert tableName="position" schemaName="rh">
             <column name="position_title" value="ст. помощник начальника центра"/>
         </insert>
-        <insert tableName="positions" schemaName="rh">
+        <insert tableName="position" schemaName="rh">
             <column name="position_title" value="диспетчер"/>
         </insert>
-        <insert tableName="positions" schemaName="rh">
+        <insert tableName="position" schemaName="rh">
             <column name="position_title" value="главный специалист"/>
         </insert>
-        <insert tableName="positions" schemaName="rh">
+        <insert tableName="position" schemaName="rh">
             <column name="position_title" value="старший инженер"/>
         </insert>
-        <insert tableName="positions" schemaName="rh">
+        <insert tableName="position" schemaName="rh">
             <column name="position_title" value="старший инспектор"/>
         </insert>
-        <insert tableName="positions" schemaName="rh">
+        <insert tableName="position" schemaName="rh">
             <column name="position_title" value="инспектор"/>
         </insert>
-        <insert tableName="positions" schemaName="rh">
+        <insert tableName="position" schemaName="rh">
             <column name="position_title" value="начальник сектора"/>
         </insert>
-        <insert tableName="positions" schemaName="rh">
+        <insert tableName="position" schemaName="rh">
             <column name="position_title" value="инспектор по ППиС"/>
         </insert>
-        <insert tableName="positions" schemaName="rh">
+        <insert tableName="position" schemaName="rh">
             <column name="position_title" value="начальник службы"/>
         </insert>
-        <insert tableName="positions" schemaName="rh">
+        <insert tableName="position" schemaName="rh">
             <column name="position_title" value="старшина"/>
         </insert>
-        <insert tableName="positions" schemaName="rh">
+        <insert tableName="position" schemaName="rh">
             <column name="position_title" value="старший водитель"/>
         </insert>
-        <insert tableName="positions" schemaName="rh">
+        <insert tableName="position" schemaName="rh">
             <column name="position_title" value="начальник части"/>
         </insert>
-        <insert tableName="positions" schemaName="rh">
+        <insert tableName="position" schemaName="rh">
             <column name="position_title" value="зам. начальника части"/>
         </insert>
-        <insert tableName="positions" schemaName="rh">
+        <insert tableName="position" schemaName="rh">
             <column name="position_title" value="начальник отряда"/>
         </insert>
-        <insert tableName="positions" schemaName="rh">
+        <insert tableName="position" schemaName="rh">
             <column name="position_title" value="зам. начальника отряда"/>
         </insert>
-        <insert tableName="positions" schemaName="rh">
+        <insert tableName="position" schemaName="rh">
             <column name="position_title" value="начальник поста"/>
         </insert>
-        <insert tableName="positions" schemaName="rh">
+        <insert tableName="position" schemaName="rh">
             <column name="position_title" value="начальник караула"/>
         </insert>
-        <insert tableName="positions" schemaName="rh">
+        <insert tableName="position" schemaName="rh">
             <column name="position_title" value="начальник дежурной смены"/>
         </insert>
-        <insert tableName="positions" schemaName="rh">
+        <insert tableName="position" schemaName="rh">
             <column name="position_title" value="командир отделения"/>
         </insert>
-        <insert tableName="positions" schemaName="rh">
+        <insert tableName="position" schemaName="rh">
             <column name="position_title" value="старший пожарный"/>
         </insert>
-        <insert tableName="positions" schemaName="rh">
+        <insert tableName="position" schemaName="rh">
             <column name="position_title" value="пожарный"/>
         </insert>
-        <insert tableName="positions" schemaName="rh">
+        <insert tableName="position" schemaName="rh">
             <column name="position_title" value="водитель"/>
         </insert>
     </changeSet>
 
-    <changeSet id="positions_subdivisions_link init" author="dimaskop18@gmail.com">
-        <sql>INSERT INTO rh.positions_subdivisions_link (subdivision_id, position_id, state_amount)
+    <changeSet id="state init" author="dimaskop18@gmail.com">
+        <sql>INSERT INTO rh.state (subdivision_id, position_id, state_amount)
              VALUES (1, 1, 1),
                     (1, 2, 1),
                     (1, 3, 3),
@@ -182,7 +182,7 @@
     </changeSet>
 
     <changeSet id="employee init" author="dimaskop18@gmail.com">
-        <sql>INSERT INTO rh.employees (surname, name, patronymic, birthday, rank, position_id, subdivision_id)
+        <sql>INSERT INTO rh.employee (surname, name, patronymic, birthday, rank, position_id, subdivision_id)
              VALUES ('Иванов', 'Иван', 'Иванович', '1980-07-12', 'COLONEL', 1, 1),
                     ('Петров', 'Петр', 'Петрович', '1985-12-23', 'SUB_COLONEL', 2, 1),
                     ('Алексеев', 'Алексей', 'Алексеевич', '1979-03-11', 'SUB_COLONEL', 3, 1),
@@ -228,8 +228,8 @@
         </sql>
     </changeSet>
 
-    <changeSet id="positions_log init" author="dimaskop18@gmail.com">
-        <sql>INSERT INTO rh.positions_log (getting_date, employee_id, position_id, subdivision_id, order_publisher, order_number)
+    <changeSet id="position_log init" author="dimaskop18@gmail.com">
+        <sql>INSERT INTO rh.position_log (getting_date, employee_id, position_id, subdivision_id, order_publisher, order_number)
              VALUES ('2008-04-15', 1, 10, 3, 'Гродненское УМЧС', 49),
                     ('2012-12-05', 1, 7, 3, 'Гродненское УМЧС', 205),
                     ('2014-01-19', 2, 10, 3, 'Гродненское УМЧС', 11),
@@ -280,8 +280,8 @@
         </sql>
     </changeSet>
 
-    <changeSet id="ranks_log init" author="dimaskop18@gmail.com">
-        <sql>INSERT INTO rh.ranks_log (getting_date, employee_id, rank, order_publisher, order_number)
+    <changeSet id="rank_log init" author="dimaskop18@gmail.com">
+        <sql>INSERT INTO rh.rank_log (getting_date, employee_id, rank, order_publisher, order_number)
              VALUES
                     ('2002-01-19', 1, 'LIEUTENANT', 'Гродненское УМЧС', 18),
                     ('2004-01-19', 1, 'SENIOR_LIEUTENANT', 'Гродненское УМЧС', 11),
@@ -333,20 +333,10 @@
         </sql>
     </changeSet>
 
-    <changeSet id="users init" author="dimaskop18@gmail.com">
-        <sql>INSERT INTO rh.users (username, password, email, firstname, lastname, role)
+    <changeSet id="user init" author="dimaskop18@gmail.com">
+        <sql>INSERT INTO rh.user (username, password, email, firstname, lastname, role)
              VALUES ('@dyskop', '$2a$10$c0nDD78EKnCkj8vULM1mB.VynKRE.YhWMxXL/i/LQ.9E9FW5RrhLO', 'dimaskop18@gmail.com', 'Дмитрий', 'Скопинов', 'ADMIN'),
                     ('@user', '$2a$10$gzN7054faEQBW/6KuNhYl.U5flsRISoMGfMvPxfu/QWubcSZvTvwm', 'user18@gmail.com', 'Иван', 'Иванов', 'USER')
         </sql>
-    </changeSet>
-
-    <changeSet id="rename id_columns of all tables just to id" author="dimaskop18@gmail.com">
-        <sql>ALTER TABLE rh.employees RENAME COLUMN employee_id TO id</sql>
-        <sql>ALTER TABLE rh.positions RENAME COLUMN position_id TO id</sql>
-        <sql>ALTER TABLE rh.positions_log RENAME COLUMN position_log_id TO id</sql>
-        <sql>ALTER TABLE rh.positions_subdivisions_link RENAME COLUMN psl_id TO id</sql>
-        <sql>ALTER TABLE rh.ranks_log RENAME COLUMN rank_log_id TO id</sql>
-        <sql>ALTER TABLE rh.subdivisions RENAME COLUMN subdivision_id TO id</sql>
-        <sql>ALTER TABLE rh.users RENAME COLUMN user_id TO id</sql>
     </changeSet>
 </databaseChangeLog>

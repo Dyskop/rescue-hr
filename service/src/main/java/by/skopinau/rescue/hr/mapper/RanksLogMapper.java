@@ -1,7 +1,7 @@
 package by.skopinau.rescue.hr.mapper;
 
-import by.skopinau.rescue.hr.dto.RanksLogDto;
-import by.skopinau.rescue.hr.entity.RanksLog;
+import by.skopinau.rescue.hr.dto.RankLogDto;
+import by.skopinau.rescue.hr.entity.RankLog;
 import by.skopinau.rescue.hr.model.enums.Rank;
 import org.springframework.stereotype.Component;
 
@@ -11,14 +11,14 @@ import static org.hibernate.type.LocalDateType.FORMATTER;
 
 @Component
 public class RanksLogMapper {
-    public RanksLog mapDtoToEntity(RanksLogDto dto) {
-        RanksLog ranksLog = new RanksLog();
+    public RankLog mapDtoToEntity(RankLogDto dto) {
+        RankLog rankLog = new RankLog();
 
-        ranksLog.setGettingDate(LocalDate.parse(dto.getGettingDate(), FORMATTER));
-        ranksLog.setEmployee(dto.getEmployee());
-        ranksLog.setRank(Rank.of(dto.getRankTitle()));
-        ranksLog.setOrderPublisher(dto.getRankOrderPublisher());
-        ranksLog.setOrderNumber(Integer.parseInt(dto.getRankOrderNumber()));
-        return ranksLog;
+        rankLog.setGettingDate(LocalDate.parse(dto.getGettingDate(), FORMATTER));
+        rankLog.setEmployee(dto.getEmployee());
+        rankLog.setRank(Rank.of(dto.getRankTitle()));
+        rankLog.setOrderPublisher(dto.getRankOrderPublisher());
+        rankLog.setOrderNumber(Integer.parseInt(dto.getRankOrderNumber()));
+        return rankLog;
     }
 }

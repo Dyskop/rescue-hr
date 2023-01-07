@@ -9,13 +9,13 @@ import javax.persistence.Enumerated;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "ranks_log")
-public class RanksLog extends BaseLogEntity {
+@Table(name = "rank_log")
+public class RankLog extends BaseLogEntity {
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private Rank rank;
 
-    public RanksLog() {
+    public RankLog() {
     }
 
     public Rank getRank() {

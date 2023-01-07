@@ -9,7 +9,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "users")
+@Table(name = "\"user\"")
 public class User extends BaseEntity {
     @Column(nullable = false)
     private String firstname;

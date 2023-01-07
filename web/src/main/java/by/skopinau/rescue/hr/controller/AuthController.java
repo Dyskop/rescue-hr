@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class AuthController {
     @Autowired
-    private UserService userService;
+    private UserService uService;
 
     @GetMapping("/login")
     public String showLoginForm() {
@@ -26,7 +26,7 @@ public class AuthController {
     @PostMapping("/registration")
     public String registerNewUser(UserDto dto) throws UserExistException {
         // todo: handle exception
-        userService.save(dto);
+        uService.save(dto);
         return "login";
     }
 }
