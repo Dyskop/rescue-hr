@@ -7,8 +7,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "positions_log")
-public class PositionsLog extends BaseLogEntity {
+@Table(name = "position_log")
+public class PositionLog extends BaseLogEntity {
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "position_id", nullable = false)
     private Position position;
@@ -17,7 +17,7 @@ public class PositionsLog extends BaseLogEntity {
     @JoinColumn(name = "subdivision_id", nullable = false)
     private Subdivision subdivision;
 
-    public PositionsLog() {
+    public PositionLog() {
     }
 
     public Position getPosition() {

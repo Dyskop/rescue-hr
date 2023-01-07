@@ -8,11 +8,9 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.Table;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "employees")
 public class Employee extends BaseEntity {
     @Column(nullable = false)
     private String surname;

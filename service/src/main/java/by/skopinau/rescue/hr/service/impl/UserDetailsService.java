@@ -14,15 +14,15 @@ import java.util.Set;
 @Service
 public class UserDetailsService
         implements org.springframework.security.core.userdetails.UserDetailsService {
-    private final UserRepository userRepository;
+    private final UserRepository repository;
 
-    public UserDetailsService(UserRepository userRepository) {
-        this.userRepository = userRepository;
+    public UserDetailsService(UserRepository repository) {
+        this.repository = repository;
     }
 
     @Override
     public UserDetails loadUserByUsername(String username) {
-        User user = userRepository.findByUsername(username);
+        User user = repository.findByUsername(username);
         if (user == null) {
             throw new UsernameNotFoundException("Couldn't find user by provided name!");
         }

@@ -14,14 +14,14 @@ import java.util.List;
 @Controller
 public class SearchLineController {
     @Autowired
-    EmployeeService employeeService;
+    EmployeeService eService;
 
     @GetMapping("/search")
     public String showSearchResults(@RequestParam(defaultValue = "1") int page,
                                     Model model, SearchDto dto) {
-        List<Employee> employees = employeeService.searchAllPageable(dto, page - 1);
-        boolean pagination = employeeService.showPagination(dto);
-        int total = employeeService.getTotalPages(); // todo: override
+        List<Employee> employees = eService.searchAllPageable(dto, page - 1);
+        boolean pagination = eService.showPagination(dto);
+        int total = eService.getTotalPages(); // todo: override
 
         model.addAttribute("page", page);
         model.addAttribute("employees", employees);

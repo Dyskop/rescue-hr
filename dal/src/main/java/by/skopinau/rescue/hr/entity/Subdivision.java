@@ -2,10 +2,8 @@ package by.skopinau.rescue.hr.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Table;
 
 @Entity
-@Table(name = "subdivisions")
 public class Subdivision extends BaseEntity {
     @Column(name = "subdivision_title", nullable = false, unique = true)
     private String subdivisionTitle;

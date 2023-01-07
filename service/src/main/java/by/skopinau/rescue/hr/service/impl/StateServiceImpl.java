@@ -13,8 +13,8 @@ public class StateServiceImpl extends BaseServiceImpl<State> implements StateSer
     private int actualPositionAmount;
 
     @Autowired
-    public StateServiceImpl(StateRepository stateRepository, EmployeeServiceImpl employeeService) {
-        super(stateRepository);
+    public StateServiceImpl(StateRepository repository, EmployeeServiceImpl employeeService) {
+        super(repository);
         this.employeeService = employeeService;
     }
     // todo: caching

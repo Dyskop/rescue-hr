@@ -38,9 +38,7 @@ https://miro.com/app/board/uXjVOV-NrT4=/[Mind Map]
 
 UML class diagram:
 
-link:Epic_1.drawio.png[Epic 1]
-
-link:dal.png[DAL]
+link:diagram/uml-class-diagram.drawio.png[DAL]
 
 === Used technologies
 * Java
@@ -50,7 +48,6 @@ link:dal.png[DAL]
 * Apache-Tomcat
 * Jackarta servlet, JSP, JSTL
 * JPA, Hibernate, JPQL
-* DAO pattern
 * PostgeSQL
 * Liquibase
 * JUnit

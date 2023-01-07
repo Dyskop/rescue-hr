@@ -2,15 +2,15 @@ package by.skopinau.rescue.hr.dto;
 
 import by.skopinau.rescue.hr.entity.Employee;
 
-public class RanksLogDto {
+public class RankLogDto {
     private String gettingDate;
     private Employee employee;
     private String rankTitle;
     private String rankOrderPublisher;
     private String rankOrderNumber;
 
-    public RanksLogDto(String gettingDate, Employee employee, String rankTitle,
-                       String rankOrderPublisher, String rankOrderNumber) {
+    public RankLogDto(String gettingDate, Employee employee, String rankTitle,
+                      String rankOrderPublisher, String rankOrderNumber) {
         this.gettingDate = gettingDate;
         this.employee = employee;
         this.rankTitle = rankTitle;

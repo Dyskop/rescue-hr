@@ -14,17 +14,17 @@ import java.util.Map;
 @Controller
 public class StateController {
     @Autowired
-    private StateService stateService;
+    private StateService sService;
 
     @GetMapping("/state")
     public String showStateList(Model model) {
-        List<State> stateList = stateService.findAll();
+        List<State> stateList = sService.findAll();
         Map<State, Integer> mapWithActualPositionsAmounts = new HashMap<>();
         Map<State, Integer> mapWithFreePositionsAmounts = new HashMap<>();
 
         for (State state: stateList) {
-            mapWithActualPositionsAmounts.put(state, stateService.getActualPositionAmount(state));
-            mapWithFreePositionsAmounts.put(state, stateService.getFreePositionAmount(state));
+            mapWithActualPositionsAmounts.put(state, sService.getActualPositionAmount(state));
+            mapWithFreePositionsAmounts.put(state, sService.getFreePositionAmount(state));
         }
 
         model.addAttribute("stateList", stateList);

@@ -18,13 +18,13 @@ import java.util.List;
 @RequestMapping("/users")
 public class UserController {
     @Autowired
-    private UserService userService;
+    private UserService uService;
 
     @GetMapping
     public String showUsers(@RequestParam(defaultValue = "1") int page, Model model) {
-        List<User> users = userService.findAllPageable(page - 1);
-        boolean pagination = userService.showPagination();
-        int total = userService.getTotalPages();
+        List<User> users = uService.findAllPageable(page - 1);
+        boolean pagination = uService.showPagination();
+        int total = uService.getTotalPages();
 
         model.addAttribute("page", page);
         model.addAttribute("users", users);
@@ -37,7 +37,7 @@ public class UserController {
 
     @RequestMapping("/remove/{id}")
     public String deleteUser(@PathVariable("id") int id) {
-        if (userService.delete(id)) {
+        if (uService.delete(id)) {
             return "redirect:/users";
         }
 
@@ -46,7 +46,7 @@ public class UserController {
 
     @GetMapping("/update-form/{id}")
     public String showUpdateUserForm(@PathVariable("id") int id, Model model) {
-        return userService.findById(id)
+        return uService.findById(id)
                 .map(user -> {
                     model.addAttribute("user", user);
                     return "update-user";
@@ -56,7 +56,7 @@ public class UserController {
 
     @PostMapping("/update/{id}")
     public String updateUser(@PathVariable("id") int id, UserDto dto) {
-        return userService.update(id, dto)
+        return uService.update(id, dto)
                 .map(user -> "redirect:/users")
                 .orElse("exception/view-data-not-saved");
     }
