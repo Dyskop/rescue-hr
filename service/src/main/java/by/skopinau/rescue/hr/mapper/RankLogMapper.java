@@ -10,7 +10,7 @@ import java.time.LocalDate;
 import static org.hibernate.type.LocalDateType.FORMATTER;
 
 @Component
-public class RanksLogMapper {
+public class RankLogMapper {
     public RankLog mapDtoToEntity(RankLogDto dto) {
         RankLog rankLog = new RankLog();
 
