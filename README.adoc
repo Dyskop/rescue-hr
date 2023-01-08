@@ -21,7 +21,6 @@ This project was created to make life easier for employees of the personnel depa
 === Similar Applications
 
 * https://peopleforce.io/ru/peoplehr/?utm_term=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D1%8B%20%D0%B4%D0%BB%D1%8F%20%D0%BE%D1%82%D0%B4%D0%B5%D0%BB%D0%B0%20%D0%BA%D0%B0%D0%B4%D1%80%D0%BE%D0%B2&utm_campaign=np_ser_people_general_blr&utm_source=google&utm_medium=ppc&utm_content=507777848837&hsa_acc=4488546770&hsa_cam=12580225896&hsa_grp=119085142949&hsa_ad=507777848837&hsa_src=g&hsa_tgt=aud-1222934313784:kwd-812839750722&hsa_kw=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D1%8B%20%D0%B4%D0%BB%D1%8F%20%D0%BE%D1%82%D0%B4%D0%B5%D0%BB%D0%B0%20%D0%BA%D0%B0%D0%B4%D1%80%D0%BE%D0%B2&hsa_mt=e&hsa_net=adwords&hsa_ver=3&gclid=CjwKCAiA24SPBhB0EiwAjBgkhg1Lf6_jaqzV_Cg1teS-GVJrqEVbDttWnkkfEAwYSHuUev7qjEj37BoCvzoQAvD_BwE[people force]
-* https://andeesoft.com/ru/kp/[frames plus]
 * http://www.rentalcom.by/?page_id=152[human resources com]
 
 === Competitive advantage
@@ -41,19 +40,16 @@ UML class diagram:
 link:diagram/uml-class-diagram.drawio.png[DAL]
 
 === Used technologies
-* Java
-* HTML, CSS, Bootstrap
-* Git, CitHub
-* Apache-Maven
-* Apache-Tomcat
-* Jackarta servlet, JSP, JSTL
-* JPA, Hibernate, JPQL
-* PostgeSQL
-* Liquibase
-* JUnit
-* log4j2
-* Spring ORM
-* Spring Data
+* Java 11
 * Spring WebMVC
 * Spring Security
+* Spring Data
+* PostgreSQL
+* JPA, Hibernate, JPQL
+* Liquibase
+* Apache-Maven
+* Apache-Tomcat
+* JSP, JSTL
+* HTML, CSS, Bootstrap
+* Git, CitHub
 * AWS deployment

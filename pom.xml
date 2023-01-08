@@ -32,14 +32,11 @@
         <hibernate.version>5.6.8.Final</hibernate.version>
         <liquibase.version>4.8.0</liquibase.version>
         <postgresql.version>42.3.1</postgresql.version>
-        <junit.version>5.8.2</junit.version>
-        <testcontainers.version>1.16.3</testcontainers.version>
-        <lombok.version>1.18.22</lombok.version>
-        <log4j2.version>2.17.1</log4j2.version>
         <jstl.version>1.2.6</jstl.version>
         <security.taglibs.version>5.7.3</security.taglibs.version>
         <cargo.version>1.9.0</cargo.version>
         <mojo.version>1.1.0</mojo.version>
+        <slf4j.version>2.0.6</slf4j.version>
     </properties>
 
     <dependencyManagement>
@@ -80,12 +77,6 @@
                 <version>${spring-security.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-test</artifactId>
-                <version>${spring.version}</version>
-                <scope>test</scope>
-            </dependency>
-            <dependency>
                 <groupId>by.skopinau.rescue.hr</groupId>
                 <artifactId>web</artifactId>
                 <version>${web.version}</version>
@@ -116,31 +107,9 @@
                 <version>${postgresql.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.junit.jupiter</groupId>
-                <artifactId>junit-jupiter</artifactId>
-                <version>${junit.version}</version>
-                <scope>test</scope>
-            </dependency>
-            <dependency>
                 <groupId>org.liquibase</groupId>
                 <artifactId>liquibase-core</artifactId>
                 <version>${liquibase.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.testcontainers</groupId>
-                <artifactId>postgresql</artifactId>
-                <version>${testcontainers.version}</version>
-                <scope>test</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.projectlombok</groupId>
-                <artifactId>lombok</artifactId>
-                <version>${lombok.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.logging.log4j</groupId>
-                <artifactId>log4j-core</artifactId>
-                <version>${log4j2.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.glassfish.web</groupId>
@@ -151,6 +120,16 @@
                 <groupId>org.springframework.security</groupId>
                 <artifactId>spring-security-taglibs</artifactId>
                 <version>${security.taglibs.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>${slf4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-simple</artifactId>
+                <version>${slf4j.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
