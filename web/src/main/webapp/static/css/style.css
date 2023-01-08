@@ -1,5 +1,9 @@
 @import "../css/bootstrap.min.css";
 
+.navbar {
+    background-color: #332464
+}
+
 .employee_photo {
     background-color: #fff;
     border: 2px solid #332464;
@@ -29,11 +33,6 @@
 .page-link {
     color: black;
 }
-
-/*.current-page {
-    color: #640200;
-    background-color: #000000;
-}*/
 
 .col-table-title {
     width: 60%;
