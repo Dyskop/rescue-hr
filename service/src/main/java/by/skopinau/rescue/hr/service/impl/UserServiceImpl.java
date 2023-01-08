@@ -7,6 +7,8 @@ import by.skopinau.rescue.hr.model.enums.Role;
 import by.skopinau.rescue.hr.repository.UserRepository;
 import by.skopinau.rescue.hr.service.Pageable;
 import by.skopinau.rescue.hr.service.UserService;
+import org.springframework.cache.annotation.CacheConfig;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -17,6 +19,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
+@CacheConfig(cacheNames = "application")
 public class UserServiceImpl extends BaseServiceImpl<User>
         implements UserService, Pageable<User> {
     private final UserRepository repository;
@@ -30,6 +33,7 @@ public class UserServiceImpl extends BaseServiceImpl<User>
 
     @Override
     @Transactional
+    @CacheEvict(allEntries = true)
     public Optional<User> save(UserDto dto) throws UserExistException {
         User byName = repository.findByUsername(dto.getUsername());
         if (byName != null) {
@@ -49,6 +53,7 @@ public class UserServiceImpl extends BaseServiceImpl<User>
 
     @Override
     @Transactional
+    @CacheEvict(allEntries = true)
     public Optional<User> update(int userId, UserDto dto) {
         User user = repository.findById(userId).orElseThrow();
         user.setFirstname(dto.getFirstname());
