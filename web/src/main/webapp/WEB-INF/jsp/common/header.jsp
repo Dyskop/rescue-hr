@@ -48,8 +48,13 @@
                             <li><a class="dropdown-item" href="#">Больничные</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="${pageContext.request.contextPath}/logout">Выход</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="user"
+                           role="button" data-bs-toggle="dropdown" aria-expanded="false">${pageContext.request.userPrincipal.name}
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="${pageContext.request.contextPath}/logout">Выход</a></li>
+                        </ul>
                     </li>
                 </ul>
                 <form class="d-flex" action="${pageContext.request.contextPath}/search" method="get">
