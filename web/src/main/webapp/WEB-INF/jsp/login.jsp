@@ -37,7 +37,7 @@
                         </form>
                         <div class="text-center mt-4"><span>Ещё не зарегистрированы?</span> <a
                                 href="<c:url value="/registration"/>"
-                                class="text-decoration-none" style="color: #332464">Регистрация</a>
+                                class="text-decoration-none text-link">Регистрация</a>
                         </div>
                     </div>
                 </div>

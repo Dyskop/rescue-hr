@@ -42,10 +42,10 @@
                                 <label for="label-password">Пароль</label>
                             </div>
                             <div class="form-check">
-                                <label class="form-check-label" for="flexCheckChecked"> Я принимаю условия пользовательского соглашения </label>
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked"
-                                       checked style="background-color: #332464">
+                                <label class="form-check-label" for="flexCheckChecked"> Я принимаю условия <a href="${pageContext.request.contextPath}/position-logs" class="text-decoration-none text-link" data-bs-toggle="modal" data-bs-target="#staticBackdrop">пользовательского соглашения</a></label>
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked style="background-color: #332464">
                             </div>
+                            <%@ include file="terms-of-use.jsp"%>
                             <div class="text-center mt-4" style="color: red">
                                 <c:if test="${error != null}">
                                     <c:out value="${error}"/>
@@ -55,9 +55,7 @@
                                 <button class="btn btn-primary mt-4 signup">Регистрация</button>
                             </div>
                         </form>
-
-                        <div class="text-center mt-4"><span>Уже зарегистрированы?</span> <a href="<c:url value="/login"/>"
-                                                                                        class="text-decoration-none" style="color: #332464">Вход</a>
+                        <div class="text-center mt-4"><span>Уже зарегистрированы?</span> <a href="${pageContext.request.contextPath}/login" class="text-decoration-none text-link">Вход</a>
                         </div>
                     </div>
                 </div>

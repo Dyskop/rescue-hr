@@ -84,7 +84,11 @@
     margin-top: 30px;
 }
 
-.active a{ /* Цвет активной пагинации */
+.active a { /* Цвет активной пагинации */
     background: #332464 !important;
     color: #ffffff !important;
+}
+
+.text-link {
+    color: #332464;
 }
