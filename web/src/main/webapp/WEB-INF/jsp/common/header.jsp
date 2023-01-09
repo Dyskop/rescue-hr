@@ -53,7 +53,7 @@
                            role="button" data-bs-toggle="dropdown" aria-expanded="false">${pageContext.request.userPrincipal.name}
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="${pageContext.request.contextPath}/logout">Выход</a></li>
+                            <li><a class="dropdown-item" id="Logout">Выход</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -65,3 +65,4 @@
         </div>
     </nav>
 </header>
+<%@ include file="logout-post-method-without-form-script.jsp"%>

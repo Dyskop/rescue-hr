@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -26,11 +27,7 @@
                                        name="password">
                                 <label for="label-password">Пароль</label>
                             </div>
-                            <div class="text-center mt-4" style="color: red">
-                                <c:if test="${error != null}">
-                                    <c:out value="${error}"/>
-                                </c:if>
-                            </div>
+                            <sec:csrfInput/>
                             <div class="d-grid gap-2">
                                 <button class="btn btn-primary mt-4 signup">Вход</button>
                             </div>

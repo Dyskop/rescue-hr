@@ -6,18 +6,22 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.security.web.csrf.CsrfFilter;
 import org.springframework.web.filter.CharacterEncodingFilter;
 
 @Configuration
 @EnableWebSecurity
-public class SecurityConfig extends WebSecurityConfigurerAdapter {
+public class SecurityConfig {
+    private final UserDetailsService userDetailsService;
+
     @Autowired
-    private UserDetailsService userDetailsService;
+    public SecurityConfig(UserDetailsService userDetailsService) {
+        this.userDetailsService = userDetailsService;
+    }
 
     @Bean
     public PasswordEncoder encoder() {
@@ -29,19 +33,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         return new AuthSuccessHandler();
     }
 
-    /*@Bean
-    public AuthFailureHandler failureHandler() {
-        return new AuthFailureHandler();
-    }*/
+    // todo: add AuthFailureHandler
 
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
+    @Bean
+    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         CharacterEncodingFilter filter = new CharacterEncodingFilter();
-
         filter.setEncoding("UTF-8");
         filter.setForceEncoding(true);
-        http.addFilterBefore(filter, CsrfFilter.class);
-        http.authorizeRequests()
+
+        http.addFilterBefore(filter, CsrfFilter.class)
+                .authorizeRequests()
                 .mvcMatchers("/login", "/registration", "/static/**").permitAll()
                 .mvcMatchers("/users/**").hasAuthority("ADMIN")
                 .mvcMatchers("/**").hasAnyAuthority("ADMIN", "USER")
@@ -49,10 +50,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .formLogin().loginPage("/login").successHandler(successHandler())
                 .and()
-                .logout().logoutUrl("/logout").logoutSuccessUrl("/login")
-                .and()
-                .csrf().disable(); // todo: NOT PRODUCTION
+                .userDetailsService(userDetailsService);
 
-        http.userDetailsService(userDetailsService);
+        return http.build();
     }
 }
